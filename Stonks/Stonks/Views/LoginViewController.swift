@@ -31,7 +31,7 @@ class LoginViewController: UIViewController {
     }
     
     private func setupWelcomeImageConstraints() {
-        let topConstant: CGFloat = 150
+        let topConstant: CGFloat = 125
         
         welcomeImage.topAnchor.constraint(equalTo: view.topAnchor, constant: topConstant).isActive = true
         welcomeImage.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
