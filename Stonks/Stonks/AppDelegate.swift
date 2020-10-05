@@ -10,12 +10,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        let loginViewModel = LoginViewModel()
-        let loginVC = LoginViewController()
-        loginVC.viewModel = loginViewModel
+        let storyboard = UIStoryboard(name: "Login", bundle: nil)
+
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "Login") as? LoginViewController
         
-        window?.rootViewController = loginVC
-        window?.makeKeyAndVisible()
+        let loginModel = Login()
+        initialViewController?.presenter = LoginPresenter(view: initialViewController!, model: loginModel)
+
+        self.window?.rootViewController = initialViewController
+        self.window?.makeKeyAndVisible()
+        
          
         return true
     }
