@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		131A7288252C93E500A7F3BE /* Me.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 131A7287252C93E500A7F3BE /* Me.storyboard */; };
 		131A728B252C953000A7F3BE /* MePortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131A728A252C953000A7F3BE /* MePortfolioViewController.swift */; };
+		131A7292252CAA2E00A7F3BE /* HeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131A7291252CAA2E00A7F3BE /* HeaderViewController.swift */; };
 		31BDC088252A1C5B00F56ADD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDC087252A1C5B00F56ADD /* AppDelegate.swift */; };
 		31BDC08C252A1C5B00F56ADD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDC08B252A1C5B00F56ADD /* LoginViewController.swift */; };
 		31BDC091252A1C5D00F56ADD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31BDC090252A1C5D00F56ADD /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 /* Begin PBXFileReference section */
 		131A7287252C93E500A7F3BE /* Me.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Me.storyboard; sourceTree = "<group>"; };
 		131A728A252C953000A7F3BE /* MePortfolioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MePortfolioViewController.swift; sourceTree = "<group>"; };
+		131A7291252CAA2E00A7F3BE /* HeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewController.swift; sourceTree = "<group>"; };
 		31BDC084252A1C5A00F56ADD /* Stonks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stonks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31BDC087252A1C5B00F56ADD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31BDC08B252A1C5B00F56ADD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -52,6 +54,7 @@
 			children = (
 				131A728A252C953000A7F3BE /* MePortfolioViewController.swift */,
 				131A7287252C93E500A7F3BE /* Me.storyboard */,
+				131A7291252CAA2E00A7F3BE /* HeaderViewController.swift */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 				31CD548B252BAFE900F65D17 /* Login.swift in Sources */,
 				31CD5492252BB23700F65D17 /* LoginViewType.swift in Sources */,
 				31BDC088252A1C5B00F56ADD /* AppDelegate.swift in Sources */,
+				131A7292252CAA2E00A7F3BE /* HeaderViewController.swift in Sources */,
 				31BDC0B2252A2DA200F56ADD /* LoginPresenterType.swift in Sources */,
 				31BDC0AB252A23B200F56ADD /* LoginPresenter.swift in Sources */,
 			);
