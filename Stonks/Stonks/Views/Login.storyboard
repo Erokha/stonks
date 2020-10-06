@@ -18,17 +18,110 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcome" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B3h-xm-dl5">
-                                <rect key="frame" x="124" y="107" width="166.5" height="88"/>
+                                <rect key="frame" x="124" y="119" width="166.5" height="88"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="88" id="feo-Eq-w0C"/>
                                 </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="     Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eDc-sd-29G">
+                                <rect key="frame" x="20" y="260" width="374" height="50"/>
+                                <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="CDC-d4-GSY"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="374" id="aZT-iV-Bbe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="     Start Balance" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aaK-uA-z4o">
+                                <rect key="frame" x="20" y="320" width="374" height="50"/>
+                                <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="3n3-iD-8Vc"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="374" id="JkD-QB-Qvg"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="By creating your account you have to agree with our Terms and Conditions " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EcF-s9-pQk">
+                                <rect key="frame" x="58" y="390" width="331" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Dky-FJ-duJ"/>
+                                    <constraint firstAttribute="width" constant="331" id="oJu-Gt-0dg"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="S77-Dy-olU">
+                                <rect key="frame" x="20" y="469" width="374" height="60"/>
+                                <color key="backgroundColor" red="0.44313725490196076" green="0.34950833501208706" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="374" id="Qcc-Sp-LVk"/>
+                                    <constraint firstAttribute="height" constant="60" id="qxF-Xg-uOG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Register my account">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkBox" translatesAutoresizingMaskIntoConstraints="NO" id="7UQ-bJ-gdW">
+                                <rect key="frame" x="24" y="402" width="26" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="26" id="OH7-jJ-GrY"/>
+                                    <constraint firstAttribute="height" constant="26" id="sJ8-af-Kqg"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Nh7-b8-pDy"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="B3h-xm-dl5" firstAttribute="top" secondItem="Nh7-b8-pDy" secondAttribute="top" constant="63" id="MyD-he-9c7"/>
+                            <constraint firstItem="EcF-s9-pQk" firstAttribute="top" secondItem="aaK-uA-z4o" secondAttribute="bottom" constant="20" id="0QR-Qu-pjN"/>
+                            <constraint firstItem="aaK-uA-z4o" firstAttribute="leading" secondItem="Nh7-b8-pDy" secondAttribute="leading" constant="20" id="0c0-ze-v02"/>
+                            <constraint firstItem="S77-Dy-olU" firstAttribute="centerX" secondItem="gNh-fj-RIX" secondAttribute="centerX" id="2l3-lU-6Rw"/>
+                            <constraint firstItem="eDc-sd-29G" firstAttribute="centerX" secondItem="gNh-fj-RIX" secondAttribute="centerX" id="4Vg-vI-oYn"/>
+                            <constraint firstItem="EcF-s9-pQk" firstAttribute="leading" secondItem="7UQ-bJ-gdW" secondAttribute="trailing" constant="8" symbolic="YES" id="8Dy-EP-tTt"/>
+                            <constraint firstItem="aaK-uA-z4o" firstAttribute="centerX" secondItem="gNh-fj-RIX" secondAttribute="centerX" id="CXL-dH-IZ6"/>
+                            <constraint firstItem="S77-Dy-olU" firstAttribute="top" secondItem="EcF-s9-pQk" secondAttribute="bottom" constant="29" id="EgI-iW-tE0"/>
+                            <constraint firstItem="eDc-sd-29G" firstAttribute="top" secondItem="B3h-xm-dl5" secondAttribute="bottom" constant="53" id="KTQ-jJ-J0I"/>
+                            <constraint firstItem="B3h-xm-dl5" firstAttribute="top" secondItem="Nh7-b8-pDy" secondAttribute="top" constant="75" id="MyD-he-9c7"/>
+                            <constraint firstItem="eDc-sd-29G" firstAttribute="leading" secondItem="Nh7-b8-pDy" secondAttribute="leading" constant="20" id="R6y-T5-oeX"/>
+                            <constraint firstItem="Nh7-b8-pDy" firstAttribute="trailing" secondItem="eDc-sd-29G" secondAttribute="trailing" constant="20" id="SLW-8j-OEl"/>
+                            <constraint firstItem="aaK-uA-z4o" firstAttribute="top" secondItem="eDc-sd-29G" secondAttribute="bottom" constant="10" id="XSX-Tu-YaN"/>
+                            <constraint firstItem="7UQ-bJ-gdW" firstAttribute="top" secondItem="aaK-uA-z4o" secondAttribute="bottom" constant="32" id="Zih-YI-b6W"/>
+                            <constraint firstItem="S77-Dy-olU" firstAttribute="leading" secondItem="Nh7-b8-pDy" secondAttribute="leading" constant="20" id="bUz-9t-6OP"/>
+                            <constraint firstItem="Nh7-b8-pDy" firstAttribute="trailing" secondItem="S77-Dy-olU" secondAttribute="trailing" constant="20" id="hKl-cG-Zsc"/>
+                            <constraint firstItem="7UQ-bJ-gdW" firstAttribute="leading" secondItem="Nh7-b8-pDy" secondAttribute="leading" constant="24" id="j8W-PP-wqE"/>
                             <constraint firstItem="B3h-xm-dl5" firstAttribute="centerX" secondItem="gNh-fj-RIX" secondAttribute="centerX" id="m3O-VK-4zY"/>
+                            <constraint firstItem="Nh7-b8-pDy" firstAttribute="trailing" secondItem="aaK-uA-z4o" secondAttribute="trailing" constant="20" id="mwJ-vg-nhA"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -38,7 +131,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="checkBox" width="27" height="27"/>
         <image name="welcome" width="166.5" height="26"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
