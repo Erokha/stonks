@@ -75,6 +75,9 @@
                     </view>
                     <connections>
                         <outlet property="headerView" destination="P7k-fh-9Py" id="zsu-0g-ZUa"/>
+                        <outlet property="lastNameLabel" destination="pfO-Lw-QZN" id="GxT-ft-ZDN"/>
+                        <outlet property="nameLabel" destination="0dq-Rh-2Oc" id="PXa-bg-Wpc"/>
+                        <outlet property="profileImage" destination="a33-Yx-K84" id="aAV-NS-wLg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zyZ-1J-CyA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
