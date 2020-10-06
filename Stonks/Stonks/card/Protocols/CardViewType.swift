@@ -1,3 +1,4 @@
+
 protocol CardViewType: class {
     func showUpperTextLeft(text: String)
     
