@@ -32,14 +32,9 @@ class CardView: EmbeddedView, CardViewType {
     @IBOutlet weak var upperTextRight: UILabel!
     @IBOutlet weak var numberLeft: UILabel!
     @IBOutlet weak var numberRight: UILabel!
-    @IBOutlet weak var leftPoint: UIButton!
-    @IBOutlet weak var rightPoint: UILabel!
     
     override func setupNib() {
         super.setupNib()
-//        self.leftPoint.text = "k"
-//        self.leftPoint.textColor = UIColor(red: 113, green: 101, blue: 227, alpha: 1)
-//        self.rightPoint.textColor = UIColor(cgColor: CGColor(red: 113, green: 101, blue: 227, alpha: 1))
     }
     
 }

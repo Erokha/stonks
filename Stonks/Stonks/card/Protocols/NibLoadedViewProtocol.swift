@@ -16,12 +16,12 @@ extension ClassName {
 
 extension UIViewController: ClassName {}
 
-/// View загружаемое из .xib файлов.
+
 protocol NibLoadableView: class, ClassName { }
 
 extension NibLoadableView where Self: UIView {
 
-    /// Имя файла view. Совпадает с названием класса.
+    /// name view. Should match class name
     static var nibName: String {
         return className()
     }
