@@ -31,12 +31,11 @@
                                     <constraint firstAttribute="height" constant="88" id="feo-Eq-w0C"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="     Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eDc-sd-29G">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="     Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eDc-sd-29G">
                                 <rect key="frame" x="20" y="260" width="374" height="50"/>
                                 <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="CDC-d4-GSY"/>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="374" id="aZT-iV-Bbe"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="DMSans-Regular" family="DM Sans" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -52,12 +51,11 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="     Start Balance" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aaK-uA-z4o">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="     Start Balance" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aaK-uA-z4o">
                                 <rect key="frame" x="20" y="320" width="374" height="50"/>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="3n3-iD-8Vc"/>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="374" id="JkD-QB-Qvg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="DMSans-Regular" family="DM Sans" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -86,9 +84,8 @@
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="S77-Dy-olU">
                                 <rect key="frame" x="20" y="469" width="374" height="60"/>
-                                <color key="backgroundColor" red="0.44313725490196076" green="0.34950833501208706" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.44689372864796906" green="0.40090157434103008" blue="0.80955693493150682" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="374" id="Qcc-Sp-LVk"/>
                                     <constraint firstAttribute="height" constant="60" id="qxF-Xg-uOG"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="DMSans-Bold" family="DM Sans" pointSize="17"/>
@@ -101,7 +98,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkBox" translatesAutoresizingMaskIntoConstraints="NO" id="7UQ-bJ-gdW">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkBoxIsChecked" translatesAutoresizingMaskIntoConstraints="NO" id="7UQ-bJ-gdW">
                                 <rect key="frame" x="24" y="402" width="26" height="26"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="26" id="OH7-jJ-GrY"/>
@@ -137,6 +134,14 @@
                             <constraint firstItem="Nh7-b8-pDy" firstAttribute="trailing" secondItem="aaK-uA-z4o" secondAttribute="trailing" constant="20" id="mwJ-vg-nhA"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="balanceEntry" destination="aaK-uA-z4o" id="VWr-DH-Vuh"/>
+                        <outlet property="checkBox" destination="7UQ-bJ-gdW" id="bjx-QH-CEB"/>
+                        <outlet property="checkBoxDescription" destination="EcF-s9-pQk" id="wXS-pw-WvE"/>
+                        <outlet property="nameEntry" destination="eDc-sd-29G" id="727-Jt-eRP"/>
+                        <outlet property="registerButton" destination="S77-Dy-olU" id="o6L-qc-kKJ"/>
+                        <outlet property="welcomeImage" destination="B3h-xm-dl5" id="CI3-wn-7Gm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z52-ne-udx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -144,7 +149,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="checkBox" width="27" height="27"/>
+        <image name="checkBoxIsChecked" width="27" height="27"/>
         <image name="welcome" width="166.5" height="26"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

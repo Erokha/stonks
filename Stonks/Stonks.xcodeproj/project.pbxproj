@@ -59,6 +59,17 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		31B49B34252E1169002E86F6 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				31BDC0AD252A2CB400F56ADD /* Protocols */,
+				31BDC0AE252A2CC500F56ADD /* Models */,
+				31BDC0AF252A2CD300F56ADD /* Presenters */,
+				31BDC0B0252A2D2200F56ADD /* Views */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		31BDC07B252A1C5A00F56ADD = {
 			isa = PBXGroup;
 			children = (
@@ -78,11 +89,8 @@
 		31BDC086252A1C5A00F56ADD /* Stonks */ = {
 			isa = PBXGroup;
 			children = (
+				31B49B34252E1169002E86F6 /* Login */,
 				319B3052252DA465005837ED /* Fonts */,
-				31BDC0B0252A2D2200F56ADD /* Views */,
-				31BDC0AF252A2CD300F56ADD /* Presenters */,
-				31BDC0AE252A2CC500F56ADD /* Models */,
-				31BDC0AD252A2CB400F56ADD /* Protocols */,
 				31BDC087252A1C5B00F56ADD /* AppDelegate.swift */,
 				31BDC0A3252A21A400F56ADD /* Launch.xib */,
 				31BDC090252A1C5D00F56ADD /* Assets.xcassets */,
