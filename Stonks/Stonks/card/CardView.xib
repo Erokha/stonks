@@ -15,7 +15,6 @@
                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
             </userDefinedRuntimeAttributes>
             <connections>
-                <outlet property="leftPoint" destination="UJQ-Rs-vv7" id="UnG-GP-dCg"/>
                 <outlet property="numberLeft" destination="ssS-vp-lQ2" id="htV-mz-FLX"/>
                 <outlet property="numberRight" destination="vcR-nr-9No" id="4pt-GJ-rHw"/>
                 <outlet property="upperTextLeft" destination="LmQ-1x-2gI" id="Fic-dS-cqb"/>
