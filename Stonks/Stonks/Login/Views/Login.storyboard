@@ -71,19 +71,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="By creating your account you have to agree with our Terms and Conditions " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EcF-s9-pQk">
-                                <rect key="frame" x="58" y="390" width="331" height="50"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Dky-FJ-duJ"/>
-                                    <constraint firstAttribute="width" constant="331" id="oJu-Gt-0dg"/>
-                                </constraints>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" name="DMSans-Regular" family="DM Sans" pointSize="13"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="S77-Dy-olU">
-                                <rect key="frame" x="20" y="469" width="374" height="60"/>
+                                <rect key="frame" x="20" y="470" width="374" height="60"/>
                                 <color key="backgroundColor" red="0.44689372864796906" green="0.40090157434103008" blue="0.80955693493150682" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="qxF-Xg-uOG"/>
@@ -110,17 +99,24 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By creating your account you have to agree with our Terms and Conditions" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QcH-oA-coC">
+                                <rect key="frame" x="58" y="394" width="330" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="5yU-aH-uhC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="DMSans-Regular" family="DM Sans" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Nh7-b8-pDy"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="EcF-s9-pQk" firstAttribute="top" secondItem="aaK-uA-z4o" secondAttribute="bottom" constant="20" id="0QR-Qu-pjN"/>
                             <constraint firstItem="aaK-uA-z4o" firstAttribute="leading" secondItem="Nh7-b8-pDy" secondAttribute="leading" constant="20" id="0c0-ze-v02"/>
                             <constraint firstItem="S77-Dy-olU" firstAttribute="centerX" secondItem="gNh-fj-RIX" secondAttribute="centerX" id="2l3-lU-6Rw"/>
                             <constraint firstItem="eDc-sd-29G" firstAttribute="centerX" secondItem="gNh-fj-RIX" secondAttribute="centerX" id="4Vg-vI-oYn"/>
-                            <constraint firstItem="EcF-s9-pQk" firstAttribute="leading" secondItem="7UQ-bJ-gdW" secondAttribute="trailing" constant="8" symbolic="YES" id="8Dy-EP-tTt"/>
                             <constraint firstItem="aaK-uA-z4o" firstAttribute="centerX" secondItem="gNh-fj-RIX" secondAttribute="centerX" id="CXL-dH-IZ6"/>
-                            <constraint firstItem="S77-Dy-olU" firstAttribute="top" secondItem="EcF-s9-pQk" secondAttribute="bottom" constant="29" id="EgI-iW-tE0"/>
+                            <constraint firstItem="Nh7-b8-pDy" firstAttribute="trailing" secondItem="QcH-oA-coC" secondAttribute="trailing" constant="26" id="Igw-uy-a2z"/>
                             <constraint firstItem="eDc-sd-29G" firstAttribute="top" secondItem="B3h-xm-dl5" secondAttribute="bottom" constant="53" id="KTQ-jJ-J0I"/>
                             <constraint firstItem="B3h-xm-dl5" firstAttribute="top" secondItem="Nh7-b8-pDy" secondAttribute="top" constant="75" id="MyD-he-9c7"/>
                             <constraint firstItem="eDc-sd-29G" firstAttribute="leading" secondItem="Nh7-b8-pDy" secondAttribute="leading" constant="20" id="R6y-T5-oeX"/>
@@ -128,16 +124,19 @@
                             <constraint firstItem="aaK-uA-z4o" firstAttribute="top" secondItem="eDc-sd-29G" secondAttribute="bottom" constant="10" id="XSX-Tu-YaN"/>
                             <constraint firstItem="7UQ-bJ-gdW" firstAttribute="top" secondItem="aaK-uA-z4o" secondAttribute="bottom" constant="32" id="Zih-YI-b6W"/>
                             <constraint firstItem="S77-Dy-olU" firstAttribute="leading" secondItem="Nh7-b8-pDy" secondAttribute="leading" constant="20" id="bUz-9t-6OP"/>
+                            <constraint firstItem="S77-Dy-olU" firstAttribute="top" secondItem="QcH-oA-coC" secondAttribute="bottom" constant="31" id="czt-kI-XnA"/>
+                            <constraint firstItem="QcH-oA-coC" firstAttribute="leading" secondItem="7UQ-bJ-gdW" secondAttribute="trailing" constant="8" symbolic="YES" id="gHd-le-G6W"/>
                             <constraint firstItem="Nh7-b8-pDy" firstAttribute="trailing" secondItem="S77-Dy-olU" secondAttribute="trailing" constant="20" id="hKl-cG-Zsc"/>
                             <constraint firstItem="7UQ-bJ-gdW" firstAttribute="leading" secondItem="Nh7-b8-pDy" secondAttribute="leading" constant="24" id="j8W-PP-wqE"/>
                             <constraint firstItem="B3h-xm-dl5" firstAttribute="centerX" secondItem="gNh-fj-RIX" secondAttribute="centerX" id="m3O-VK-4zY"/>
                             <constraint firstItem="Nh7-b8-pDy" firstAttribute="trailing" secondItem="aaK-uA-z4o" secondAttribute="trailing" constant="20" id="mwJ-vg-nhA"/>
+                            <constraint firstItem="QcH-oA-coC" firstAttribute="top" secondItem="aaK-uA-z4o" secondAttribute="bottom" constant="24" id="wHx-dE-FBA"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="balanceEntry" destination="aaK-uA-z4o" id="VWr-DH-Vuh"/>
                         <outlet property="checkBox" destination="7UQ-bJ-gdW" id="bjx-QH-CEB"/>
-                        <outlet property="checkBoxDescription" destination="EcF-s9-pQk" id="wXS-pw-WvE"/>
+                        <outlet property="checkBoxDescription" destination="QcH-oA-coC" id="E6S-lB-oUt"/>
                         <outlet property="nameEntry" destination="eDc-sd-29G" id="727-Jt-eRP"/>
                         <outlet property="registerButton" destination="S77-Dy-olU" id="o6L-qc-kKJ"/>
                         <outlet property="welcomeImage" destination="B3h-xm-dl5" id="CI3-wn-7Gm"/>
@@ -151,9 +150,6 @@
     <resources>
         <image name="checkBoxIsChecked" width="27" height="27"/>
         <image name="welcome" width="166.5" height="26"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

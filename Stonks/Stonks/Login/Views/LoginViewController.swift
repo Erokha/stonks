@@ -17,7 +17,7 @@ class LoginViewController: UIViewController, LoginViewType {
     @IBOutlet weak var balanceEntry: UITextField!
     
     @IBOutlet weak var checkBox: UIImageView!
-    @IBOutlet weak var checkBoxDescription: UITextView!
+    @IBOutlet weak var checkBoxDescription: UILabel!
     
     @IBOutlet weak var registerButton: UIButton!
     
@@ -28,10 +28,10 @@ class LoginViewController: UIViewController, LoginViewType {
         
         nameEntry.clipsToBounds = true
         nameEntry.borderStyle = .roundedRect
-        nameEntry.layer.borderColor = UIColor(red: 250, green: 250, blue: 250, alpha: 1).cgColor
+        nameEntry.layer.borderColor = UIColor(red: 250 / 255, green: 250 / 255, blue: 250 / 255, alpha: 1).cgColor
         balanceEntry.clipsToBounds = true
         balanceEntry.borderStyle = .roundedRect
-        balanceEntry.layer.borderColor = UIColor(red: 250, green: 250, blue: 250, alpha: 1).cgColor
+        balanceEntry.layer.borderColor = UIColor(red: 250 / 255, green: 250 / 255, blue: 250 / 255, alpha: 1).cgColor
         
         nameEntry.addTarget(self, action: #selector(setupNameEditing), for: .editingDidBegin)
         
@@ -49,7 +49,7 @@ class LoginViewController: UIViewController, LoginViewType {
     }
     
     @objc private func configureCheckbox() {
-        if isChecked {
+        if !isChecked {
             checkBox.image = UIImage(named: "checkBoxNotChecked")
         }
         else {
