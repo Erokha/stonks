@@ -2,6 +2,11 @@ import UIKit
 
 
 class CardView: EmbeddedView, CardViewType {
+    @IBOutlet weak var upperTextLeft: UILabel!
+    @IBOutlet weak var upperTextRight: UILabel!
+    @IBOutlet weak var numberLeft: UILabel!
+    @IBOutlet weak var numberRight: UILabel!
+    
     var presenter: CardViewType!
     
     func showUpperTextLeft(text: String) {
@@ -27,11 +32,6 @@ class CardView: EmbeddedView, CardViewType {
             self.numberRight.text = ""
         }
     }
-    
-    @IBOutlet weak var upperTextLeft: UILabel!
-    @IBOutlet weak var upperTextRight: UILabel!
-    @IBOutlet weak var numberLeft: UILabel!
-    @IBOutlet weak var numberRight: UILabel!
     
     override func setupNib() {
         super.setupNib()
