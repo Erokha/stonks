@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		319B305E252DA90A005837ED /* DMSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 319B3054252DA640005837ED /* DMSans-Medium.ttf */; };
+		319B3060252DA90E005837ED /* DMSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 319B3056252DA73E005837ED /* DMSans-Bold.ttf */; };
+		319B3063252DAB98005837ED /* DMSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 319B3062252DAB87005837ED /* DMSans-Regular.ttf */; };
 		31BDC088252A1C5B00F56ADD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDC087252A1C5B00F56ADD /* AppDelegate.swift */; };
 		31BDC08C252A1C5B00F56ADD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDC08B252A1C5B00F56ADD /* LoginViewController.swift */; };
 		31BDC091252A1C5D00F56ADD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31BDC090252A1C5D00F56ADD /* Assets.xcassets */; };
@@ -19,6 +22,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		319B3054252DA640005837ED /* DMSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Medium.ttf"; sourceTree = "<group>"; };
+		319B3056252DA73E005837ED /* DMSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "DMSans-Bold.ttf"; path = "../../../../DM_Sans/DMSans-Bold.ttf"; sourceTree = "<group>"; };
+		319B3062252DAB87005837ED /* DMSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "DMSans-Regular.ttf"; path = "../../../../DM_Sans/DMSans-Regular.ttf"; sourceTree = "<group>"; };
 		31BDC084252A1C5A00F56ADD /* Stonks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stonks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31BDC087252A1C5B00F56ADD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31BDC08B252A1C5B00F56ADD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +49,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		319B3052252DA465005837ED /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				319B3062252DAB87005837ED /* DMSans-Regular.ttf */,
+				319B3054252DA640005837ED /* DMSans-Medium.ttf */,
+				319B3056252DA73E005837ED /* DMSans-Bold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		31BDC07B252A1C5A00F56ADD = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +78,7 @@
 		31BDC086252A1C5A00F56ADD /* Stonks */ = {
 			isa = PBXGroup;
 			children = (
+				319B3052252DA465005837ED /* Fonts */,
 				31BDC0B0252A2D2200F56ADD /* Views */,
 				31BDC0AF252A2CD300F56ADD /* Presenters */,
 				31BDC0AE252A2CC500F56ADD /* Models */,
@@ -165,6 +182,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				319B3063252DAB98005837ED /* DMSans-Regular.ttf in Resources */,
+				319B3060252DA90E005837ED /* DMSans-Bold.ttf in Resources */,
+				319B305E252DA90A005837ED /* DMSans-Medium.ttf in Resources */,
 				31BDC091252A1C5D00F56ADD /* Assets.xcassets in Resources */,
 				31BDC0A4252A21A400F56ADD /* Launch.xib in Resources */,
 				31CD5485252BAEA400F65D17 /* Login.storyboard in Resources */,
