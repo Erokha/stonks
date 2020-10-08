@@ -7,6 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D390392252F5EC700C18036 /* CardViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D390378252F5EC700C18036 /* CardViewPresenter.swift */; };
+		0D390393252F5EC700C18036 /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D390379252F5EC700C18036 /* CardView.xib */; };
+		0D390394252F5EC700C18036 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D39037B252F5EC700C18036 /* CardView.swift */; };
+		0D390395252F5EC700C18036 /* EmbeddedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D39037C252F5EC700C18036 /* EmbeddedView.swift */; };
+		0D390396252F5EC700C18036 /* CardViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D39037E252F5EC700C18036 /* CardViewType.swift */; };
+		0D390397252F5EC700C18036 /* NibLoadedViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D39037F252F5EC700C18036 /* NibLoadedViewType.swift */; };
+		0D390398252F5EC700C18036 /* CardViewPresenterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D390380252F5EC700C18036 /* CardViewPresenterType.swift */; };
+		0D390399252F5EC700C18036 /* stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D390383252F5EC700C18036 /* stock.swift */; };
+		0D39039A252F5EC700C18036 /* MyStocks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D390384252F5EC700C18036 /* MyStocks.storyboard */; };
+		0D39039B252F5EC700C18036 /* MyStocksPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D390387252F5EC700C18036 /* MyStocksPresenter.swift */; };
+		0D39039C252F5EC700C18036 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D390389252F5EC700C18036 /* TableViewCell.swift */; };
+		0D39039D252F5EC700C18036 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D39038A252F5EC700C18036 /* TableViewCell.xib */; };
+		0D39039E252F5EC700C18036 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D39038C252F5EC700C18036 /* ContainerViewController.swift */; };
+		0D39039F252F5EC700C18036 /* MyStocksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D39038D252F5EC700C18036 /* MyStocksViewController.swift */; };
+		0D3903A0252F5EC700C18036 /* MyStocksViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D39038F252F5EC700C18036 /* MyStocksViewType.swift */; };
+		0D3903A1252F5EC700C18036 /* TableViewCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D390390252F5EC700C18036 /* TableViewCellType.swift */; };
+		0D3903A2252F5EC700C18036 /* MyStocksPresenterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D390391252F5EC700C18036 /* MyStocksPresenterType.swift */; };
 		31BDC088252A1C5B00F56ADD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDC087252A1C5B00F56ADD /* AppDelegate.swift */; };
 		31BDC08C252A1C5B00F56ADD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDC08B252A1C5B00F56ADD /* LoginViewController.swift */; };
 		31BDC091252A1C5D00F56ADD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31BDC090252A1C5D00F56ADD /* Assets.xcassets */; };
@@ -19,6 +36,23 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D390378252F5EC700C18036 /* CardViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewPresenter.swift; sourceTree = "<group>"; };
+		0D390379252F5EC700C18036 /* CardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
+		0D39037B252F5EC700C18036 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		0D39037C252F5EC700C18036 /* EmbeddedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmbeddedView.swift; sourceTree = "<group>"; };
+		0D39037E252F5EC700C18036 /* CardViewType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewType.swift; sourceTree = "<group>"; };
+		0D39037F252F5EC700C18036 /* NibLoadedViewType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadedViewType.swift; sourceTree = "<group>"; };
+		0D390380252F5EC700C18036 /* CardViewPresenterType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewPresenterType.swift; sourceTree = "<group>"; };
+		0D390383252F5EC700C18036 /* stock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = stock.swift; sourceTree = "<group>"; };
+		0D390385252F5EC700C18036 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MyStocks.storyboard; sourceTree = "<group>"; };
+		0D390387252F5EC700C18036 /* MyStocksPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyStocksPresenter.swift; sourceTree = "<group>"; };
+		0D390389252F5EC700C18036 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		0D39038A252F5EC700C18036 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		0D39038C252F5EC700C18036 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		0D39038D252F5EC700C18036 /* MyStocksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyStocksViewController.swift; sourceTree = "<group>"; };
+		0D39038F252F5EC700C18036 /* MyStocksViewType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyStocksViewType.swift; sourceTree = "<group>"; };
+		0D390390252F5EC700C18036 /* TableViewCellType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellType.swift; sourceTree = "<group>"; };
+		0D390391252F5EC700C18036 /* MyStocksPresenterType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyStocksPresenterType.swift; sourceTree = "<group>"; };
 		31BDC084252A1C5A00F56ADD /* Stonks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stonks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31BDC087252A1C5B00F56ADD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31BDC08B252A1C5B00F56ADD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +77,101 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D390376252F5EC700C18036 /* card */ = {
+			isa = PBXGroup;
+			children = (
+				0D390377252F5EC700C18036 /* Presenters */,
+				0D390379252F5EC700C18036 /* CardView.xib */,
+				0D39037A252F5EC700C18036 /* Views */,
+				0D39037D252F5EC700C18036 /* Protocols */,
+			);
+			path = card;
+			sourceTree = "<group>";
+		};
+		0D390377252F5EC700C18036 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				0D390378252F5EC700C18036 /* CardViewPresenter.swift */,
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
+		0D39037A252F5EC700C18036 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0D39037B252F5EC700C18036 /* CardView.swift */,
+				0D39037C252F5EC700C18036 /* EmbeddedView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0D39037D252F5EC700C18036 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				0D39037E252F5EC700C18036 /* CardViewType.swift */,
+				0D39037F252F5EC700C18036 /* NibLoadedViewType.swift */,
+				0D390380252F5EC700C18036 /* CardViewPresenterType.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		0D390381252F5EC700C18036 /* MyStocks */ = {
+			isa = PBXGroup;
+			children = (
+				0D390382252F5EC700C18036 /* models */,
+				0D390384252F5EC700C18036 /* MyStocks.storyboard */,
+				0D390386252F5EC700C18036 /* Presenters */,
+				0D390388252F5EC700C18036 /* TableViewCell */,
+				0D39038B252F5EC700C18036 /* Views */,
+				0D39038E252F5EC700C18036 /* Protocols */,
+			);
+			path = MyStocks;
+			sourceTree = "<group>";
+		};
+		0D390382252F5EC700C18036 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				0D390383252F5EC700C18036 /* stock.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		0D390386252F5EC700C18036 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				0D390387252F5EC700C18036 /* MyStocksPresenter.swift */,
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
+		0D390388252F5EC700C18036 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				0D390389252F5EC700C18036 /* TableViewCell.swift */,
+				0D39038A252F5EC700C18036 /* TableViewCell.xib */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		0D39038B252F5EC700C18036 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0D39038C252F5EC700C18036 /* ContainerViewController.swift */,
+				0D39038D252F5EC700C18036 /* MyStocksViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0D39038E252F5EC700C18036 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				0D39038F252F5EC700C18036 /* MyStocksViewType.swift */,
+				0D390390252F5EC700C18036 /* TableViewCellType.swift */,
+				0D390391252F5EC700C18036 /* MyStocksPresenterType.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		31BDC07B252A1C5A00F56ADD = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +191,8 @@
 		31BDC086252A1C5A00F56ADD /* Stonks */ = {
 			isa = PBXGroup;
 			children = (
+				0D390376252F5EC700C18036 /* card */,
+				0D390381252F5EC700C18036 /* MyStocks */,
 				31BDC0B0252A2D2200F56ADD /* Views */,
 				31BDC0AF252A2CD300F56ADD /* Presenters */,
 				31BDC0AE252A2CC500F56ADD /* Models */,
@@ -166,7 +297,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				31BDC091252A1C5D00F56ADD /* Assets.xcassets in Resources */,
+				0D39039D252F5EC700C18036 /* TableViewCell.xib in Resources */,
+				0D39039A252F5EC700C18036 /* MyStocks.storyboard in Resources */,
 				31BDC0A4252A21A400F56ADD /* Launch.xib in Resources */,
+				0D390393252F5EC700C18036 /* CardView.xib in Resources */,
 				31CD5485252BAEA400F65D17 /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -178,16 +312,41 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D39039C252F5EC700C18036 /* TableViewCell.swift in Sources */,
 				31BDC08C252A1C5B00F56ADD /* LoginViewController.swift in Sources */,
+				0D390398252F5EC700C18036 /* CardViewPresenterType.swift in Sources */,
+				0D390399252F5EC700C18036 /* stock.swift in Sources */,
 				31CD548B252BAFE900F65D17 /* Login.swift in Sources */,
+				0D3903A2252F5EC700C18036 /* MyStocksPresenterType.swift in Sources */,
+				0D3903A1252F5EC700C18036 /* TableViewCellType.swift in Sources */,
 				31CD5492252BB23700F65D17 /* LoginViewType.swift in Sources */,
+				0D390395252F5EC700C18036 /* EmbeddedView.swift in Sources */,
 				31BDC088252A1C5B00F56ADD /* AppDelegate.swift in Sources */,
 				31BDC0B2252A2DA200F56ADD /* LoginPresenterType.swift in Sources */,
+				0D3903A0252F5EC700C18036 /* MyStocksViewType.swift in Sources */,
+				0D390396252F5EC700C18036 /* CardViewType.swift in Sources */,
+				0D39039F252F5EC700C18036 /* MyStocksViewController.swift in Sources */,
+				0D39039E252F5EC700C18036 /* ContainerViewController.swift in Sources */,
+				0D39039B252F5EC700C18036 /* MyStocksPresenter.swift in Sources */,
+				0D390397252F5EC700C18036 /* NibLoadedViewType.swift in Sources */,
+				0D390392252F5EC700C18036 /* CardViewPresenter.swift in Sources */,
+				0D390394252F5EC700C18036 /* CardView.swift in Sources */,
 				31BDC0AB252A23B200F56ADD /* LoginPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		0D390384252F5EC700C18036 /* MyStocks.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0D390385252F5EC700C18036 /* Base */,
+			);
+			name = MyStocks.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		31BDC096252A1C5D00F56ADD /* Debug */ = {
