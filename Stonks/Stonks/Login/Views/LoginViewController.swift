@@ -21,26 +21,36 @@ class LoginViewController: UIViewController, LoginViewType {
     
     @IBOutlet weak var registerButton: UIButton!
     
-    var isChecked = false
+    var isChecked: Bool = false
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    let defaultStyleEntriesColor: UIColor = UIColor(red: 250 / 255, green: 250 / 255, blue: 250 / 255, alpha: 1)
+    let editingStyleEntriesBorderColor: UIColor = UIColor(red: 113 / 255, green: 101 / 255, blue: 227 / 255, alpha: 1)
+    let editingStyleEntriesColor: UIColor = UIColor(red: 113 / 255, green: 101 / 255, blue: 227 / 255, alpha: 0.2)
+    
+    let checkBoxIsCheckedImageName: String = "checkBoxIsChecked"
+    let checkBoxNotCheckedImageName: String = "checkBoxNotChecked"
+    
+    private func setupNameEntry() {
         nameEntry.clipsToBounds = true
         nameEntry.borderStyle = .roundedRect
-        nameEntry.layer.borderColor = UIColor(red: 250 / 255, green: 250 / 255, blue: 250 / 255, alpha: 1).cgColor
-        balanceEntry.clipsToBounds = true
-        balanceEntry.borderStyle = .roundedRect
-        balanceEntry.layer.borderColor = UIColor(red: 250 / 255, green: 250 / 255, blue: 250 / 255, alpha: 1).cgColor
+        nameEntry.layer.borderColor = defaultStyleEntriesColor.cgColor
+        nameEntry.backgroundColor = defaultStyleEntriesColor
         
         nameEntry.addTarget(self, action: #selector(setupNameEditing), for: .editingDidBegin)
-        
         nameEntry.addTarget(self, action: #selector(setupNameDefault), for: .editingDidEnd)
+    }
+    
+    private func setupBalanceEntry() {
+        balanceEntry.clipsToBounds = true
+        balanceEntry.borderStyle = .roundedRect
+        balanceEntry.layer.borderColor = defaultStyleEntriesColor.cgColor
+        balanceEntry.backgroundColor = defaultStyleEntriesColor
         
         balanceEntry.addTarget(self, action: #selector(setupBalanceEditing), for: .editingDidBegin)
-        
         balanceEntry.addTarget(self, action: #selector(setupBalanceDefault), for: .editingDidEnd)
-        
+    }
+    
+    private func setupCheckBox() {
         let boxTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(configureCheckbox))
         
         boxTapRecognizer.numberOfTapsRequired = 1
@@ -48,35 +58,56 @@ class LoginViewController: UIViewController, LoginViewType {
         checkBox.isUserInteractionEnabled = true
     }
     
+    private func setupSubviews() {
+        setupNameEntry()
+        setupBalanceEntry()
+        setupCheckBox()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setupSubviews()
+        
+        let viewTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(disableKeyboard))
+        
+        viewTapRecognizer.numberOfTapsRequired = 1
+        view.addGestureRecognizer(viewTapRecognizer)
+    }
+    
+    @objc private func disableKeyboard() {
+        view.endEditing(true)
+    }
+    
     @objc private func configureCheckbox() {
         if !isChecked {
-            checkBox.image = UIImage(named: "checkBoxNotChecked")
+            checkBox.image = UIImage(named: checkBoxNotCheckedImageName)
         }
         else {
-            checkBox.image = UIImage(named: "checkBoxIsChecked")
+            checkBox.image = UIImage(named: checkBoxIsCheckedImageName)
         }
         
         isChecked = (isChecked == true ? false : true)
     }
     
     @objc private func setupNameEditing() {
-        nameEntry.backgroundColor = UIColor(red: 113 / 255, green: 101 / 255, blue: 227 / 255, alpha: 0.2)
-        nameEntry.layer.borderColor = UIColor(red: 113 / 255, green: 101 / 255, blue: 227 / 255, alpha: 1).cgColor
+        nameEntry.backgroundColor = editingStyleEntriesColor
+        nameEntry.layer.borderColor = editingStyleEntriesBorderColor.cgColor
     }
 
     @objc private func setupNameDefault() {
-        nameEntry.backgroundColor = UIColor(red: 250 / 255, green: 250 / 255, blue: 250 / 255, alpha: 1)
-        nameEntry.layer.borderColor = UIColor(red: 250 / 255, green: 250 / 255, blue: 250 / 255, alpha: 1).cgColor
+        nameEntry.backgroundColor = defaultStyleEntriesColor
+        nameEntry.layer.borderColor = defaultStyleEntriesColor.cgColor
     }
     
     @objc private func setupBalanceEditing() {
-        balanceEntry.backgroundColor = UIColor(red: 113 / 255, green: 101 / 255, blue: 227 / 255, alpha: 0.2)
-        balanceEntry.layer.borderColor = UIColor(red: 113 / 255, green: 101 / 255, blue: 227 / 255, alpha: 1).cgColor
+        balanceEntry.backgroundColor = editingStyleEntriesColor
+        balanceEntry.layer.borderColor = editingStyleEntriesBorderColor.cgColor
     }
 
     @objc private func setupBalanceDefault() {
-        balanceEntry.backgroundColor = UIColor(red: 250 / 255, green: 250 / 255, blue: 250 / 255, alpha: 1)
-        balanceEntry.layer.borderColor = UIColor(red: 250 / 255, green: 250 / 255, blue: 250 / 255, alpha: 1).cgColor
+        balanceEntry.backgroundColor = defaultStyleEntriesColor
+        balanceEntry.layer.borderColor = defaultStyleEntriesColor.cgColor
     }
 }
 
