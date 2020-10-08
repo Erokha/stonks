@@ -8,5 +8,6 @@
 import Foundation
 
 struct Login {
-    
+    var fullName: String?
+    var balance: Decimal?
 }

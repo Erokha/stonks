@@ -9,7 +9,7 @@ import UIKit
 
 class LoginViewController: UIViewController, LoginViewType {
 
-    var presenter: LoginPresenterType?
+    var presenter: LoginPresenterType!
     
     @IBOutlet weak var welcomeImage: UIImageView!
     
@@ -21,18 +21,26 @@ class LoginViewController: UIViewController, LoginViewType {
     
     @IBOutlet weak var registerButton: UIButton!
     
-    var isChecked: Bool = false
-    
     let defaultStyleEntriesColor: UIColor = UIColor(red: 250 / 255, green: 250 / 255, blue: 250 / 255, alpha: 1)
     let editingStyleEntriesBorderColor: UIColor = UIColor(red: 113 / 255, green: 101 / 255, blue: 227 / 255, alpha: 1)
     let editingStyleEntriesColor: UIColor = UIColor(red: 113 / 255, green: 101 / 255, blue: 227 / 255, alpha: 0.2)
+    
+    let cornerRadius: CGFloat = 10
+    let borderWidth: CGFloat = 1
+    
+    let namePlaceholderText = "Full Name"
+    let balancePlaceholderText = "Start Balance"
     
     let checkBoxIsCheckedImageName: String = "checkBoxIsChecked"
     let checkBoxNotCheckedImageName: String = "checkBoxNotChecked"
     
     private func setupNameEntry() {
+        nameEntry.attributedPlaceholder = NSAttributedString(string: String(repeating: " ", count: 5) + namePlaceholderText,
+                                                             attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
         nameEntry.clipsToBounds = true
         nameEntry.borderStyle = .roundedRect
+        nameEntry.layer.cornerRadius = cornerRadius
+        nameEntry.layer.borderWidth = borderWidth
         nameEntry.layer.borderColor = defaultStyleEntriesColor.cgColor
         nameEntry.backgroundColor = defaultStyleEntriesColor
         
@@ -41,8 +49,12 @@ class LoginViewController: UIViewController, LoginViewType {
     }
     
     private func setupBalanceEntry() {
+        balanceEntry.attributedPlaceholder = NSAttributedString(string: String(repeating: " ", count: 5) + balancePlaceholderText,
+                                                             attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
         balanceEntry.clipsToBounds = true
         balanceEntry.borderStyle = .roundedRect
+        balanceEntry.layer.cornerRadius = cornerRadius
+        balanceEntry.layer.borderWidth = borderWidth
         balanceEntry.layer.borderColor = defaultStyleEntriesColor.cgColor
         balanceEntry.backgroundColor = defaultStyleEntriesColor
         
@@ -58,10 +70,15 @@ class LoginViewController: UIViewController, LoginViewType {
         checkBox.isUserInteractionEnabled = true
     }
     
+    private func setupRegisterButton() {
+        registerButton.layer.cornerRadius = cornerRadius
+    }
+    
     private func setupSubviews() {
         setupNameEntry()
         setupBalanceEntry()
         setupCheckBox()
+        setupRegisterButton()
     }
     
     override func viewDidLoad() {
@@ -80,14 +97,16 @@ class LoginViewController: UIViewController, LoginViewType {
     }
     
     @objc private func configureCheckbox() {
-        if !isChecked {
+        guard let presenter = presenter else { return }
+        
+        if !presenter.termsAreAccepted() {
             checkBox.image = UIImage(named: checkBoxNotCheckedImageName)
         }
         else {
             checkBox.image = UIImage(named: checkBoxIsCheckedImageName)
         }
         
-        isChecked = (isChecked == true ? false : true)
+        presenter.setTermsState(state: (presenter.termsAreAccepted() == true ? false : true))
     }
     
     @objc private func setupNameEditing() {
@@ -108,6 +127,19 @@ class LoginViewController: UIViewController, LoginViewType {
     @objc private func setupBalanceDefault() {
         balanceEntry.backgroundColor = defaultStyleEntriesColor
         balanceEntry.layer.borderColor = defaultStyleEntriesColor.cgColor
+    }
+    
+    @IBAction func registerAccount(_ sender: UIButton) {
+        guard let fullName = nameEntry.text,
+              let balanceString = balanceEntry.text else { return }
+        
+        guard let balanceDecimal = Decimal(string: balanceString) else { return }
+              
+        guard let presenter = presenter else { return }
+        
+        if !presenter.login(fullName: fullName, balance: balanceDecimal) {
+            // показать алерт
+        }
     }
 }
 
