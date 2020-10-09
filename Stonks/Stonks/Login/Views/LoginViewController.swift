@@ -72,6 +72,10 @@ class LoginViewController: UIViewController, LoginViewType {
     
     private func setupRegisterButton() {
         registerButton.layer.cornerRadius = cornerRadius
+        registerButton.layer.shadowOffset = CGSize(width: 5, height: 5)
+        registerButton.layer.shadowRadius = cornerRadius
+        registerButton.layer.shadowColor = UIColor.gray.cgColor
+        registerButton.layer.shadowOpacity = 1
     }
     
     private func setupSubviews() {

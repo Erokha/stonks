@@ -38,7 +38,7 @@ class LoginPresenter: LoginPresenterType {
         model.fullName = fullName
         model.balance = balance
         
-        // дальше навигация
+        // дальше навигация??
         
         return true
     }
