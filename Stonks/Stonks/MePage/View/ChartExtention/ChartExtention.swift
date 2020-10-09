@@ -8,20 +8,30 @@
 import Foundation
 import Charts
 
+
+// Chart extention
+
 extension MePortfolioViewController {
-    func configurePieChart() {
+    private func chartSettings() {
+        
         self.stocksPieChartView.chartDescription?.enabled = true
         self.stocksPieChartView.drawHoleEnabled = false
         self.stocksPieChartView.rotationAngle = 0
         self.stocksPieChartView.isUserInteractionEnabled = false
+    }
+    
+    func addToChartDataEntity(chartValue: Double, chartLabel: String) {
+        self.chartStocks.append(PieChartDataEntry(value: chartValue, label: chartLabel))
+    }
+    
+    func setColorsToDataSet(colors: [String]) {
         
-        var stocks: [PieChartDataEntry] = Array()
-        stocks.append(PieChartDataEntry(value: 12, label: "AAPL"))
-        stocks.append(PieChartDataEntry(value: 10, label: "Google"))
-        
-        let dataSet = PieChartDataSet(entries: stocks, label: "")
+    }
+    
+    
+    func drawDiagramm() {
+        let dataSet = PieChartDataSet(entries: self.chartStocks, label: "")
          
-        let c1 = NSUIColor(cgColor: UIColor.blue.cgColor)
         let c2 = NSUIColor(cgColor: UIColor.red.cgColor)
         
         dataSet.colors = [c1, c2]
