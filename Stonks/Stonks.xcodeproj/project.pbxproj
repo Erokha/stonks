@@ -11,6 +11,13 @@
 		131A728B252C953000A7F3BE /* MePortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131A728A252C953000A7F3BE /* MePortfolioViewController.swift */; };
 		131A7292252CAA2E00A7F3BE /* HeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131A7291252CAA2E00A7F3BE /* HeaderViewController.swift */; };
 		13819645252D0B12001C18A6 /* ChartExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13819644252D0B12001C18A6 /* ChartExtention.swift */; };
+		0DF0172E252F5BD2003FF71B /* CardViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF01725252F5BD2003FF71B /* CardViewPresenter.swift */; };
+		0DF0172F252F5BD2003FF71B /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DF01726252F5BD2003FF71B /* CardView.xib */; };
+		0DF01730252F5BD2003FF71B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF01728252F5BD2003FF71B /* CardView.swift */; };
+		0DF01731252F5BD2003FF71B /* EmbeddedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF01729252F5BD2003FF71B /* EmbeddedView.swift */; };
+		0DF01732252F5BD2003FF71B /* CardViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0172B252F5BD2003FF71B /* CardViewType.swift */; };
+		0DF01733252F5BD2003FF71B /* NibLoadedViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0172C252F5BD2003FF71B /* NibLoadedViewType.swift */; };
+		0DF01734252F5BD2003FF71B /* CardViewPresenterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0172D252F5BD2003FF71B /* CardViewPresenterType.swift */; };
 		31BDC088252A1C5B00F56ADD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDC087252A1C5B00F56ADD /* AppDelegate.swift */; };
 		31BDC08C252A1C5B00F56ADD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDC08B252A1C5B00F56ADD /* LoginViewController.swift */; };
 		31BDC091252A1C5D00F56ADD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31BDC090252A1C5D00F56ADD /* Assets.xcassets */; };
@@ -29,6 +36,13 @@
 		131A728A252C953000A7F3BE /* MePortfolioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MePortfolioViewController.swift; sourceTree = "<group>"; };
 		131A7291252CAA2E00A7F3BE /* HeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewController.swift; sourceTree = "<group>"; };
 		13819644252D0B12001C18A6 /* ChartExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartExtention.swift; sourceTree = "<group>"; };
+		0DF01725252F5BD2003FF71B /* CardViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewPresenter.swift; sourceTree = "<group>"; };
+		0DF01726252F5BD2003FF71B /* CardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
+		0DF01728252F5BD2003FF71B /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		0DF01729252F5BD2003FF71B /* EmbeddedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmbeddedView.swift; sourceTree = "<group>"; };
+		0DF0172B252F5BD2003FF71B /* CardViewType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewType.swift; sourceTree = "<group>"; };
+		0DF0172C252F5BD2003FF71B /* NibLoadedViewType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadedViewType.swift; sourceTree = "<group>"; };
+		0DF0172D252F5BD2003FF71B /* CardViewPresenterType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewPresenterType.swift; sourceTree = "<group>"; };
 		31BDC084252A1C5A00F56ADD /* Stonks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stonks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31BDC087252A1C5B00F56ADD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31BDC08B252A1C5B00F56ADD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +87,44 @@
 				13819644252D0B12001C18A6 /* ChartExtention.swift */,
 			);
 			path = ChartExtention;
+            sourceTree = "<group>";
+        };
+		0DF01723252F5BD2003FF71B /* card */ = {
+			isa = PBXGroup;
+			children = (
+				0DF01724252F5BD2003FF71B /* Presenters */,
+				0DF01726252F5BD2003FF71B /* CardView.xib */,
+				0DF01727252F5BD2003FF71B /* Views */,
+				0DF0172A252F5BD2003FF71B /* Protocols */,
+			);
+			path = card;
+			sourceTree = "<group>";
+		};
+		0DF01724252F5BD2003FF71B /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				0DF01725252F5BD2003FF71B /* CardViewPresenter.swift */,
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
+		0DF01727252F5BD2003FF71B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0DF01728252F5BD2003FF71B /* CardView.swift */,
+				0DF01729252F5BD2003FF71B /* EmbeddedView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0DF0172A252F5BD2003FF71B /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				0DF0172B252F5BD2003FF71B /* CardViewType.swift */,
+				0DF0172C252F5BD2003FF71B /* NibLoadedViewType.swift */,
+				0DF0172D252F5BD2003FF71B /* CardViewPresenterType.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		31BDC07B252A1C5A00F56ADD = {
@@ -96,6 +148,7 @@
 		31BDC086252A1C5A00F56ADD /* Stonks */ = {
 			isa = PBXGroup;
 			children = (
+				0DF01723252F5BD2003FF71B /* card */,
 				31BDC0B0252A2D2200F56ADD /* Views */,
 				31BDC0AF252A2CD300F56ADD /* Presenters */,
 				31BDC0AE252A2CC500F56ADD /* Models */,
@@ -222,6 +275,7 @@
 				31BDC091252A1C5D00F56ADD /* Assets.xcassets in Resources */,
 				31BDC0A4252A21A400F56ADD /* Launch.xib in Resources */,
 				131A7288252C93E500A7F3BE /* Me.storyboard in Resources */,
+				0DF0172F252F5BD2003FF71B /* CardView.xib in Resources */,
 				31CD5485252BAEA400F65D17 /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,12 +331,18 @@
 			files = (
 				31BDC08C252A1C5B00F56ADD /* LoginViewController.swift in Sources */,
 				131A728B252C953000A7F3BE /* MePortfolioViewController.swift in Sources */,
+				0DF01734252F5BD2003FF71B /* CardViewPresenterType.swift in Sources */,
 				31CD548B252BAFE900F65D17 /* Login.swift in Sources */,
 				31CD5492252BB23700F65D17 /* LoginViewType.swift in Sources */,
+				0DF01731252F5BD2003FF71B /* EmbeddedView.swift in Sources */,
 				31BDC088252A1C5B00F56ADD /* AppDelegate.swift in Sources */,
 				131A7292252CAA2E00A7F3BE /* HeaderViewController.swift in Sources */,
 				31BDC0B2252A2DA200F56ADD /* LoginPresenterType.swift in Sources */,
 				13819645252D0B12001C18A6 /* ChartExtention.swift in Sources */,
+				0DF01732252F5BD2003FF71B /* CardViewType.swift in Sources */,
+				0DF01733252F5BD2003FF71B /* NibLoadedViewType.swift in Sources */,
+				0DF0172E252F5BD2003FF71B /* CardViewPresenter.swift in Sources */,
+				0DF01730252F5BD2003FF71B /* CardView.swift in Sources */,
 				31BDC0AB252A23B200F56ADD /* LoginPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
