@@ -1,34 +1,23 @@
-//
-//  MeProfileViewController.swift
-//  Stonks
-//
-//  Created by  Alexandr Zakharov on 06.10.2020.
-//
-
 import UIKit
 import Charts
+
+
 class MePortfolioViewController: UIViewController {
     @IBOutlet weak var chartView: UIView!
     @IBOutlet weak var stocksPieChartView: PieChartView!
     @IBOutlet weak var historyButton: UIButton!
     
-    var chartStocks: [PieChartDataEntry] = []
     var presenter: MePortfolioOutput!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        drawDiagramm()
+        chartSettings()
         configureUi()
+        presenter.createChartData()
     }
     
     @IBAction func historyButtonAcrtion(_ sender: UIButton) {
-        print("Action")
-    }
-    
-    func loadStocks() {
-        presenter.countStocks()
     }
 }
 
@@ -43,6 +32,5 @@ extension MePortfolioViewController {
         self.historyButton.layer.shadowRadius = 5
         self.historyButton.layer.shadowOffset = .zero
         self.historyButton.layer.shadowOpacity = 0.6
-        
     }
 }

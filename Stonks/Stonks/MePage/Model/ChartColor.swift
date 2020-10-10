@@ -1,17 +1,11 @@
-//
-//  ChartColor.swift
-//  Stonks
-//
-//  Created by  Alexandr Zakharov on 09.10.2020.
-//
-
 import Foundation
 
-enum ChartColors: String {
-    case purple = "855CF8"
-    case pink = "FF669B"
-    case green = "47BEA2"
-    case blue = "00A6FF"
-    case yellow = "FFC75B"
+
+enum ChartColors: Int, CaseIterable {
+    case purple = 0x855CF8
+    case pink = 0xFF669B
+    case green = 0x47BEA2
+    case blue = 0x00A6FF
+    case yellow = 0xFFC75B
     
 }

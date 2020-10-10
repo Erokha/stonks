@@ -1,13 +1,4 @@
-//
-//  HeaderViewController.swift
-//  Stonks
-//
-//  Created by  Alexandr Zakharov on 06.10.2020.
-//
-
 import UIKit
-
-
 
 class HeaderViewController: UIViewController {
     @IBOutlet weak var headerView: UIView!
