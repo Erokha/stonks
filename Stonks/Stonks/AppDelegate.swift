@@ -19,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         model.append(Stock(stockSymbol: "Google", stockprice: 200, numOfStocks: 1))
         model.append(Stock(stockSymbol: "Yandex", stockprice: 300, numOfStocks: 2))
         model.append(Stock(stockSymbol: "Mail.ru", stockprice: 1000, numOfStocks: 2))
+        model.append(Stock(stockSymbol: "VK", stockprice: 1000, numOfStocks: 2))
+        model.append(Stock(stockSymbol: "Tesla", stockprice: 2000, numOfStocks: 4))
         
         initialViewController?.presenter = MePortfolioPresenter(view: initialViewController!, stocks: model, totalSpent: 10000)
 //        let loginModel = Login()

@@ -57,7 +57,7 @@ class MePortfolioPresenter: MePortfolioOutput {
     }
     
     internal func generateColors(numberOfColors: Int) -> [NSUIColor] {
-        var totalColors: [NSUIColor] = Array(chartColors.prefix( self.numberOfStocksInChart))
+        let totalColors: [NSUIColor] = Array(chartColors.prefix( self.numberOfStocksInChart))
         return totalColors
     }
 }

@@ -23,6 +23,8 @@
 		134179F5253227D50052D1A9 /* ChartExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134179E9253227A90052D1A9 /* ChartExtention.swift */; };
 		134179F6253227D50052D1A9 /* HeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134179EA253227A90052D1A9 /* HeaderViewController.swift */; };
 		13417A03253229A40052D1A9 /* Me.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 134179E4253227A90052D1A9 /* Me.storyboard */; };
+		13417A0625323ABA0052D1A9 /* MePortfolioInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13417A0525323ABA0052D1A9 /* MePortfolioInput.swift */; };
+		13417A0F25323E9D0052D1A9 /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13417A0E25323E9D0052D1A9 /* StatusViewController.swift */; };
 		31BDC088252A1C5B00F56ADD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDC087252A1C5B00F56ADD /* AppDelegate.swift */; };
 		31BDC08C252A1C5B00F56ADD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDC08B252A1C5B00F56ADD /* LoginViewController.swift */; };
 		31BDC091252A1C5D00F56ADD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31BDC090252A1C5D00F56ADD /* Assets.xcassets */; };
@@ -51,9 +53,10 @@
 		134179E2253227A90052D1A9 /* ChartColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartColor.swift; sourceTree = "<group>"; };
 		134179E4253227A90052D1A9 /* Me.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Me.storyboard; sourceTree = "<group>"; };
 		134179E5253227A90052D1A9 /* MePortfolioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MePortfolioViewController.swift; sourceTree = "<group>"; };
-		134179E7253227A90052D1A9 /* ChartExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartExtention.swift; sourceTree = "<group>"; };
 		134179E9253227A90052D1A9 /* ChartExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartExtention.swift; sourceTree = "<group>"; };
 		134179EA253227A90052D1A9 /* HeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewController.swift; sourceTree = "<group>"; };
+		13417A0525323ABA0052D1A9 /* MePortfolioInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MePortfolioInput.swift; sourceTree = "<group>"; };
+		13417A0E25323E9D0052D1A9 /* StatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
 		31BDC084252A1C5A00F56ADD /* Stonks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stonks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31BDC087252A1C5B00F56ADD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31BDC08B252A1C5B00F56ADD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +125,7 @@
 		134179D9253227A90052D1A9 /* MePage */ = {
 			isa = PBXGroup;
 			children = (
+				134179DD253227A90052D1A9 /* Protocols */,
 				134179DA253227A90052D1A9 /* Presenter */,
 				134179E0253227A90052D1A9 /* Model */,
 				134179E3253227A90052D1A9 /* View */,
@@ -134,7 +138,6 @@
 			children = (
 				134179DB253227A90052D1A9 /* MeHeaderPresenter.swift */,
 				134179DC253227A90052D1A9 /* MePortfolioPresenter.swift */,
-				134179DD253227A90052D1A9 /* Protocols */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				134179DE253227A90052D1A9 /* MePortfolioOutput.swift */,
+				13417A0525323ABA0052D1A9 /* MePortfolioInput.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -159,21 +163,12 @@
 		134179E3253227A90052D1A9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				13417A0D25323E6C0052D1A9 /* Header */,
 				134179E4253227A90052D1A9 /* Me.storyboard */,
 				134179E5253227A90052D1A9 /* MePortfolioViewController.swift */,
-				134179E6253227A90052D1A9 /* ChartExtention */,
 				134179E8253227A90052D1A9 /* Extentions */,
-				134179EA253227A90052D1A9 /* HeaderViewController.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		134179E6253227A90052D1A9 /* ChartExtention */ = {
-			isa = PBXGroup;
-			children = (
-				134179E7253227A90052D1A9 /* ChartExtention.swift */,
-			);
-			path = ChartExtention;
 			sourceTree = "<group>";
 		};
 		134179E8253227A90052D1A9 /* Extentions */ = {
@@ -182,6 +177,15 @@
 				134179E9253227A90052D1A9 /* ChartExtention.swift */,
 			);
 			path = Extentions;
+			sourceTree = "<group>";
+		};
+		13417A0D25323E6C0052D1A9 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				134179EA253227A90052D1A9 /* HeaderViewController.swift */,
+				13417A0E25323E9D0052D1A9 /* StatusViewController.swift */,
+			);
+			path = Header;
 			sourceTree = "<group>";
 		};
 		31BDC07B252A1C5A00F56ADD = {
@@ -391,6 +395,7 @@
 				134179EE253227D50052D1A9 /* MePortfolioOutput.swift in Sources */,
 				134179F0253227D50052D1A9 /* Stock.swift in Sources */,
 				134179F1253227D50052D1A9 /* ChartColor.swift in Sources */,
+				13417A0625323ABA0052D1A9 /* MePortfolioInput.swift in Sources */,
 				134179F3253227D50052D1A9 /* MePortfolioViewController.swift in Sources */,
 				134179F5253227D50052D1A9 /* ChartExtention.swift in Sources */,
 				134179F6253227D50052D1A9 /* HeaderViewController.swift in Sources */,
@@ -405,6 +410,7 @@
 				0DF01733252F5BD2003FF71B /* NibLoadedViewType.swift in Sources */,
 				0DF0172E252F5BD2003FF71B /* CardViewPresenter.swift in Sources */,
 				0DF01730252F5BD2003FF71B /* CardView.swift in Sources */,
+				13417A0F25323E9D0052D1A9 /* StatusViewController.swift in Sources */,
 				31BDC0AB252A23B200F56ADD /* LoginPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -2,7 +2,7 @@ import Foundation
 import Charts
 
 extension MePortfolioViewController {
-    internal func chartSettings() {
+    func chartSettings() {
         
         self.stocksPieChartView.chartDescription?.enabled = false
         self.stocksPieChartView.drawHoleEnabled = false

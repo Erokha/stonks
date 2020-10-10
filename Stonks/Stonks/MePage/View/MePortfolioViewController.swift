@@ -2,7 +2,7 @@ import UIKit
 import Charts
 
 
-class MePortfolioViewController: UIViewController {
+class MePortfolioViewController: UIViewController, MePortfolioInput {
     @IBOutlet weak var chartView: UIView!
     @IBOutlet weak var stocksPieChartView: PieChartView!
     @IBOutlet weak var historyButton: UIButton!
@@ -22,7 +22,7 @@ class MePortfolioViewController: UIViewController {
 }
 
 extension MePortfolioViewController {
-    private func configureUi() {
+    func configureUi() {
         self.chartView.layer.cornerRadius = 15
         chartView.layer.shadowColor = UIColor.black.cgColor
         self.chartView.layer.shadowRadius = 5
