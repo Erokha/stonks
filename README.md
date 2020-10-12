@@ -1,4 +1,4 @@
-# Stonks
+# Stonks💰
 
 ![](https://imgur.com/hV7JQTH.png)
 
