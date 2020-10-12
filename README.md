@@ -1,5 +1,5 @@
 # Stonks
-![](https://imgur.com/qdEaSVW.png)
+![](https://imgur.com/hV7JQTH.png)
 
 
 ## Introduction
