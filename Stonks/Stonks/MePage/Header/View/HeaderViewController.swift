@@ -13,17 +13,15 @@ class HeaderViewController: UIViewController, HeaderViewInput {
         configureUi()
         setShadow()
     }
-}
-
-extension HeaderViewController {
-    func setShadow() {
+    
+    private func setShadow() {
         self.cardView.layer.shadowColor = UIColor.black.cgColor
         self.cardView.layer.shadowOpacity = 0.6
         self.cardView.layer.shadowOffset = .zero
         self.cardView.layer.shadowRadius = 10
     }
     
-    func setRoundCorners() {
+    private func setRoundCorners() {
         self.headerView.layer.cornerRadius = 20
         if #available(iOS 11.0, *) {
             self.headerView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
@@ -32,7 +30,7 @@ extension HeaderViewController {
         }
     }
     
-    func configureUi(){
+    private func configureUi(){
         self.headerView.layer.shadowPath = UIBezierPath(rect: headerView.bounds).cgPath
         self.headerView.layer.shadowRadius = 20
         self.headerView.layer.shadowOpacity = 0.8
@@ -41,3 +39,6 @@ extension HeaderViewController {
     }
 }
 
+extension HeaderViewController: HeaderViewInput {
+    
+}
