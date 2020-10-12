@@ -1,6 +1,6 @@
 import UIKit
 
-class HeaderViewController: UIViewController {
+class HeaderViewController: UIViewController, HeaderViewInput {
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!

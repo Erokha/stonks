@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         model.append(Stock(stockSymbol: "VK", stockprice: 1000, numOfStocks: 2))
         model.append(Stock(stockSymbol: "Tesla", stockprice: 2000, numOfStocks: 4))
         
-        initialViewController?.presenter = MePortfolioPresenter(view: initialViewController!, stocks: model, totalSpent: 10000)
+        initialViewController?.presenter = MePortfolioPresenter(view: initialViewController!, stocks: model) as? MePortfolioOutput
 //        let loginModel = Login()
 //        initialViewController?.presenter = LoginPresenter(view: initialViewController!, model: loginModel)
 
