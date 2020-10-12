@@ -1,10 +1,10 @@
 import UIKit
 
-class MyStocksPresenter: MyStocksPresenterType {
+class MyStocksPresenter: MyStocksViewOutput {
     var model: [Stock]
-    unowned var view: MyStocksViewController!
+    weak var view: MyStocksViewController!
     
-    required init(view: MyStocksViewType, model: [Stock]) {
+    required init(view: MyStocksViewInput, model: [Stock]) {
         self.view = view as? MyStocksViewController
         self.model = model
     }

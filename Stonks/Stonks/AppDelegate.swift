@@ -10,12 +10,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        let storyboard = UIStoryboard(name: "Login", bundle: nil)
+        let storyboard = UIStoryboard(name: "MyStocks", bundle: nil)
 
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: "Login") as? LoginViewController
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "MyStocks") as? MyStocksViewController
         
-        let loginModel = Login()
-        initialViewController?.presenter = LoginPresenter(view: initialViewController!, model: loginModel)
+        let model = [Stock(stockname: "Apple", stockSymbol: "AAPL", stockprice: 114.2, stockCount: 5, imageUrl: "none"), Stock(stockname: "Anal", stockSymbol: "ANL", stockprice: 300, stockCount: 1, imageUrl: "none")]
+        initialViewController?.presenter = MyStocksPresenter(view: initialViewController!, model: model)
 
         self.window?.rootViewController = initialViewController
         self.window?.makeKeyAndVisible()

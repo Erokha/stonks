@@ -1,21 +1,25 @@
 import UIKit
 
 
-class MyStocksViewController: UIViewController, MyStocksViewType {
+class MyStocksViewController: UIViewController, MyStocksViewInput {
 
     @IBOutlet weak var ViewContainer: UIView!
     @IBOutlet weak var tableView: UITableView!
-    var presenter: MyStocksPresenterType!
+    var presenter: MyStocksViewOutput?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureTalbeView()
+        
+    }
+    
+    private func configureTalbeView() {
         setShadow()
         self.tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "stockCell")
         tableView.tableFooterView = UIView(frame: .zero)
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
     }
     
     private func setShadow() {
@@ -28,15 +32,17 @@ class MyStocksViewController: UIViewController, MyStocksViewType {
 
 extension MyStocksViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.presenter.model.count
+        guard let count = self.presenter?.model.count else { return 0 }
+        return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "stockCell", for: indexPath) as? TableViewCellType {
-            cell.setData(data: self.presenter.model[indexPath.row])
-            return cell as! UITableViewCell
-        }
-        return UITableViewCell()
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "stockCell", for: indexPath) as? TableViewCell else { return UITableViewCell() }
+        guard let content = self.presenter?.model[indexPath.row] else { return UITableViewCell() }
+        cell.setData(data: content)
+        return cell
+        
     }
     
 }

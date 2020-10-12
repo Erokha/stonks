@@ -1,7 +1,7 @@
 struct Stock {
-    var stockname: String
-    var stockSymbol: String
-    var stockprice: Float
-    var stockCount: Int
-    var imageUrl: String
+    let stockname: String
+    let stockSymbol: String
+    let stockprice: Float
+    let stockCount: Int
+    let imageUrl: String
 }
