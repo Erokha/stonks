@@ -1,4 +1,7 @@
 # Stonks
+![](https://imgur.com/sUG1z5H.png)
+
+
 ## Introduction
 Stonks has re-invented investing.
 
