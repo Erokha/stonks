@@ -32,11 +32,11 @@ You can see our design [here](https://www.figma.com/file/skwhsYv5dsydv0429PQolZ/
 
 ### Team
 
-Erokhin Nikita - [Git](https://github.com/kymblc1337), [VK](https://vk.com/erokhasempai)
+- Erokhin Nikita - [Git](https://github.com/kymblc1337), [VK](https://vk.com/erokhasempai)
 
-Alexandr Zakharov - [Git](https://github.com/sashazakh), [VK](https://vk.com/id124237798)
+- Alexandr Zakharov - [Git](https://github.com/sashazakh), [VK](https://vk.com/id124237798)
 
-Vlad Krivozubov - [Git](https://github.com/el-autor), [VK](https://vk.com/dliosh)
+- Vlad Krivozubov - [Git](https://github.com/el-autor), [VK](https://vk.com/dliosh)
 
 
 Ios Project for technopark course, 2020
