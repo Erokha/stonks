@@ -26,7 +26,6 @@ class EmbeddedView: UIView, NibLoadableView {
     }
 
     func setupNib() {
-        
         view = loadViewFromNib()
         view.frame = bounds
 
@@ -44,7 +43,9 @@ class EmbeddedView: UIView, NibLoadableView {
         let bundle = Bundle(for: metatype)
         let nib = UINib(nibName: metatype.nibName, bundle: bundle)
 
-        let nibView = nib.instantiate(withOwner: self, options: nil).first as! UIView
+        guard let nibView = nib.instantiate(withOwner: self, options: nil).first as? UIView else {
+            return UIView()
+        }
 
         return nibView
     }

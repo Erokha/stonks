@@ -11,11 +11,7 @@ extension ClassName {
     }
 }
 
-
-
-
 extension UIViewController: ClassName {}
-
 
 protocol NibLoadableView: class, ClassName { }
 
