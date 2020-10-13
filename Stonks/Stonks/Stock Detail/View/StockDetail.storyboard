@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Stock Detail View Controller-->
+        <scene sceneID="xhQ-If-rb5">
+            <objects>
+                <viewController storyboardIdentifier="StockDetail" id="PHA-gt-IMu" customClass="StockDetailViewController" customModule="Stonks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="W8A-Gf-YC8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YXH-ed-3D5">
+                                <rect key="frame" x="28" y="65" width="358" height="75"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="Xrp-FQ-To2"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TK6-ie-jNg">
+                                <rect key="frame" x="20" y="175" width="374" height="235"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="235" id="2Sl-Ky-IaM"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ELa-rG-u7X"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="YXH-ed-3D5" firstAttribute="centerX" secondItem="W8A-Gf-YC8" secondAttribute="centerX" id="4EZ-dd-5KY"/>
+                            <constraint firstItem="TK6-ie-jNg" firstAttribute="top" secondItem="YXH-ed-3D5" secondAttribute="bottom" constant="35" id="MEh-hg-ITK"/>
+                            <constraint firstItem="ELa-rG-u7X" firstAttribute="trailing" secondItem="YXH-ed-3D5" secondAttribute="trailing" constant="28" id="V0i-I6-nmf"/>
+                            <constraint firstItem="YXH-ed-3D5" firstAttribute="leading" secondItem="ELa-rG-u7X" secondAttribute="leading" constant="28" id="bRY-6O-Sgz"/>
+                            <constraint firstItem="YXH-ed-3D5" firstAttribute="top" secondItem="ELa-rG-u7X" secondAttribute="top" constant="21" id="dtN-lk-E2j"/>
+                            <constraint firstItem="ELa-rG-u7X" firstAttribute="trailing" secondItem="TK6-ie-jNg" secondAttribute="trailing" constant="20" id="fXH-i8-mon"/>
+                            <constraint firstItem="TK6-ie-jNg" firstAttribute="centerX" secondItem="W8A-Gf-YC8" secondAttribute="centerX" id="t4b-Tk-E3v"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="chartView" destination="TK6-ie-jNg" id="d3r-eH-uUp"/>
+                        <outlet property="stockDetailCard" destination="YXH-ed-3D5" id="bze-us-uaa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8qZ-rx-AoH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-11.594202898550726" y="108.48214285714285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

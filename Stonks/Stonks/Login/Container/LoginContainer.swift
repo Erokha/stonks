@@ -1,9 +1,8 @@
-import Foundation
 import UIKit
 
 class LoginContainer {
     let viewController: LoginViewController
-    private(set) weak var router: LoginRouter?
+    private weak var router: LoginRouter?
 
     class func assemble(with context: LoginContext) -> LoginContainer {
         let storyboard = UIStoryboard(name: Storyboard.login.name, bundle: nil)

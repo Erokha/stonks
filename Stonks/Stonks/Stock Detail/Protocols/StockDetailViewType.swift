@@ -1,0 +1,3 @@
+protocol StockDetailViewType: class {
+
+}
