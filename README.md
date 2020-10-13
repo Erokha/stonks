@@ -16,6 +16,8 @@ We provide people with the mobile app that helps newbie traders to start their t
 
 **Core Data** - safety and time-tested framework.👌
 
+**SwiftLint** - we appreciate clean code.🧹
+
 ### Backend
 **Node.js** - easy way  to run server.💩🖕
 
