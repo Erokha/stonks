@@ -11,7 +11,8 @@ We provide people with the mobile app that helps newbie traders to start their t
 
 ## Stack
 ### IOS
-**MVP**
+**MVP** - not so serious architecture.🤙
+
 **Alamofire** - great service for networking.👻
 
 **Core Data** - safety and time-tested framework.👌
@@ -19,7 +20,7 @@ We provide people with the mobile app that helps newbie traders to start their t
 **SwiftLint** - we appreciate clean code.🧹
 
 ### Backend
-**Node.js** - easy way  to run server.💩🖕
+**Node.js** - easy way to run server.💩🖕
 
 **Postgres** - simply and reliable database.✌️
 
