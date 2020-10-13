@@ -3,21 +3,22 @@ import UIKit
 class LoginViewController: UIViewController {
     var output: LoginViewOutput?
 
-    @IBOutlet weak var welcomeImageView: UIImageView!
+    @IBOutlet private weak var welcomeImageView: UIImageView!
 
-    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet private weak var nameTextField: UITextField!
 
-    @IBOutlet weak var balanceTextField: UITextField!
+    @IBOutlet private weak var balanceTextField: UITextField!
 
-    @IBOutlet weak var checkBoxImageView: UIImageView!
+    @IBOutlet private weak var checkBoxImageView: UIImageView!
 
-    @IBOutlet weak var checkBoxDescriptionLabel: UILabel!
+    @IBOutlet private weak var checkBoxDescriptionLabel: UILabel!
 
-    @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet private weak var registerButton: UIButton!
 
     private func setupNameTextField() {
         nameTextField.attributedPlaceholder = NSAttributedString(string: Constants.namePlaceholderText,
                                                                  attributes: [NSAttributedString.Key.foregroundColor: Constants.NameTextField.placeholderColor])
+
         nameTextField.clipsToBounds = Constants.NameTextField.clipsToBounds
         nameTextField.layer.cornerRadius = Constants.NameTextField.cornerRadius
         nameTextField.layer.borderWidth = Constants.NameTextField.borderWidth
@@ -31,6 +32,7 @@ class LoginViewController: UIViewController {
     private func setupBalanceTextField() {
         balanceTextField.attributedPlaceholder = NSAttributedString(string: Constants.balancePlaceholderText,
                                                                     attributes: [NSAttributedString.Key.foregroundColor: Constants.BalanceTextField.placeholderColor])
+
         balanceTextField.clipsToBounds = Constants.BalanceTextField.clipsToBounds
         balanceTextField.layer.cornerRadius = Constants.BalanceTextField.cornerRadius
         balanceTextField.layer.borderWidth = Constants.BalanceTextField.borderWidth
@@ -44,7 +46,7 @@ class LoginViewController: UIViewController {
     private func setupCheckBoxImageView() {
         let boxTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapCheckBox))
 
-        boxTapRecognizer.numberOfTapsRequired = Constants.CheckBoxImageView.TapRecognizer.tapsRequired
+        boxTapRecognizer.numberOfTapsRequired = Constants.CheckBoxImageView.recognizerTapsRequired
         checkBoxImageView.addGestureRecognizer(boxTapRecognizer)
         checkBoxImageView.isUserInteractionEnabled = Constants.CheckBoxImageView.isUserInteractionEnabled
     }
@@ -106,14 +108,15 @@ class LoginViewController: UIViewController {
         output?.didFinishBalanceEditing()
     }
 
-    @IBAction func didTapRegisterButton(_ sender: UIButton) {
+    @IBAction private func didTapRegisterButton(_ sender: UIButton) {
         output?.didTapRegisterButton(fullName: nameTextField.text, balance: balanceTextField.text)
     }
 }
 
 extension LoginViewController: LoginViewInput {
     func setCheckBoxImage(isChecked: Bool) {
-        let checkBoxImageName: String = isChecked ? Constants.checkBoxIsCheckedImageName : Constants.checkBoxNotCheckedImageName
+        let checkBoxImageName: String = isChecked ?
+            Constants.checkBoxIsCheckedImageName : Constants.checkBoxNotCheckedImageName
 
         checkBoxImageView.image = UIImage(named: checkBoxImageName)
     }
@@ -153,9 +156,20 @@ extension LoginViewController: LoginViewInput {
 
 extension LoginViewController {
     private struct Constants {
-        static let defaultStyleEntriesColor: UIColor = UIColor(red: 250 / 255, green: 250 / 255, blue: 250 / 255, alpha: 1)
-        static let editingStyleEntriesBorderColor: UIColor = UIColor(red: 113 / 255, green: 101 / 255, blue: 227 / 255, alpha: 1)
-        static let editingStyleEntriesColor: UIColor = UIColor(red: 113 / 255, green: 101 / 255, blue: 227 / 255, alpha: 0.2)
+        static let defaultStyleEntriesColor: UIColor = UIColor(red: 250 / 255,
+                                                               green: 250 / 255,
+                                                               blue: 250 / 255,
+                                                               alpha: 1)
+
+        static let editingStyleEntriesBorderColor: UIColor = UIColor(red: 113 / 255,
+                                                                     green: 101 / 255,
+                                                                     blue: 227 / 255,
+                                                                     alpha: 1)
+
+        static let editingStyleEntriesColor: UIColor = UIColor(red: 113 / 255,
+                                                               green: 101 / 255,
+                                                               blue: 227 / 255,
+                                                               alpha: 0.2)
 
         struct NameTextField {
             static let clipsToBounds: Bool = true
@@ -180,9 +194,7 @@ extension LoginViewController {
         }
 
         struct CheckBoxImageView {
-            struct TapRecognizer {
-                static let tapsRequired: Int = 1
-            }
+            static let recognizerTapsRequired: Int = 1
 
             static let isUserInteractionEnabled: Bool = true
         }

@@ -1,10 +1,10 @@
 import UIKit
 
 class CardView: EmbeddedView, CardViewType {
-    @IBOutlet weak var upperTextLeft: UILabel!
-    @IBOutlet weak var upperTextRight: UILabel!
-    @IBOutlet weak var numberLeft: UILabel!
-    @IBOutlet weak var numberRight: UILabel!
+    @IBOutlet private weak var upperTextLeft: UILabel!
+    @IBOutlet private weak var upperTextRight: UILabel!
+    @IBOutlet private weak var numberLeft: UILabel!
+    @IBOutlet private weak var numberRight: UILabel!
 
     var presenter: CardViewType!
 
