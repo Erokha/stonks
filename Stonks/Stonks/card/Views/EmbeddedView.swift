@@ -29,14 +29,7 @@ class EmbeddedView: UIView, NibLoadableView {
         view = loadViewFromNib()
         view.frame = bounds
 
-        setupConstraints()
-
         addSubview(view)
-    }
-
-    func setupConstraints() {
-        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        view.translatesAutoresizingMaskIntoConstraints = true
     }
 
     private func loadViewFromNib() -> UIView {

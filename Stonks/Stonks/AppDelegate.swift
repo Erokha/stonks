@@ -22,7 +22,7 @@ extension AppDelegate {
         if isAuthorized {
             return UIViewController()
         } else {
-            let context = LoginContext(isChecked: true)
+            let context = LoginContext(isChecked: false)
             let container = LoginContainer.assemble(with: context)
 
             return container.viewController

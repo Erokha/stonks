@@ -1,6 +1,7 @@
 import Foundation
+import Charts
 
-class StockDetailPresenter: StockDetailPresenterType {
+class StockDetailPresenter {
 
     weak var view: StockDetailViewInput?
     var router: StockDetailRouterInput?
@@ -11,18 +12,12 @@ class StockDetailPresenter: StockDetailPresenterType {
         self.model = model
     }
 
-    func fetchData() -> [(Date, Double)] {
-        // запрос данных
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeStyle = .short
+    private func fetchData() -> [(Double, Double)] {
+        var dataset: [(Double, Double)] = []
 
-        var dataset: [(Date, Double)] = []
-        var time = Date()
-
-        for _ in 0..<20 {
+        for i in 0..<20 {
             let value = Double.random(in: 0.0 ... 50.0)
-            dataset.append((time, value))
-            time.addTimeInterval(60)
+            dataset.append((Double(i), value))
         }
 
         return dataset
@@ -30,5 +25,16 @@ class StockDetailPresenter: StockDetailPresenterType {
 }
 
 extension StockDetailPresenter: StockDetailViewOutput {
+    func didLoadView() {
+        model.quotes = fetchData()
 
+        guard let chartData = model.quotes?.map({(tuple: (Double, Double)) -> ChartDataEntry in
+            return ChartDataEntry(x: tuple.0, y: tuple.1)
+        }) else {
+            print("Data not fetched")
+            return
+        }
+
+        view?.setChartData(with: chartData)
+    }
 }
