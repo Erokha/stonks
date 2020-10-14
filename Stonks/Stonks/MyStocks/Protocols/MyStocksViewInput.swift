@@ -1,3 +1,4 @@
-protocol MyStocksViewInput {
+
+protocol MyStocksViewInput: class {
     
 }

@@ -4,11 +4,23 @@ class ContainerViewController: UIViewController {
     @IBOutlet weak var myView: CardView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        myView.showUpperTextLeft(text: "Avaliable balance")
-        myView.showUpperTextRight(text: "Stocks total")
-        myView.showNumberLeft(num: 2700)
-        myView.showNumberRight(num: 1400)
+        setupUI()
+    }
+    
+    private func setupUI() {
+        setupLeftSideCard()
+        setupRightSideCard()
         setCorners()
+    }
+    
+    private func setupLeftSideCard() {
+        myView.showUpperTextLeft(text: "Avaliable balance")
+        myView.showNumberLeft(num: 2700)
+    }
+    
+    private func setupRightSideCard() {
+        myView.showUpperTextRight(text: "Stocks total")
+        myView.showNumberRight(num: 1400)
     }
     
     private func setCorners() {
