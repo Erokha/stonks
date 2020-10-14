@@ -2,15 +2,12 @@ import UIKit
 import Charts
 
 class MePortfolioPresenter {
-    unowned let view: MePortfolioViewController
+    weak var view: MePortfolioInput?
     private var stocks: [Stock] = []
-    private var chartDataSet: PieChartDataSet?
-    private var numberOfStocksInChart: Int = 5
+    private var numberOfStocksInChart: Int = 0
+    var router: MePortfolioRouterInput?
     
-    required init(view: MePortfolioViewController, stocks: [Stock]) {
-        self.view = view
-        self.stocks = stocks
-        setNumbersInChart(number: stocks.count)
+    required init() {
     }
     
     private func setNumbersInChart(number: Int) {
@@ -25,10 +22,10 @@ class MePortfolioPresenter {
         for stock in stocks {
             stocksWithPrices[stock.stockSymbol] = Float(stock.numOfStocks) * stock.stockprice
         }
-        let sortedDictinary = stocksWithPrices.sorted { (first: (key: String, value: Float), second: (key: String, value: Float)) -> Bool in
+        let sortedStocksByPrice = stocksWithPrices.sorted { (first: (key: String, value: Float), second: (key: String, value: Float)) -> Bool in
             return first.value > second.value
         }
-        return sortedDictinary
+        return sortedStocksByPrice
     }
     
     private func createDataEntry() -> [PieChartDataEntry] {
@@ -57,13 +54,21 @@ extension MePortfolioPresenter {
 }
 
 extension MePortfolioPresenter: MePortfolioOutput {
+    func didLoadView() {
+        //TODO: loading stocks from Core Data
+    }
+    
     func createChartData() {
         let dataEntries = createDataEntry()
-        let colors = generateColors(numberOfColors: dataEntries.count)
-        let dataSet = PieChartDataSet(entries: dataEntries, label: "")
-        dataSet.colors = colors
-        let pieChartData = PieChartData(dataSet: dataSet)
-        self.view.drawDiagramm(pieChartData: pieChartData)
+        if dataEntries.count > 0 {
+            let colors = generateColors(numberOfColors: dataEntries.count)
+            let dataSet = PieChartDataSet(entries: dataEntries, label: "")
+            dataSet.colors = colors
+            let pieChartData = PieChartData(dataSet: dataSet)
+            self.view?.drawDiagramm(pieChartData: pieChartData)
+        } else {
+            self.view?.noDataMessage(message: "You don't have any stocks:(")
+        }
     }
 }
 

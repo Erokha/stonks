@@ -6,6 +6,7 @@ class MePortfolioViewController: UIViewController {
     @IBOutlet weak var chartView: UIView!
     @IBOutlet weak var stocksPieChartView: PieChartView!
     @IBOutlet weak var historyButton: UIButton!
+    @IBOutlet weak var noDataLabel: UILabel!
     
     var presenter: MePortfolioOutput!
     
@@ -14,10 +15,12 @@ class MePortfolioViewController: UIViewController {
         super.viewDidLoad()
         chartSettings()
         configureUi()
+        presenter.didLoadView()
         presenter.createChartData()
     }
     
     private func configureUi() {
+        self.noDataLabel.text = ""
         self.chartView.layer.cornerRadius = 15
         chartView.layer.shadowColor = UIColor.black.cgColor
         self.chartView.layer.shadowRadius = 5
@@ -38,22 +41,29 @@ class MePortfolioViewController: UIViewController {
         self.stocksPieChartView.legend.formSize = 15
         self.stocksPieChartView.legend.form = .circle
         self.stocksPieChartView.legend.horizontalAlignment = .center
+        self.stocksPieChartView.noDataText = ""
     }
     
     
     @IBAction func didHistoryButtonTapped(_ sender: UIButton) {
-        print("Hello")
+
     }
 }
 
 
 extension MePortfolioViewController: MePortfolioInput {
+    func noDataMessage(message: String) {
+        self.noDataLabel.text = message
+    }
+    
     func drawDiagramm(pieChartData: PieChartData) {
         self.stocksPieChartView.data = pieChartData
     }
 }
 
- NSUIColor {
+
+
+extension  NSUIColor {
     convenience init(red: Int, green: Int, blue: Int) {
         self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
     }

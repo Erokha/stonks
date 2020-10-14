@@ -41,7 +41,18 @@
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rxO-qE-uib" customClass="PieChartView" customModule="Charts">
                                                 <rect key="frame" x="8" y="8" width="358" height="319"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cW-PD-YUg">
+                                                        <rect key="frame" x="179" y="159.5" width="0.0" height="0.0"/>
+                                                        <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="17"/>
+                                                        <color key="textColor" red="0.4431372549" green="0.39607843139999999" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </label>
+                                                </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="1cW-PD-YUg" firstAttribute="centerY" secondItem="rxO-qE-uib" secondAttribute="centerY" id="1hS-EU-5x2"/>
+                                                    <constraint firstItem="1cW-PD-YUg" firstAttribute="centerX" secondItem="rxO-qE-uib" secondAttribute="centerX" id="rbM-5q-u1a"/>
+                                                </constraints>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -113,6 +124,7 @@
                     <connections>
                         <outlet property="chartView" destination="Qol-5e-hny" id="EyF-wJ-2wb"/>
                         <outlet property="historyButton" destination="a9u-ma-hkK" id="X86-2k-bAx"/>
+                        <outlet property="noDataLabel" destination="1cW-PD-YUg" id="QHm-lu-6fZ"/>
                         <outlet property="stocksPieChartView" destination="rxO-qE-uib" id="KVO-IM-KmC"/>
                     </connections>
                 </viewController>
