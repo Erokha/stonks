@@ -1,17 +1,16 @@
 import UIKit
 
-
 class MyStocksViewController: UIViewController, MyStocksViewInput {
 
-    @IBOutlet weak var viewContainer: UIView!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var viewContainer: UIView!
+    @IBOutlet private weak var tableView: UITableView!
     var output: MyStocksViewOutput?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTalbeView()
     }
-    
+
     private func configureTalbeView() {
         setShadow()
         self.tableView.register(UINib(nibName: "StockTableViewCell", bundle: nil), forCellReuseIdentifier: StockTableViewCell.reuseIdentifier)
@@ -19,7 +18,7 @@ class MyStocksViewController: UIViewController, MyStocksViewInput {
         self.tableView.delegate = self
         self.tableView.dataSource = self
     }
-    
+
     private func setShadow() {
         self.viewContainer.layer.shadowColor = UIColor.black.cgColor
         self.viewContainer.layer.shadowOpacity = 0.6
@@ -33,15 +32,17 @@ extension MyStocksViewController: UITableViewDelegate, UITableViewDataSource {
 
         return self.output?.numberOfItems() ?? 0
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: StockTableViewCell.reuseIdentifier, for: indexPath) as? StockTableViewCell else { return UITableViewCell()}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: StockTableViewCell.reuseIdentifier, for: indexPath) as? StockTableViewCell else {
+            return UITableViewCell()
+        }
         guard let viewModel = output?.stock(at: indexPath) else { return UITableViewCell() }
         cell.setData(data: viewModel)
 
         return cell
-        
+
     }
-    
+
 }

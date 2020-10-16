@@ -1,4 +1,3 @@
-
 protocol MyStocksViewInput: class {
-    
+
 }
