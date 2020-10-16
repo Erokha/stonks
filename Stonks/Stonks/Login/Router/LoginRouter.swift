@@ -6,7 +6,7 @@ class LoginRouter {
 
 extension LoginRouter: LoginRouterInput {
     func showMainScreen() {
-        let stockDetailVC: UIViewController = StockDetailContainer.assemble(with: StockDetailContext()).viewController
+        let stockDetailVC: UIViewController = StockDetailContainer.assemble(with: StockDetailContext(name: "AAPL")).viewController
 
         let navigationVC = UINavigationController(rootViewController: stockDetailVC)
         navigationVC.modalPresentationStyle = .fullScreen

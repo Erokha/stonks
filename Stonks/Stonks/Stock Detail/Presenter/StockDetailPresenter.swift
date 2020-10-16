@@ -36,5 +36,11 @@ extension StockDetailPresenter: StockDetailViewOutput {
         }
 
         view?.setChartData(with: chartData)
+
+        guard let stockName = model.name else {
+            return
+        }
+
+        view?.setNavigationBarTitle(with: stockName)
     }
 }

@@ -11,7 +11,7 @@ class StockDetailContainer {
             fatalError("StockDetailContainer: view controller must be type StockDetailViewController")
         }
 
-        let model = StockDetailData(quotes: nil)
+        let model = StockDetailData(quotes: nil, name: context.name, userOwnAmount: nil)
         let presenter = StockDetailPresenter(model: model)
         let router = StockDetailRouter()
 
@@ -32,5 +32,5 @@ class StockDetailContainer {
 }
 
 struct StockDetailContext {
-
+    var name: String?
 }

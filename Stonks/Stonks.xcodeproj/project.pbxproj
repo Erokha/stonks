@@ -21,7 +21,6 @@
 		31905F8425361C37000D71A7 /* StockDetailContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31905F8325361C37000D71A7 /* StockDetailContainer.swift */; };
 		31905F8825361C7D000D71A7 /* StockDetailProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31905F8725361C7D000D71A7 /* StockDetailProtocols.swift */; };
 		31905F8C25361FD9000D71A7 /* StockDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31905F8B25361FD9000D71A7 /* StockDetailRouter.swift */; };
-		319B305E252DA90A005837ED /* DMSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 319B3054252DA640005837ED /* DMSans-Medium.ttf */; };
 		31BDC088252A1C5B00F56ADD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDC087252A1C5B00F56ADD /* AppDelegate.swift */; };
 		31BDC08C252A1C5B00F56ADD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDC08B252A1C5B00F56ADD /* LoginViewController.swift */; };
 		31BDC091252A1C5D00F56ADD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31BDC090252A1C5D00F56ADD /* Assets.xcassets */; };
@@ -374,7 +373,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				319B305E252DA90A005837ED /* DMSans-Medium.ttf in Resources */,
 				31BDC091252A1C5D00F56ADD /* Assets.xcassets in Resources */,
 				31BDC0A4252A21A400F56ADD /* Launch.xib in Resources */,
 				0DF0172F252F5BD2003FF71B /* CardView.xib in Resources */,
