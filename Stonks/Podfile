@@ -1,0 +1,3 @@
+target 'Stonks' do
+    pod 'SwiftLint'
+end
