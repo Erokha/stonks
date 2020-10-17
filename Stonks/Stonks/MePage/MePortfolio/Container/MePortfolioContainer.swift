@@ -10,11 +10,12 @@ import UIKit
 class MePortfolioContainer {
     let viewController: MePortfolioViewController
     private(set) weak var router: MePortfolioRouter?
+    
     class func assemble(with context: MePortfolioContext) -> MePortfolioContainer {
         let storyboard = UIStoryboard(name: "Me", bundle: nil)
         guard let vc = storyboard.instantiateViewController(withIdentifier: "MePortfolio") as?
                 MePortfolioViewController else {
-            fatalError("Login Container: viewController must be type MePortfolioViewController")
+            fatalError("MePorfolioContainer: viewController must be type MePortfolioViewController")
         }
         
         let presenter = MePortfolioPresenter()

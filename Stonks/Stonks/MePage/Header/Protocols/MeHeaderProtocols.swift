@@ -1,8 +1,11 @@
-import Foundation
+import UIKit
 
-protocol HeaderViewInput {
+protocol MeHeaderInput: class {
+    func setUserData(name: String, lastname: String, image: UIImage)
+    func setUserSpentInfo(spent: Int)
+    func setUserCurrentBalance(currentBalance: Int)
 }
 
-protocol HeaderViewOutput {
-    
+protocol MeHeaderOutput: class {
+    func didLoadView()
 }

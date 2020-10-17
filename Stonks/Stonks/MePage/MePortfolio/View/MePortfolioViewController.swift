@@ -1,66 +1,107 @@
 import UIKit
 import Charts
 
+enum Sections: Int, CaseIterable {
+    case chart = 0, historyButton
+}
 
 class MePortfolioViewController: UIViewController {
     @IBOutlet weak var chartView: UIView!
     @IBOutlet weak var stocksPieChartView: PieChartView!
     @IBOutlet weak var historyButton: UIButton!
     @IBOutlet weak var noDataLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    
+    weak var embeddedViewController: MeHeaderViewController!
     
     var presenter: MePortfolioOutput!
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        chartSettings()
-        configureUi()
         presenter.didLoadView()
-        presenter.createChartData()
+        configureTableView()
     }
     
-    private func configureUi() {
-        self.noDataLabel.text = ""
-        self.chartView.layer.cornerRadius = 15
-        chartView.layer.shadowColor = UIColor.black.cgColor
-        self.chartView.layer.shadowRadius = 5
-        self.chartView.layer.shadowOffset = .zero
-        self.chartView.layer.shadowOpacity = 0.6
-        self.historyButton.layer.cornerRadius = 15
-        self.historyButton.layer.shadowRadius = 5
-        self.historyButton.layer.shadowOffset = .zero
-        self.historyButton.layer.shadowOpacity = 0.6
+    private func configureTableView() {
+        tableView.tableFooterView = UIView(frame: .zero)
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        let chartNib = UINib(nibName: "ChartTableViewCell", bundle: nil)
+        tableView.register(chartNib, forCellReuseIdentifier: ChartTableViewCell.reuseIdentifier)
+        let historyNib = UINib(nibName: "HistoryButtonTableViewCell", bundle: nil)
+        tableView.register(historyNib, forCellReuseIdentifier: HistoryButtonTableViewCell.reuseIdentifier)
     }
-    
-    private func chartSettings() {
-        self.stocksPieChartView.chartDescription?.enabled = false
-        self.stocksPieChartView.drawHoleEnabled = false
-        self.stocksPieChartView.rotationAngle = 0
-        self.stocksPieChartView.isUserInteractionEnabled = false
-        self.stocksPieChartView.drawEntryLabelsEnabled = false
-        self.stocksPieChartView.legend.formSize = 15
-        self.stocksPieChartView.legend.form = .circle
-        self.stocksPieChartView.legend.horizontalAlignment = .center
-        self.stocksPieChartView.noDataText = ""
-    }
-    
-    
-    @IBAction func didHistoryButtonTapped(_ sender: UIButton) {
+}
 
+
+extension MePortfolioViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc =  segue.destination as? MeHeaderViewController,
+            segue.identifier == "headerViewSegue" {
+            let presenter = MeHeaderPresenter()
+            vc.presenter = presenter
+            presenter.view = vc
+            self.embeddedViewController = vc
+        }
+    }
+}
+
+extension MePortfolioViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return Sections.allCases.count
+    }
+
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return MePortfolioViewController.Constants.numberOfRowsInSection
+    }
+
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch Sections(rawValue: indexPath.section) {
+        case .chart:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: ChartTableViewCell.reuseIdentifier, for: indexPath) as? ChartTableViewCell else {
+                return UITableViewCell()
+            }
+            if let chartData = presenter.createChartData() {
+                cell.configureChartView(pieChartData: chartData)
+            } else {
+                cell.noDataMessage(message: presenter.noDataMessage())
+            }
+            return cell
+        case .historyButton:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: HistoryButtonTableViewCell.reuseIdentifier, for: indexPath) as? HistoryButtonTableViewCell else { return UITableViewCell() }
+            return cell
+        default:
+            fatalError("MePortfolioViewController/cellForRowAtindexPath.Section: \(indexPath.section)\n Row: \(indexPath.row)")
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch Sections(rawValue: indexPath.section) {
+        case .chart:
+            return CGFloat(MePortfolioViewController.Constants.chartCellHeight)
+        case .historyButton:
+            return CGFloat(MePortfolioViewController.Constants.buttonCellHeigth)
+        default:
+            return 0
+        }
     }
 }
 
 
 extension MePortfolioViewController: MePortfolioInput {
-    func noDataMessage(message: String) {
-        self.noDataLabel.text = message
-    }
-    
-    func drawDiagramm(pieChartData: PieChartData) {
-        self.stocksPieChartView.data = pieChartData
-    }
+
 }
 
+extension MePortfolioViewController {
+    struct Constants {
+        static let numberOfRowsInSection = 1
+        static let chartCellHeight = 400
+        static let buttonCellHeigth = 95
+    }
+}
 
 
 extension  NSUIColor {

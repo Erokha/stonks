@@ -3,9 +3,9 @@ import Charts
 
 class MePortfolioPresenter {
     weak var view: MePortfolioInput?
+    var router: MePortfolioRouterInput?
     private var stocks: [Stock] = []
     private var numberOfStocksInChart: Int = 0
-    var router: MePortfolioRouterInput?
     
     required init() {
     }
@@ -50,24 +50,38 @@ extension MePortfolioPresenter {
     private struct Constants {
         static let chartColors: [NSUIColor] = ChartColors.allCases.map{ NSUIColor(hex: $0.rawValue) }
         static let maxStocksInChart = 5
+        static let noDataMessage = "You don't have any stocks:("
     }
 }
 
 extension MePortfolioPresenter: MePortfolioOutput {
-    func didLoadView() {
-        //TODO: loading stocks from Core Data
+    func noDataMessage() -> String {
+        return MePortfolioPresenter.Constants.noDataMessage
     }
     
-    func createChartData() {
+    func didLoadView() {
+        //TODO: loading stocks from Core Data
+//        let stock1 = Stock(stockSymbol: "AAPL", stockprice: 2000, numOfStocks: 2)
+//        let stock2 = Stock(stockSymbol: "ABC", stockprice: 300, numOfStocks: 4)
+//        let stock3 = Stock(stockSymbol: "GGL", stockprice: 1000, numOfStocks: 1)
+//        let stock4 = Stock(stockSymbol: "LENOVO", stockprice: 2000, numOfStocks: 4)
+//        self.stocks.append(stock1)
+//        self.stocks.append(stock2)
+//        self.stocks.append(stock3)
+//        self.stocks.append(stock4)
+//        setNumbersInChart(number: stocks.count)
+    }
+    
+    func createChartData() -> PieChartData? {
         let dataEntries = createDataEntry()
         if dataEntries.count > 0 {
             let colors = generateColors(numberOfColors: dataEntries.count)
             let dataSet = PieChartDataSet(entries: dataEntries, label: "")
             dataSet.colors = colors
             let pieChartData = PieChartData(dataSet: dataSet)
-            self.view?.drawDiagramm(pieChartData: pieChartData)
+            return pieChartData
         } else {
-            self.view?.noDataMessage(message: "You don't have any stocks:(")
+            return nil
         }
     }
 }

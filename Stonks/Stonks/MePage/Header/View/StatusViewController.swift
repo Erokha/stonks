@@ -14,13 +14,19 @@ class StatusViewController: UIViewController {
         super.viewDidLoad()
         cardView.showUpperTextLeft(text: "Spent")
         cardView.showUpperTextRight(text: "CurrentBalance")
-        cardView.showNumberLeft(num: 0)
-        cardView.showNumberRight(num: 0)
         setCorners()
     }
 
     private func setCorners() {
         self.cardView.clipsToBounds = true
         self.cardView.layer.cornerRadius = 20
+    }
+    
+    func setTotalSpent(spent: Int) {
+        cardView.showNumberLeft(num: spent)
+    }
+    
+    func setCurrentBalance(currentBalance: Int) {
+        cardView.showNumberRight(num: currentBalance)
     }
 }

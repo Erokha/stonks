@@ -2,13 +2,13 @@ import Foundation
 import Charts
 
 protocol MePortfolioInput: class {
-    func drawDiagramm(pieChartData: PieChartData)
-    func noDataMessage(message: String)
+    
 }
 
 protocol MePortfolioOutput: class {
-    func createChartData()
+    func createChartData() -> PieChartData?
     func didLoadView()
+    func noDataMessage() -> String
 }
 
 protocol MePortfolioRouterInput: class {
