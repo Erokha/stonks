@@ -10,6 +10,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window = UIWindow(frame: UIScreen.main.bounds)
 
+        //let auth = AuthorizationService()
+
         self.window?.rootViewController = getInitalViewController(isAuthorized: false)
         self.window?.makeKeyAndVisible()
 
