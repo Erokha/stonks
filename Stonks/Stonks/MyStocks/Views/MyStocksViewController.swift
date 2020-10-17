@@ -1,9 +1,10 @@
 import UIKit
 
-class MyStocksViewController: UIViewController, MyStocksViewInput {
+class MyStocksViewController: UIViewController {
 
     @IBOutlet private weak var viewContainer: UIView!
     @IBOutlet private weak var tableView: UITableView!
+    weak var embeddedViewController: ContainerViewController!
     var output: MyStocksViewOutput?
 
     override func viewDidLoad() {
@@ -43,6 +44,24 @@ extension MyStocksViewController: UITableViewDelegate, UITableViewDataSource {
 
         return cell
 
+    }
+
+}
+
+extension MyStocksViewController: MyStocksViewInput {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if let vc = segue.destination as? ContainerViewController,
+                        segue.identifier == "EmbedSegue" {
+                self.embeddedViewController = vc
+            }
+        }
+
+    func setAvaliableBalance(balance: Int) {
+        self.embeddedViewController.showNumberLeft(num: balance)
+    }
+
+    func setStocksTotal(total: Int) {
+        self.embeddedViewController.showNumberRight(num: total)
     }
 
 }
