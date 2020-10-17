@@ -12,7 +12,8 @@ class LoginContainer {
             fatalError("LoginContainer: viewController must be type LoginViewController")
         }
 
-        let model = LoginData(fullName: nil,
+        let model = LoginData(name: nil,
+                              surname: nil,
                               balance: nil,
                               isChecked: context.isChecked)
 
