@@ -8,8 +8,8 @@
 import UIKit
 
 class StatusViewController: UIViewController {
-    @IBOutlet var cardView: CardView!
-    
+    @IBOutlet private var cardView: CardView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         cardView.showUpperTextLeft(text: "Spent")
@@ -21,11 +21,11 @@ class StatusViewController: UIViewController {
         self.cardView.clipsToBounds = true
         self.cardView.layer.cornerRadius = 20
     }
-    
+
     func setTotalSpent(spent: Int) {
         cardView.showNumberLeft(num: spent)
     }
-    
+
     func setCurrentBalance(currentBalance: Int) {
         cardView.showNumberRight(num: currentBalance)
     }

@@ -5,17 +5,12 @@ class MeHeaderPresenter: MeHeaderOutput {
     var userName: String?
     var userLastName: String?
     var userImage: String?
-    
+
     required init() {
     }
-    
-    func didLoadView() {
-        // TODO: Load user data from core data
-        self.view?.setUserData(name: "Sasha", lastname: "Zakharov", image: UIImage(named: "ZUEV")!)
-        self.view?.setUserCurrentBalance(currentBalance: 1000)
-        self.view?.setUserSpentInfo(spent: 2000)
-    }
-    
 
+    func didLoadView() {
+        // Here we will load data from UserDefaults
+    }
 
 }

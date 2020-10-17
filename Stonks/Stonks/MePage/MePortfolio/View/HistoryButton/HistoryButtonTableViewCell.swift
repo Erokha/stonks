@@ -1,8 +1,8 @@
 import UIKit
 
 class HistoryButtonTableViewCell: UITableViewCell {
-    @IBOutlet weak var historyButton: UIButton!
-    
+    @IBOutlet private weak var historyButton: UIButton!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         configureButton()
@@ -11,7 +11,7 @@ class HistoryButtonTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    
+
     private func configureButton() {
         historyButton.setTitle(HistoryButtonTableViewCell.Constants.buttonText, for: .normal)
         historyButton.layer.cornerRadius = CGFloat(HistoryButtonTableViewCell.Constants.viewRadius)
@@ -20,9 +20,8 @@ class HistoryButtonTableViewCell: UITableViewCell {
         historyButton.layer.shadowOffset = .zero
         historyButton.layer.shadowOpacity = Float(HistoryButtonTableViewCell.Constants.shadowOpacity)
     }
-    
-    @IBAction func didButtonTapped(_ sender: Any) {
-        print("Hello")
+
+    @IBAction private func didButtonTapped(_ sender: Any) {
     }
 }
 

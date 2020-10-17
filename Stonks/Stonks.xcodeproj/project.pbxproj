@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -22,13 +22,13 @@
 		13417A0F25323E9D0052D1A9 /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13417A0E25323E9D0052D1A9 /* StatusViewController.swift */; };
 		13531273253B4C6600F77A91 /* HistoryButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13531271253B4C6600F77A91 /* HistoryButtonTableViewCell.swift */; };
 		13531274253B4C6600F77A91 /* HistoryButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13531272253B4C6600F77A91 /* HistoryButtonTableViewCell.xib */; };
+		1353129D253B892300F77A91 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1353129C253B892300F77A91 /* Stock.swift */; };
 		13BBF5EF253A07CF00DA0C32 /* MeHeaderContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BBF5EE253A07CF00DA0C32 /* MeHeaderContainer.swift */; };
 		13BBF5FE253AD3F400DA0C32 /* ChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BBF5FC253AD3F400DA0C32 /* ChartTableViewCell.swift */; };
 		13BBF5FF253AD3F400DA0C32 /* ChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13BBF5FD253AD3F400DA0C32 /* ChartTableViewCell.xib */; };
 		13F28AA125348F920004E864 /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13F28AA025348F910004E864 /* CardView.xib */; };
 		13F28AA6253490950004E864 /* MeHeaderProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F28AA5253490950004E864 /* MeHeaderProtocols.swift */; };
 		13F28AAC2534913F0004E864 /* MePortfolioProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F28AAB2534913F0004E864 /* MePortfolioProtocols.swift */; };
-		13F28ABE2534934B0004E864 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F28ABD2534934B0004E864 /* Stock.swift */; };
 		13F28AC22534936E0004E864 /* MePortfolioPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F28AC12534936E0004E864 /* MePortfolioPresenter.swift */; };
 		13F28AC6253499550004E864 /* MePortfolioContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F28AC5253499550004E864 /* MePortfolioContainer.swift */; };
 		319B305E252DA90A005837ED /* DMSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 319B3054252DA640005837ED /* DMSans-Medium.ttf */; };
@@ -62,13 +62,13 @@
 		13417A0E25323E9D0052D1A9 /* StatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
 		13531271253B4C6600F77A91 /* HistoryButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryButtonTableViewCell.swift; sourceTree = "<group>"; };
 		13531272253B4C6600F77A91 /* HistoryButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryButtonTableViewCell.xib; sourceTree = "<group>"; };
+		1353129C253B892300F77A91 /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		13BBF5EE253A07CF00DA0C32 /* MeHeaderContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHeaderContainer.swift; sourceTree = "<group>"; };
 		13BBF5FC253AD3F400DA0C32 /* ChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTableViewCell.swift; sourceTree = "<group>"; };
 		13BBF5FD253AD3F400DA0C32 /* ChartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartTableViewCell.xib; sourceTree = "<group>"; };
 		13F28AA025348F910004E864 /* CardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
 		13F28AA5253490950004E864 /* MeHeaderProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHeaderProtocols.swift; sourceTree = "<group>"; };
 		13F28AAB2534913F0004E864 /* MePortfolioProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MePortfolioProtocols.swift; sourceTree = "<group>"; };
-		13F28ABD2534934B0004E864 /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		13F28AC12534936E0004E864 /* MePortfolioPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MePortfolioPresenter.swift; sourceTree = "<group>"; };
 		13F28AC5253499550004E864 /* MePortfolioContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MePortfolioContainer.swift; sourceTree = "<group>"; };
 		315BE130252F332F0074377B /* DMSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Bold.ttf"; sourceTree = "<group>"; };
@@ -179,7 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				134179E2253227A90052D1A9 /* ChartColor.swift */,
-				13F28ABD2534934B0004E864 /* Stock.swift */,
+				1353129C253B892300F77A91 /* Stock.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -284,6 +284,8 @@
 				13F28AC5253499550004E864 /* MePortfolioContainer.swift */,
 			);
 			path = Container;
+			sourceTree = "<group>";
+		};
 		315BE133252F33810074377B /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -405,13 +407,6 @@
 				9C2B6995253363680042A932 /* LoginRouter.swift */,
 			);
 			path = Router;
-			sourceTree = "<group>";
-		};
-		FF2A7488E09B648E661D6BE6 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -549,16 +544,15 @@
 				0DF01731252F5BD2003FF71B /* EmbeddedView.swift in Sources */,
 				31BDC088252A1C5B00F56ADD /* AppDelegate.swift in Sources */,
 				13F28AC22534936E0004E864 /* MePortfolioPresenter.swift in Sources */,
-				31BDC0B2252A2DA200F56ADD /* LoginPresenterType.swift in Sources */,
 				0DF01732252F5BD2003FF71B /* CardViewType.swift in Sources */,
 				13BBF5EF253A07CF00DA0C32 /* MeHeaderContainer.swift in Sources */,
 				131D5AFD25378F1C00F32055 /* MePortfolioRouter.swift in Sources */,
 				0DF01733252F5BD2003FF71B /* NibLoadedViewType.swift in Sources */,
 				9C2B6984253353D90042A932 /* LoginProtocols.swift in Sources */,
 				0DF0172E252F5BD2003FF71B /* CardViewPresenter.swift in Sources */,
-				13F28ABE2534934B0004E864 /* Stock.swift in Sources */,
 				0DF01730252F5BD2003FF71B /* CardView.swift in Sources */,
 				13417A0F25323E9D0052D1A9 /* StatusViewController.swift in Sources */,
+				1353129D253B892300F77A91 /* Stock.swift in Sources */,
 				9C2B698F25335B9C0042A932 /* LoginContainer.swift in Sources */,
 				0DF01730252F5BD2003FF71B /* CardView.swift in Sources */,
 				9C2B6996253363680042A932 /* LoginRouter.swift in Sources */,

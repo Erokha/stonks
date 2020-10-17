@@ -1,16 +1,15 @@
 import UIKit
 
 class MeHeaderViewController: UIViewController {
-    @IBOutlet weak var headerView: UIView!
-    @IBOutlet weak var profileImage: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var lastNameLabel: UILabel!
-    @IBOutlet weak var cardView: UIView!
+    @IBOutlet private weak var headerView: UIView!
+    @IBOutlet private weak var profileImage: UIImageView!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var lastNameLabel: UILabel!
+    @IBOutlet private weak var cardView: UIView!
     weak var statusViewController: StatusViewController!
-    
-    
+
     var presenter: MeHeaderOutput!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.didLoadView()
@@ -18,14 +17,14 @@ class MeHeaderViewController: UIViewController {
         configureUi()
         setShadow()
     }
-    
+
     private func setShadow() {
         cardView.layer.shadowColor = UIColor.black.cgColor
         cardView.layer.shadowOpacity = Float(MeHeaderViewController.Constants.shadowOpacity)
         cardView.layer.shadowOffset = .zero
         cardView.layer.shadowRadius = CGFloat(MeHeaderViewController.Constants.shadowRadius)
     }
-    
+
     private func setRoundCorners() {
         headerView.layer.cornerRadius = CGFloat(MeHeaderViewController.Constants.headerRadius)
         if #available(iOS 11.0, *) {
@@ -34,8 +33,8 @@ class MeHeaderViewController: UIViewController {
             // Fallback on earlier versions
         }
     }
-    
-    private func configureUi(){
+
+    private func configureUi() {
         headerView.layer.shadowPath = UIBezierPath(rect: headerView.bounds).cgPath
         headerView.layer.shadowRadius = CGFloat(MeHeaderViewController.Constants.shadowRadius)
         headerView.layer.shadowOpacity = Float(MeHeaderViewController.Constants.shadowOpacity)
@@ -47,11 +46,11 @@ extension MeHeaderViewController: MeHeaderInput {
     func setUserSpentInfo(spent: Int) {
         self.statusViewController.setTotalSpent(spent: spent)
     }
-    
+
     func setUserCurrentBalance(currentBalance: Int) {
         self.statusViewController.setCurrentBalance(currentBalance: currentBalance)
     }
-    
+
     func setUserData(name: String, lastname: String, image: UIImage) {
         self.nameLabel.text = name
         self.lastNameLabel.text = lastname
@@ -67,8 +66,6 @@ extension MeHeaderViewController {
         }
     }
 }
-
-
 
 extension MeHeaderViewController {
     struct Constants {

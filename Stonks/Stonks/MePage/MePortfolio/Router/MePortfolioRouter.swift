@@ -12,5 +12,5 @@ class MePortfolioRouter {
 }
 
 extension MePortfolioRouter: MePortfolioRouterInput {
-    
+
 }

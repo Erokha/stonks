@@ -2,10 +2,10 @@ import UIKit
 import Charts
 
 class ChartTableViewCell: UITableViewCell {
-    @IBOutlet weak var stocksPieChartView: PieChartView!
-    @IBOutlet weak var noDataLabel: UILabel!
-    @IBOutlet weak var mainChartView: UIView!
-    
+    @IBOutlet private weak var stocksPieChartView: PieChartView!
+    @IBOutlet private weak var noDataLabel: UILabel!
+    @IBOutlet private weak var mainChartView: UIView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         setupMainView()
@@ -16,7 +16,7 @@ class ChartTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    
+
     private func setupMainView() {
         mainChartView.layer.cornerRadius = CGFloat(ChartTableViewCell.Constants.viewRadius)
         mainChartView.layer.shadowColor = UIColor.black.cgColor
@@ -24,7 +24,7 @@ class ChartTableViewCell: UITableViewCell {
         mainChartView.layer.shadowOffset = .zero
         mainChartView.layer.shadowOpacity = Float(ChartTableViewCell.Constants.shadowOpacity)
     }
-    
+
     private func setupChartView() {
         noDataLabel.text = ""
         stocksPieChartView.layer.cornerRadius = CGFloat(ChartTableViewCell.Constants.viewRadius)
@@ -34,7 +34,7 @@ class ChartTableViewCell: UITableViewCell {
         stocksPieChartView.layer.shadowOpacity = Float(ChartTableViewCell.Constants.shadowOpacity)
         stocksPieChartView.layer.shadowOffset = .zero
     }
-    
+
     private func chartViewSettings() {
         stocksPieChartView.chartDescription?.enabled = false
         stocksPieChartView.drawHoleEnabled = false
@@ -45,11 +45,11 @@ class ChartTableViewCell: UITableViewCell {
         stocksPieChartView.legend.horizontalAlignment = .center
         stocksPieChartView.noDataText = ""
     }
-    
+
     func configureChartView(pieChartData: PieChartData) {
         self.stocksPieChartView.data = pieChartData
     }
-    
+
     func noDataMessage(message: String) {
         self.noDataLabel.text = message
     }

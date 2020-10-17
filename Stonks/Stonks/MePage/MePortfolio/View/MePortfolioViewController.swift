@@ -6,27 +6,27 @@ enum Sections: Int, CaseIterable {
 }
 
 class MePortfolioViewController: UIViewController {
-    @IBOutlet weak var chartView: UIView!
-    @IBOutlet weak var stocksPieChartView: PieChartView!
-    @IBOutlet weak var historyButton: UIButton!
-    @IBOutlet weak var noDataLabel: UILabel!
-    @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet private weak var chartView: UIView!
+    @IBOutlet private weak var stocksPieChartView: PieChartView!
+    @IBOutlet private weak var historyButton: UIButton!
+    @IBOutlet private weak var noDataLabel: UILabel!
+    @IBOutlet private weak var tableView: UITableView!
+
     weak var embeddedViewController: MeHeaderViewController!
-    
+
     var presenter: MePortfolioOutput!
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.didLoadView()
         configureTableView()
     }
-    
+
     private func configureTableView() {
         tableView.tableFooterView = UIView(frame: .zero)
-        
+
         tableView.delegate = self
         tableView.dataSource = self
-        
+
         let chartNib = UINib(nibName: "ChartTableViewCell", bundle: nil)
         tableView.register(chartNib, forCellReuseIdentifier: ChartTableViewCell.reuseIdentifier)
         let historyNib = UINib(nibName: "HistoryButtonTableViewCell", bundle: nil)
@@ -34,10 +34,9 @@ class MePortfolioViewController: UIViewController {
     }
 }
 
-
 extension MePortfolioViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc =  segue.destination as? MeHeaderViewController,
+        if let vc = segue.destination as? MeHeaderViewController,
             segue.identifier == "headerViewSegue" {
             let presenter = MeHeaderPresenter()
             vc.presenter = presenter
@@ -52,11 +51,9 @@ extension MePortfolioViewController: UITableViewDelegate, UITableViewDataSource 
         return Sections.allCases.count
     }
 
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return MePortfolioViewController.Constants.numberOfRowsInSection
     }
-
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch Sections(rawValue: indexPath.section) {
@@ -77,7 +74,7 @@ extension MePortfolioViewController: UITableViewDelegate, UITableViewDataSource 
             fatalError("MePortfolioViewController/cellForRowAtindexPath.Section: \(indexPath.section)\n Row: \(indexPath.row)")
         }
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch Sections(rawValue: indexPath.section) {
         case .chart:
@@ -89,7 +86,6 @@ extension MePortfolioViewController: UITableViewDelegate, UITableViewDataSource 
         }
     }
 }
-
 
 extension MePortfolioViewController: MePortfolioInput {
 
@@ -103,12 +99,11 @@ extension MePortfolioViewController {
     }
 }
 
-
 extension  NSUIColor {
     convenience init(red: Int, green: Int, blue: Int) {
         self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
     }
-    
+
     convenience init(hex: Int) {
         self.init(
             red: (hex >> 16) & 0xFF,

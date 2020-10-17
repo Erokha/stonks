@@ -2,7 +2,7 @@ import Foundation
 import Charts
 
 protocol MePortfolioInput: class {
-    
+
 }
 
 protocol MePortfolioOutput: class {
