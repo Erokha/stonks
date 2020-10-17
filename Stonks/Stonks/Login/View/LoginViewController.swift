@@ -7,6 +7,8 @@ class LoginViewController: UIViewController {
 
     @IBOutlet private weak var nameTextField: UITextField!
 
+    @IBOutlet private weak var surnameTextField: UITextField!
+
     @IBOutlet private weak var balanceTextField: UITextField!
 
     @IBOutlet private weak var checkBoxImageView: UIImageView!
@@ -27,6 +29,20 @@ class LoginViewController: UIViewController {
 
         nameTextField.addTarget(self, action: #selector(didStartNameEditing), for: .editingDidBegin)
         nameTextField.addTarget(self, action: #selector(didFinishNameEditing), for: .editingDidEnd)
+    }
+
+    private func setupSurnameTextField() {
+        surnameTextField.attributedPlaceholder = NSAttributedString(string: Constants.surnamePlaceholderText,
+                                                                 attributes: [NSAttributedString.Key.foregroundColor: Constants.SurnameTextField.placeholderColor])
+
+        surnameTextField.clipsToBounds = Constants.SurnameTextField.clipsToBounds
+        surnameTextField.layer.cornerRadius = Constants.SurnameTextField.cornerRadius
+        surnameTextField.layer.borderWidth = Constants.SurnameTextField.borderWidth
+        surnameTextField.layer.borderColor = Constants.defaultStyleEntriesColor.cgColor
+        surnameTextField.backgroundColor = Constants.defaultStyleEntriesColor
+
+        surnameTextField.addTarget(self, action: #selector(didStartSurnameEditing), for: .editingDidBegin)
+        surnameTextField.addTarget(self, action: #selector(didFinishSurnameEditing), for: .editingDidEnd)
     }
 
     private func setupBalanceTextField() {
@@ -63,6 +79,7 @@ class LoginViewController: UIViewController {
 
     private func setupSubviews() {
         setupNameTextField()
+        setupSurnameTextField()
         setupBalanceTextField()
         setupCheckBoxImageView()
         setupRegisterButton()
@@ -100,6 +117,14 @@ class LoginViewController: UIViewController {
         output?.didFinishNameEditing()
     }
 
+    @objc private func didStartSurnameEditing() {
+        output?.didStartSurnameEditing()
+    }
+
+    @objc private func didFinishSurnameEditing() {
+        output?.didFinishSurnameEditing()
+    }
+
     @objc private func didStartBalanceEditing() {
         output?.didStartBalanceEditing()
     }
@@ -109,7 +134,7 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction private func didTapRegisterButton(_ sender: UIButton) {
-        output?.didTapRegisterButton(fullName: nameTextField.text, balance: balanceTextField.text)
+        output?.didTapRegisterButton(name: nameTextField.text, surname: surnameTextField.text, balance: balanceTextField.text)
     }
 }
 
@@ -136,6 +161,16 @@ extension LoginViewController: LoginViewInput {
         } else {
             nameTextField.backgroundColor = Constants.defaultStyleEntriesColor
             nameTextField.layer.borderColor = Constants.defaultStyleEntriesColor.cgColor
+        }
+    }
+
+    func setSurnameTextField(isEditing: Bool) {
+        if isEditing {
+            surnameTextField.backgroundColor = Constants.editingStyleEntriesColor
+            surnameTextField.layer.borderColor = Constants.editingStyleEntriesBorderColor.cgColor
+        } else {
+            surnameTextField.backgroundColor = Constants.defaultStyleEntriesColor
+            surnameTextField.layer.borderColor = Constants.defaultStyleEntriesColor.cgColor
         }
     }
 
@@ -178,6 +213,13 @@ extension LoginViewController {
             static let placeholderColor: UIColor = .black
         }
 
+        struct SurnameTextField {
+            static let clipsToBounds: Bool = true
+            static let cornerRadius: CGFloat = 10
+            static let borderWidth: CGFloat = 1
+            static let placeholderColor: UIColor = .black
+        }
+
         struct BalanceTextField {
             static let clipsToBounds: Bool = true
             static let cornerRadius: CGFloat = 10
@@ -199,7 +241,8 @@ extension LoginViewController {
             static let isUserInteractionEnabled: Bool = true
         }
 
-        static let namePlaceholderText = String(repeating: " ", count: 5) + "Full Name"
+        static let namePlaceholderText = String(repeating: " ", count: 5) + "Name"
+        static let surnamePlaceholderText = String(repeating: " ", count: 5) + "Surname"
         static let balancePlaceholderText = String(repeating: " ", count: 5) + "Start Balance"
 
         static let checkBoxIsCheckedImageName: String = "checkBoxChecked"
