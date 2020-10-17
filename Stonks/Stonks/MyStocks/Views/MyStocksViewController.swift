@@ -49,12 +49,6 @@ extension MyStocksViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension MyStocksViewController: MyStocksViewInput {
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if let vc = segue.destination as? ContainerViewController,
-                        segue.identifier == "EmbedSegue" {
-                self.embeddedViewController = vc
-            }
-        }
 
     func setAvaliableBalance(balance: Int) {
         self.embeddedViewController.showNumberLeft(num: balance)
@@ -64,4 +58,13 @@ extension MyStocksViewController: MyStocksViewInput {
         self.embeddedViewController.showNumberRight(num: total)
     }
 
+}
+
+extension MyStocksViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if let vc = segue.destination as? ContainerViewController,
+                        segue.identifier == "EmbedSegue" {
+                self.embeddedViewController = vc
+            }
+        }
 }
