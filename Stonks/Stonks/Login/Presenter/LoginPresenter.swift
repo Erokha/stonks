@@ -37,6 +37,14 @@ extension LoginPresenter: LoginViewOutput {
         view?.setNameTextField(isEditing: false)
     }
 
+    func didStartSurnameEditing() {
+        view?.setSurnameTextField(isEditing: true)
+    }
+
+    func didFinishSurnameEditing() {
+        view?.setSurnameTextField(isEditing: false)
+    }
+
     func didStartBalanceEditing() {
         view?.setBalanceTextField(isEditing: true)
     }
@@ -49,10 +57,16 @@ extension LoginPresenter: LoginViewOutput {
         view?.disableKeyboard()
     }
 
-    func didTapRegisterButton(fullName: String?, balance: String?) {
-        guard let fullName = fullName,
-              !fullName.isEmpty else {
+    func didTapRegisterButton(name: String?, surname: String?, balance: String?) {
+        guard let name = name,
+              !name.isEmpty else {
             view?.showAlert(with: "Ошибка", message: "Необходимо ввести имя")
+            return
+        }
+
+        guard let surname = surname,
+              !surname.isEmpty else {
+            view?.showAlert(with: "Ошибка", message: "Необходимо ввести фамилию")
             return
         }
 
@@ -72,7 +86,8 @@ extension LoginPresenter: LoginViewOutput {
             return
         }
 
-        model.fullName = fullName
+        model.name = name
+        model.surname = surname
         model.balance = balance
 
         // Навигация

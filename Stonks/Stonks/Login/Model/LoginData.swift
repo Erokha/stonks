@@ -1,7 +1,8 @@
 import Foundation
 
 struct LoginData {
-    var fullName: String?
+    var name: String?
+    var surname: String?
     var balance: Decimal?
     var isChecked: Bool
 }
