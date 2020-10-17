@@ -1,11 +1,5 @@
 import Foundation
 
-protocol AuthorizationServiceInput {
-    func userIsAuthorized() -> Bool
-    func saveUser(name: String, surname: String)
-    func getUser() -> (String, String)?
-}
-
 class AuthorizationService {
     static var shared = AuthorizationService()
 
