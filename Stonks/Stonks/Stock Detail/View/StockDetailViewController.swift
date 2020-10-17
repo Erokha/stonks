@@ -11,6 +11,18 @@ class StockDetailViewController: UIViewController {
 
     @IBOutlet private weak var chartContainerView: UIView!
 
+    @IBOutlet private weak var buyButton: UIButton!
+
+    @IBOutlet private weak var sellButton: UIButton!
+
+    @IBOutlet private weak var buyTextFieldContainerView: UIView!
+
+    @IBOutlet private weak var sellTextFieldContainerView: UIView!
+
+    @IBOutlet private weak var buyTextField: UITextField!
+
+    @IBOutlet private weak var sellTextField: UITextField!
+
     private lazy var stockLineChartView: LineChartView = {
         let chart = LineChartView()
 
@@ -78,10 +90,80 @@ class StockDetailViewController: UIViewController {
         stockDetailCardView.layer.cornerRadius = Constants.StockDetailCardView.cornerRadius
     }
 
+    private func setupBuyButton() {
+        buyButton.backgroundColor = Constants.BuyButton.backgroundColor
+        buyButton.titleLabel?.font = Constants.BuyButton.font
+        buyButton.setTitleColor(Constants.BuyButton.textColor, for: .normal)
+        buyButton.layer.cornerRadius = Constants.BuyButton.cornerRadius
+
+        buyButton.layer.shadowColor = Constants.BuyButton.shadowColor.cgColor
+        buyButton.layer.shadowOffset = Constants.BuyButton.shadowOffset
+        buyButton.layer.shadowRadius = Constants.BuyButton.shadowRadius
+        buyButton.layer.shadowOpacity = Constants.BuyButton.shadowOpacity
+    }
+
+    private func setupSellButton() {
+        sellButton.backgroundColor = Constants.SellButton.backgroundColor
+        sellButton.titleLabel?.font = Constants.SellButton.font
+        sellButton.setTitleColor(Constants.SellButton.textColor, for: .normal)
+        sellButton.layer.cornerRadius = Constants.SellButton.cornerRadius
+
+        sellButton.layer.shadowColor = Constants.SellButton.shadowColor.cgColor
+        sellButton.layer.shadowOffset = Constants.SellButton.shadowOffset
+        sellButton.layer.shadowRadius = Constants.SellButton.shadowRadius
+        sellButton.layer.shadowOpacity = Constants.SellButton.shadowOpacity
+    }
+
+    private func setupBuyTextField() {
+        buyTextField.clipsToBounds = true
+        buyTextField.layer.cornerRadius = Constants.BuyTextField.cornerRadius
+        buyTextField.layer.borderWidth = Constants.BuyTextField.borderWidth
+        buyTextField.backgroundColor = Constants.BuyTextField.backgroundColor
+        buyTextField.layer.borderColor = Constants.BuyTextField.borderColor.cgColor
+
+        buyTextField.attributedPlaceholder = NSAttributedString(string: Constants.BuyTextField.placeholderText,
+                                                                attributes: [NSAttributedString.Key.foregroundColor: Constants.BuyTextField.placeholderColor])
+    }
+
+    private func setupBuyTextFieldContainerView() {
+        buyTextFieldContainerView.layer.cornerRadius = Constants.BuyTextField.cornerRadius
+
+        buyTextFieldContainerView.layer.shadowColor = Constants.BuyTextField.shadowColor.cgColor
+        buyTextFieldContainerView.layer.shadowOffset = Constants.BuyTextField.shadowOffset
+        buyTextFieldContainerView.layer.shadowRadius = Constants.BuyTextField.shadowRadius
+        buyTextFieldContainerView.layer.shadowOpacity = Constants.BuyTextField.shadowOpacity
+    }
+
+    private func setupSellTextField() {
+        sellTextField.clipsToBounds = true
+        sellTextField.layer.cornerRadius = Constants.SellTextField.cornerRadius
+        sellTextField.layer.borderWidth = Constants.SellTextField.borderWidth
+        sellTextField.backgroundColor = Constants.SellTextField.backgroundColor
+        sellTextField.layer.borderColor = Constants.SellTextField.borderColor.cgColor
+
+        sellTextField.attributedPlaceholder = NSAttributedString(string: Constants.SellTextField.placeholderText,
+                                                                 attributes: [NSAttributedString.Key.foregroundColor: Constants.SellTextField.placeholderColor])
+    }
+
+    private func setupSellTextFieldContainerView() {
+        sellTextFieldContainerView.layer.cornerRadius = Constants.SellTextField.cornerRadius
+
+        sellTextFieldContainerView.layer.shadowColor = Constants.SellTextField.shadowColor.cgColor
+        sellTextFieldContainerView.layer.shadowOffset = Constants.SellTextField.shadowOffset
+        sellTextFieldContainerView.layer.shadowRadius = Constants.SellTextField.shadowRadius
+        sellTextFieldContainerView.layer.shadowOpacity = Constants.SellTextField.shadowOpacity
+    }
+
     private func setupViews() {
         setupStockDetailCardContainerView()
         setupChartContainerView()
         setupStockDetailCardView()
+        setupBuyButton()
+        setupSellButton()
+        setupBuyTextField()
+        setupBuyTextFieldContainerView()
+        setupSellTextField()
+        setupSellTextFieldContainerView()
     }
 
     override func viewDidLoad() {
@@ -168,6 +250,70 @@ extension StockDetailViewController {
             static let bottomConstraintContant: CGFloat = 0
             static let leadingConstraintContant: CGFloat = 0
             static let trailingConstraintContant: CGFloat = 0
+        }
+
+        struct BuyButton {
+            static let backgroundColor: UIColor = UIColor(red: 71 / 255,
+                                                          green: 190 / 255,
+                                                          blue: 162 / 255,
+                                                          alpha: 1)
+
+            static let font = UIFont(name: "DMSans-Bold", size: 17)
+            static let textColor: UIColor = .white
+            static let cornerRadius: CGFloat = 10
+
+            static let shadowColor: UIColor = .black
+            static let shadowOffset: CGSize = CGSize(width: 0, height: 3)
+            static let shadowRadius: CGFloat = 3
+            static let shadowOpacity: Float = 0.5
+        }
+
+        struct SellButton {
+            static let backgroundColor: UIColor = UIColor(red: 255 / 255,
+                                                          green: 199 / 255,
+                                                          blue: 91 / 255,
+                                                          alpha: 1)
+
+            static let font = UIFont(name: "DMSans-Bold", size: 17)
+            static let textColor: UIColor = .white
+            static let cornerRadius: CGFloat = 10
+
+            static let shadowColor: UIColor = .black
+            static let shadowOffset: CGSize = CGSize(width: 0, height: 3)
+            static let shadowRadius: CGFloat = 3
+            static let shadowOpacity: Float = 0.5
+        }
+
+        struct BuyTextField {
+            static let cornerRadius: CGFloat = 10
+            static let borderWidth: CGFloat = 1
+            static let placeholderColor: UIColor = .black
+            static let backgroundColor: UIColor = .white
+            static let borderColor: UIColor = .white
+
+            static let placeholderText: String = "Amount"
+            static let placeholderTextColor: UIColor = .black
+
+            static let shadowColor: UIColor = .black
+            static let shadowOffset: CGSize = CGSize(width: 0, height: 3)
+            static let shadowRadius: CGFloat = 3
+            static let shadowOpacity: Float = 0.5
+        }
+
+        struct SellTextField {
+            static let cornerRadius: CGFloat = 10
+            static let borderWidth: CGFloat = 1
+            static let placeholderColor: UIColor = .black
+            static let backgroundColor: UIColor = .white
+            static let borderColor: UIColor = .white
+
+            static let placeholderText: String = "Amount"
+            static let placeholderTextColor: UIColor = .black
+
+            static let shadowColor: UIColor = .black
+            static let shadowOffset: CGSize = CGSize(width: 0, height: 3)
+            static let shadowRadius: CGFloat = 3
+            static let shadowOpacity: Float = 0.5
         }
     }
 }

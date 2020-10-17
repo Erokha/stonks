@@ -14,6 +14,9 @@
 		0DF01732252F5BD2003FF71B /* CardViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0172B252F5BD2003FF71B /* CardViewType.swift */; };
 		0DF01733252F5BD2003FF71B /* NibLoadedViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0172C252F5BD2003FF71B /* NibLoadedViewType.swift */; };
 		0DF01734252F5BD2003FF71B /* CardViewPresenterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0172D252F5BD2003FF71B /* CardViewPresenterType.swift */; };
+		314C058E253B0D0200105352 /* DMSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 315BE130252F332F0074377B /* DMSans-Bold.ttf */; };
+		314C058F253B0D0200105352 /* DMSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 319B3054252DA640005837ED /* DMSans-Medium.ttf */; };
+		314C0590253B0D0200105352 /* DMSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 315BE131252F334B0074377B /* DMSans-Regular.ttf */; };
 		31905F7B25361BA0000D71A7 /* StockDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31905F7225361BA0000D71A7 /* StockDetailPresenter.swift */; };
 		31905F7C25361BA0000D71A7 /* StockDetailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31905F7425361BA0000D71A7 /* StockDetailData.swift */; };
 		31905F7D25361BA0000D71A7 /* StockDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31905F7625361BA0000D71A7 /* StockDetailViewController.swift */; };
@@ -373,6 +376,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				314C058E253B0D0200105352 /* DMSans-Bold.ttf in Resources */,
+				314C058F253B0D0200105352 /* DMSans-Medium.ttf in Resources */,
+				314C0590253B0D0200105352 /* DMSans-Regular.ttf in Resources */,
 				31BDC091252A1C5D00F56ADD /* Assets.xcassets in Resources */,
 				31BDC0A4252A21A400F56ADD /* Launch.xib in Resources */,
 				0DF0172F252F5BD2003FF71B /* CardView.xib in Resources */,
