@@ -20,13 +20,13 @@ class MeHeaderViewController: UIViewController {
 
     private func setShadow() {
         cardView.layer.shadowColor = UIColor.black.cgColor
-        cardView.layer.shadowOpacity = Float(MeHeaderViewController.Constants.shadowOpacity)
+        cardView.layer.shadowOpacity = MeHeaderViewController.Constants.shadowOpacity
         cardView.layer.shadowOffset = .zero
-        cardView.layer.shadowRadius = CGFloat(MeHeaderViewController.Constants.shadowRadius)
+        cardView.layer.shadowRadius = MeHeaderViewController.Constants.shadowRadius
     }
 
     private func setRoundCorners() {
-        headerView.layer.cornerRadius = CGFloat(MeHeaderViewController.Constants.headerRadius)
+        headerView.layer.cornerRadius = MeHeaderViewController.Constants.headerRadius
         if #available(iOS 11.0, *) {
             self.headerView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         } else {
@@ -36,9 +36,9 @@ class MeHeaderViewController: UIViewController {
 
     private func configureUi() {
         headerView.layer.shadowPath = UIBezierPath(rect: headerView.bounds).cgPath
-        headerView.layer.shadowRadius = CGFloat(MeHeaderViewController.Constants.shadowRadius)
-        headerView.layer.shadowOpacity = Float(MeHeaderViewController.Constants.shadowOpacity)
-        profileImage.layer.cornerRadius = CGFloat(MeHeaderViewController.Constants.viewRadius)
+        headerView.layer.shadowRadius = MeHeaderViewController.Constants.shadowRadius
+        headerView.layer.shadowOpacity = MeHeaderViewController.Constants.shadowOpacity
+        profileImage.layer.cornerRadius = MeHeaderViewController.Constants.viewRadius
     }
 }
 
@@ -60,19 +60,18 @@ extension MeHeaderViewController: MeHeaderInput {
 
 extension MeHeaderViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? StatusViewController,
-           segue.identifier == "statusSegue" {
-            self.statusViewController = vc
-        }
+        guard let vc = segue.destination as? StatusViewController,
+              segue.identifier == "statusSegue" else { return }
+        self.statusViewController = vc
     }
 }
 
 extension MeHeaderViewController {
     struct Constants {
-        static let headerRadius = 20
-        static let viewRadius = 15
-        static let shadowRadius = 5
-        static let shadowOpacity = 0.6
-        static let legendFormSize = 15
+        static let headerRadius: CGFloat = 20
+        static let viewRadius: CGFloat = 15
+        static let shadowRadius: CGFloat = 5
+        static let shadowOpacity: Float = 0.6
+        static let legendFormSize: Float = 15
     }
 }

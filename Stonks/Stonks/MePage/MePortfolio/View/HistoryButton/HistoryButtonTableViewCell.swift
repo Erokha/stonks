@@ -32,10 +32,10 @@ extension UITableViewCell {
 }
 extension HistoryButtonTableViewCell {
     private struct Constants {
-        static let buttonText = "History"
-        static let viewRadius = 15
-        static let shadowRadius = 5
-        static let shadowOpacity = 0.6
-        static let legendFormSize = 15
+        static let buttonText: String = "History"
+        static let viewRadius: CGFloat = 15
+        static let shadowRadius: CGFloat = 5
+        static let shadowOpacity: Float = 0.6
+        static let legendFormSize: CGFloat = 15
     }
 }

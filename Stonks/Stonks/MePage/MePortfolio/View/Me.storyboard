@@ -12,7 +12,7 @@
         <!--Me Portfolio View Controller-->
         <scene sceneID="K6F-XE-cUf">
             <objects>
-                <viewController storyboardIdentifier="MePortfolio" id="rir-3h-UJ4" customClass="MePortfolioViewController" customModule="Stonks" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Me" id="rir-3h-UJ4" customClass="MePortfolioViewController" customModule="Stonks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dyH-u4-eK7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

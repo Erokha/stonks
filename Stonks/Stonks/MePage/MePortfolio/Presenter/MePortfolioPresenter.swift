@@ -11,9 +11,8 @@ class MePortfolioPresenter {
     }
 
     private func setNumbersInChart(number: Int) {
-        if number < MePortfolioPresenter.Constants.maxStocksInChart {
-            self.numberOfStocksInChart = number
-        }
+        guard number < MePortfolioPresenter.Constants.maxStocksInChart  else { return }
+        numberOfStocksInChart = number
     }
 
     // MARK: PieChartData prepare

@@ -18,20 +18,20 @@ class ChartTableViewCell: UITableViewCell {
     }
 
     private func setupMainView() {
-        mainChartView.layer.cornerRadius = CGFloat(ChartTableViewCell.Constants.viewRadius)
+        mainChartView.layer.cornerRadius = ChartTableViewCell.Constants.viewRadius
         mainChartView.layer.shadowColor = UIColor.black.cgColor
-        mainChartView.layer.shadowRadius = CGFloat(ChartTableViewCell.Constants.shadowRadius)
+        mainChartView.layer.shadowRadius = ChartTableViewCell.Constants.shadowRadius
         mainChartView.layer.shadowOffset = .zero
-        mainChartView.layer.shadowOpacity = Float(ChartTableViewCell.Constants.shadowOpacity)
+        mainChartView.layer.shadowOpacity = ChartTableViewCell.Constants.shadowOpacity
     }
 
     private func setupChartView() {
         noDataLabel.text = ""
-        stocksPieChartView.layer.cornerRadius = CGFloat(ChartTableViewCell.Constants.viewRadius)
+        stocksPieChartView.layer.cornerRadius = ChartTableViewCell.Constants.viewRadius
         stocksPieChartView.layer.shadowColor = UIColor.black.cgColor
-        stocksPieChartView.layer.shadowRadius = CGFloat(ChartTableViewCell.Constants.shadowRadius)
+        stocksPieChartView.layer.shadowRadius = ChartTableViewCell.Constants.shadowRadius
         stocksPieChartView.layer.shadowOffset = .zero
-        stocksPieChartView.layer.shadowOpacity = Float(ChartTableViewCell.Constants.shadowOpacity)
+        stocksPieChartView.layer.shadowOpacity = ChartTableViewCell.Constants.shadowOpacity
         stocksPieChartView.layer.shadowOffset = .zero
     }
 
@@ -40,7 +40,7 @@ class ChartTableViewCell: UITableViewCell {
         stocksPieChartView.drawHoleEnabled = false
         stocksPieChartView.isUserInteractionEnabled = false
         stocksPieChartView.drawEntryLabelsEnabled = false
-        stocksPieChartView.legend.formSize = CGFloat(ChartTableViewCell.Constants.legendFormSize)
+        stocksPieChartView.legend.formSize = ChartTableViewCell.Constants.legendFormSize
         stocksPieChartView.legend.form = .circle
         stocksPieChartView.legend.horizontalAlignment = .center
         stocksPieChartView.noDataText = ""
@@ -57,9 +57,9 @@ class ChartTableViewCell: UITableViewCell {
 
 extension ChartTableViewCell {
     private struct Constants {
-        static let viewRadius = 15
-        static let shadowRadius = 5
-        static let shadowOpacity = 0.6
-        static let legendFormSize = 15
+        static let viewRadius: CGFloat = 15
+        static let shadowRadius: CGFloat = 5
+        static let shadowOpacity: Float = 0.6
+        static let legendFormSize: CGFloat = 15
     }
 }

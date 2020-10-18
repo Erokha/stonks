@@ -12,14 +12,14 @@ class StatusViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        cardView.showUpperTextLeft(text: "Spent")
-        cardView.showUpperTextRight(text: "CurrentBalance")
+        cardView.showUpperTextLeft(text: StatusViewController.Constants.upperTextLeft)
+        cardView.showUpperTextRight(text: StatusViewController.Constants.upperTextRight)
         setCorners()
     }
 
     private func setCorners() {
-        self.cardView.clipsToBounds = true
-        self.cardView.layer.cornerRadius = 20
+        cardView.clipsToBounds = true
+        cardView.layer.cornerRadius = StatusViewController.Constants.cornerRadius
     }
 
     func setTotalSpent(spent: Int) {
@@ -28,5 +28,13 @@ class StatusViewController: UIViewController {
 
     func setCurrentBalance(currentBalance: Int) {
         cardView.showNumberRight(num: currentBalance)
+    }
+}
+
+extension StatusViewController {
+    struct Constants {
+        static let cornerRadius: CGFloat = 20
+        static let upperTextLeft: String = "Spent"
+        static let upperTextRight: String = "Current Balance"
     }
 }

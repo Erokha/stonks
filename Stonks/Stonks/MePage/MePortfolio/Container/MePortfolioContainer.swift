@@ -12,9 +12,8 @@ class MePortfolioContainer {
     private(set) weak var router: MePortfolioRouter?
 
     class func assemble(with context: MePortfolioContext) -> MePortfolioContainer {
-        let storyboard = UIStoryboard(name: "Me", bundle: nil)
-        guard let vc = storyboard.instantiateViewController(withIdentifier: "MePortfolio") as?
-                MePortfolioViewController else {
+        let storyboard = UIStoryboard(name: Storyboard.mePage.name, bundle: nil)
+        guard let vc = storyboard.instantiateViewController(withIdentifier: Storyboard.mePage.name) as? MePortfolioViewController else {
             fatalError("MePorfolioContainer: viewController must be type MePortfolioViewController")
         }
 

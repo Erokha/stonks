@@ -27,9 +27,9 @@ class MePortfolioViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
 
-        let chartNib = UINib(nibName: "ChartTableViewCell", bundle: nil)
+        let chartNib = UINib(nibName: ChartTableViewCell.reuseIdentifier, bundle: nil)
         tableView.register(chartNib, forCellReuseIdentifier: ChartTableViewCell.reuseIdentifier)
-        let historyNib = UINib(nibName: "HistoryButtonTableViewCell", bundle: nil)
+        let historyNib = UINib(nibName: HistoryButtonTableViewCell.reuseIdentifier, bundle: nil)
         tableView.register(historyNib, forCellReuseIdentifier: HistoryButtonTableViewCell.reuseIdentifier)
     }
 }
@@ -67,6 +67,7 @@ extension MePortfolioViewController: UITableViewDelegate, UITableViewDataSource 
                 cell.noDataMessage(message: presenter.noDataMessage())
             }
             return cell
+
         case .historyButton:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: HistoryButtonTableViewCell.reuseIdentifier, for: indexPath) as? HistoryButtonTableViewCell else { return UITableViewCell() }
             return cell
@@ -93,9 +94,9 @@ extension MePortfolioViewController: MePortfolioInput {
 
 extension MePortfolioViewController {
     struct Constants {
-        static let numberOfRowsInSection = 1
-        static let chartCellHeight = 400
-        static let buttonCellHeigth = 95
+        static let numberOfRowsInSection: Int = 1
+        static let chartCellHeight: Int = 400
+        static let buttonCellHeigth: Int = 95
     }
 }
 
