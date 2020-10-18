@@ -35,12 +35,47 @@ extension StockDetailPresenter: StockDetailViewOutput {
             return
         }
 
-        view?.setChartData(with: chartData)
-
         guard let stockName = model.name else {
             return
         }
 
+        guard let currentCost = chartData.last?.y else {
+            return
+        }
+
+        view?.setChartData(with: chartData)
         view?.setNavigationBarTitle(with: stockName)
+        view?.setStockNameLabel(with: stockName)
+        view?.setStockCurrentCostLabel(with: String(format: "%.1f", currentCost) + "$")
+    }
+
+    func didTapBuyButton(amount: String?) {
+        guard let amountString = amount,
+              !amountString.isEmpty else {
+            view?.showAlert(with: "Ошибка", message: "Не введено количество акций")
+            return
+        }
+
+        guard let amount = Int(amountString) else {
+            view?.showAlert(with: "Ошибка", message: "Невозможно преобразовать количество в число")
+            return
+        }
+
+        print(amount)
+    }
+
+    func didTapSellButton(amount: String?) {
+        guard let amountString = amount,
+              !amountString.isEmpty else {
+            view?.showAlert(with: "Ошибка", message: "Не введено количество акций")
+            return
+        }
+
+        guard let amount = Int(amountString) else {
+            view?.showAlert(with: "Ошибка", message: "Невозможно преобразовать количество в число")
+            return
+        }
+
+        print(amount)
     }
 }

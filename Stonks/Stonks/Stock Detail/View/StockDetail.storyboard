@@ -36,9 +36,35 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TK6-ie-jNg">
                                 <rect key="frame" x="20" y="185" width="374" height="235"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ZX-EF-O4V">
+                                        <rect key="frame" x="15" y="0.0" width="150" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="EO7-z6-MKa"/>
+                                            <constraint firstAttribute="width" constant="150" id="vCH-82-uXS"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SA4-Sy-NOL">
+                                        <rect key="frame" x="240" y="0.0" width="119" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="USt-E1-vPy"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="235" id="2Sl-Ky-IaM"/>
+                                    <constraint firstItem="SA4-Sy-NOL" firstAttribute="leading" secondItem="6ZX-EF-O4V" secondAttribute="trailing" constant="75" id="7tR-w4-ga8"/>
+                                    <constraint firstItem="6ZX-EF-O4V" firstAttribute="top" secondItem="TK6-ie-jNg" secondAttribute="top" id="Cyk-Kq-Knx"/>
+                                    <constraint firstItem="SA4-Sy-NOL" firstAttribute="top" secondItem="TK6-ie-jNg" secondAttribute="top" id="UIe-F4-JhQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="SA4-Sy-NOL" secondAttribute="trailing" constant="15" id="drT-Zd-ABT"/>
+                                    <constraint firstItem="6ZX-EF-O4V" firstAttribute="leading" secondItem="TK6-ie-jNg" secondAttribute="leading" constant="15" id="qLV-jM-XTB"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dK-mQ-bUY">
@@ -124,8 +150,10 @@
                         <outlet property="sellButton" destination="113-jI-mP2" id="DB0-S8-GkV"/>
                         <outlet property="sellTextField" destination="fd3-ti-DaT" id="1jm-eh-cNG"/>
                         <outlet property="sellTextFieldContainerView" destination="Gyv-WH-8ok" id="T91-oX-pGN"/>
+                        <outlet property="stockCurrentCostLabel" destination="SA4-Sy-NOL" id="h0y-nR-31g"/>
                         <outlet property="stockDetailCardContainerView" destination="YXH-ed-3D5" id="IK4-Vf-7fE"/>
                         <outlet property="stockDetailCardView" destination="gwg-hF-bvd" id="P8F-30-uXs"/>
+                        <outlet property="stockNameLabel" destination="6ZX-EF-O4V" id="CkO-Dk-gbV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8qZ-rx-AoH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

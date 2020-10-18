@@ -11,6 +11,10 @@ class StockDetailViewController: UIViewController {
 
     @IBOutlet private weak var chartContainerView: UIView!
 
+    @IBOutlet private weak var stockNameLabel: UILabel!
+
+    @IBOutlet private weak var stockCurrentCostLabel: UILabel!
+
     @IBOutlet private weak var buyButton: UIButton!
 
     @IBOutlet private weak var sellButton: UIButton!
@@ -100,6 +104,16 @@ class StockDetailViewController: UIViewController {
         buyButton.layer.shadowOffset = Constants.BuyButton.shadowOffset
         buyButton.layer.shadowRadius = Constants.BuyButton.shadowRadius
         buyButton.layer.shadowOpacity = Constants.BuyButton.shadowOpacity
+
+        buyButton.addTarget(self, action: #selector(didTapBuyButton), for: .touchUpInside)
+    }
+
+    @objc private func didTapBuyButton() {
+        output?.didTapBuyButton(amount: buyTextField.text)
+    }
+
+    @objc private func didTapSellButton() {
+        output?.didTapSellButton(amount: sellTextField.text)
     }
 
     private func setupSellButton() {
@@ -112,6 +126,8 @@ class StockDetailViewController: UIViewController {
         sellButton.layer.shadowOffset = Constants.SellButton.shadowOffset
         sellButton.layer.shadowRadius = Constants.SellButton.shadowRadius
         sellButton.layer.shadowOpacity = Constants.SellButton.shadowOpacity
+
+        sellButton.addTarget(self, action: #selector(didTapSellButton), for: .touchUpInside)
     }
 
     private func setupBuyTextField() {
@@ -154,10 +170,22 @@ class StockDetailViewController: UIViewController {
         sellTextFieldContainerView.layer.shadowOpacity = Constants.SellTextField.shadowOpacity
     }
 
+    private func setupStockNameLabel() {
+        stockNameLabel.textAlignment = .left
+        stockNameLabel.font = Constants.StockNameLabel.font
+    }
+
+    private func setupStockCurrentCostLabel() {
+        stockCurrentCostLabel.textAlignment = .right
+        stockCurrentCostLabel.font = Constants.StockCurrentCostLabel.font
+    }
+
     private func setupViews() {
         setupStockDetailCardContainerView()
         setupChartContainerView()
         setupStockDetailCardView()
+        setupStockNameLabel()
+        setupStockCurrentCostLabel()
         setupBuyButton()
         setupSellButton()
         setupBuyTextField()
@@ -178,6 +206,14 @@ class StockDetailViewController: UIViewController {
 }
 
 extension StockDetailViewController: StockDetailViewInput {
+    func setStockNameLabel(with name: String) {
+        stockNameLabel.text = name
+    }
+
+    func setStockCurrentCostLabel(with cost: String) {
+        stockCurrentCostLabel.text = cost
+    }
+
     func setChartData(with quotes: [ChartDataEntry]) {
         let chartDataset = LineChartDataSet(quotes)
 
@@ -201,6 +237,14 @@ extension StockDetailViewController: StockDetailViewInput {
 
     func setNavigationBarTitle(with title: String) {
         navigationItem.title = title
+    }
+
+    func showAlert(with title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "ОК", style: .default, handler: nil))
+
+        present(alert, animated: true)
     }
 }
 
@@ -239,6 +283,14 @@ extension StockDetailViewController {
             static let shadowOffset: CGSize = CGSize(width: 0, height: 3)
             static let shadowRadius: CGFloat = 3
             static let shadowOpacity: Float = 0.5
+        }
+
+        struct StockNameLabel {
+            static let font = UIFont(name: "DMSans-Bold", size: 30)
+        }
+
+        struct StockCurrentCostLabel {
+            static let font = UIFont(name: "DMSans-Bold", size: 24)
         }
 
         struct StockLineChartView {
