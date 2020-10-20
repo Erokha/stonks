@@ -10,7 +10,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window = UIWindow(frame: UIScreen.main.bounds)
 
-        self.window?.rootViewController = getInitalViewController(isAuthorized: AuthorizationService.shared.userIsAuthorized())
+        self.window?.rootViewController = getInitalViewController(isAuthorized: DataService.shared.userIsAuthorized())
         self.window?.makeKeyAndVisible()
 
         return true

@@ -90,7 +90,7 @@ extension LoginPresenter: LoginViewOutput {
         model.surname = surname
         model.balance = balance
 
-        AuthorizationService.shared.saveUser(name: name, surname: surname)
+        DataService.shared.authorize()
 
         // Навигация
         router?.showMainScreen()
