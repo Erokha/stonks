@@ -25,11 +25,6 @@ class HistoryButtonTableViewCell: UITableViewCell {
     }
 }
 
-extension UITableViewCell {
-    static var reuseIdentifier: String {
-        return String(describing: self)
-    }
-}
 extension HistoryButtonTableViewCell {
     private struct Constants {
         static let buttonText: String = "History"

@@ -19,7 +19,7 @@ class MePortfolioPresenter {
     private func countStocks() -> [(String, Float)] {
         var stocksWithPrices: [String: Float] = [:]
         for stock in stocks {
-            stocksWithPrices[stock.stockSymbol] = Float(stock.numOfStocks) * stock.stockprice
+            stocksWithPrices[stock.stockSymbol] = Float(stock.stockCount) * stock.stockPrice
         }
         let sortedStocksByPrice = stocksWithPrices.sorted { (first: (key: String, value: Float), second: (key: String, value: Float)) -> Bool in
             return first.value > second.value

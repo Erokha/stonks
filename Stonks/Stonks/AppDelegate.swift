@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate {
     func getInitalViewController(isAuthorized: Bool) -> UIViewController {
         if isAuthorized {
-            let appleStock = Stock(stockname: "Apple", stockSymbol: "AAPL", stockprice: 114, stockCount: 7, imageUrl: "none")
+            let appleStock = Stock(stockName: "Apple", stockSymbol: "AAPL", stockPrice: 114, stockCount: 7, imageUrl: "none")
             let context = MyStocksContext(testmodel: [appleStock])
             let container = MyStocksContainer.assemble(with: context)
 

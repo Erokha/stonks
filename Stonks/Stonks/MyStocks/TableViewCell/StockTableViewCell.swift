@@ -20,8 +20,8 @@ class StockTableViewCell: UITableViewCell {
     }
 
     func setData(data: Stock) {
-        self.stockNameLabel.text = data.stockname
-        self.stockPriceLabel.text = String(data.stockprice) + "$"
+        self.stockNameLabel.text = data.stockName
+        self.stockPriceLabel.text = String(data.stockPrice) + "$"
         self.stockCountLabel.text = "you own: \(data.stockCount)"
     }
 

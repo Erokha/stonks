@@ -33,17 +33,6 @@
                                     <segue destination="ZUj-1S-D5q" kind="embed" identifier="headerViewSegue" id="QRn-fy-EvC"/>
                                 </connections>
                             </containerView>
-                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qFi-Hy-31D">
-                                <rect key="frame" x="0.0" y="782" width="414" height="80"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="TDb-cz-AFU"/>
-                                </constraints>
-                                <items>
-                                    <tabBarItem systemItem="favorites" id="4R3-M3-Wjd"/>
-                                    <tabBarItem systemItem="more" id="Tmr-B7-zPD"/>
-                                </items>
-                            </tabBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="083-4w-NAX">
                                 <rect key="frame" x="0.0" y="265" width="414" height="517"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -67,14 +56,11 @@
                             <constraint firstItem="nBT-Pe-eKn" firstAttribute="trailing" secondItem="Nr4-hj-uI6" secondAttribute="trailing" constant="8" id="Isa-8K-8WF"/>
                             <constraint firstItem="QJd-KU-Vbm" firstAttribute="leading" secondItem="nBT-Pe-eKn" secondAttribute="leading" id="IxA-Q9-7bR"/>
                             <constraint firstItem="nBT-Pe-eKn" firstAttribute="trailing" secondItem="083-4w-NAX" secondAttribute="trailing" id="JD2-o9-Io9"/>
-                            <constraint firstItem="nBT-Pe-eKn" firstAttribute="bottom" secondItem="qFi-Hy-31D" secondAttribute="bottom" id="UDh-aH-T96"/>
                             <constraint firstItem="083-4w-NAX" firstAttribute="top" secondItem="Nr4-hj-uI6" secondAttribute="bottom" constant="8" id="aCr-mV-D07"/>
-                            <constraint firstItem="qFi-Hy-31D" firstAttribute="top" secondItem="083-4w-NAX" secondAttribute="bottom" id="aDF-NX-cTY"/>
                             <constraint firstItem="QJd-KU-Vbm" firstAttribute="top" secondItem="dyH-u4-eK7" secondAttribute="top" id="auz-GH-wUn"/>
                             <constraint firstItem="083-4w-NAX" firstAttribute="leading" secondItem="dyH-u4-eK7" secondAttribute="leading" id="dJb-ud-rbF"/>
-                            <constraint firstItem="qFi-Hy-31D" firstAttribute="trailing" secondItem="nBT-Pe-eKn" secondAttribute="trailing" id="rFU-bj-Ihe"/>
+                            <constraint firstItem="nBT-Pe-eKn" firstAttribute="bottom" secondItem="083-4w-NAX" secondAttribute="bottom" constant="80" id="sGz-lC-ccJ"/>
                             <constraint firstItem="QJd-KU-Vbm" firstAttribute="trailing" secondItem="nBT-Pe-eKn" secondAttribute="trailing" id="vUA-IZ-57E"/>
-                            <constraint firstItem="qFi-Hy-31D" firstAttribute="leading" secondItem="nBT-Pe-eKn" secondAttribute="leading" id="x5z-hq-yje"/>
                         </constraints>
                     </view>
                     <connections>
