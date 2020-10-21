@@ -1,3 +1,4 @@
 target 'Stonks' do
     pod 'SwiftLint'
+    pod 'Charts'
 end

@@ -11,6 +11,7 @@ enum Storyboard {
     case login
     case settings
     case myStocks
+    case mePage
 }
 
 extension Storyboard {
@@ -22,6 +23,8 @@ extension Storyboard {
             return Constants.settings
         case .myStocks:
             return Constants.myStocks
+        case .mePage:
+            return Constants.mePage
         }
     }
 }
@@ -30,4 +33,5 @@ private struct Constants {
     static let login = "Login"
     static let settings = "Settings"
     static let myStocks = "MyStocks"
+    static let mePage = "MePage"
 }
