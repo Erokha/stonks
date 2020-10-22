@@ -11,12 +11,12 @@ class ChartTableViewCell: UITableViewCell {
         setupMainView()
         setupChartView()
         chartViewSettings()
+        setupCell()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    private func setupCell() {
+        self.selectionStyle = UITableViewCell.SelectionStyle.none
     }
-
     private func setupMainView() {
         mainChartView.layer.cornerRadius = ChartTableViewCell.Constants.viewRadius
         mainChartView.layer.shadowColor = UIColor.black.cgColor

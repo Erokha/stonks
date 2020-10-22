@@ -5,11 +5,12 @@ class HistoryButtonTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupCell()
         configureButton()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    private func setupCell() {
+        self.selectionStyle = UITableViewCell.SelectionStyle.none
     }
 
     private func configureButton() {

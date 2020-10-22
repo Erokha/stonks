@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Me Portfolio View Controller-->
+        <!--Me View Controller-->
         <scene sceneID="K6F-XE-cUf">
             <objects>
-                <viewController storyboardIdentifier="Me" id="rir-3h-UJ4" customClass="MePortfolioViewController" customModule="Stonks" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MePage" id="rir-3h-UJ4" customClass="MeViewController" customModule="Stonks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dyH-u4-eK7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,6 +23,9 @@
                                     <segment title="Profile"/>
                                     <segment title="Settings"/>
                                 </segments>
+                                <connections>
+                                    <action selector="didIndexChanged:" destination="rir-3h-UJ4" eventType="valueChanged" id="Z3B-IL-bSg"/>
+                                </connections>
                             </segmentedControl>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QJd-KU-Vbm">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="206"/>
@@ -33,38 +36,28 @@
                                     <segue destination="ZUj-1S-D5q" kind="embed" identifier="headerViewSegue" id="QRn-fy-EvC"/>
                                 </connections>
                             </containerView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="083-4w-NAX">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Cd-JJ-sqQ">
                                 <rect key="frame" x="0.0" y="265" width="414" height="517"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="64" id="7Oi-V7-0fH">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="64"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7Oi-V7-0fH" id="i6n-bH-fge">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
+                            </containerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nBT-Pe-eKn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Nr4-hj-uI6" firstAttribute="top" secondItem="QJd-KU-Vbm" secondAttribute="bottom" constant="20" id="0ch-Kg-iW5"/>
                             <constraint firstItem="Nr4-hj-uI6" firstAttribute="leading" secondItem="nBT-Pe-eKn" secondAttribute="leading" constant="8" id="7Vx-nv-V4R"/>
+                            <constraint firstItem="5Cd-JJ-sqQ" firstAttribute="top" secondItem="Nr4-hj-uI6" secondAttribute="bottom" constant="8" id="A3e-F8-Cjm"/>
                             <constraint firstItem="nBT-Pe-eKn" firstAttribute="trailing" secondItem="Nr4-hj-uI6" secondAttribute="trailing" constant="8" id="Isa-8K-8WF"/>
                             <constraint firstItem="QJd-KU-Vbm" firstAttribute="leading" secondItem="nBT-Pe-eKn" secondAttribute="leading" id="IxA-Q9-7bR"/>
-                            <constraint firstItem="nBT-Pe-eKn" firstAttribute="trailing" secondItem="083-4w-NAX" secondAttribute="trailing" id="JD2-o9-Io9"/>
-                            <constraint firstItem="083-4w-NAX" firstAttribute="top" secondItem="Nr4-hj-uI6" secondAttribute="bottom" constant="8" id="aCr-mV-D07"/>
+                            <constraint firstItem="5Cd-JJ-sqQ" firstAttribute="leading" secondItem="nBT-Pe-eKn" secondAttribute="leading" id="Ypp-Mz-JGy"/>
+                            <constraint firstItem="nBT-Pe-eKn" firstAttribute="trailing" secondItem="5Cd-JJ-sqQ" secondAttribute="trailing" id="Yt7-6J-GAh"/>
                             <constraint firstItem="QJd-KU-Vbm" firstAttribute="top" secondItem="dyH-u4-eK7" secondAttribute="top" id="auz-GH-wUn"/>
-                            <constraint firstItem="083-4w-NAX" firstAttribute="leading" secondItem="dyH-u4-eK7" secondAttribute="leading" id="dJb-ud-rbF"/>
-                            <constraint firstItem="nBT-Pe-eKn" firstAttribute="bottom" secondItem="083-4w-NAX" secondAttribute="bottom" constant="80" id="sGz-lC-ccJ"/>
                             <constraint firstItem="QJd-KU-Vbm" firstAttribute="trailing" secondItem="nBT-Pe-eKn" secondAttribute="trailing" id="vUA-IZ-57E"/>
+                            <constraint firstItem="nBT-Pe-eKn" firstAttribute="bottom" secondItem="5Cd-JJ-sqQ" secondAttribute="bottom" constant="80" id="wXz-JJ-aDY"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="083-4w-NAX" id="eFb-mb-9Ov"/>
+                        <outlet property="segmentControl" destination="Nr4-hj-uI6" id="mFA-M8-LmU"/>
+                        <outlet property="tableContainer" destination="5Cd-JJ-sqQ" id="aw9-nY-OZB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zyZ-1J-CyA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
