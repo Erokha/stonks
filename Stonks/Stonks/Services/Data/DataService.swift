@@ -9,19 +9,21 @@ class DataService {
     }
 
     private lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "Model")
+        let container = NSPersistentContainer(name: Constants.modelName)
+
         container.loadPersistentStores { _, error in
             if let error = error {
                 fatalError("Unable to load persistent stores: \(error)")
             }
         }
+
         return container
     }()
 }
 
 extension DataService: AuthorizationServiceInput {
     func userIsAuthorized() -> Bool {
-        guard let isAuthorizedObject = UserDefaults.standard.value(forKeyPath: "isAuthorized") else {
+        guard let isAuthorizedObject = UserDefaults.standard.value(forKeyPath: Constants.authKey) else {
             return false
         }
 
@@ -33,7 +35,7 @@ extension DataService: AuthorizationServiceInput {
     }
 
     func authorize() {
-        UserDefaults.standard.setValue(true, forKey: "isAuthorized")
+        UserDefaults.standard.setValue(true, forKey: Constants.authKey)
     }
 }
 
@@ -41,14 +43,21 @@ extension DataService: CoreDataServiceInput {
     func createUser(name: String, surname: String, balance: Decimal) {
         let context = persistentContainer.viewContext
 
-        guard let user = NSEntityDescription.insertNewObject(forEntityName: "User", into: context) as? User else {
-            print("User not saved")
+        guard let user = NSEntityDescription.insertNewObject(forEntityName: Entities.user.rawValue, into: context) as? User else {
             return
         }
 
         user.name = name
         user.surname = surname
         user.balance = NSDecimalNumber(decimal: balance)
+
+        let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+
+        guard let avatarURL = NSURL(string: Constants.avatarImageName, relativeTo: documents) else {
+            return
+        }
+
+        user.avatarURL = avatarURL
 
         do {
             try context.save()
@@ -66,7 +75,6 @@ extension DataService: CoreDataServiceInput {
 
             guard let users = fetchResult as? [User],
                   !users.isEmpty else {
-                print("Unable to cast CoreData entitiy to User")
                 return nil
             }
 
@@ -76,5 +84,13 @@ extension DataService: CoreDataServiceInput {
             print(error)
             return nil
         }
+    }
+}
+
+extension DataService {
+    private struct Constants {
+        static var modelName: String = "Model"
+        static var authKey: String = "isAuthorized"
+        static var avatarImageName = "avatar.png"
     }
 }
