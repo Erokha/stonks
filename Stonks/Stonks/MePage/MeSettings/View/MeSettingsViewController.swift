@@ -1,4 +1,5 @@
 import UIKit
+import MessageUI
 
 enum MeSettingsSections: Int, CaseIterable {
     case deposit = 0, changeName, reportError, resetData, about
@@ -19,7 +20,7 @@ enum MeSettingsSections: Int, CaseIterable {
     }
 }
 
-class MeSettingsViewController: UIViewController {
+class MeSettingsViewController: UIViewController, UINavigationControllerDelegate {
     private var tableView = UITableView()
 
     var presenter: MeSettingsOutput!
@@ -72,6 +73,8 @@ extension MeSettingsViewController: UITableViewDelegate, UITableViewDataSource {
             presenter.createDepositAlert()
         case .changeName:
             presenter.createChangeNameAlert()
+        case .reportError:
+            presenter.sendEmail()
         default:
             break
         }
@@ -86,7 +89,12 @@ extension MeSettingsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension MeSettingsViewController: MeSettingsInput {
+extension MeSettingsViewController: MeSettingsInput, MFMailComposeViewControllerDelegate {
+    func showMailComposer(mailComposer: MFMailComposeViewController) {
+        mailComposer.delegate = self
+        self.present(mailComposer, animated: true, completion: nil)
+    }
+
     func showAlert(alert: UIAlertController) {
         self.present(alert, animated: true, completion: nil)
     }

@@ -1,4 +1,5 @@
 import UIKit
+import MessageUI
 
 class MeSettingsPresenter {
     weak var view: MeSettingsInput?
@@ -20,9 +21,29 @@ class MeSettingsPresenter {
         print("Surname:", surname)
         // Save new surname to Core Data
     }
+
+    private func configureMailComposer() -> MFMailComposeViewController {
+        let mailComposeVc = MFMailComposeViewController()
+
+        mailComposeVc.setToRecipients([MeSettingsPresenter.Constants.mailToSend])
+        mailComposeVc.setSubject(MeSettingsPresenter.Constants.mailSubject)
+        mailComposeVc.setMessageBody(MeSettingsPresenter.Constants.mailBody, isHTML: false)
+        return mailComposeVc
+    }
 }
 
 extension MeSettingsPresenter: MeSettingsOutput {
+    func sendEmail() {
+        if MFMailComposeViewController.canSendMail() {
+            view?.showMailComposer(mailComposer: configureMailComposer())
+        } else {
+            let alert = UIAlertController(title: "Error!", message: "Sorry but email service is not avaliable at the moment.", preferredStyle: UIAlertController.Style.alert)
+            let okAction = UIAlertAction(title: "Ok", style: .default)
+            alert.addAction(okAction)
+            view?.showAlert(alert: alert)
+        }
+    }
+
     func createChangeNameAlert() {
         let alert = UIAlertController(title: MeSettingsPresenter.Constants.changeNameTitle, message: MeSettingsPresenter.Constants.changeNameMessage, preferredStyle: UIAlertController.Style.alert )
         let save = UIAlertAction(title: "Save", style: .default) { (_) in
@@ -83,5 +104,8 @@ extension MeSettingsPresenter {
         static let addDepositMessage: String = "Enter amount ofmoney you want to add:"
         static let changeNameTitle: String = "Change name."
         static let changeNameMessage: String = "Enter your new name:"
+        static let mailToSend: String = "alexanzakharov@gmail.com"
+        static let mailBody: String = "Please, tell us what happened!"
+        static let mailSubject: String = "Report error."
     }
 }
