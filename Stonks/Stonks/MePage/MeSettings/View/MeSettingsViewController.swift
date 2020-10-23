@@ -47,6 +47,7 @@ class MeSettingsViewController: UIViewController {
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         tableView.separatorStyle = .none
     }
+
 }
 
 extension MeSettingsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -65,6 +66,17 @@ extension MeSettingsViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch MeSettingsSections(rawValue: indexPath.section) {
+        case .deposit:
+            presenter.createDepositAlert()
+        case .changeName:
+            presenter.createChangeNameAlert()
+        default:
+            break
+        }
+    }
+
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: MeSettingsViewController.Constants.distanceBetweenCells))
     }
@@ -75,7 +87,9 @@ extension MeSettingsViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension MeSettingsViewController: MeSettingsInput {
-
+    func showAlert(alert: UIAlertController) {
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 extension MeSettingsViewController {

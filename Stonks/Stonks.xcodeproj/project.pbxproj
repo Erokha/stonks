@@ -296,13 +296,6 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
-		134179E0253227A90052D1A9 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		134179E3253227A90052D1A9 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -478,7 +471,6 @@
 			children = (
 				131D5AFB25378F1200F32055 /* Router */,
 				13F28AC4253499400004E864 /* Container */,
-				134179E0253227A90052D1A9 /* Model */,
 				13F28AB5253491E70004E864 /* View */,
 				13F28AB32534918E0004E864 /* Presenter */,
 				13F28AAA253491300004E864 /* Protocols */,
