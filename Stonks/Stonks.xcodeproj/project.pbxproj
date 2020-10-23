@@ -19,6 +19,7 @@
 		0D75114C253A606E00D0A719 /* MyStocksContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D75114B253A606E00D0A719 /* MyStocksContainer.swift */; };
 		0D751150253A61FC00D0A719 /* MyStocksRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D75114F253A61FC00D0A719 /* MyStocksRouterInput.swift */; };
 		0D751153253A622A00D0A719 /* MyStocksRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D751152253A622A00D0A719 /* MyStocksRouter.swift */; };
+		0DB3663E254360DC00607812 /* MyStocksInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB3663D254360DC00607812 /* MyStocksInteractor.swift */; };
 		0DF0172E252F5BD2003FF71B /* CardViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF01725252F5BD2003FF71B /* CardViewPresenter.swift */; };
 		0DF01730252F5BD2003FF71B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF01728252F5BD2003FF71B /* CardView.swift */; };
 		0DF01731252F5BD2003FF71B /* EmbeddedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF01729252F5BD2003FF71B /* EmbeddedView.swift */; };
@@ -70,6 +71,7 @@
 		0D75114B253A606E00D0A719 /* MyStocksContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStocksContainer.swift; sourceTree = "<group>"; };
 		0D75114F253A61FC00D0A719 /* MyStocksRouterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStocksRouterInput.swift; sourceTree = "<group>"; };
 		0D751152253A622A00D0A719 /* MyStocksRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStocksRouter.swift; sourceTree = "<group>"; };
+		0DB3663D254360DC00607812 /* MyStocksInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStocksInteractor.swift; sourceTree = "<group>"; };
 		0DF01725252F5BD2003FF71B /* CardViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewPresenter.swift; sourceTree = "<group>"; };
 		0DF01728252F5BD2003FF71B /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		0DF01729252F5BD2003FF71B /* EmbeddedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmbeddedView.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 		0D3903A5252F62C200C18036 /* MyStocks */ = {
 			isa = PBXGroup;
 			children = (
+				0DB36640254385E200607812 /* interactor */,
 				0D751155253A624700D0A719 /* Router */,
 				0D75114A253A604200D0A719 /* Container */,
 				0D3903A6252F62C200C18036 /* Models */,
@@ -207,6 +210,14 @@
 				BF616C92E9F30083C5C8CD11 /* libPods-Stonks.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0DB36640254385E200607812 /* interactor */ = {
+			isa = PBXGroup;
+			children = (
+				0DB3663D254360DC00607812 /* MyStocksInteractor.swift */,
+			);
+			path = interactor;
 			sourceTree = "<group>";
 		};
 		0DF01723252F5BD2003FF71B /* card */ = {
@@ -654,6 +665,7 @@
 				13BBF5EF253A07CF00DA0C32 /* MeHeaderContainer.swift in Sources */,
 				131D5AFD25378F1C00F32055 /* MePortfolioRouter.swift in Sources */,
 				0DF01733252F5BD2003FF71B /* NibLoadedViewType.swift in Sources */,
+				0DB3663E254360DC00607812 /* MyStocksInteractor.swift in Sources */,
 				9C2B6984253353D90042A932 /* LoginProtocols.swift in Sources */,
 				0D75114C253A606E00D0A719 /* MyStocksContainer.swift in Sources */,
 				0DF0172E252F5BD2003FF71B /* CardViewPresenter.swift in Sources */,

@@ -14,9 +14,11 @@ class MyStocksContainer {
 
         //let model: [Stock?] = []//here would be model or not???
 
-        let presenter = MyStocksPresenter()
+        let interactor = MyStocksMockInteractor()
+        let presenter = MyStocksPresenter(interactor: interactor)
         presenter.model = context.testmodel
 
+        interactor.output = presenter
         let router = MyStocksRouter()
 
         viewController.output = presenter

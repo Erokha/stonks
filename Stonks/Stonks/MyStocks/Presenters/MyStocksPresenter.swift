@@ -12,30 +12,18 @@ class MyStocksPresenter {
     }
     weak var view: MyStocksViewInput?
     var router: MyStocksRouterInput?
+    private let interactor: MyStoksInteractorInput
 
-    private func tmpMethod() {
-        let url = "http://192.168.31.36:8000/allStocks"
-        let request = AF.request(url)
-        request.responseJSON { response in
-            guard let object = response.value else {
-                print("Oh, no!!!")
-                return
-            }
-            print(object)
-            let json = JSON(object)
-            if let jArray = json.array {
-                for i in jArray {
-                    let stock = Stock(stockName: i["companyName"].string ?? "None", stockSymbol: i["symbol"].string ?? "None", stockPrice: i["price"].float ?? 0, stockCount: 5, imageUrl: i["image"].string ?? "logo")
-                    self.model?.append(stock)
-                }
-            }
-        }
+    init(interactor: MyStoksInteractorInput) {
+        self.interactor = interactor
     }
+
 }
 
 extension MyStocksPresenter: MyStocksViewOutput {
     func didLoadView() {
-        self.tmpMethod()
+        view?.startActivity()
+        interactor.loadStoks()
     }
 
     func numberOfItems() -> Int {
@@ -52,5 +40,40 @@ extension MyStocksPresenter: MyStocksViewOutput {
 
     func setStocksTotal(num: Int) {
         self.view?.setStocksTotal(total: num)
+    }
+
+    func refreshData() {
+        self.interactor.loadStoks()
+    }
+}
+
+extension MyStocksPresenter: MyStoksInteractorOutput {
+
+    func didRecive(stoks: [Stock]) {
+        self.model = stoks
+        view?.endActivity()
+    }
+
+    func didReciveError(with error: Error) {
+        router?.showError(with: error)
+        view?.endActivity()
+    }
+
+}
+
+public enum AppError: Error {
+    case networkError
+    case undefinedError
+}
+
+extension AppError: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .networkError:
+            return NSLocalizedString("Network connection lost", comment: "")
+
+        case .undefinedError:
+            return NSLocalizedString("Error occured", comment: "")
+        }
     }
 }
