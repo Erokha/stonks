@@ -9,6 +9,7 @@ class MyStocksViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        output?.didLoadView()
         configureTalbeView()
     }
 
@@ -49,6 +50,9 @@ extension MyStocksViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension MyStocksViewController: MyStocksViewInput {
+    func reloadTable() {
+        self.tableView.reloadData()
+    }
 
     func setAvaliableBalance(balance: Int) {
         self.embeddedViewController.showNumberLeft(num: balance)

@@ -1,4 +1,6 @@
 target 'Stonks' do
     pod 'SwiftLint'
     pod 'Charts'
+    pod 'Alamofire'
+    pod 'SwiftyJSON'
 end

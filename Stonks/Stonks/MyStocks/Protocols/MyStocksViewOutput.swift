@@ -5,4 +5,5 @@ protocol MyStocksViewOutput: class {
     func numberOfItems() -> Int
     func setBalance(num: Int)
     func setStocksTotal(num: Int)
+    func didLoadView()
 }
