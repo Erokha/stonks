@@ -10,4 +10,6 @@ protocol MeSettingsOutput: class {
     func createDepositAlert()
     func createChangeNameAlert()
     func sendEmail()
+    func isUserSure()
+    func aboutUs()
 }

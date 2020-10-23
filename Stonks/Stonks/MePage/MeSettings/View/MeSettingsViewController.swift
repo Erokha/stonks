@@ -75,6 +75,10 @@ extension MeSettingsViewController: UITableViewDelegate, UITableViewDataSource {
             presenter.createChangeNameAlert()
         case .reportError:
             presenter.sendEmail()
+        case .resetData:
+            presenter.isUserSure()
+        case .about:
+            presenter.aboutUs()
         default:
             break
         }

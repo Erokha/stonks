@@ -22,6 +22,10 @@ class MeSettingsPresenter {
         // Save new surname to Core Data
     }
 
+    private func resetData() {
+        print("Reset")
+        // Reset all data
+    }
     private func configureMailComposer() -> MFMailComposeViewController {
         let mailComposeVc = MFMailComposeViewController()
 
@@ -33,6 +37,24 @@ class MeSettingsPresenter {
 }
 
 extension MeSettingsPresenter: MeSettingsOutput {
+    func aboutUs() {
+        let alert = UIAlertController(title: MeSettingsPresenter.Constants.aboutUsTitle, message: MeSettingsPresenter.Constants.aboutUsMessage, preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default)
+        alert.addAction(okAction)
+        view?.showAlert(alert: alert)
+    }
+
+    func isUserSure() {
+        let alert = UIAlertController(title: MeSettingsPresenter.Constants.resetDataTitle, message: MeSettingsPresenter.Constants.resetDataMessage, preferredStyle: UIAlertController.Style.alert )
+        let reset = UIAlertAction(title: "Reset", style: .default) { (_) in
+            self.resetData()
+        }
+        alert.addAction(reset)
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addAction(cancel)
+        view?.showAlert(alert: alert)
+    }
+
     func sendEmail() {
         if MFMailComposeViewController.canSendMail() {
             view?.showMailComposer(mailComposer: configureMailComposer())
@@ -71,7 +93,7 @@ extension MeSettingsPresenter: MeSettingsOutput {
             textField.keyboardType = .asciiCapable
         }
         alert.addAction(save)
-        let cancel = UIAlertAction(title: "Cancel", style: .default) { (_) in }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
         alert.addAction(cancel)
         view?.showAlert(alert: alert)
     }
@@ -92,7 +114,7 @@ extension MeSettingsPresenter: MeSettingsOutput {
             textField.keyboardType = .numberPad
         }
         alert.addAction(save)
-        let cancel = UIAlertAction(title: "Cancel", style: .default) { (_) in }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
         alert.addAction(cancel)
         view?.showAlert(alert: alert)
     }
@@ -107,5 +129,9 @@ extension MeSettingsPresenter {
         static let mailToSend: String = "alexanzakharov@gmail.com"
         static let mailBody: String = "Please, tell us what happened!"
         static let mailSubject: String = "Report error."
+        static let resetDataTitle: String = "Warining!"
+        static let resetDataMessage: String = "You are going to reset all data, all data will be lost. Are you sure? "
+        static let aboutUsTitle: String = "About us."
+        static let aboutUsMessage: String = "Stonks, 2020"
     }
 }
