@@ -14,7 +14,7 @@ class MyStocksContainer {
 
         //let model: [Stock?] = []//here would be model or not???
 
-        let interactor = MyStocksMockInteractor()
+        let interactor = MyStocksInteractor()
         let presenter = MyStocksPresenter(interactor: interactor)
         presenter.model = context.testmodel
 
