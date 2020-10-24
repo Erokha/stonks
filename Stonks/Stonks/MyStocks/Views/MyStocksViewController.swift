@@ -13,7 +13,6 @@ class MyStocksViewController: UIViewController {
         super.viewDidLoad()
         output?.didLoadView()
         configureTalbeView()
-        //setupActivityIndicatorView()
     }
 
     override func viewDidLayoutSubviews() {
