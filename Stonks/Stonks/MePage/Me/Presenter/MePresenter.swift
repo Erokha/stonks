@@ -27,8 +27,12 @@ extension MePresenter: MeOutput {
     func didLoadView() {
         guard let settingsViewController = router?.showSettings() else { return }
         guard let portfolioViewController = router?.showPortfolio() else { return }
-        self.settingsVc = settingsViewController
-        self.portfolioVc = portfolioViewController
-        self.view?.add(asChildViewController: portfolioViewController)
+        settingsVc = settingsViewController
+        portfolioVc = portfolioViewController
+        view?.add(asChildViewController: portfolioViewController)
+        // load data about user
+        view?.setUserData(name: "Sasha", lastname: "Zak", image: UIImage(named: "ZUEV"))
+        view?.setUserSpentInfo(spent: 200)
+        view?.setUserCurrentBalance(currentBalance: 1200)
     }
 }
