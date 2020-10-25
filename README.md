@@ -1,6 +1,6 @@
 # Stonks💰
 
-![](https://imgur.com/hV7JQTH.png)
+![](https://imgur.com/DOwwPQ3.png)
 
 ## Introduction
 Stonks has re-invented investing.
