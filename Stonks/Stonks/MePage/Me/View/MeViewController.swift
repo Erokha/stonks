@@ -4,6 +4,7 @@ import Charts
 class MeViewController: UIViewController {
     @IBOutlet private weak var segmentControl: UISegmentedControl!
     weak var embeddedViewController: MeContainerViewController!
+    weak var pageViewViewController: MePageViewController!
     @IBOutlet private weak var headerView: UIView!
     @IBOutlet private weak var tableContainer: UIView!
     @IBOutlet private weak var nameLabel: UILabel!
@@ -52,11 +53,19 @@ extension MeViewController {
         if let vc = segue.destination as? MeContainerViewController,
                     segue.identifier == "MeContainerSegue" {
             self.embeddedViewController = vc
+        } else if let vc = segue.destination as? MePageViewController,
+                  segue.identifier == "MeContainerPageSegue" {
+            self.pageViewViewController = vc
+            self.pageViewViewController.mePageDelegate = self
         }
     }
 }
 
 extension MeViewController: MeInput {
+    func setPage(with page: MePage) {
+        pageViewViewController.setPage(for: page)
+    }
+
     func setUserData(name: String, lastname: String, image: UIImage?) {
         nameLabel.text = name
         surnameLabel.text = lastname
@@ -70,23 +79,18 @@ extension MeViewController: MeInput {
     func setUserCurrentBalance(currentBalance: Int) {
         embeddedViewController.setCurrentBalance(currentBalance: currentBalance)
     }
-
-    func remove(asChildViewController viewController: UIViewController) {
-        viewController.willMove(toParent: nil)
-        viewController.view.removeFromSuperview()
-        viewController.removeFromParent()
-    }
-
-    func add(asChildViewController viewController: UIViewController) {
-        addChild(viewController)
-        tableContainer.addSubview(viewController.view)
-        viewController.view.frame = tableContainer.bounds
-        viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        viewController.didMove(toParent: self)
-    }
-
 }
 
+extension MeViewController: MePageViewDelegate {
+    func mePageViewControllerDidSet(with page: MePage) {
+        switch page {
+        case .mePortfolio:
+            segmentControl.selectedSegmentIndex = 0
+        case .meSettings:
+            segmentControl.selectedSegmentIndex = 1
+        }
+    }
+}
 extension MeViewController {
     struct Constants {
         static let headerRadius: CGFloat = 20

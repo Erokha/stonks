@@ -14,11 +14,9 @@ extension MePresenter: MeOutput {
    func didIndexChanged(index: Int) {
         switch index {
         case 0:
-            view?.remove(asChildViewController: settingsVc)
-            view?.add(asChildViewController: portfolioVc)
+            view?.setPage(with: .mePortfolio)
         case 1:
-            view?.remove(asChildViewController: portfolioVc)
-            view?.add(asChildViewController: settingsVc)
+            view?.setPage(with: .meSettings)
         default:
             break
         }
@@ -29,7 +27,6 @@ extension MePresenter: MeOutput {
         guard let portfolioViewController = router?.showPortfolio() else { return }
         settingsVc = settingsViewController
         portfolioVc = portfolioViewController
-        view?.add(asChildViewController: portfolioViewController)
         // load data about user
         view?.setUserData(name: "Sasha", lastname: "Zak", image: UIImage(named: "ZUEV"))
         view?.setUserSpentInfo(spent: 200)
