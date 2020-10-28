@@ -1,12 +1,31 @@
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class MyStocksPresenter {
-    var model: [Stock]?
+    var model: [Stock]? {
+        didSet {
+            DispatchQueue.main.async {
+                self.view?.reloadTable()
+            }
+        }
+    }
     weak var view: MyStocksViewInput?
     var router: MyStocksRouterInput?
+    private let interactor: MyStoksInteractorInput
+
+    init(interactor: MyStoksInteractorInput) {
+        self.interactor = interactor
+    }
+
 }
 
 extension MyStocksPresenter: MyStocksViewOutput {
+    func didLoadView() {
+        view?.startActivity()
+        interactor.loadStoks()
+    }
+
     func numberOfItems() -> Int {
         return self.model?.count ?? 0
     }
@@ -21,5 +40,40 @@ extension MyStocksPresenter: MyStocksViewOutput {
 
     func setStocksTotal(num: Int) {
         self.view?.setStocksTotal(total: num)
+    }
+
+    func refreshData() {
+        self.interactor.loadStoks()
+    }
+}
+
+extension MyStocksPresenter: MyStoksInteractorOutput {
+
+    func didRecive(stoks: [Stock]) {
+        self.model = stoks
+        view?.endActivity()
+    }
+
+    func didReciveError(with error: Error) {
+        router?.showError(with: error)
+        view?.endActivity()
+    }
+
+}
+
+public enum AppError: Error {
+    case networkError
+    case undefinedError
+}
+
+extension AppError: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .networkError:
+            return NSLocalizedString("Network connection lost", comment: "")
+
+        case .undefinedError:
+            return NSLocalizedString("Error occured", comment: "")
+        }
     }
 }

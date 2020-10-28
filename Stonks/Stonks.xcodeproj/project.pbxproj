@@ -12,13 +12,12 @@
 		0D3903B8252F62C200C18036 /* MyStocksPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3903AB252F62C200C18036 /* MyStocksPresenter.swift */; };
 		0D3903BB252F62C200C18036 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3903B0252F62C200C18036 /* ContainerViewController.swift */; };
 		0D3903BC252F62C200C18036 /* MyStocksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3903B1252F62C200C18036 /* MyStocksViewController.swift */; };
-		0D3903BD252F62C200C18036 /* MyStocksViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3903B3252F62C200C18036 /* MyStocksViewInput.swift */; };
-		0D3903BF252F62C200C18036 /* MyStocksViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3903B5252F62C200C18036 /* MyStocksViewOutput.swift */; };
+		0D3903BD252F62C200C18036 /* MyStocksViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3903B3252F62C200C18036 /* MyStocksViewProtocols.swift */; };
 		0D751141253A5C4F00D0A719 /* StockTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D75113F253A5C4F00D0A719 /* StockTableViewCell.xib */; };
 		0D751142253A5C4F00D0A719 /* StockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D751140253A5C4F00D0A719 /* StockTableViewCell.swift */; };
 		0D75114C253A606E00D0A719 /* MyStocksContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D75114B253A606E00D0A719 /* MyStocksContainer.swift */; };
-		0D751150253A61FC00D0A719 /* MyStocksRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D75114F253A61FC00D0A719 /* MyStocksRouterInput.swift */; };
 		0D751153253A622A00D0A719 /* MyStocksRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D751152253A622A00D0A719 /* MyStocksRouter.swift */; };
+		0DB3663E254360DC00607812 /* MyStocksInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB3663D254360DC00607812 /* MyStocksInteractor.swift */; };
 		0DF0172E252F5BD2003FF71B /* CardViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF01725252F5BD2003FF71B /* CardViewPresenter.swift */; };
 		0DF01731252F5BD2003FF71B /* EmbeddedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF01729252F5BD2003FF71B /* EmbeddedView.swift */; };
 		0DF01732252F5BD2003FF71B /* CardViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0172B252F5BD2003FF71B /* CardViewType.swift */; };
@@ -86,13 +85,12 @@
 		0D3903AB252F62C200C18036 /* MyStocksPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyStocksPresenter.swift; sourceTree = "<group>"; };
 		0D3903B0252F62C200C18036 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		0D3903B1252F62C200C18036 /* MyStocksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyStocksViewController.swift; sourceTree = "<group>"; };
-		0D3903B3252F62C200C18036 /* MyStocksViewInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyStocksViewInput.swift; sourceTree = "<group>"; };
-		0D3903B5252F62C200C18036 /* MyStocksViewOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyStocksViewOutput.swift; sourceTree = "<group>"; };
+		0D3903B3252F62C200C18036 /* MyStocksViewProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyStocksViewProtocols.swift; sourceTree = "<group>"; };
 		0D75113F253A5C4F00D0A719 /* StockTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StockTableViewCell.xib; sourceTree = "<group>"; };
 		0D751140253A5C4F00D0A719 /* StockTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockTableViewCell.swift; sourceTree = "<group>"; };
 		0D75114B253A606E00D0A719 /* MyStocksContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStocksContainer.swift; sourceTree = "<group>"; };
-		0D75114F253A61FC00D0A719 /* MyStocksRouterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStocksRouterInput.swift; sourceTree = "<group>"; };
 		0D751152253A622A00D0A719 /* MyStocksRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStocksRouter.swift; sourceTree = "<group>"; };
+		0DB3663D254360DC00607812 /* MyStocksInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStocksInteractor.swift; sourceTree = "<group>"; };
 		0DF01725252F5BD2003FF71B /* CardViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewPresenter.swift; sourceTree = "<group>"; };
 		0DF01728252F5BD2003FF71B /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		0DF01729252F5BD2003FF71B /* EmbeddedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmbeddedView.swift; sourceTree = "<group>"; };
@@ -173,6 +171,7 @@
 		0D3903A5252F62C200C18036 /* MyStocks */ = {
 			isa = PBXGroup;
 			children = (
+				0DB36640254385E200607812 /* interactor */,
 				0D751155253A624700D0A719 /* Router */,
 				0D75114A253A604200D0A719 /* Container */,
 				0D3903A6252F62C200C18036 /* Models */,
@@ -222,9 +221,7 @@
 		0D3903B2252F62C200C18036 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				0D3903B3252F62C200C18036 /* MyStocksViewInput.swift */,
-				0D3903B5252F62C200C18036 /* MyStocksViewOutput.swift */,
-				0D75114F253A61FC00D0A719 /* MyStocksRouterInput.swift */,
+				0D3903B3252F62C200C18036 /* MyStocksViewProtocols.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -251,6 +248,14 @@
 				BF616C92E9F30083C5C8CD11 /* libPods-Stonks.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0DB36640254385E200607812 /* interactor */ = {
+			isa = PBXGroup;
+			children = (
+				0DB3663D254360DC00607812 /* MyStocksInteractor.swift */,
+			);
+			path = interactor;
 			sourceTree = "<group>";
 		};
 		0DF01723252F5BD2003FF71B /* card */ = {
@@ -872,7 +877,7 @@
 				0DF01731252F5BD2003FF71B /* EmbeddedView.swift in Sources */,
 				134487AB2541D794008C2D7B /* Protocols.swift in Sources */,
 				31BDC088252A1C5B00F56ADD /* AppDelegate.swift in Sources */,
-				0D3903BD252F62C200C18036 /* MyStocksViewInput.swift in Sources */,
+				0D3903BD252F62C200C18036 /* MyStocksViewProtocols.swift in Sources */,
 				0DF01732252F5BD2003FF71B /* CardViewType.swift in Sources */,
 				0D3903BC252F62C200C18036 /* MyStocksViewController.swift in Sources */,
 				0D3903BB252F62C200C18036 /* ContainerViewController.swift in Sources */,
@@ -881,6 +886,7 @@
 				13F28AC22534936E0004E864 /* MePortfolioPresenter.swift in Sources */,
 				131D5AFD25378F1C00F32055 /* MePortfolioRouter.swift in Sources */,
 				0DF01733252F5BD2003FF71B /* NibLoadedViewType.swift in Sources */,
+				0DB3663E254360DC00607812 /* MyStocksInteractor.swift in Sources */,
 				31905F7B25361BA0000D71A7 /* StockDetailPresenter.swift in Sources */,
 				134487A52541D678008C2D7B /* MeSettingsContainer.swift in Sources */,
 				134487972541BC31008C2D7B /* MeProtocols.swift in Sources */,
@@ -898,7 +904,6 @@
 				13417A0F25323E9D0052D1A9 /* StatusViewController.swift in Sources */,
 				0DF01730252F5BD2003FF71B /* CardView.swift in Sources */,
 				9C2B698F25335B9C0042A932 /* LoginContainer.swift in Sources */,
-				0D751150253A61FC00D0A719 /* MyStocksRouterInput.swift in Sources */,
 				0D751153253A622A00D0A719 /* MyStocksRouter.swift in Sources */,
 				311057E5253F1E0900B41CDA /* User+CoreDataClass.swift in Sources */,
 				311057E2253F1AF200B41CDA /* Model.xcdatamodeld in Sources */,
