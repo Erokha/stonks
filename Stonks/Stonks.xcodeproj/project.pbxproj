@@ -50,6 +50,7 @@
 		314C0590253B0D0200105352 /* DMSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 315BE131252F334B0074377B /* DMSans-Regular.ttf */; };
 		3155EC1A254970D00036F67B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF01728252F5BD2003FF71B /* CardView.swift */; };
 		3155EC1C254970F00036F67B /* LoginContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2B698E25335B9C0042A932 /* LoginContainer.swift */; };
+		3155EC29254978D40036F67B /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3155EC28254978D40036F67B /* MainTabBar.swift */; };
 		31782B76253B41E100B680D9 /* DataProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31782B75253B41E100B680D9 /* DataProtocols.swift */; };
 		31905F7B25361BA0000D71A7 /* StockDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31905F7225361BA0000D71A7 /* StockDetailPresenter.swift */; };
 		31905F7C25361BA0000D71A7 /* StockDetailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31905F7425361BA0000D71A7 /* StockDetailData.swift */; };
@@ -112,6 +113,7 @@
 		311057E4253F1E0900B41CDA /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		311057E7253F1E1C00B41CDA /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		311057EA253F219D00B41CDA /* Entities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entities.swift; sourceTree = "<group>"; };
+		3155EC28254978D40036F67B /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		315BE130252F332F0074377B /* DMSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Bold.ttf"; sourceTree = "<group>"; };
 		315BE131252F334B0074377B /* DMSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Regular.ttf"; sourceTree = "<group>"; };
 		31782B75253B41E100B680D9 /* DataProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProtocols.swift; sourceTree = "<group>"; };
@@ -421,6 +423,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		3155EC27254978C00036F67B /* MainTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				3155EC28254978D40036F67B /* MainTabBar.swift */,
+			);
+			path = MainTabBar;
+			sourceTree = "<group>";
+		};
 		315BE133252F33810074377B /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -546,6 +556,7 @@
 		31BDC086252A1C5A00F56ADD /* Stonks */ = {
 			isa = PBXGroup;
 			children = (
+				3155EC27254978C00036F67B /* MainTabBar */,
 				31905F7025361BA0000D71A7 /* Stock Detail */,
 				0D3903A5252F62C200C18036 /* MyStocks */,
 				134179D9253227A90052D1A9 /* MePage */,
@@ -789,6 +800,7 @@
 				31782B76253B41E100B680D9 /* DataProtocols.swift in Sources */,
 				311057EB253F219D00B41CDA /* Entities.swift in Sources */,
 				311057E8253F1E1C00B41CDA /* User+CoreDataProperties.swift in Sources */,
+				3155EC29254978D40036F67B /* MainTabBar.swift in Sources */,
 				31E44531253B1FBB00528971 /* DataService.swift in Sources */,
 				0DF0172E252F5BD2003FF71B /* CardViewPresenter.swift in Sources */,
 				31905F8C25361FD9000D71A7 /* StockDetailRouter.swift in Sources */,
