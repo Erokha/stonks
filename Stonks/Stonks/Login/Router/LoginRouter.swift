@@ -7,12 +7,10 @@ class LoginRouter {
 
 extension LoginRouter: LoginRouterInput {
     func showMainScreen() {
-        //let authScreen: UIViewController = LoginContainer.assemble(with: LoginContext(isChecked: true)).viewController
         let emptyVC = UIViewController()
 
-        emptyVC.modalPresentationStyle = .fullScreen
-
         let navigationVC = UINavigationController(rootViewController: emptyVC)
+        navigationVC.modalPresentationStyle = .fullScreen
 
         viewController?.present(navigationVC, animated: true, completion: nil)
     }

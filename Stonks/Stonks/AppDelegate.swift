@@ -9,7 +9,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
 
-        self.window?.rootViewController = getInitalViewController(isAuthorized: true)
+        self.window?.rootViewController = getInitalViewController(isAuthorized: DataService.shared.userIsAuthorized())
+
         self.window?.makeKeyAndVisible()
         return true
     }
