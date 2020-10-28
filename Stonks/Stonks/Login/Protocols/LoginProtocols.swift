@@ -1,5 +1,3 @@
-import Foundation
-
 protocol LoginViewOutput: class {
     func didTapRegisterButton(name: String?, surname: String?, balance: String?)
     func didTapCheckBox()

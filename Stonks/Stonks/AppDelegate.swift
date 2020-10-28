@@ -25,7 +25,7 @@ extension AppDelegate {
 
             return container.viewController
         } else {
-            let context = LoginContext(isChecked: true)
+            let context = LoginContext(isChecked: false)
             let container = LoginContainer.assemble(with: context)
 
             return container.viewController

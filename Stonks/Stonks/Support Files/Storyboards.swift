@@ -1,14 +1,6 @@
-//
-//  Storyboards.swift
-//  Stonks
-//
-//  Created by k.kulakov on 11.10.2020.
-//
-
-import Foundation
-
 enum Storyboard {
     case login
+    case stockDetail
     case settings
     case myStocks
     case mePage
@@ -19,6 +11,8 @@ extension Storyboard {
         switch self {
         case .login:
             return Constants.login
+        case .stockDetail:
+            return Constants.stockDetail
         case .settings:
             return Constants.settings
         case .myStocks:
@@ -31,6 +25,7 @@ extension Storyboard {
 
 private struct Constants {
     static let login = "Login"
+    static let stockDetail = "StockDetail"
     static let settings = "Settings"
     static let myStocks = "MyStocks"
     static let mePage = "MePage"
