@@ -1,10 +1,3 @@
-//
-//  MePortfolioContainer.swift
-//  Stonks
-//
-//  Created by  Alexandr Zakharov on 12.10.2020.
-//
-
 import UIKit
 
 class MePortfolioContainer {
@@ -12,10 +5,7 @@ class MePortfolioContainer {
     private(set) weak var router: MePortfolioRouter?
 
     class func assemble(with context: MePortfolioContext) -> MePortfolioContainer {
-        let storyboard = UIStoryboard(name: Storyboard.mePage.name, bundle: nil)
-        guard let vc = storyboard.instantiateViewController(withIdentifier: Storyboard.mePage.name) as? MePortfolioViewController else {
-            fatalError("MePorfolioContainer: viewController must be type MePortfolioViewController")
-        }
+        let vc = MePortfolioViewController()
 
         let presenter = MePortfolioPresenter()
         let router = MePortfolioRouter()
