@@ -3,4 +3,5 @@ target 'Stonks' do
     pod 'Charts'
     pod 'Alamofire'
     pod 'SwiftyJSON'
+    pod 'Kingfisher'
 end
