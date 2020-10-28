@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate {
     func getInitalViewController(isAuthorized: Bool) -> UIViewController {
         if isAuthorized {
-            let context = MyStocksContext(testmodel: [appleStock])
+            let context = MyStocksContext(testmodel: [])
             let container = MyStocksContainer.assemble(with: context)
 
             return container.viewController
