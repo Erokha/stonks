@@ -9,7 +9,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
 
-        self.window?.rootViewController = getInitalViewController(isAuthorized: true)
+        self.window?.rootViewController = getInitalViewController(isAuthorized: DataService.shared.userIsAuthorized())
+
         self.window?.makeKeyAndVisible()
         return true
     }
@@ -18,13 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate {
     func getInitalViewController(isAuthorized: Bool) -> UIViewController {
         if isAuthorized {
-            //let appleStock = Stock(stockName: "Apple", stockSymbol: "AAPL", stockPrice: 114, stockCount: 7, imageUrl: "none")
             let context = MyStocksContext(testmodel: [])
             let container = MyStocksContainer.assemble(with: context)
 
             return container.viewController
         } else {
-            let context = LoginContext(isChecked: true)
+            let context = LoginContext(isChecked: false)
             let container = LoginContainer.assemble(with: context)
 
             return container.viewController

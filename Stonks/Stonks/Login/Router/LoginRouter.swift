@@ -1,4 +1,3 @@
-import Foundation
 import UIKit
 
 class LoginRouter {
@@ -7,12 +6,11 @@ class LoginRouter {
 
 extension LoginRouter: LoginRouterInput {
     func showMainScreen() {
-        //let authScreen: UIViewController = LoginContainer.assemble(with: LoginContext(isChecked: true)).viewController
-        let emptyVC = UIViewController()
+        let stockDetailVC: UIViewController = StockDetailContainer.assemble(with: StockDetailContext(name: "AAPL")).viewController
 
-        emptyVC.modalPresentationStyle = .fullScreen
+        let navigationVC = UINavigationController(rootViewController: stockDetailVC)
 
-        let navigationVC = UINavigationController(rootViewController: emptyVC)
+        navigationVC.modalPresentationStyle = .fullScreen
 
         viewController?.present(navigationVC, animated: true, completion: nil)
     }
