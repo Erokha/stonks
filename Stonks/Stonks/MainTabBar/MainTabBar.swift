@@ -71,10 +71,10 @@ class MainTabBar: UITabBarController {
     }
 
     private func prepareMePortfoiolViewController() -> UINavigationController {
-        let container = MePortfolioContainer.assemble(with: MePortfolioContext())
-        let tabBarItem = UITabBarItem(title: Constants.MePorfolioBarItem.title,
-                                      image: UIImage(named: Constants.MePorfolioBarItem.imageName)?.withRenderingMode(.alwaysOriginal),
-                                      tag: Constants.MePorfolioBarItem.tag)
+        let container = MeContainer.assemble(with: MeContext())
+        let tabBarItem = UITabBarItem(title: Constants.MeBarItem.title,
+                                      image: UIImage(named: Constants.MeBarItem.imageName)?.withRenderingMode(.alwaysOriginal),
+                                      tag: Constants.MeBarItem.tag)
 
         container.viewController.tabBarItem = tabBarItem
 
@@ -111,7 +111,7 @@ extension MainTabBar {
             static let tag: Int = 2
         }
 
-        struct MePorfolioBarItem {
+        struct MeBarItem {
             static let title: String = "Me"
             static let imageName: String = "me"
             static let tag: Int = 3
