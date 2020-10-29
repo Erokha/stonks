@@ -10,6 +10,9 @@ class MeSettingsPresenter {
     private func saveDeposit(money: Int) {
         print("Money:", money)
         // Add money to Core data
+        let user = DataService.shared.getUser()
+        var amount = Int(user?.balance ?? 0)
+        amount += money
     }
 
     private func saveName(name: String) {
@@ -23,8 +26,8 @@ class MeSettingsPresenter {
     }
 
     private func resetData() {
-        print("Reset")
-        // Reset all data
+        let user = DataService.shared.getUser()
+
     }
     private func configureMailComposer() -> MFMailComposeViewController {
         let mailComposeVc = MFMailComposeViewController()

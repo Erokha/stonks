@@ -17,6 +17,7 @@ class MeContainer {
         vc.presenter = presenter
         presenter.view = vc
         presenter.router = router
+        interactor.output = presenter
         router.viewController = vc
         return MeContainer(view: vc, router: router)
     }

@@ -4,6 +4,7 @@ final class MeIteractor {
     weak var output: MeInteractorOutput?
 
     private func handleUser(with user: User) {
+        output?.didReceive(user: user)
     }
 }
 

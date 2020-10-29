@@ -19,6 +19,7 @@ class DataService {
 
         return container
     }()
+
 }
 
 extension DataService: AuthorizationServiceInput {
@@ -40,7 +41,7 @@ extension DataService: AuthorizationServiceInput {
 }
 
 extension DataService: CoreDataServiceInput {
-    func createUser(name: String, surname: String, balance: Decimal) {
+  func createUser(name: String, surname: String, balance: Decimal) {
         let context = persistentContainer.viewContext
 
         guard let user = NSEntityDescription.insertNewObject(forEntityName: Entities.user.rawValue, into: context) as? User else {
@@ -50,6 +51,7 @@ extension DataService: CoreDataServiceInput {
         user.name = name
         user.surname = surname
         user.balance = NSDecimalNumber(decimal: balance)
+        user.totalSpent = NSDecimalNumber(decimal: 0)
 
         let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
 
