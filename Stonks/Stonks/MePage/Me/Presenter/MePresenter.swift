@@ -5,8 +5,12 @@ class MePresenter {
     var router: MeRouterInput?
     var settingsVc: MeSettingsViewController!
     var portfolioVc: MePortfolioViewController!
+    private var iteractor: MeInteractorInput
 
-    required init() {
+    var user: User?
+
+    init(interactor: MeInteractorInput) {
+        self.iteractor = interactor
     }
 }
 
@@ -31,5 +35,11 @@ extension MePresenter: MeOutput {
         view?.setUserData(name: "Sasha", lastname: "Zak", image: UIImage(named: "ZUEV"))
         view?.setUserSpentInfo(spent: 200)
         view?.setUserCurrentBalance(currentBalance: 1200)
+    }
+}
+
+extension MePresenter: MeInteractorOutput {
+    func didReceive(user: User) {
+        self.user = user
     }
 }

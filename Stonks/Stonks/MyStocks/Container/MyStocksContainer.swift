@@ -16,7 +16,6 @@ class MyStocksContainer {
 
         let interactor = MyStocksInteractor()
         let presenter = MyStocksPresenter(interactor: interactor)
-        presenter.model = context.testmodel
 
         interactor.output = presenter
         let router = MyStocksRouter()

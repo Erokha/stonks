@@ -10,7 +10,8 @@ class MeContainer {
             fatalError("MePorfolioContainer: viewController must be type MePortfolioViewController")
         }
 
-        let presenter = MePresenter()
+        let interactor = MeIteractor()
+        let presenter = MePresenter(interactor: interactor)
         let router = MeRouter()
 
         vc.presenter = presenter
