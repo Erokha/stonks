@@ -60,29 +60,29 @@ extension LoginPresenter: LoginViewOutput {
     func didTapRegisterButton(name: String?, surname: String?, balance: String?) {
         guard let name = name,
               !name.isEmpty else {
-            view?.showAlert(with: "Ошибка", message: "Необходимо ввести имя")
+            view?.showAlert(with: "Oops!", message: "Please, input your name")
             return
         }
 
         guard let surname = surname,
               !surname.isEmpty else {
-            view?.showAlert(with: "Ошибка", message: "Необходимо ввести фамилию")
+            view?.showAlert(with: "Oops!", message: "Please, input your surname")
             return
         }
 
         guard let balanceString = balance,
               !balanceString.isEmpty else {
-            view?.showAlert(with: "Ошибка", message: "Необходимо ввести баланс")
+            view?.showAlert(with: "Oops!", message: "Please, input your balance")
             return
         }
 
         guard let balance = Decimal(string: balanceString) else {
-            view?.showAlert(with: "Ошибка", message: "Невозможно преобразовать баланс в число")
+            view?.showAlert(with: "Oops!", message: "Can`t convert balance")
             return
         }
 
         guard termsAccepted else {
-            view?.showAlert(with: "Ошибка", message: "Необходимо принять пользовательское соглашение")
+            view?.showAlert(with: "Oops!", message: "Terms need to be accepted")
             return
         }
 

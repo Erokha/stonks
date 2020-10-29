@@ -6,18 +6,37 @@ class MyStocksViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     weak var embeddedViewController: ContainerViewController!
     var output: MyStocksViewOutput?
+    private let refreshControl = UIRefreshControl()
+    private let activityIndicatorView = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        output?.didLoadView()
         configureTalbeView()
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        setupActivityIndicatorView()
+    }
+
+    private func setupActivityIndicatorView() {
+        activityIndicatorView.color = .black
+        self.activityIndicatorView.center = CGPoint(x: UIScreen.main.bounds.size.width / 2, y: UIScreen.main.bounds.size.height / 2)
+
+            view.superview?.addSubview(activityIndicatorView)
+            activityIndicatorView.hidesWhenStopped = true
+
     }
 
     private func configureTalbeView() {
         setShadow()
-        self.tableView.register(UINib(nibName: "StockTableViewCell", bundle: nil), forCellReuseIdentifier: StockTableViewCell.reuseIdentifier)
+        tableView.register(UINib(nibName: "StockTableViewCell", bundle: nil), forCellReuseIdentifier: StockTableViewCell.reuseIdentifier)
         tableView.tableFooterView = UIView(frame: .zero)
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
     }
 
     private func setShadow() {
@@ -26,6 +45,11 @@ class MyStocksViewController: UIViewController {
         self.viewContainer.layer.shadowOffset = .zero
         self.viewContainer.layer.shadowRadius = 10
     }
+
+    @objc private func refreshData(_ sender: Any) {
+        output?.refreshData()
+    }
+
 }
 
 extension MyStocksViewController: UITableViewDelegate, UITableViewDataSource {
@@ -49,6 +73,10 @@ extension MyStocksViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension MyStocksViewController: MyStocksViewInput {
+    func reloadTable() {
+        self.tableView.reloadData()
+        self.refreshControl.endRefreshing()
+    }
 
     func setAvaliableBalance(balance: Int) {
         self.embeddedViewController.showNumberLeft(num: balance)
@@ -56,6 +84,13 @@ extension MyStocksViewController: MyStocksViewInput {
 
     func setStocksTotal(total: Int) {
         self.embeddedViewController.showNumberRight(num: total)
+    }
+
+    func startActivity() {
+        activityIndicatorView.startAnimating()
+    }
+    func endActivity() {
+        activityIndicatorView.stopAnimating()
     }
 
 }
