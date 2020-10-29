@@ -28,5 +28,5 @@ private struct Constants {
     static let stockDetail = "StockDetail"
     static let settings = "Settings"
     static let myStocks = "MyStocks"
-    static let mePage = "MePage"
+    static let mePage = "Me"
 }

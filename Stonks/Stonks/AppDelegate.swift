@@ -19,10 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate {
     func getInitalViewController(isAuthorized: Bool) -> UIViewController {
         if isAuthorized {
-            let context = MyStocksContext(testmodel: [])
-            let container = MyStocksContainer.assemble(with: context)
+            let tabBarVC = MainTabBar()
 
-            return container.viewController
+            tabBarVC.modalPresentationStyle = .fullScreen
+
+            return tabBarVC
         } else {
             let context = LoginContext(isChecked: false)
             let container = LoginContainer.assemble(with: context)
