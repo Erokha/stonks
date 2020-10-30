@@ -11,8 +11,10 @@ class MeSettingsPresenter {
         print("Money:", money)
         // Add money to Core data
         let user = DataService.shared.getUser()
-        var amount = Int(user?.balance ?? 0)
-        amount += money
+        let userMoney = Int(truncating: user?.balance ?? 0)
+        user?.balance = NSDecimalNumber(value: userMoney + money)
+        DataService.shared.editUser(user: user ?? User())
+        view?.didSettingsChanged()
     }
 
     private func saveName(name: String) {

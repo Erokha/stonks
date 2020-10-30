@@ -1,6 +1,7 @@
 import Foundation
+import CoreData
 
-final class MeIteractor {
+final class MeIteractor: NSObject {
     weak var output: MeInteractorOutput?
 
     private func handleUser(with user: User) {
@@ -16,4 +17,7 @@ extension MeIteractor: MeInteractorInput {
             handleUser(with: User())
         }
     }
+}
+
+extension MeIteractor: NSFetchedResultsControllerDelegate {
 }

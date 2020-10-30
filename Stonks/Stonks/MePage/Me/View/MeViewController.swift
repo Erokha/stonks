@@ -1,5 +1,6 @@
 import UIKit
 import Charts
+import CoreData
 
 class MeViewController: UIViewController {
     @IBOutlet private weak var segmentControl: UISegmentedControl!
@@ -57,6 +58,8 @@ extension MeViewController {
                   segue.identifier == "MeContainerPageSegue" {
             self.pageViewViewController = vc
             self.pageViewViewController.mePageDelegate = self
+            let settingsVc = pageViewViewController.pages[1] as? MeSettingsViewController
+            settingsVc?.meSettingsDelegate = self
         }
     }
 }
@@ -90,6 +93,13 @@ extension MeViewController: MePageViewDelegate {
             segmentControl.selectedSegmentIndex = 1
         }
     }
+}
+
+extension MeViewController: MeSettingsDelegate {
+    func didSettingChange() {
+        self.configureHeader()
+    }
+
 }
 extension MeViewController {
     struct Constants {

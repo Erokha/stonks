@@ -87,6 +87,22 @@ extension DataService: CoreDataServiceInput {
             return nil
         }
     }
+
+    func editUser(user: User) {
+        let context = persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Entities.user.rawValue)
+
+        do {
+            var fetchReuslt = try context.fetch(fetchRequest)
+            if fetchReuslt.count == 1 {
+                fetchReuslt[0] = user
+                print(user.balance)
+            }
+            try context.save()
+        } catch {
+            fatalError("Failure to save context: \(error)")
+        }
+    }
 }
 
 extension DataService {
