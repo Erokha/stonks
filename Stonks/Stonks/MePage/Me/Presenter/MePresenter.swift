@@ -41,12 +41,17 @@ extension MePresenter: MeOutput {
         guard let portfolioViewController = router?.showPortfolio() else { return }
         settingsVc = settingsViewController
         portfolioVc = portfolioViewController
-        // load data about user
         interactor.loadUser()
     }
 }
 
 extension MePresenter: MeInteractorOutput {
+    func didChangeContetnt(user: User) {
+        view?.setUserData(name: user.name, lastname: user.surname, image: nil)
+        view?.setUserSpentInfo(spent: Int(truncating: user.totalSpent))
+        view?.setUserCurrentBalance(currentBalance: Int(truncating: user.balance))
+    }
+
     func didReceive(user: User) {
         self.user = user
     }

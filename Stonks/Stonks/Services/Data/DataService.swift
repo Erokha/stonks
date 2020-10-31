@@ -20,6 +20,9 @@ class DataService {
         return container
     }()
 
+    func getPersistentContainer() -> NSPersistentContainer {
+        return self.persistentContainer
+    }
 }
 
 extension DataService: AuthorizationServiceInput {
@@ -96,7 +99,6 @@ extension DataService: CoreDataServiceInput {
             var fetchReuslt = try context.fetch(fetchRequest)
             if fetchReuslt.count == 1 {
                 fetchReuslt[0] = user
-                print(user.balance)
             }
             try context.save()
         } catch {

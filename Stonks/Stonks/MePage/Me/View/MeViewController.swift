@@ -58,8 +58,6 @@ extension MeViewController {
                   segue.identifier == "MeContainerPageSegue" {
             self.pageViewViewController = vc
             self.pageViewViewController.mePageDelegate = self
-            let settingsVc = pageViewViewController.pages[1] as? MeSettingsViewController
-            settingsVc?.meSettingsDelegate = self
         }
     }
 }
@@ -95,12 +93,6 @@ extension MeViewController: MePageViewDelegate {
     }
 }
 
-extension MeViewController: MeSettingsDelegate {
-    func didSettingChange() {
-        self.configureHeader()
-    }
-
-}
 extension MeViewController {
     struct Constants {
         static let headerRadius: CGFloat = 20

@@ -20,12 +20,7 @@ enum MeSettingsSections: Int, CaseIterable {
     }
 }
 
-protocol MeSettingsDelegate: class {
-    func didSettingChange()
-}
-
 class MeSettingsViewController: UIViewController, UINavigationControllerDelegate {
-    weak var meSettingsDelegate: MeSettingsDelegate?
     private var tableView = UITableView()
 
     var presenter: MeSettingsOutput!
@@ -99,10 +94,6 @@ extension MeSettingsViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension MeSettingsViewController: MeSettingsInput, MFMailComposeViewControllerDelegate {
-    func didSettingsChanged() {
-        self.meSettingsDelegate?.didSettingChange()
-    }
-
     func showMailComposer(mailComposer: MFMailComposeViewController) {
         mailComposer.delegate = self
         self.present(mailComposer, animated: true, completion: nil)

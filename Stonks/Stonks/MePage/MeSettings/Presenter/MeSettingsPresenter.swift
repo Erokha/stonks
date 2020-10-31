@@ -14,7 +14,6 @@ class MeSettingsPresenter {
         let userMoney = Int(truncating: user?.balance ?? 0)
         user?.balance = NSDecimalNumber(value: userMoney + money)
         DataService.shared.editUser(user: user ?? User())
-        view?.didSettingsChanged()
     }
 
     private func saveName(name: String) {

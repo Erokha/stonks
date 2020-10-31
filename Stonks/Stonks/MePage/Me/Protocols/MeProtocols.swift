@@ -23,4 +23,5 @@ protocol MeInteractorInput: class {
 
 protocol MeInteractorOutput: class {
     func didReceive(user: User)
+    func didChangeContetnt(user: User)
 }
