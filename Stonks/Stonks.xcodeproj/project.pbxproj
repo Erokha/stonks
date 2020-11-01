@@ -110,7 +110,7 @@
 		0D77776B254B22FA00EFF30E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		0D77776D254B22FA00EFF30E /* NewsProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsProtocols.swift; sourceTree = "<group>"; };
 		0D77776F254B22FA00EFF30E /* ArticleInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleInteractor.swift; sourceTree = "<group>"; };
-		0D777784254EEA0B00EFF30E /* ArticleRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleRouter.swift; sourceTree = SOURCE_ROOT; };
+		0D777784254EEA0B00EFF30E /* ArticleRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArticleRouter.swift; path = Stonks/ArticleTable/Router/ArticleRouter.swift; sourceTree = SOURCE_ROOT; };
 		0DB3663D254360DC00607812 /* MyStocksInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStocksInteractor.swift; sourceTree = "<group>"; };
 		0DF01725252F5BD2003FF71B /* CardViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewPresenter.swift; sourceTree = "<group>"; };
 		0DF01728252F5BD2003FF71B /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -267,6 +267,7 @@
 		0D77775F254B22FA00EFF30E /* ArticleTable */ = {
 			isa = PBXGroup;
 			children = (
+				0D77778E254EFA0B00EFF30E /* Router */,
 				0D777760254B22FA00EFF30E /* Presenter */,
 				0D777762254B22FA00EFF30E /* Container */,
 				0D777764254B22FA00EFF30E /* ArticleCard */,
@@ -274,7 +275,6 @@
 				0D777769254B22FA00EFF30E /* Views */,
 				0D77776C254B22FA00EFF30E /* Protocols */,
 				0D77776E254B22FA00EFF30E /* Interactor */,
-				0D777770254B22FA00EFF30E /* Router */,
 			);
 			path = ArticleTable;
 			sourceTree = "<group>";
@@ -337,7 +337,7 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
-		0D777770254B22FA00EFF30E /* Router */ = {
+		0D77778E254EFA0B00EFF30E /* Router */ = {
 			isa = PBXGroup;
 			children = (
 				0D777784254EEA0B00EFF30E /* ArticleRouter.swift */,
