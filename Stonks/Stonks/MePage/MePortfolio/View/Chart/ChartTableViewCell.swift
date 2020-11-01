@@ -21,7 +21,7 @@ class ChartTableViewCell: UITableViewCell {
         mainChartView.layer.cornerRadius = ChartTableViewCell.Constants.viewRadius
         mainChartView.layer.shadowColor = UIColor.black.cgColor
         mainChartView.layer.shadowRadius = ChartTableViewCell.Constants.shadowRadius
-        mainChartView.layer.shadowOffset = .init(width: 0, height: 4)
+        mainChartView.layer.shadowOffset = .init(width: 0, height: 3)
         mainChartView.layer.shadowOpacity = ChartTableViewCell.Constants.shadowOpacity
     }
 
@@ -58,7 +58,7 @@ extension ChartTableViewCell {
     private struct Constants {
         static let viewRadius: CGFloat = 15
         static let shadowRadius: CGFloat = 3
-        static let shadowOpacity: Float = 0.6
+        static let shadowOpacity: Float = 0.4
         static let legendFormSize: CGFloat = 15
     }
 }
