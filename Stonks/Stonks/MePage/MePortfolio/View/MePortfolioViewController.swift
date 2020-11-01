@@ -76,6 +76,17 @@ extension MePortfolioViewController: UITableViewDelegate, UITableViewDataSource 
             return 0
         }
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch MePortfolioSections(rawValue: indexPath.section) {
+        case .chart:
+            print("Do something")
+        case .historyButton:
+            presenter.didHistoryButtonTapped()
+        default:
+            break
+        }
+    }
 }
 
 extension MePortfolioViewController: MePortfolioInput {

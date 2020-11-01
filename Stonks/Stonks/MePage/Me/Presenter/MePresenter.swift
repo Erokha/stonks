@@ -3,8 +3,6 @@ import UIKit
 class MePresenter {
     weak var view: MeInput?
     var router: MeRouterInput?
-    var settingsVc: MeSettingsViewController!
-    var portfolioVc: MePortfolioViewController!
     private var interactor: MeInteractorInput
 
     var user: User? {
@@ -37,10 +35,6 @@ extension MePresenter: MeOutput {
     }
 
     func didLoadView() {
-        guard let settingsViewController = router?.showSettings() else { return }
-        guard let portfolioViewController = router?.showPortfolio() else { return }
-        settingsVc = settingsViewController
-        portfolioVc = portfolioViewController
         interactor.loadUser()
     }
 }

@@ -53,6 +53,10 @@ extension MePortfolioPresenter {
 }
 
 extension MePortfolioPresenter: MePortfolioOutput {
+    func didHistoryButtonTapped() {
+        router?.showHistory()
+    }
+
     func noDataMessage() -> String {
         return MePortfolioPresenter.Constants.noDataMessage
     }

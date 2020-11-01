@@ -43,9 +43,15 @@
 		134487AB2541D794008C2D7B /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134487AA2541D794008C2D7B /* Protocols.swift */; };
 		13531273253B4C6600F77A91 /* HistoryButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13531271253B4C6600F77A91 /* HistoryButtonTableViewCell.swift */; };
 		13531274253B4C6600F77A91 /* HistoryButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13531272253B4C6600F77A91 /* HistoryButtonTableViewCell.xib */; };
+		13591470254EAE800048E60F /* MeHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1359146F254EAE800048E60F /* MeHistoryViewController.swift */; };
+		13591478254EC99E0048E60F /* MeHistoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13591477254EC99E0048E60F /* MeHistoryPresenter.swift */; };
+		1359147B254EC9AA0048E60F /* MeHistoryProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1359147A254EC9AA0048E60F /* MeHistoryProtocols.swift */; };
+		1359147E254ECA330048E60F /* MeHistoryContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1359147D254ECA330048E60F /* MeHistoryContainer.swift */; };
+		13591481254ECB9F0048E60F /* MeHistoryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13591480254ECB9F0048E60F /* MeHistoryInteractor.swift */; };
+		137C65F8254ED8B300AB0A59 /* MeHistoryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137C65F7254ED8B300AB0A59 /* MeHistoryRouter.swift */; };
 		13BBF5FE253AD3F400DA0C32 /* ChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BBF5FC253AD3F400DA0C32 /* ChartTableViewCell.swift */; };
 		13BBF5FF253AD3F400DA0C32 /* ChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13BBF5FD253AD3F400DA0C32 /* ChartTableViewCell.xib */; };
-		13D824C6254AF41F002F654E /* MeIteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D824C5254AF41F002F654E /* MeIteractor.swift */; };
+		13D824C6254AF41F002F654E /* MeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D824C5254AF41F002F654E /* MeInteractor.swift */; };
 		13DCDD6325481994002D3F99 /* MePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DCDD6225481994002D3F99 /* MePageViewController.swift */; };
 		13F28AA125348F920004E864 /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13F28AA025348F910004E864 /* CardView.xib */; };
 		13F28AAC2534913F0004E864 /* MePortfolioProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F28AAB2534913F0004E864 /* MePortfolioProtocols.swift */; };
@@ -117,9 +123,15 @@
 		134487AA2541D794008C2D7B /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		13531271253B4C6600F77A91 /* HistoryButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryButtonTableViewCell.swift; sourceTree = "<group>"; };
 		13531272253B4C6600F77A91 /* HistoryButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryButtonTableViewCell.xib; sourceTree = "<group>"; };
+		1359146F254EAE800048E60F /* MeHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHistoryViewController.swift; sourceTree = "<group>"; };
+		13591477254EC99E0048E60F /* MeHistoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHistoryPresenter.swift; sourceTree = "<group>"; };
+		1359147A254EC9AA0048E60F /* MeHistoryProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHistoryProtocols.swift; sourceTree = "<group>"; };
+		1359147D254ECA330048E60F /* MeHistoryContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHistoryContainer.swift; sourceTree = "<group>"; };
+		13591480254ECB9F0048E60F /* MeHistoryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHistoryInteractor.swift; sourceTree = "<group>"; };
+		137C65F7254ED8B300AB0A59 /* MeHistoryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHistoryRouter.swift; sourceTree = "<group>"; };
 		13BBF5FC253AD3F400DA0C32 /* ChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTableViewCell.swift; sourceTree = "<group>"; };
 		13BBF5FD253AD3F400DA0C32 /* ChartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartTableViewCell.xib; sourceTree = "<group>"; };
-		13D824C5254AF41F002F654E /* MeIteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeIteractor.swift; sourceTree = "<group>"; };
+		13D824C5254AF41F002F654E /* MeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeInteractor.swift; sourceTree = "<group>"; };
 		13DCDD6225481994002D3F99 /* MePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MePageViewController.swift; sourceTree = "<group>"; };
 		13F28AA025348F910004E864 /* CardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
 		13F28AAB2534913F0004E864 /* MePortfolioProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MePortfolioProtocols.swift; sourceTree = "<group>"; };
@@ -311,6 +323,7 @@
 		134179D9253227A90052D1A9 /* MePage */ = {
 			isa = PBXGroup;
 			children = (
+				1359146D254EA9A40048E60F /* MeHistory */,
 				13DCDD6125481975002D3F99 /* PageViewController */,
 				13C2729025417635000380FB /* MeSettings */,
 				13C27285254170A2000380FB /* MePortfolio */,
@@ -420,6 +433,67 @@
 			path = HistoryButton;
 			sourceTree = "<group>";
 		};
+		1359146D254EA9A40048E60F /* MeHistory */ = {
+			isa = PBXGroup;
+			children = (
+				137C65F6254ED8A700AB0A59 /* Router */,
+				13591476254EC9860048E60F /* Container */,
+				13591475254EC97F0048E60F /* Interactor */,
+				13591474254EC96D0048E60F /* Protocols */,
+				13591473254EC9660048E60F /* Presenter */,
+				13591472254EC95B0048E60F /* View */,
+			);
+			path = MeHistory;
+			sourceTree = "<group>";
+		};
+		13591472254EC95B0048E60F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1359146F254EAE800048E60F /* MeHistoryViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		13591473254EC9660048E60F /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				13591477254EC99E0048E60F /* MeHistoryPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		13591474254EC96D0048E60F /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				1359147A254EC9AA0048E60F /* MeHistoryProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		13591475254EC97F0048E60F /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				13591480254ECB9F0048E60F /* MeHistoryInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		13591476254EC9860048E60F /* Container */ = {
+			isa = PBXGroup;
+			children = (
+				1359147D254ECA330048E60F /* MeHistoryContainer.swift */,
+			);
+			path = Container;
+			sourceTree = "<group>";
+		};
+		137C65F6254ED8A700AB0A59 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				137C65F7254ED8B300AB0A59 /* MeHistoryRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		13BBF601253AD3F800DA0C32 /* Chart */ = {
 			isa = PBXGroup;
 			children = (
@@ -453,12 +527,12 @@
 			path = MeSettings;
 			sourceTree = "<group>";
 		};
-		13D824C8254AF428002F654E /* Iteractor */ = {
+		13D824C8254AF428002F654E /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				13D824C5254AF41F002F654E /* MeIteractor.swift */,
+				13D824C5254AF41F002F654E /* MeInteractor.swift */,
 			);
-			path = Iteractor;
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		13DCDD6125481975002D3F99 /* PageViewController */ = {
@@ -472,7 +546,7 @@
 		13F28AA9253491250004E864 /* Me */ = {
 			isa = PBXGroup;
 			children = (
-				13D824C8254AF428002F654E /* Iteractor */,
+				13D824C8254AF428002F654E /* Interactor */,
 				131D5AFB25378F1200F32055 /* Router */,
 				13F28AC4253499400004E864 /* Container */,
 				13F28AB5253491E70004E864 /* View */,
@@ -876,8 +950,12 @@
 				1344877025419B5A008C2D7B /* MeSettingsViewController.swift in Sources */,
 				134487A12541C40D008C2D7B /* SettingsTableViewCell.swift in Sources */,
 				13F28AAC2534913F0004E864 /* MePortfolioProtocols.swift in Sources */,
+				13591478254EC99E0048E60F /* MeHistoryPresenter.swift in Sources */,
 				13BBF5FE253AD3F400DA0C32 /* ChartTableViewCell.swift in Sources */,
 				1344878E2541AA3A008C2D7B /* MeContainer.swift in Sources */,
+				13591470254EAE800048E60F /* MeHistoryViewController.swift in Sources */,
+				13591481254ECB9F0048E60F /* MeHistoryInteractor.swift in Sources */,
+				137C65F8254ED8B300AB0A59 /* MeHistoryRouter.swift in Sources */,
 				134179F3253227D50052D1A9 /* MeViewController.swift in Sources */,
 				9C2B698C25335A430042A932 /* Storyboards.swift in Sources */,
 				133D0ED925436104003CBA81 /* MeContainerViewController.swift in Sources */,
@@ -897,9 +975,11 @@
 				0DF01732252F5BD2003FF71B /* CardViewType.swift in Sources */,
 				0D3903BC252F62C200C18036 /* MyStocksViewController.swift in Sources */,
 				0D3903BB252F62C200C18036 /* ContainerViewController.swift in Sources */,
+				1359147B254EC9AA0048E60F /* MeHistoryProtocols.swift in Sources */,
 				134487A82541D724008C2D7B /* MeSettingsPresenter.swift in Sources */,
 				0D3903B8252F62C200C18036 /* MyStocksPresenter.swift in Sources */,
 				13F28AC22534936E0004E864 /* MePortfolioPresenter.swift in Sources */,
+				1359147E254ECA330048E60F /* MeHistoryContainer.swift in Sources */,
 				131D5AFD25378F1C00F32055 /* MePortfolioRouter.swift in Sources */,
 				0DF01733252F5BD2003FF71B /* NibLoadedViewType.swift in Sources */,
 				0DB3663E254360DC00607812 /* MyStocksInteractor.swift in Sources */,
@@ -911,7 +991,7 @@
 				13DCDD6325481994002D3F99 /* MePageViewController.swift in Sources */,
 				0D75114C253A606E00D0A719 /* MyStocksContainer.swift in Sources */,
 				31782B76253B41E100B680D9 /* DataProtocols.swift in Sources */,
-				13D824C6254AF41F002F654E /* MeIteractor.swift in Sources */,
+				13D824C6254AF41F002F654E /* MeInteractor.swift in Sources */,
 				311057EB253F219D00B41CDA /* Entities.swift in Sources */,
 				311057E8253F1E1C00B41CDA /* User+CoreDataProperties.swift in Sources */,
 				3155EC29254978D40036F67B /* MainTabBar.swift in Sources */,

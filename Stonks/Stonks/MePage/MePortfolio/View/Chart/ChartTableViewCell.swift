@@ -21,7 +21,7 @@ class ChartTableViewCell: UITableViewCell {
         mainChartView.layer.cornerRadius = ChartTableViewCell.Constants.viewRadius
         mainChartView.layer.shadowColor = UIColor.black.cgColor
         mainChartView.layer.shadowRadius = ChartTableViewCell.Constants.shadowRadius
-        mainChartView.layer.shadowOffset = .zero
+        mainChartView.layer.shadowOffset = .init(width: 0, height: 4)
         mainChartView.layer.shadowOpacity = ChartTableViewCell.Constants.shadowOpacity
     }
 
@@ -30,9 +30,8 @@ class ChartTableViewCell: UITableViewCell {
         stocksPieChartView.layer.cornerRadius = ChartTableViewCell.Constants.viewRadius
         stocksPieChartView.layer.shadowColor = UIColor.black.cgColor
         stocksPieChartView.layer.shadowRadius = ChartTableViewCell.Constants.shadowRadius
-        stocksPieChartView.layer.shadowOffset = .zero
+        stocksPieChartView.layer.shadowOffset = .init(width: -1, height: 3)
         stocksPieChartView.layer.shadowOpacity = ChartTableViewCell.Constants.shadowOpacity
-        stocksPieChartView.layer.shadowOffset = .zero
     }
 
     private func chartViewSettings() {
@@ -58,7 +57,7 @@ class ChartTableViewCell: UITableViewCell {
 extension ChartTableViewCell {
     private struct Constants {
         static let viewRadius: CGFloat = 15
-        static let shadowRadius: CGFloat = 5
+        static let shadowRadius: CGFloat = 3
         static let shadowOpacity: Float = 0.6
         static let legendFormSize: CGFloat = 15
     }

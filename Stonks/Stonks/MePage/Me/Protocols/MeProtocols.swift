@@ -13,8 +13,6 @@ protocol MeOutput: class {
 }
 
 protocol MeRouterInput: class {
-    func showPortfolio() -> MePortfolioViewController
-    func showSettings() -> MeSettingsViewController
 }
 
 protocol MeInteractorInput: class {

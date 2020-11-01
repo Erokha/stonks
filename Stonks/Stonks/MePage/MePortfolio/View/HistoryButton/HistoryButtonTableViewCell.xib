@@ -17,30 +17,35 @@
                 <rect key="frame" x="0.0" y="0.0" width="395" height="95"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xwA-dZ-ryR">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ym8-Dr-xhC">
                         <rect key="frame" x="35" y="20" width="325" height="52"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKg-Zr-z6u">
+                                <rect key="frame" x="141.5" y="15.5" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="0.4431372549" green="0.39607843139999999" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="52" id="6r0-dn-zmo"/>
+                            <constraint firstItem="ZKg-Zr-z6u" firstAttribute="centerX" secondItem="ym8-Dr-xhC" secondAttribute="centerX" id="LZ0-BL-doA"/>
+                            <constraint firstItem="ZKg-Zr-z6u" firstAttribute="centerY" secondItem="ym8-Dr-xhC" secondAttribute="centerY" id="U79-bb-YB9"/>
+                            <constraint firstAttribute="height" constant="52" id="l1h-wH-rc3"/>
                         </constraints>
-                        <state key="normal" title="Button">
-                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </state>
-                        <connections>
-                            <action selector="didButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="0I0-GO-s9O"/>
-                        </connections>
-                    </button>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="xwA-dZ-ryR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="WsW-9G-c4k"/>
-                    <constraint firstItem="xwA-dZ-ryR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="35" id="ZDD-iu-sZu"/>
-                    <constraint firstAttribute="trailing" secondItem="xwA-dZ-ryR" secondAttribute="trailing" constant="35" id="dlG-1h-Y1e"/>
-                    <constraint firstAttribute="bottom" secondItem="xwA-dZ-ryR" secondAttribute="bottom" constant="20" id="lI0-4X-3X7"/>
+                    <constraint firstAttribute="bottom" secondItem="ym8-Dr-xhC" secondAttribute="bottom" constant="20" id="7cf-Y7-07k"/>
+                    <constraint firstItem="ym8-Dr-xhC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="DcA-US-OQJ"/>
+                    <constraint firstItem="ym8-Dr-xhC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="35" id="Pk7-Nf-IBb"/>
+                    <constraint firstAttribute="trailing" secondItem="ym8-Dr-xhC" secondAttribute="trailing" constant="35" id="frS-TC-T2r"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="historyButton" destination="xwA-dZ-ryR" id="ERX-tA-Pa0"/>
+                <outlet property="buttonText" destination="ZKg-Zr-z6u" id="kyc-yu-GhH"/>
+                <outlet property="historyButton" destination="ym8-Dr-xhC" id="hVq-xf-GLj"/>
             </connections>
             <point key="canvasLocation" x="-142.75362318840581" y="98.772321428571431"/>
         </tableViewCell>

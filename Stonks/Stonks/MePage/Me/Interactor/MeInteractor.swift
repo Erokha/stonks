@@ -1,7 +1,7 @@
 import Foundation
 import CoreData
 
-final class MeIteractor: NSObject {
+final class MeInteractor: NSObject {
     weak var output: MeInteractorOutput?
     private var frc: NSFetchedResultsController<User>?
 
@@ -38,7 +38,7 @@ final class MeIteractor: NSObject {
     }
 }
 
-extension MeIteractor: MeInteractorInput {
+extension MeInteractor: MeInteractorInput {
     func loadUser() {
         if let user = DataService.shared.getUser() {
             handleUser(with: user)
@@ -48,7 +48,7 @@ extension MeIteractor: MeInteractorInput {
     }
 }
 
-extension MeIteractor: NSFetchedResultsControllerDelegate {
+extension MeInteractor: NSFetchedResultsControllerDelegate {
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         if let fetchResult = controller.fetchedObjects {
             let user = prepareModels(for: fetchResult)
