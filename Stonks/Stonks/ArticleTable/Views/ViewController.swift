@@ -5,6 +5,8 @@ class ArticleViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var strangeView: UIView!
     @IBOutlet private weak var talbeViewTitleLabel: UILabel!
+    private let refreshControl = UIRefreshControl()
+    private let activityIndicatorView = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
 
     var output: ArticleViewOutput?
 
@@ -12,6 +14,18 @@ class ArticleViewController: UIViewController {
         super.viewDidLoad()
         setupTableView()
         output?.didLoadView()
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        setupActivityIndicatorView()
+    }
+
+    private func setupActivityIndicatorView() {
+        activityIndicatorView.color = .black
+        self.activityIndicatorView.center = CGPoint(x: UIScreen.main.bounds.size.width / 2, y: UIScreen.main.bounds.size.height / 2)
+            view.superview?.addSubview(activityIndicatorView)
+            activityIndicatorView.hidesWhenStopped = true
     }
 
 }
@@ -23,12 +37,18 @@ extension ArticleViewController {
         tableView.register(UINib(nibName: "ArticleTableViewCell", bundle: nil), forCellReuseIdentifier: ArticleTableViewCell.reuseIdentifier)
         tableView.layer.shadowColor = UIColor.black.cgColor
         tableView.layer.shadowOpacity = 0.6
-        tableView.layer.shadowOffset = .zero
-        tableView.layer.shadowRadius = 1
+        tableView.layer.shadowOffset = .init(width: 1, height: 3)
+        tableView.layer.shadowRadius = 2
         tableView.largeContentTitle = "News"
         tableView.contentInsetAdjustmentBehavior = .never
         tableView.tableHeaderView = UIView(frame: .zero)
         view.sendSubviewToBack(tableView)
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+    }
+
+    @objc private func refreshData(_ sender: Any) {
+        output?.refreshData()
     }
 
 }
@@ -65,12 +85,20 @@ extension ArticleViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension ArticleViewController: ArticleViewInput {
+    func startActivity() {
+        activityIndicatorView.startAnimating()
+    }
+    func endActivity() {
+        activityIndicatorView.stopAnimating()
+    }
+
     func setTableViewTitle(_ text: String) {
         self.talbeViewTitleLabel.text = text
     }
 
     func reloadTable() {
         self.tableView.reloadData()
+        self.refreshControl.endRefreshing()
     }
 
 }

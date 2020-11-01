@@ -9,8 +9,17 @@ final class ArticleInteractor {
         self.requestUrl = url
     }
 
-    private func handleError() {
-        output?.didReciveError()
+    private func handleError(with error: AFError) {
+        switch error {
+        case .sessionTaskFailed:
+            output?.didReciveError(with: AppError.networkError)
+        default:
+            output?.didReciveError(with: AppError.undefinedError)
+        }
+    }
+
+    private func handleArticle(with articles: [ArticleModel]) {
+        output?.didRecive(articles: articles)
     }
 }
 
@@ -21,8 +30,8 @@ extension ArticleInteractor: ArticleInteractorInput {
             switch response.result {
             case .success(let data):
                 self?.output?.didRecive(articles: data)
-            case .failure:
-                self?.handleError()
+            case .failure(let error):
+                self?.handleError(with: error)
             }
         }
     }

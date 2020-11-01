@@ -12,6 +12,7 @@ class ArticleViewPresenter {
     weak var view: ArticleViewInput?
     private let interactor: ArticleInteractorInput
     var tableViewTitle: String?
+    var router: ArticleRouterInput?
 
     init(interactor: ArticleInteractorInput) {
         self.interactor = interactor
@@ -24,6 +25,7 @@ extension ArticleViewPresenter: ArticleViewOutput {
     }
 
     func didLoadView() {
+        view?.startActivity()
         interactor.loadStoks()
         self.view?.setTableViewTitle(self.tableViewTitle ?? "")
     }
@@ -42,10 +44,12 @@ extension ArticleViewPresenter: ArticleInteractorOutput {
 
     func didRecive(articles: [ArticleModel]) {
         self.model = articles
+        view?.endActivity()
     }
 
-    func didReciveError() {
-        self.model = [ArticleModel(image: "http://assimilationsystems.com/wp-content/uploads/2015/04/No-News-Is-Good-News-451x400.png", text: "We have no news. Something went wrong!", url: "google.com")]
+    func didReciveError(with error: Error) {
+        router?.showError(with: error)
+        view?.endActivity()
     }
 
 }

@@ -3,6 +3,8 @@ import UIKit
 protocol ArticleViewInput: class {
     func reloadTable()
     func setTableViewTitle(_ text: String)
+    func startActivity()
+    func endActivity()
 }
 
 protocol ArticleViewOutput: class {
@@ -18,5 +20,9 @@ protocol ArticleInteractorInput: class {
 
 protocol ArticleInteractorOutput: class {
     func didRecive(articles: [ArticleModel])
-    func didReciveError()
+    func didReciveError(with error: Error)
+}
+
+protocol ArticleRouterInput: class {
+    func showError(with error: Error)
 }

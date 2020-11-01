@@ -15,10 +15,14 @@ class ArticleContainer {
         let presenter = ArticleViewPresenter(interactor: interactor)
 
         interactor.output = presenter
+        let router = ArticleRouter()
 
         viewController.output = presenter
         presenter.view = viewController
+        presenter.router = router
         presenter.tableViewTitle = context.tableViewTitle
+
+        router.viewController = viewController
 
         return ArticleContainer(view: viewController)
     }
