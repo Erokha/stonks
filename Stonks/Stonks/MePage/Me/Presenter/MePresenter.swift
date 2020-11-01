@@ -5,8 +5,22 @@ class MePresenter {
     var router: MeRouterInput?
     var settingsVc: MeSettingsViewController!
     var portfolioVc: MePortfolioViewController!
+    private var interactor: MeInteractorInput
 
-    required init() {
+    var user: User? {
+        didSet {
+            let name = String(user?.name ?? "")
+            let surname = String(user?.surname ?? "")
+            let userBalance = Int(truncating: user?.balance ?? 0)
+            let userSpent = Int(truncating: user?.totalSpent ?? 0)
+            view?.setUserData(name: name, lastname: surname, image: nil)
+            view?.setUserCurrentBalance(currentBalance: userBalance)
+            view?.setUserSpentInfo(spent: userSpent)
+        }
+    }
+
+    init(interactor: MeInteractorInput) {
+        self.interactor = interactor
     }
 }
 
@@ -27,9 +41,18 @@ extension MePresenter: MeOutput {
         guard let portfolioViewController = router?.showPortfolio() else { return }
         settingsVc = settingsViewController
         portfolioVc = portfolioViewController
-        // load data about user
-        view?.setUserData(name: "Sasha", lastname: "Zak", image: UIImage(named: "ZUEV"))
-        view?.setUserSpentInfo(spent: 200)
-        view?.setUserCurrentBalance(currentBalance: 1200)
+        interactor.loadUser()
+    }
+}
+
+extension MePresenter: MeInteractorOutput {
+    func didChangeContetnt(user: User) {
+        view?.setUserData(name: user.name, lastname: user.surname, image: nil)
+        view?.setUserSpentInfo(spent: Int(truncating: user.totalSpent))
+        view?.setUserCurrentBalance(currentBalance: Int(truncating: user.balance))
+    }
+
+    func didReceive(user: User) {
+        self.user = user
     }
 }

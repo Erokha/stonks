@@ -16,3 +16,12 @@ protocol MeRouterInput: class {
     func showPortfolio() -> MePortfolioViewController
     func showSettings() -> MeSettingsViewController
 }
+
+protocol MeInteractorInput: class {
+    func loadUser()
+}
+
+protocol MeInteractorOutput: class {
+    func didReceive(user: User)
+    func didChangeContetnt(user: User)
+}

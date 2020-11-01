@@ -11,7 +11,7 @@ protocol MePageViewDelegate: class {
 final class MePageViewController: UIPageViewController {
     weak var mePageDelegate: MePageViewDelegate?
 
-    private lazy var pages: [UIViewController] = {
+    lazy var pages: [UIViewController] = {
         let mePortfolioContainer = MePortfolioContainer.assemble(with: MePortfolioContext())
         let meSettingsContainer = MeSettingsContainer.asseble(with: MeSettingsContext())
         return [mePortfolioContainer.viewController, meSettingsContainer.viewController]
