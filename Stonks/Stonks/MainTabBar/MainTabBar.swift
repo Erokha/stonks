@@ -21,15 +21,14 @@ class MainTabBar: UITabBarController {
     }
 
     private func prepareLearnViewController() -> UINavigationController {
-        let viewController = UIViewController()
-
+        let container = ArticleContainer.assemble(with: ArticleContext(interactorUrl: "http://192.168.31.36:8000/learn", tableViewTitle: "Learn"))
         let tabBarItem = UITabBarItem(title: Constants.LearnBarItem.title,
                                       image: UIImage(named: Constants.LearnBarItem.imageName)?.withRenderingMode(.alwaysOriginal),
                                       tag: Constants.LearnBarItem.tag)
 
-        viewController.tabBarItem = tabBarItem
+        container.viewController.tabBarItem = tabBarItem
 
-        let navigationVC = UINavigationController(rootViewController: viewController)
+        let navigationVC = UINavigationController(rootViewController: container.viewController)
 
         navigationVC.navigationBar.isHidden = true
 
@@ -55,15 +54,15 @@ class MainTabBar: UITabBarController {
     }
 
     private func prepareNewsViewController() -> UINavigationController {
-        let viewController = UIViewController()
 
+        let container = ArticleContainer.assemble(with: ArticleContext(interactorUrl: "http://192.168.31.36:8000/news", tableViewTitle: "News"))
         let tabBarItem = UITabBarItem(title: Constants.NewsBarItem.title,
                                       image: UIImage(named: Constants.NewsBarItem.imageName)?.withRenderingMode(.alwaysOriginal),
                                       tag: Constants.NewsBarItem.tag)
 
-        viewController.tabBarItem = tabBarItem
+        container.viewController.tabBarItem = tabBarItem
 
-        let navigationVC = UINavigationController(rootViewController: viewController)
+        let navigationVC = UINavigationController(rootViewController: container.viewController)
 
         navigationVC.navigationBar.isHidden = true
 

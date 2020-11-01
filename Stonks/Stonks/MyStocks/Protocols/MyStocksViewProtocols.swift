@@ -18,7 +18,7 @@ protocol MyStocksViewOutput: class {
 }
 
 protocol MyStocksRouterInput: class {
-    func showMainScreen()
+    func showStockDetail()
     func showError(with error: Error)
 }
 
