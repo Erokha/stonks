@@ -1,5 +1,6 @@
 import UIKit
 import Charts
+import CoreData
 
 class MeViewController: UIViewController {
     @IBOutlet private weak var segmentControl: UISegmentedControl!
@@ -91,6 +92,7 @@ extension MeViewController: MePageViewDelegate {
         }
     }
 }
+
 extension MeViewController {
     struct Constants {
         static let headerRadius: CGFloat = 20

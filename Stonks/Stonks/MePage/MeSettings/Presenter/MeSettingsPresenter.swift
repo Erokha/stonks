@@ -8,23 +8,33 @@ class MeSettingsPresenter {
     }
 
     private func saveDeposit(money: Int) {
-        print("Money:", money)
-        // Add money to Core data
+        let user = DataService.shared.getUser()
+        let userMoney = Int(truncating: user?.balance ?? 0)
+        var totalBalance = money + userMoney
+        if totalBalance < 0 {
+            totalBalance = 0
+        }
+        user?.balance = NSDecimalNumber(value: totalBalance)
+        DataService.shared.editUser(user: user ?? User())
     }
 
-    private func saveName(name: String) {
-        print("Name:", name)
-        // Save new name to Core Data
-    }
-
-    private func saveSurname(surname: String) {
-        print("Surname:", surname)
-        // Save new surname to Core Data
+    private func saveName(name: String, surname: String) {
+        let user = DataService.shared.getUser()
+        if !name.isEmpty {
+            user?.name = name
+        }
+        if !surname.isEmpty {
+            user?.surname = surname
+        }
+        DataService.shared.editUser(user: user ?? User())
     }
 
     private func resetData() {
-        print("Reset")
-        // Reset all data
+        let user = DataService.shared.getUser()
+        user?.balance = 0
+        user?.totalSpent = 0
+        DataService.shared.editUser(user: user ?? User())
+
     }
     private func configureMailComposer() -> MFMailComposeViewController {
         let mailComposeVc = MFMailComposeViewController()
@@ -69,20 +79,23 @@ extension MeSettingsPresenter: MeSettingsOutput {
     func createChangeNameAlert() {
         let alert = UIAlertController(title: MeSettingsPresenter.Constants.changeNameTitle, message: MeSettingsPresenter.Constants.changeNameMessage, preferredStyle: UIAlertController.Style.alert )
         let save = UIAlertAction(title: "Save", style: .default) { (_) in
+            var correctName = ""
+            var correctSurname = ""
             if let nameTextField = alert.textFields?[0] {
                 if let name = nameTextField.text {
                     if !name.isEmpty {
-                        self.saveName(name: name)
+                        correctName = name
                     }
                 }
             }
             if let surnameTextField = alert.textFields?[1] {
                 if let surname = surnameTextField.text {
                     if !surname.isEmpty {
-                        self.saveSurname(surname: surname)
+                        correctSurname = surname
                     }
                 }
             }
+            self.saveName(name: correctName, surname: correctSurname)
         }
         alert.addTextField { (textField) in
             textField.placeholder = "Name"

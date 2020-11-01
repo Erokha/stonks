@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -35,7 +35,8 @@
                                 <rect key="frame" x="20" y="245" width="374" height="50"/>
                                 <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="CDC-d4-GSY"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" priority="999" constant="50" id="CDC-d4-GSY"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="dh0-IE-jiA"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="DMSans-Regular" family="DM Sans" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -44,7 +45,8 @@
                                 <rect key="frame" x="20" y="365" width="374" height="50"/>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="3n3-iD-8Vc"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" priority="999" constant="50" id="3n3-iD-8Vc"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="sy6-de-MUY"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="DMSans-Regular" family="DM Sans" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -53,7 +55,8 @@
                                 <rect key="frame" x="20" y="515" width="374" height="60"/>
                                 <color key="backgroundColor" red="0.44689372864796906" green="0.40090157434103008" blue="0.80955693493150682" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="qxF-Xg-uOG"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" priority="999" constant="60" id="qxF-Xg-uOG"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="u4C-IL-W3d"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="DMSans-Bold" family="DM Sans" pointSize="17"/>
                                 <state key="normal" title="Register my account">
@@ -85,7 +88,8 @@
                                 <rect key="frame" x="20" y="305" width="374" height="50"/>
                                 <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="x6T-14-8Ae"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="BOv-gV-BMh"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" priority="999" constant="50" id="x6T-14-8Ae"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="DMSans-Regular" family="DM Sans" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -94,28 +98,29 @@
                         <viewLayoutGuide key="safeArea" id="Nh7-b8-pDy"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="aaK-uA-z4o" firstAttribute="leading" secondItem="Nh7-b8-pDy" secondAttribute="leading" constant="20" id="0c0-ze-v02"/>
                             <constraint firstItem="S77-Dy-olU" firstAttribute="centerX" secondItem="gNh-fj-RIX" secondAttribute="centerX" id="2l3-lU-6Rw"/>
                             <constraint firstItem="eDc-sd-29G" firstAttribute="centerX" secondItem="gNh-fj-RIX" secondAttribute="centerX" id="4Vg-vI-oYn"/>
+                            <constraint firstItem="aaK-uA-z4o" firstAttribute="width" secondItem="gNh-fj-RIX" secondAttribute="width" multiplier="0.903382" id="5E3-fb-psK"/>
+                            <constraint firstItem="S77-Dy-olU" firstAttribute="height" secondItem="gNh-fj-RIX" secondAttribute="height" multiplier="0.0669643" priority="999" id="6ry-eg-zUg"/>
                             <constraint firstItem="aaK-uA-z4o" firstAttribute="centerX" secondItem="gNh-fj-RIX" secondAttribute="centerX" id="CXL-dH-IZ6"/>
+                            <constraint firstItem="eDc-sd-29G" firstAttribute="width" secondItem="gNh-fj-RIX" secondAttribute="width" multiplier="0.903382" id="FkW-UY-1pw"/>
                             <constraint firstItem="Nh7-b8-pDy" firstAttribute="trailing" secondItem="QcH-oA-coC" secondAttribute="trailing" constant="26" id="Igw-uy-a2z"/>
+                            <constraint firstItem="S77-Dy-olU" firstAttribute="width" secondItem="gNh-fj-RIX" secondAttribute="width" multiplier="0.903382" id="JhQ-eq-ZcU"/>
                             <constraint firstItem="eDc-sd-29G" firstAttribute="top" secondItem="B3h-xm-dl5" secondAttribute="bottom" constant="53" id="KTQ-jJ-J0I"/>
                             <constraint firstItem="B3h-xm-dl5" firstAttribute="top" secondItem="Nh7-b8-pDy" secondAttribute="top" constant="60" id="MyD-he-9c7"/>
                             <constraint firstItem="CIA-fV-rCB" firstAttribute="top" secondItem="eDc-sd-29G" secondAttribute="bottom" constant="10" id="NBr-IU-XhG"/>
-                            <constraint firstItem="Nh7-b8-pDy" firstAttribute="trailing" secondItem="CIA-fV-rCB" secondAttribute="trailing" constant="20" id="P44-HV-UaF"/>
                             <constraint firstItem="aaK-uA-z4o" firstAttribute="top" secondItem="CIA-fV-rCB" secondAttribute="bottom" constant="10" id="Q37-np-NQ8"/>
-                            <constraint firstItem="eDc-sd-29G" firstAttribute="leading" secondItem="Nh7-b8-pDy" secondAttribute="leading" constant="20" id="R6y-T5-oeX"/>
-                            <constraint firstItem="Nh7-b8-pDy" firstAttribute="trailing" secondItem="eDc-sd-29G" secondAttribute="trailing" constant="20" id="SLW-8j-OEl"/>
+                            <constraint firstItem="eDc-sd-29G" firstAttribute="height" secondItem="gNh-fj-RIX" secondAttribute="height" multiplier="0.0558036" priority="999" id="Xil-vm-8Sd"/>
                             <constraint firstItem="7UQ-bJ-gdW" firstAttribute="top" secondItem="aaK-uA-z4o" secondAttribute="bottom" constant="32" id="Zih-YI-b6W"/>
-                            <constraint firstItem="S77-Dy-olU" firstAttribute="leading" secondItem="Nh7-b8-pDy" secondAttribute="leading" constant="20" id="bUz-9t-6OP"/>
+                            <constraint firstItem="CIA-fV-rCB" firstAttribute="centerX" secondItem="Nh7-b8-pDy" secondAttribute="centerX" id="cw7-lC-nXa"/>
                             <constraint firstItem="S77-Dy-olU" firstAttribute="top" secondItem="QcH-oA-coC" secondAttribute="bottom" constant="31" id="czt-kI-XnA"/>
                             <constraint firstItem="QcH-oA-coC" firstAttribute="leading" secondItem="7UQ-bJ-gdW" secondAttribute="trailing" constant="8" symbolic="YES" id="gHd-le-G6W"/>
-                            <constraint firstItem="Nh7-b8-pDy" firstAttribute="trailing" secondItem="S77-Dy-olU" secondAttribute="trailing" constant="20" id="hKl-cG-Zsc"/>
                             <constraint firstItem="7UQ-bJ-gdW" firstAttribute="leading" secondItem="Nh7-b8-pDy" secondAttribute="leading" constant="24" id="j8W-PP-wqE"/>
-                            <constraint firstItem="CIA-fV-rCB" firstAttribute="leading" secondItem="Nh7-b8-pDy" secondAttribute="leading" constant="20" id="kIK-oY-KAJ"/>
+                            <constraint firstItem="aaK-uA-z4o" firstAttribute="height" secondItem="gNh-fj-RIX" secondAttribute="height" multiplier="0.0558036" priority="999" id="kBT-wt-WMi"/>
                             <constraint firstItem="B3h-xm-dl5" firstAttribute="centerX" secondItem="gNh-fj-RIX" secondAttribute="centerX" id="m3O-VK-4zY"/>
-                            <constraint firstItem="Nh7-b8-pDy" firstAttribute="trailing" secondItem="aaK-uA-z4o" secondAttribute="trailing" constant="20" id="mwJ-vg-nhA"/>
                             <constraint firstItem="QcH-oA-coC" firstAttribute="top" secondItem="aaK-uA-z4o" secondAttribute="bottom" constant="24" id="wHx-dE-FBA"/>
+                            <constraint firstItem="CIA-fV-rCB" firstAttribute="width" secondItem="gNh-fj-RIX" secondAttribute="width" multiplier="0.903382" id="yDM-U7-Z9B"/>
+                            <constraint firstItem="CIA-fV-rCB" firstAttribute="height" secondItem="gNh-fj-RIX" secondAttribute="height" multiplier="0.0558036" priority="999" id="z4O-SD-duz"/>
                         </constraints>
                     </view>
                     <connections>
