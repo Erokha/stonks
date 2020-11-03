@@ -170,6 +170,30 @@ extension DataService: CoreDataServiceInput {
             print(error)
         }
     }
+
+    func deleteStock(name: String) {
+        let context = persistentContainer.viewContext
+        let stockFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Entities.stock.rawValue)
+
+        let predicate = NSPredicate(format: "name == %@", name)
+
+        stockFetchRequest.predicate = predicate
+
+        do {
+            let fetchResult = try context.fetch(stockFetchRequest)
+
+            guard let stocks = fetchResult as? [Stock],
+                  let target = stocks.first else {
+                return
+            }
+
+            context.delete(target)
+
+            try context.save()
+        } catch {
+            print(error)
+        }
+    }
 }
 
 extension DataService {
