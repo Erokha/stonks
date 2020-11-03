@@ -3,7 +3,6 @@ import UIKit
 class ArticleViewPresenter {
     var model: [ArticleModel]? {
         didSet {
-            print("ive changed")
             DispatchQueue.main.async {
                 self.view?.reloadTable()
             }

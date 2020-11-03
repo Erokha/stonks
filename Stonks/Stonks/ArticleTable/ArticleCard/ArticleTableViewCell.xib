@@ -38,6 +38,9 @@
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rnq-bp-E5S">
                         <rect key="frame" x="7" y="280" width="74" height="30"/>
                         <state key="normal" title="Read more"/>
+                        <connections>
+                            <action selector="didTapReadMoreButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="IWH-ZL-dcr"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
@@ -55,6 +58,7 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="articleImageView" destination="JNv-e3-lmv" id="egY-Lz-amm"/>
+                <outlet property="articleReadMoreButton" destination="rnq-bp-E5S" id="mYy-yI-JgT"/>
                 <outlet property="articleTextView" destination="d5v-PK-Qmp" id="BFw-3A-OHt"/>
             </connections>
             <point key="canvasLocation" x="-24.637681159420293" y="-29.799107142857142"/>
