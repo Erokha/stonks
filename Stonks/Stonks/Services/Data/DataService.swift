@@ -130,13 +130,7 @@ extension DataService: CoreDataServiceInput {
         let context = persistentContainer.viewContext
         let stockFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Entities.stock.rawValue)
 
-        let predicate = NSPredicate { (_, attributes) in
-            guard let stockName = attributes?["name"] as? String else {
-                return false
-            }
-
-            return stockName == name
-        }
+        let predicate = NSPredicate(format: "name == %@", name)
 
         stockFetchRequest.predicate = predicate
 
@@ -154,17 +148,11 @@ extension DataService: CoreDataServiceInput {
         }
     }
 
-    func updateStock(stock: Stock) {
+    func updateStock(name: String, stock: Stock) {
         let context = persistentContainer.viewContext
         let stockFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Entities.stock.rawValue)
 
-        let predicate = NSPredicate { (_, attributes) in
-            guard let stockName = attributes?["name"] as? String else {
-                return false
-            }
-
-            return stockName == stock.name
-        }
+        let predicate = NSPredicate(format: "name == %@", name)
 
         stockFetchRequest.predicate = predicate
 
