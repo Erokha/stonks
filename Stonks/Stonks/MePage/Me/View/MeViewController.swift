@@ -41,8 +41,8 @@ class MeViewController: UIViewController {
     private func setShadowContainer() {
         cardContainer.layer.shadowColor = UIColor.black.cgColor
         cardContainer.layer.shadowOpacity = MeViewController.Constants.shadowOpacity
-        cardContainer.layer.shadowOffset = .zero
-        cardContainer.layer.shadowRadius = MeViewController.Constants.shadowRadius
+        cardContainer.layer.shadowOffset = .init(width: 0, height: 3)
+        cardContainer.layer.shadowRadius = MeViewController.Constants.cardShadowRadius
     }
     @IBAction private func didIndexChanged(_ sender: UISegmentedControl) {
         presenter.didIndexChanged(index: segmentControl.selectedSegmentIndex)
@@ -97,9 +97,10 @@ extension MeViewController {
     struct Constants {
         static let headerRadius: CGFloat = 20
         static let viewRadius: CGFloat = 15
-        static let shadowRadius: CGFloat = 10
+        static let shadowRadius: CGFloat = 13
         static let shadowOpacity: Float = 0.6
         static let legendFormSize: Float = 15
+        static let cardShadowRadius: CGFloat = 5
     }
 }
 

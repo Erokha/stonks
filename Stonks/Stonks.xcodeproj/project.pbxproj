@@ -49,6 +49,8 @@
 		1359147E254ECA330048E60F /* MeHistoryContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1359147D254ECA330048E60F /* MeHistoryContainer.swift */; };
 		13591481254ECB9F0048E60F /* MeHistoryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13591480254ECB9F0048E60F /* MeHistoryInteractor.swift */; };
 		137C65F8254ED8B300AB0A59 /* MeHistoryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137C65F7254ED8B300AB0A59 /* MeHistoryRouter.swift */; };
+		137C65FE254F44DB00AB0A59 /* MeHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137C65FC254F44DB00AB0A59 /* MeHistoryTableViewCell.swift */; };
+		137C65FF254F44DB00AB0A59 /* MeHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 137C65FD254F44DB00AB0A59 /* MeHistoryTableViewCell.xib */; };
 		13BBF5FE253AD3F400DA0C32 /* ChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BBF5FC253AD3F400DA0C32 /* ChartTableViewCell.swift */; };
 		13BBF5FF253AD3F400DA0C32 /* ChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13BBF5FD253AD3F400DA0C32 /* ChartTableViewCell.xib */; };
 		13D824C6254AF41F002F654E /* MeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D824C5254AF41F002F654E /* MeInteractor.swift */; };
@@ -129,6 +131,8 @@
 		1359147D254ECA330048E60F /* MeHistoryContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHistoryContainer.swift; sourceTree = "<group>"; };
 		13591480254ECB9F0048E60F /* MeHistoryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHistoryInteractor.swift; sourceTree = "<group>"; };
 		137C65F7254ED8B300AB0A59 /* MeHistoryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHistoryRouter.swift; sourceTree = "<group>"; };
+		137C65FC254F44DB00AB0A59 /* MeHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHistoryTableViewCell.swift; sourceTree = "<group>"; };
+		137C65FD254F44DB00AB0A59 /* MeHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeHistoryTableViewCell.xib; sourceTree = "<group>"; };
 		13BBF5FC253AD3F400DA0C32 /* ChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTableViewCell.swift; sourceTree = "<group>"; };
 		13BBF5FD253AD3F400DA0C32 /* ChartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartTableViewCell.xib; sourceTree = "<group>"; };
 		13D824C5254AF41F002F654E /* MeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeInteractor.swift; sourceTree = "<group>"; };
@@ -449,6 +453,7 @@
 		13591472254EC95B0048E60F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				137C65FB254F44B400AB0A59 /* MeHistoryCell */,
 				1359146F254EAE800048E60F /* MeHistoryViewController.swift */,
 			);
 			path = View;
@@ -492,6 +497,15 @@
 				137C65F7254ED8B300AB0A59 /* MeHistoryRouter.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		137C65FB254F44B400AB0A59 /* MeHistoryCell */ = {
+			isa = PBXGroup;
+			children = (
+				137C65FC254F44DB00AB0A59 /* MeHistoryTableViewCell.swift */,
+				137C65FD254F44DB00AB0A59 /* MeHistoryTableViewCell.xib */,
+			);
+			path = MeHistoryCell;
 			sourceTree = "<group>";
 		};
 		13BBF601253AD3F800DA0C32 /* Chart */ = {
@@ -887,6 +901,7 @@
 				134487A22541C40D008C2D7B /* SettingsTableViewCell.xib in Resources */,
 				0D751141253A5C4F00D0A719 /* StockTableViewCell.xib in Resources */,
 				13BBF5FF253AD3F400DA0C32 /* ChartTableViewCell.xib in Resources */,
+				137C65FF254F44DB00AB0A59 /* MeHistoryTableViewCell.xib in Resources */,
 				13F28AA125348F920004E864 /* CardView.xib in Resources */,
 				31CD5485252BAEA400F65D17 /* Login.storyboard in Resources */,
 			);
@@ -971,6 +986,7 @@
 				0DF01731252F5BD2003FF71B /* EmbeddedView.swift in Sources */,
 				134487AB2541D794008C2D7B /* Protocols.swift in Sources */,
 				31BDC088252A1C5B00F56ADD /* AppDelegate.swift in Sources */,
+				137C65FE254F44DB00AB0A59 /* MeHistoryTableViewCell.swift in Sources */,
 				0D3903BD252F62C200C18036 /* MyStocksViewProtocols.swift in Sources */,
 				0DF01732252F5BD2003FF71B /* CardViewType.swift in Sources */,
 				0D3903BC252F62C200C18036 /* MyStocksViewController.swift in Sources */,

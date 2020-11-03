@@ -30,7 +30,7 @@ class ChartTableViewCell: UITableViewCell {
         stocksPieChartView.layer.cornerRadius = ChartTableViewCell.Constants.viewRadius
         stocksPieChartView.layer.shadowColor = UIColor.black.cgColor
         stocksPieChartView.layer.shadowRadius = ChartTableViewCell.Constants.shadowRadius
-        stocksPieChartView.layer.shadowOffset = .init(width: -1, height: 3)
+        stocksPieChartView.layer.shadowOffset = .init(width: 0, height: 3)
         stocksPieChartView.layer.shadowOpacity = ChartTableViewCell.Constants.shadowOpacity
     }
 

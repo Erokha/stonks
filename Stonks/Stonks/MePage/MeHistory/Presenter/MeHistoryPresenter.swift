@@ -5,6 +5,7 @@ final class MeHistoryPresenter {
     private var interactor: MeHistoryInteractorInput
     var router: MeHistoryRouterInput?
 
+    private var stocks: [Stock] = []
     init(interactor: MeHistoryInteractorInput) {
         self.interactor = interactor
     }
@@ -12,9 +13,21 @@ final class MeHistoryPresenter {
 }
 
 extension MeHistoryPresenter: MeHistoryOutput {
+    func didLoadView() {
 
+    }
+
+    func getNumberOfStocks() -> Int {
+        return stocks.count
+    }
+
+    func stock(at indexPath: IndexPath) -> Stock? {
+        return stocks[indexPath.row]
+    }
 }
 
 extension MeHistoryPresenter: MeHistoryInteractorOutput {
-
+    func didReceive(stocks: [Stock]) {
+        self.stocks = stocks
+    }
 }

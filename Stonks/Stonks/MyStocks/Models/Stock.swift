@@ -2,7 +2,7 @@ struct Stock {
     let stockName: String
     let stockSymbol: String
     let stockPrice: Float
-    let stockCount: Int
+    var stockCount: Int
     let imageUrl: String
 
     init(with raw: StockRaw) {

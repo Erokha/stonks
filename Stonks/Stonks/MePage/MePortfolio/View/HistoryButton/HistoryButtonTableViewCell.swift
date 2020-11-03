@@ -19,7 +19,7 @@ class HistoryButtonTableViewCell: UITableViewCell {
         historyButton.layer.cornerRadius = CGFloat(HistoryButtonTableViewCell.Constants.viewRadius)
         historyButton.layer.shadowColor = UIColor.black.cgColor
         historyButton.layer.shadowRadius = CGFloat(HistoryButtonTableViewCell.Constants.shadowRadius)
-        historyButton.layer.shadowOffset = .zero
+        historyButton.layer.shadowOffset = .init(width: 0, height: 3)
         historyButton.layer.shadowOpacity = Float(HistoryButtonTableViewCell.Constants.shadowOpacity)
     }
 
@@ -32,7 +32,7 @@ extension HistoryButtonTableViewCell {
         static let buttonText: String = "History"
         static let viewRadius: CGFloat = 15
         static let shadowRadius: CGFloat = 4
-        static let shadowOpacity: Float = 0.6
+        static let shadowOpacity: Float = 0.4
         static let legendFormSize: CGFloat = 15
     }
 }

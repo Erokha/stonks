@@ -11,7 +11,7 @@ enum MeSettingsSections: Int, CaseIterable {
         case .deposit:
             return "Deposit"
         case .changeName:
-            return "ChangeName"
+            return "Change Name"
         case .reportError:
             return "Report Error"
         case .resetData:

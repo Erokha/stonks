@@ -6,5 +6,7 @@ final class MeHistoryInteractor {
 }
 
 extension MeHistoryInteractor: MeHistoryInteractorInput {
+    func loadStocks() {
 
+    }
 }
