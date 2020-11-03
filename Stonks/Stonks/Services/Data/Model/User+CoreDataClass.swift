@@ -11,4 +11,6 @@ extension User {
     @NSManaged public var name: String
     @NSManaged public var surname: String
     @NSManaged public var totalSpent: NSDecimalNumber
+
+    @NSManaged public var stocks: NSSet?
 }

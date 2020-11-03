@@ -6,6 +6,7 @@
         <attribute name="name" attributeType="String"/>
         <attribute name="price" attributeType="Decimal" defaultValueString="0.0"/>
         <attribute name="symbol" attributeType="String"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="stocks" inverseEntity="User"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES">
         <attribute name="avatarURL" attributeType="URI"/>
@@ -13,9 +14,10 @@
         <attribute name="name" attributeType="String"/>
         <attribute name="surname" attributeType="String"/>
         <attribute name="totalSpent" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <relationship name="stocks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Stock" inverseName="user" inverseEntity="Stock"/>
     </entity>
     <elements>
-        <element name="User" positionX="-63" positionY="-18" width="128" height="118"/>
-        <element name="Stock" positionX="-63" positionY="18" width="128" height="118"/>
+        <element name="Stock" positionX="203.0625" positionY="-10.28125" width="128" height="133"/>
+        <element name="User" positionX="-63" positionY="-18" width="128" height="133"/>
     </elements>
 </model>

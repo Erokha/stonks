@@ -11,4 +11,6 @@ extension Stock {
     @NSManaged public var price: NSDecimalNumber
     @NSManaged public var amount: NSInteger
     @NSManaged public var imageURL: NSURL
+
+    @NSManaged public var user: User?
 }

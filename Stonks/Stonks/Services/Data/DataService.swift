@@ -55,6 +55,7 @@ extension DataService: CoreDataServiceInput {
         user.surname = surname
         user.balance = NSDecimalNumber(decimal: balance)
         user.totalSpent = NSDecimalNumber(decimal: 0)
+        user.stocks = nil
 
         let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
 
