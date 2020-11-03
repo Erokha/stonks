@@ -97,12 +97,89 @@ extension DataService: CoreDataServiceInput {
 
         do {
             var fetchReuslt = try context.fetch(fetchRequest)
-            if fetchReuslt.count == 1 {
+            if !fetchReuslt.isEmpty {
                 fetchReuslt[0] = user
             }
             try context.save()
         } catch {
             fatalError("Failure to save context: \(error)")
+        }
+    }
+
+    func createStock(name: String, symbol: String, curPrice: Decimal, imageURL: URL, amount: Int = 0) {
+        let context = persistentContainer.viewContext
+
+        guard let stock = NSEntityDescription.insertNewObject(forEntityName: Entities.stock.rawValue, into: context) as? Stock else {
+            return
+        }
+
+        stock.name = name
+        stock.symbol = symbol
+        stock.price = NSDecimalNumber(decimal: curPrice)
+        stock.amount = amount
+        stock.imageURL = NSURL(fileURLWithPath: imageURL.absoluteString)
+
+        do {
+            try context.save()
+        } catch {
+            fatalError("Failure to save context: \(error)")
+        }
+    }
+
+    func getStock(with name: String) -> Stock? {
+        let context = persistentContainer.viewContext
+        let stockFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Entities.stock.rawValue)
+
+        let predicate = NSPredicate { (_, attributes) in
+            guard let stockName = attributes?["name"] as? String else {
+                return false
+            }
+
+            return stockName == name
+        }
+
+        stockFetchRequest.predicate = predicate
+
+        do {
+            let fetchResult = try context.fetch(stockFetchRequest)
+
+            guard !fetchResult.isEmpty else {
+                return nil
+            }
+
+            return fetchResult[0] as? Stock
+        } catch {
+            print(error)
+            return nil
+        }
+    }
+
+    func updateStock(stock: Stock) {
+        let context = persistentContainer.viewContext
+        let stockFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Entities.stock.rawValue)
+
+        let predicate = NSPredicate { (_, attributes) in
+            guard let stockName = attributes?["name"] as? String else {
+                return false
+            }
+
+            return stockName == stock.name
+        }
+
+        stockFetchRequest.predicate = predicate
+
+        do {
+            var fetchResult = try context.fetch(stockFetchRequest)
+
+            guard !fetchResult.isEmpty else {
+                return
+            }
+
+            fetchResult[0] = stock
+
+            try context.save()
+        } catch {
+            print(error)
         }
     }
 }

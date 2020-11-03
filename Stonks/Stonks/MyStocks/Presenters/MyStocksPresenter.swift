@@ -3,7 +3,7 @@ import Alamofire
 import SwiftyJSON
 
 class MyStocksPresenter {
-    var model: [Stock]? {
+    var model: [StockData]? {
         didSet {
             DispatchQueue.main.async {
                 self.view?.reloadTable()
@@ -30,7 +30,7 @@ extension MyStocksPresenter: MyStocksViewOutput {
         return self.model?.count ?? 0
     }
 
-    func stock(at indexPath: IndexPath) -> Stock? {
+    func stock(at indexPath: IndexPath) -> StockData? {
         return self.model?[indexPath.row] ?? nil
     }
 
@@ -49,7 +49,7 @@ extension MyStocksPresenter: MyStocksViewOutput {
 
 extension MyStocksPresenter: MyStoksInteractorOutput {
 
-    func didRecive(stoks: [Stock]) {
+    func didRecive(stoks: [StockData]) {
         self.model = stoks
         view?.endActivity()
     }

@@ -72,6 +72,8 @@
 		3155EC1C254970F00036F67B /* LoginContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2B698E25335B9C0042A932 /* LoginContainer.swift */; };
 		3155EC29254978D40036F67B /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3155EC28254978D40036F67B /* MainTabBar.swift */; };
 		31782B76253B41E100B680D9 /* DataProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31782B75253B41E100B680D9 /* DataProtocols.swift */; };
+		318857832551A63C00FFDCBC /* Stock+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318857822551A63C00FFDCBC /* Stock+CoreDataClass.swift */; };
+		318857862551A65500FFDCBC /* Stock+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318857852551A65500FFDCBC /* Stock+CoreDataProperties.swift */; };
 		31905F7B25361BA0000D71A7 /* StockDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31905F7225361BA0000D71A7 /* StockDetailPresenter.swift */; };
 		31905F7C25361BA0000D71A7 /* StockDetailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31905F7425361BA0000D71A7 /* StockDetailData.swift */; };
 		31905F7D25361BA0000D71A7 /* StockDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31905F7625361BA0000D71A7 /* StockDetailViewController.swift */; };
@@ -153,6 +155,8 @@
 		315BE130252F332F0074377B /* DMSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Bold.ttf"; sourceTree = "<group>"; };
 		315BE131252F334B0074377B /* DMSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Regular.ttf"; sourceTree = "<group>"; };
 		31782B75253B41E100B680D9 /* DataProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProtocols.swift; sourceTree = "<group>"; };
+		318857822551A63C00FFDCBC /* Stock+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stock+CoreDataClass.swift"; sourceTree = "<group>"; };
+		318857852551A65500FFDCBC /* Stock+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stock+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		31905F7225361BA0000D71A7 /* StockDetailPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockDetailPresenter.swift; sourceTree = "<group>"; };
 		31905F7425361BA0000D71A7 /* StockDetailData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockDetailData.swift; sourceTree = "<group>"; };
 		31905F7625361BA0000D71A7 /* StockDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockDetailViewController.swift; sourceTree = "<group>"; };
@@ -623,6 +627,8 @@
 				311057E0253F1AF100B41CDA /* Model.xcdatamodeld */,
 				311057E4253F1E0900B41CDA /* User+CoreDataClass.swift */,
 				311057E7253F1E1C00B41CDA /* User+CoreDataProperties.swift */,
+				318857822551A63C00FFDCBC /* Stock+CoreDataClass.swift */,
+				318857852551A65500FFDCBC /* Stock+CoreDataProperties.swift */,
 				311057EA253F219D00B41CDA /* Entities.swift */,
 			);
 			path = Model;
@@ -973,6 +979,7 @@
 			files = (
 				3155EC1C254970F00036F67B /* LoginContainer.swift in Sources */,
 				3155EC1A254970D00036F67B /* CardView.swift in Sources */,
+				318857832551A63C00FFDCBC /* Stock+CoreDataClass.swift in Sources */,
 				0D751142253A5C4F00D0A719 /* StockTableViewCell.swift in Sources */,
 				13531273253B4C6600F77A91 /* HistoryButtonTableViewCell.swift in Sources */,
 				13F28AC6253499550004E864 /* MePortfolioContainer.swift in Sources */,
@@ -987,6 +994,7 @@
 				133D0ED925436104003CBA81 /* MeContainerViewController.swift in Sources */,
 				31BDC08C252A1C5B00F56ADD /* LoginViewController.swift in Sources */,
 				31905F8425361C37000D71A7 /* StockDetailContainer.swift in Sources */,
+				318857862551A65500FFDCBC /* Stock+CoreDataProperties.swift in Sources */,
 				0DF01734252F5BD2003FF71B /* CardViewPresenterType.swift in Sources */,
 				31905F7C25361BA0000D71A7 /* StockDetailData.swift in Sources */,
 				31905F8825361C7D000D71A7 /* StockDetailProtocols.swift in Sources */,

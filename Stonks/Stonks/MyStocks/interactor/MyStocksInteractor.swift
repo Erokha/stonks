@@ -21,7 +21,7 @@ final class MyStocksInteractor {
     }
 
     private func handleStock(with stocksRaw: [StockRaw]) {
-        let stocks: [Stock] = stocksRaw.map({ Stock(with: $0) })
+        let stocks: [StockData] = stocksRaw.map({ StockData(with: $0) })
         output?.didRecive(stoks: stocks)
     }
 
@@ -56,7 +56,7 @@ final class MyStocksMockInteractor {
     }
 
     private func handleStock(with stocksRaw: [StockRaw]) {
-        let stocks: [Stock] = stocksRaw.map({ Stock(with: $0) })
+        let stocks: [StockData] = stocksRaw.map({ StockData(with: $0) })
         output?.didRecive(stoks: stocks)
     }
 
