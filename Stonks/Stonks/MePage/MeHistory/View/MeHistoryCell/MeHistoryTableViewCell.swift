@@ -28,8 +28,8 @@ class MeHistoryTableViewCell: UITableViewCell {
         logoImageView.image = UIImage(named: "ZUEV")
         nameLabel.text = stock.stockName
         priceLabel.text = String(stock.stockPrice) + "$"
-//        let url = URL(string: stock.imageUrl)
-//        logoImageView.kf.setImage(with: url)
+        let url = URL(string: stock.imageUrl)
+        logoImageView.kf.setImage(with: url)
     }
 }
 
