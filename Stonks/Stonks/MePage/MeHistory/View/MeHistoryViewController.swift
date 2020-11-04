@@ -13,7 +13,7 @@ final class MeHistoryViewController: UIViewController {
     }
 
     private func setupTableView() {
-        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 1))
+        tableView.tableFooterView = UIView(frame: .zero)
         tableView.delegate = self
         tableView.dataSource = self
         let chartNib = UINib(nibName: MeHistoryTableViewCell.reuseIdentifier, bundle: nil)
@@ -34,7 +34,6 @@ extension MeHistoryViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MeHistoryTableViewCell.reuseIdentifier, for: indexPath) as? MeHistoryTableViewCell else {
             return UITableViewCell()
         }
-
         guard let stock = output?.stock(at: indexPath) else {
             return UITableViewCell()
         }
@@ -44,11 +43,19 @@ extension MeHistoryViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return Constants.rowHeight
+    }
 }
 
 extension MeHistoryViewController: MeHistoryInput {
     func reloadTable() {
         tableView.reloadData()
     }
+}
 
+extension MeHistoryViewController {
+    private struct Constants {
+        static let rowHeight: CGFloat = 62
+    }
 }
