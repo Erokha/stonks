@@ -5,10 +5,13 @@ protocol AuthorizationServiceInput {
     func authorize()
 }
 
-protocol CoreDataServiceInput {
+protocol UserDataServiceInput {
     func createUser(name: String, surname: String, balance: Decimal)
     func getUser() -> User?
     func editUser(user: User)
+}
+
+protocol StockDataServiceInput {
     func createStock(name: String, symbol: String, curPrice: Decimal, imageURL: URL, amount: Int)
     func getStock(with name: String) -> Stock?
     func updateStock(name: String, stock: Stock)

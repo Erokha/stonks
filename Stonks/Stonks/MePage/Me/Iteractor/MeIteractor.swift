@@ -40,7 +40,7 @@ final class MeIteractor: NSObject {
 
 extension MeIteractor: MeInteractorInput {
     func loadUser() {
-        if let user = DataService.shared.getUser() {
+        if let user = UserDataService.shared.getUser() {
             handleUser(with: user)
         } else {
             handleUser(with: User())

@@ -90,8 +90,8 @@ extension LoginPresenter: LoginViewOutput {
         model.surname = surname
         model.balance = balance
 
-        DataService.shared.authorize()
-        DataService.shared.createUser(name: name, surname: surname, balance: balance)
+        AuthorizationService.shared.authorize()
+        UserDataService.shared.createUser(name: name, surname: surname, balance: balance)
 
         router?.showMainScreen()
     }

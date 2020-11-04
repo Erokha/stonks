@@ -8,32 +8,32 @@ class MeSettingsPresenter {
     }
 
     private func saveDeposit(money: Int) {
-        let user = DataService.shared.getUser()
+        let user = UserDataService.shared.getUser()
         let userMoney = Int(truncating: user?.balance ?? 0)
         var totalBalance = money + userMoney
         if totalBalance < 0 {
             totalBalance = 0
         }
         user?.balance = NSDecimalNumber(value: totalBalance)
-        DataService.shared.editUser(user: user ?? User())
+        UserDataService.shared.editUser(user: user ?? User())
     }
 
     private func saveName(name: String, surname: String) {
-        let user = DataService.shared.getUser()
+        let user = UserDataService.shared.getUser()
         if !name.isEmpty {
             user?.name = name
         }
         if !surname.isEmpty {
             user?.surname = surname
         }
-        DataService.shared.editUser(user: user ?? User())
+        UserDataService.shared.editUser(user: user ?? User())
     }
 
     private func resetData() {
-        let user = DataService.shared.getUser()
+        let user = UserDataService.shared.getUser()
         user?.balance = 0
         user?.totalSpent = 0
-        DataService.shared.editUser(user: user ?? User())
+        UserDataService.shared.editUser(user: user ?? User())
 
     }
     private func configureMailComposer() -> MFMailComposeViewController {
