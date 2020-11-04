@@ -1,6 +1,5 @@
 import UIKit
 import Alamofire
-import SwiftyJSON
 
 class MyStocksPresenter {
     var model: [StockData]? {
