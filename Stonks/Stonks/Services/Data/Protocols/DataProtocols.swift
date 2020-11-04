@@ -1,10 +1,5 @@
 import Foundation
 
-protocol AuthorizationServiceInput {
-    func userIsAuthorized() -> Bool
-    func authorize()
-}
-
 protocol UserDataServiceInput {
     func createUser(name: String, surname: String, balance: Decimal)
     func getUser() -> User?

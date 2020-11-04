@@ -77,6 +77,7 @@
 		3188578E2552AE8C00FFDCBC /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3188578D2552AE8C00FFDCBC /* UserDataService.swift */; };
 		318857912552AE9900FFDCBC /* StockDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318857902552AE9900FFDCBC /* StockDataService.swift */; };
 		318857942552B54E00FFDCBC /* AuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318857932552B54E00FFDCBC /* AuthorizationService.swift */; };
+		318857A72552BAC500FFDCBC /* AuthorizationServiceInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318857A62552BAC500FFDCBC /* AuthorizationServiceInput.swift */; };
 		31905F7B25361BA0000D71A7 /* StockDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31905F7225361BA0000D71A7 /* StockDetailPresenter.swift */; };
 		31905F7C25361BA0000D71A7 /* StockDetailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31905F7425361BA0000D71A7 /* StockDetailData.swift */; };
 		31905F7D25361BA0000D71A7 /* StockDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31905F7625361BA0000D71A7 /* StockDetailViewController.swift */; };
@@ -163,6 +164,7 @@
 		3188578D2552AE8C00FFDCBC /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
 		318857902552AE9900FFDCBC /* StockDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDataService.swift; sourceTree = "<group>"; };
 		318857932552B54E00FFDCBC /* AuthorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationService.swift; sourceTree = "<group>"; };
+		318857A62552BAC500FFDCBC /* AuthorizationServiceInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceInput.swift; sourceTree = "<group>"; };
 		31905F7225361BA0000D71A7 /* StockDetailPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockDetailPresenter.swift; sourceTree = "<group>"; };
 		31905F7425361BA0000D71A7 /* StockDetailData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockDetailData.swift; sourceTree = "<group>"; };
 		31905F7625361BA0000D71A7 /* StockDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockDetailViewController.swift; sourceTree = "<group>"; };
@@ -631,10 +633,8 @@
 			isa = PBXGroup;
 			children = (
 				311057E0253F1AF100B41CDA /* Model.xcdatamodeld */,
-				311057E4253F1E0900B41CDA /* User+CoreDataClass.swift */,
-				311057E7253F1E1C00B41CDA /* User+CoreDataProperties.swift */,
-				318857822551A63C00FFDCBC /* Stock+CoreDataClass.swift */,
-				318857852551A65500FFDCBC /* Stock+CoreDataProperties.swift */,
+				3188579B2552B94F00FFDCBC /* User */,
+				3188579D2552B95C00FFDCBC /* Stock */,
 				311057EA253F219D00B41CDA /* Entities.swift */,
 			);
 			path = Model;
@@ -660,14 +660,80 @@
 		31782B73253B419E00B680D9 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				318857A12552B99C00FFDCBC /* Stock */,
+				318857A02552B99300FFDCBC /* User */,
+				3188579F2552B98600FFDCBC /* Common */,
+				318857992552B92D00FFDCBC /* Protocols */,
 				311057DF253F1ADC00B41CDA /* Model */,
-				31E44530253B1FBB00528971 /* DataService.swift */,
-				31782B75253B41E100B680D9 /* DataProtocols.swift */,
-				3188578D2552AE8C00FFDCBC /* UserDataService.swift */,
-				318857902552AE9900FFDCBC /* StockDataService.swift */,
-				318857932552B54E00FFDCBC /* AuthorizationService.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		318857992552B92D00FFDCBC /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				31782B75253B41E100B680D9 /* DataProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		3188579B2552B94F00FFDCBC /* User */ = {
+			isa = PBXGroup;
+			children = (
+				311057E4253F1E0900B41CDA /* User+CoreDataClass.swift */,
+				311057E7253F1E1C00B41CDA /* User+CoreDataProperties.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		3188579D2552B95C00FFDCBC /* Stock */ = {
+			isa = PBXGroup;
+			children = (
+				318857822551A63C00FFDCBC /* Stock+CoreDataClass.swift */,
+				318857852551A65500FFDCBC /* Stock+CoreDataProperties.swift */,
+			);
+			path = Stock;
+			sourceTree = "<group>";
+		};
+		3188579F2552B98600FFDCBC /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				31E44530253B1FBB00528971 /* DataService.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		318857A02552B99300FFDCBC /* User */ = {
+			isa = PBXGroup;
+			children = (
+				3188578D2552AE8C00FFDCBC /* UserDataService.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		318857A12552B99C00FFDCBC /* Stock */ = {
+			isa = PBXGroup;
+			children = (
+				318857902552AE9900FFDCBC /* StockDataService.swift */,
+			);
+			path = Stock;
+			sourceTree = "<group>";
+		};
+		318857A42552BA5900FFDCBC /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				318857A52552BA9500FFDCBC /* Protocols */,
+				318857932552B54E00FFDCBC /* AuthorizationService.swift */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
+		318857A52552BA9500FFDCBC /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				318857A62552BAC500FFDCBC /* AuthorizationServiceInput.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		31905F7025361BA0000D71A7 /* Stock Detail */ = {
@@ -829,6 +895,7 @@
 		31E4452F253B1F7500528971 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				318857A42552BA5900FFDCBC /* Authorization */,
 				31782B73253B419E00B680D9 /* Data */,
 			);
 			path = Services;
@@ -1008,6 +1075,7 @@
 				0DF01734252F5BD2003FF71B /* CardViewPresenterType.swift in Sources */,
 				31905F7C25361BA0000D71A7 /* StockDetailData.swift in Sources */,
 				31905F8825361C7D000D71A7 /* StockDetailProtocols.swift in Sources */,
+				318857A72552BAC500FFDCBC /* AuthorizationServiceInput.swift in Sources */,
 				0D3903B6252F62C200C18036 /* Stock.swift in Sources */,
 				134487942541BBFB008C2D7B /* MePresenter.swift in Sources */,
 				31CD548B252BAFE900F65D17 /* LoginData.swift in Sources */,
