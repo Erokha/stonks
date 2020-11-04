@@ -1023,7 +1023,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "debugConfig=\"Stonks\"\n\nif [ \"$debugConfig\" != \"${CONFIGURATION}\" ]; then\n    echo \"NO swift linting\"\nelse\n    echo \"swift linting\"\n\n    SWIFT_LINT=\"${PODS_ROOT}/SwiftLint/swiftlint\"\n    SWIFT_LINT_CONFIG=\"${PODS_ROOT}/../.swiftlint.yml\"\nfi\n";
+			shellScript = "SWIFT_LINT=\"${PODS_ROOT}/SwiftLint/swiftlint\"\nSWIFT_LINT_CONFIG=\"${PODS_ROOT}/../.swiftlint.yml\"\n\nif which ${SWIFT_LINT} >/dev/null; then\n${SWIFT_LINT} --config ${SWIFT_LINT_CONFIG}\nelse\necho \"warning: SwiftLint not installed, 'brew install swiftlint' or download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		5AC7B805217F337D8BFCBAF4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
