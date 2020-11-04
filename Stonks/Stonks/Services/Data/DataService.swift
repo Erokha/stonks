@@ -55,7 +55,6 @@ extension DataService: CoreDataServiceInput {
         user.surname = surname
         user.balance = NSDecimalNumber(decimal: balance)
         user.totalSpent = NSDecimalNumber(decimal: 0)
-        user.stocks = nil
 
         let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
 
@@ -119,6 +118,8 @@ extension DataService: CoreDataServiceInput {
         stock.price = NSDecimalNumber(decimal: curPrice)
         stock.amount = amount
         stock.imageURL = NSURL(fileURLWithPath: imageURL.absoluteString)
+
+        stock.user = self.getUser()
 
         do {
             try context.save()
