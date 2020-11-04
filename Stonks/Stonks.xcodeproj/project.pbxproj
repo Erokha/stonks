@@ -88,6 +88,7 @@
 		31BDC088252A1C5B00F56ADD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDC087252A1C5B00F56ADD /* AppDelegate.swift */; };
 		31BDC08C252A1C5B00F56ADD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDC08B252A1C5B00F56ADD /* LoginViewController.swift */; };
 		31BDC0AB252A23B200F56ADD /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDC0AA252A23B200F56ADD /* LoginPresenter.swift */; };
+		31C02BF42553137C008FCCB3 /* StockDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C02BF32553137C008FCCB3 /* StockDetailInteractor.swift */; };
 		31CD5485252BAEA400F65D17 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31CD5484252BAEA400F65D17 /* Login.storyboard */; };
 		31CD548B252BAFE900F65D17 /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CD548A252BAFE900F65D17 /* LoginData.swift */; };
 		31E44531253B1FBB00528971 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E44530253B1FBB00528971 /* DataService.swift */; };
@@ -181,6 +182,7 @@
 		31BDC095252A1C5D00F56ADD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31BDC0A3252A21A400F56ADD /* Launch.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Launch.xib; sourceTree = "<group>"; };
 		31BDC0AA252A23B200F56ADD /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		31C02BF32553137C008FCCB3 /* StockDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailInteractor.swift; sourceTree = "<group>"; };
 		31CD5484252BAEA400F65D17 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		31CD548A252BAFE900F65D17 /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
 		31E44530253B1FBB00528971 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
@@ -739,6 +741,7 @@
 		31905F7025361BA0000D71A7 /* Stock Detail */ = {
 			isa = PBXGroup;
 			children = (
+				31C02BF225531353008FCCB3 /* Interactor */,
 				31905F8A25361FC4000D71A7 /* Router */,
 				31905F8225361C19000D71A7 /* Container */,
 				31905F7125361BA0000D71A7 /* Presenter */,
@@ -890,6 +893,14 @@
 				31CD5484252BAEA400F65D17 /* Login.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		31C02BF225531353008FCCB3 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				31C02BF32553137C008FCCB3 /* StockDetailInteractor.swift */,
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		31E4452F253B1F7500528971 /* Services */ = {
@@ -1079,6 +1090,7 @@
 				13531273253B4C6600F77A91 /* HistoryButtonTableViewCell.swift in Sources */,
 				13F28AC6253499550004E864 /* MePortfolioContainer.swift in Sources */,
 				134179F1253227D50052D1A9 /* ChartColor.swift in Sources */,
+				31C02BF42553137C008FCCB3 /* StockDetailInteractor.swift in Sources */,
 				1344877025419B5A008C2D7B /* MeSettingsViewController.swift in Sources */,
 				134487A12541C40D008C2D7B /* SettingsTableViewCell.swift in Sources */,
 				13F28AAC2534913F0004E864 /* MePortfolioProtocols.swift in Sources */,

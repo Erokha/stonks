@@ -29,7 +29,7 @@ final class MyStocksInteractor {
 
 extension MyStocksInteractor: MyStoksInteractorInput {
     func loadStoks() {
-        let url = "http://192.168.31.36:8000/allStocks"
+        let url = "http://stonks.kkapp.ru:8000/allStocks"
         let request = AF.request(url)
         request.responseDecodable(of: [StockRaw].self) { [weak self] response in
             switch response.result {

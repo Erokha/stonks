@@ -21,7 +21,7 @@ class MainTabBar: UITabBarController {
     }
 
     private func prepareLearnViewController() -> UINavigationController {
-        let container = ArticleContainer.assemble(with: ArticleContext(interactorUrl: "http://192.168.31.36:8000/learn", tableViewTitle: "Learn"))
+        let container = ArticleContainer.assemble(with: ArticleContext(interactorUrl: "http://stonks.kkapp.ru:8000/learn", tableViewTitle: "Learn"))
         let tabBarItem = UITabBarItem(title: Constants.LearnBarItem.title,
                                       image: UIImage(named: Constants.LearnBarItem.imageName)?.withRenderingMode(.alwaysOriginal),
                                       tag: Constants.LearnBarItem.tag)
@@ -54,7 +54,7 @@ class MainTabBar: UITabBarController {
     }
 
     private func prepareNewsViewController() -> UINavigationController {
-        let container = ArticleContainer.assemble(with: ArticleContext(interactorUrl: "http://192.168.31.36:8000/news", tableViewTitle: "News"))
+        let container = ArticleContainer.assemble(with: ArticleContext(interactorUrl: "http://stonks.kkapp.ru:8000/news", tableViewTitle: "News"))
         let tabBarItem = UITabBarItem(title: Constants.NewsBarItem.title,
                                       image: UIImage(named: Constants.NewsBarItem.imageName)?.withRenderingMode(.alwaysOriginal),
                                       tag: Constants.NewsBarItem.tag)

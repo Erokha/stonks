@@ -18,3 +18,15 @@ protocol StockDetailViewOutput: class {
 protocol StockDetailRouterInput: class {
 
 }
+
+protocol StockDetailInteractorInput: class {
+    func increaseAmount(for name: String, value: Int)
+    func descreaseAmount(for name: String, value: Int)
+    func fetchStockQuotes(for name: String)
+    func fetchFreshCost(for name: String)
+}
+
+protocol StockDetailInteractorOutput: class {
+    func freshCostDidReceived(cost: Double)
+    func stockQuotesDidReceived(quotes: [(Double, Double)]?)
+}
