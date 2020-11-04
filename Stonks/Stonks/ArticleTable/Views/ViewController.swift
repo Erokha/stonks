@@ -35,9 +35,9 @@ extension ArticleViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "ArticleTableViewCell", bundle: nil), forCellReuseIdentifier: ArticleTableViewCell.reuseIdentifier)
-        tableView.layer.shadowColor = UIColor.black.cgColor
+        tableView.layer.shadowColor = UIColor.gray.cgColor
         tableView.layer.shadowOpacity = 0.6
-        tableView.layer.shadowOffset = .init(width: 1, height: 3)
+        tableView.layer.shadowOffset = .init(width: -1, height: 2)
         tableView.layer.shadowRadius = 2
         tableView.largeContentTitle = "News"
         tableView.contentInsetAdjustmentBehavior = .never
@@ -69,7 +69,7 @@ extension ArticleViewController: UITableViewDelegate, UITableViewDataSource {
                 }
         guard let viewModel = output?.article(at: indexPath) else { return UITableViewCell() }
 
-        cell.load(with: viewModel)
+        cell.load(with: viewModel, output: output)
         return cell
     }
 

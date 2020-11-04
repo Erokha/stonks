@@ -19,6 +19,10 @@ class ArticleViewPresenter {
 }
 
 extension ArticleViewPresenter: ArticleViewOutput {
+    func didTapReadMore(url: URL?) {
+        router?.openUrl(url)
+    }
+
     func refreshData() {
         interactor.loadStoks()
     }

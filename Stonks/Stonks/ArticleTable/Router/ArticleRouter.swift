@@ -12,4 +12,13 @@ extension ArticleRouter: ArticleRouterInput {
 
         self.viewController?.present(alert, animated: true)
     }
+
+    func openUrl(_ url: URL?) {
+        guard let trueUrl = url else {
+            return
+        }
+        if UIApplication.shared.canOpenURL(trueUrl) {
+                UIApplication.shared.open(trueUrl, options: [:])
+        }
+    }
 }
