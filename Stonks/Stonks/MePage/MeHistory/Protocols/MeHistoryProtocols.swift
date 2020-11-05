@@ -8,10 +8,11 @@ protocol MeHistoryOutput: class {
     func stock(at indexPath: IndexPath) -> Stock?
     func getNumberOfStocks() -> Int
     func didLoadView()
+    func didFilterButtonTapped()
 }
 
 protocol MeHistoryRouterInput: class {
-
+    func showFilter()
 }
 
 protocol MeHistoryInteractorInput: class {

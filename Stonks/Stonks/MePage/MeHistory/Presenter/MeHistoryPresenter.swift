@@ -13,6 +13,10 @@ final class MeHistoryPresenter {
 }
 
 extension MeHistoryPresenter: MeHistoryOutput {
+    func didFilterButtonTapped() {
+        router?.showFilter()
+    }
+
     func didLoadView() {
 
     }

@@ -23,6 +23,9 @@ final class MeHistoryViewController: UIViewController {
     @IBAction private func didBackActionTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
+    @IBAction private func didFilterButtonTapped(_ sender: Any) {
+        output?.didFilterButtonTapped()
+    }
 }
 
 extension MeHistoryViewController: UITableViewDelegate, UITableViewDataSource {

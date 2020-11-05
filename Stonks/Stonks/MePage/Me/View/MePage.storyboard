@@ -183,6 +183,9 @@
                                     <constraint firstAttribute="height" constant="32" id="3oK-rM-ibR"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="filter"/>
+                                <connections>
+                                    <action selector="didFilterButtonTapped:" destination="gbj-1a-Bjq" eventType="touchUpInside" id="Y6X-Y8-G1V"/>
+                                </connections>
                             </button>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="AXt-OR-Rwx">
                                 <rect key="frame" x="8" y="85" width="359" height="56"/>
@@ -221,10 +224,10 @@
             </objects>
             <point key="canvasLocation" x="1852.1739130434785" y="73.660714285714278"/>
         </scene>
-        <!--View Controller-->
+        <!--Me History Filter View Controller-->
         <scene sceneID="p1c-TC-kep">
             <objects>
-                <viewController id="OYV-Yu-dxR" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MeFilterPage" id="OYV-Yu-dxR" customClass="MeHistoryFilterViewController" customModule="Stonks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RtL-xi-B0x">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -273,6 +276,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="faW-sX-PNP"/>
+                    <connections>
+                        <outlet property="tableView" destination="E6v-zN-ZMm" id="rWk-LV-t80"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NNb-mt-432" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

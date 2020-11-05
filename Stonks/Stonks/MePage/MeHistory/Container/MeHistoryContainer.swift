@@ -17,7 +17,7 @@ final class MeHistoryContainer {
         presenter.router = router
         vc.output = presenter
         interactor.output = presenter
-        router.vieController = vc
+        router.viewController = vc
 
         return MeHistoryContainer(viewController: vc, router: router)
     }
