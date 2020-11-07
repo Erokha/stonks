@@ -7,57 +7,64 @@ class StockDetailPresenter {
     var router: StockDetailRouterInput?
     var interactor: StockDetailInteractorInput?
 
-    private var model: StockDetailData
+    private var model: StockDetailPresenterData
 
-    init(model: StockDetailData) {
+    init(model: StockDetailPresenterData) {
         self.model = model
     }
 }
 
 extension StockDetailPresenter: StockDetailViewOutput {
     func didLoadView() {
-        guard let stockName = model.name else {
-            return
-        }
-
-        interactor?.fetchStockQuotes(for: stockName)
+        interactor?.fetchStockQuotes(for: model.name)
     }
 
     func didTapBuyButton(amount: String?) {
         guard let amountString = amount,
               !amountString.isEmpty else {
-            view?.showAlert(with: "Ошибка", message: "Не введено количество акций")
+            view?.showAlert(with: "Oops!", message: "Stock amount not inputed")
             return
         }
 
         guard let amount = Int(amountString) else {
-            view?.showAlert(with: "Ошибка", message: "Невозможно преобразовать количество в число")
+            view?.showAlert(with: "Oops!", message: "Unreal to convert amount to number")
             return
         }
 
-        print(amount)
+        interactor?.increaseAmount(for: model.name, value: amount)
     }
 
     func didTapSellButton(amount: String?) {
         guard let amountString = amount,
               !amountString.isEmpty else {
-            view?.showAlert(with: "Ошибка", message: "Не введено количество акций")
+            view?.showAlert(with: "Oops!", message: "Stock amount not inputed")
             return
         }
 
         guard let amount = Int(amountString) else {
-            view?.showAlert(with: "Ошибка", message: "Невозможно преобразовать количество в число")
+            view?.showAlert(with: "Oops!", message: "Unreal to convert amount to number")
             return
         }
 
-        print(amount)
+        interactor?.descreaseAmount(for: model.name, value: amount)
     }
 }
 
 extension StockDetailPresenter: StockDetailInteractorOutput {
     func freshCostDidReceived(cost: Double) {
-        model.quotes?.removeFirst()
-        model.quotes?.append((20, cost))
+        guard var quotes = model.quotes else {
+            return
+        }
+
+        quotes.removeFirst()
+
+        for i in 0..<quotes.count {
+            quotes[i] = (quotes[i].0 - 1, quotes[i].1)
+        }
+
+        quotes.append((29, cost))
+
+        model.quotes = quotes
 
         guard let chartData = model.quotes?.map({(tuple: (Double, Double)) -> ChartDataEntry in
             return ChartDataEntry(x: tuple.0, y: tuple.1)
@@ -79,17 +86,17 @@ extension StockDetailPresenter: StockDetailInteractorOutput {
             return
         }
 
-        guard let stockName = model.name else {
-            return
-        }
-
         guard let currentCost = chartData.last?.y else {
             return
         }
 
         view?.setChartData(with: chartData)
-        view?.setNavigationBarTitle(with: stockName)
-        view?.setStockNameLabel(with: stockName)
+        view?.setNavigationBarTitle(with: model.name)
+        view?.setStockNameLabel(with: model.name)
         view?.setStockCurrentCostLabel(with: String(format: "%.1f", currentCost) + "$")
+    }
+
+    func showAlert(with title: String, message: String) {
+        view?.showAlert(with: title, message: message)
     }
 }
