@@ -21,6 +21,26 @@ class MainTabBar: UITabBarController {
     }
 
     private func prepareLearnViewController() -> UINavigationController {
+        guard let url = URL(string: "fsdsd") else {
+            return UINavigationController()
+        }
+
+        StockDataService.shared.createStock(name: "Apple", symbol: "AAPL", freshPrice: 10, imageURL: url)
+
+        let container = StockDetailContainer.assemble(with: StockDetailContext(name: "Apple"))
+        let tabBarItem = UITabBarItem(title: Constants.LearnBarItem.title,
+                                      image: UIImage(named: Constants.LearnBarItem.imageName)?.withRenderingMode(.alwaysOriginal),
+                                      tag: Constants.LearnBarItem.tag)
+
+        container.viewController.tabBarItem = tabBarItem
+
+        let navigationVC = UINavigationController(rootViewController: container.viewController)
+
+        navigationVC.navigationBar.isHidden = true
+
+        return navigationVC
+
+        /*
         let container = ArticleContainer.assemble(with: ArticleContext(interactorUrl: "http://stonks.kkapp.ru:8000/learn", tableViewTitle: "Learn"))
         let tabBarItem = UITabBarItem(title: Constants.LearnBarItem.title,
                                       image: UIImage(named: Constants.LearnBarItem.imageName)?.withRenderingMode(.alwaysOriginal),
@@ -33,6 +53,7 @@ class MainTabBar: UITabBarController {
         navigationVC.navigationBar.isHidden = true
 
         return navigationVC
+         */
     }
 
     private func prepareMyStocksViewController() -> UINavigationController {

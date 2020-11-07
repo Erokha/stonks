@@ -51,33 +51,25 @@ extension StockDetailPresenter: StockDetailViewOutput {
 }
 
 extension StockDetailPresenter: StockDetailInteractorOutput {
-    func freshCostDidReceived(cost: Double) {
-        guard var quotes = model.quotes else {
+    func freshCostDidReceived(model: StockDetailPresenterData) {
+        self.model = model
+
+        guard let freshPrice = model.freshPrice else {
             return
         }
 
-        quotes.removeFirst()
-
-        for i in 0..<quotes.count {
-            quotes[i] = (quotes[i].0 - 1, quotes[i].1)
-        }
-
-        quotes.append((29, cost))
-
-        model.quotes = quotes
-
-        guard let chartData = model.quotes?.map({(tuple: (Double, Double)) -> ChartDataEntry in
+        guard let chartData = self.model.quotes?.map({(tuple: (Double, Double)) -> ChartDataEntry in
             return ChartDataEntry(x: tuple.0, y: tuple.1)
         }) else {
             return
         }
 
         view?.setChartData(with: chartData)
-        view?.setStockCurrentCostLabel(with: String(format: "%.1f", cost) + "$")
+        view?.setStockCurrentCostLabel(with: String(format: "%.1f", NSDecimalNumber(decimal: freshPrice).doubleValue) + "$")
     }
 
-    func stockQuotesDidReceived(quotes: [(Double, Double)]?) {
-        model.quotes = quotes
+    func stockQuotesDidReceived(model: StockDetailPresenterData) {
+        self.model = model
 
         guard let chartData = model.quotes?.map({(tuple: (Double, Double)) -> ChartDataEntry in
             return ChartDataEntry(x: tuple.0, y: tuple.1)

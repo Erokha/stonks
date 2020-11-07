@@ -26,7 +26,7 @@ protocol StockDetailInteractorInput: class {
 }
 
 protocol StockDetailInteractorOutput: class {
-    func freshCostDidReceived(cost: Double)
-    func stockQuotesDidReceived(quotes: [(Double, Double)]?)
+    func freshCostDidReceived(model: StockDetailPresenterData)
+    func stockQuotesDidReceived(model: StockDetailPresenterData)
     func showAlert(with title: String, message: String)
 }

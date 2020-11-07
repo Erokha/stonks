@@ -26,14 +26,25 @@ class StockDetailInteractor {
     private func fetchFreshCost() {
         let freshPrice = Double.random(in: 0...50)
 
-        guard let stock = model.stock else {
+        guard let stock = model.stock,
+              var quotes = model.quotes else {
             return
         }
+
+        quotes.removeFirst()
+
+        for i in 0..<quotes.count {
+            quotes[i] = (quotes[i].0 - 1, quotes[i].1)
+        }
+
+        quotes.append((29, freshPrice))
+
+        self.model.quotes = quotes
 
         stock.freshPrice = NSDecimalNumber(value: freshPrice)
         StockDataService.shared.updateStock(name: stock.name, stock: stock)
 
-        output?.freshCostDidReceived(cost: freshPrice)
+        output?.freshCostDidReceived(model: StockDetailPresenterData(model: self.model))
     }
 
     deinit {
@@ -85,21 +96,23 @@ extension StockDetailInteractor: StockDetailInteractorInput {
     func fetchStockQuotes(for name: String) {
         // тут запрос в сеть котировок за последние 20 минут
 
-        var dataset: [(Double, Double)] = []
+        var quotes: [(Double, Double)] = []
 
         for i in 0..<30 {
             let value = Double.random(in: 0.0 ... 50.0)
-            dataset.append((Double(i), value))
+            quotes.append((Double(i), value))
         }
 
         guard let stock = model.stock else {
             return
         }
 
-        stock.freshPrice = NSDecimalNumber(value: dataset[dataset.count - 1].1)
+        stock.freshPrice = NSDecimalNumber(value: quotes[quotes.count - 1].1)
         StockDataService.shared.updateStock(name: stock.name, stock: stock)
 
-        output?.stockQuotesDidReceived(quotes: dataset)
+        self.model.quotes = quotes
+
+        output?.stockQuotesDidReceived(model: StockDetailPresenterData(model: self.model))
     }
 }
 
