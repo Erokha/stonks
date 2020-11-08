@@ -54,10 +54,6 @@ class MainTabBar: UITabBarController {
     }
 
     private func prepareNewsViewController() -> UINavigationController {
-<<<<<<< HEAD
-
-=======
->>>>>>> develop
         let container = ArticleContainer.assemble(with: ArticleContext(interactorUrl: "http://stonks.kkapp.ru:8000/news", tableViewTitle: "News"))
         let tabBarItem = UITabBarItem(title: Constants.NewsBarItem.title,
                                       image: UIImage(named: Constants.NewsBarItem.imageName)?.withRenderingMode(.alwaysOriginal),
