@@ -9,10 +9,8 @@ protocol UserDataServiceInput {
 protocol StockDataServiceInput {
     func createStock(name: String,
                      symbol: String,
-                     freshPrice: Decimal,
-                     imageURL: URL,
-                     amount: Int)
-    func getStock(with name: String) -> Stock?
-    func updateStock(name: String, stock: Stock)
-    func deleteStock(name: String)
+                     imageURL: URL)
+    func getStock(symbol: String) -> Stock?
+    func updateStock(symbol: String, stock: Stock)
+    func deleteStock(symbol: String)
 }

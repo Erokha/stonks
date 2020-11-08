@@ -3,13 +3,12 @@ import Foundation
 class StockDetailInteractor {
     weak var output: StockDetailInteractorOutput?
 
-    private var model: StockDetailInteractorData
+    private var stock: Stock?
 
     private var updateQuotesTimer: Timer?
 
-    init(model: StockDetailInteractorData) {
-        self.model = model
-        self.model.stock = StockDataService.shared.getStock(with: model.name)
+    init(symbol: String) {
+        self.stock = StockDataService.shared.getStock(symbol: symbol)
 
         setupUpdateTimer()
     }
@@ -24,27 +23,18 @@ class StockDetailInteractor {
 
     @objc
     private func fetchFreshCost() {
-        let freshPrice = Double.random(in: 0...50)
-
-        guard let stock = model.stock,
-              var quotes = model.quotes else {
+        guard let stock = self.stock,
+              !stock.priceHistory.isEmpty else {
             return
         }
 
-        quotes.removeFirst()
+        let freshPrice = Double.random(in: 0...50)
 
-        for i in 0..<quotes.count {
-            quotes[i] = (quotes[i].0 - 1, quotes[i].1)
-        }
+        stock.priceHistory.removeFirst()
+        stock.priceHistory.append(NSDecimalNumber(value: freshPrice))
 
-        quotes.append((29, freshPrice))
-
-        self.model.quotes = quotes
-
-        stock.freshPrice = NSDecimalNumber(value: freshPrice)
-        StockDataService.shared.updateStock(name: stock.name, stock: stock)
-
-        output?.freshCostDidReceived(model: StockDetailPresenterData(model: self.model))
+        StockDataService.shared.updateStock(symbol: stock.symbol, stock: stock)
+        output?.freshCostDidReceived(model: StockDetailPresenterData(model: stock))
     }
 
     deinit {
@@ -53,13 +43,14 @@ class StockDetailInteractor {
 }
 
 extension StockDetailInteractor: StockDetailInteractorInput {
-    func increaseAmount(for name: String, value: Int) {
-        guard let stock = StockDataService.shared.getStock(with: name),
-              let user = UserDataService.shared.getUser() else {
+    func increaseAmount(by value: Int) {
+        guard let stock = self.stock,
+              let user = UserDataService.shared.getUser(),
+              let freshPrice = stock.priceHistory.last else {
             return
         }
 
-        let transactionCost = (stock.freshPrice as Decimal) * Decimal(value)
+        let transactionCost = (freshPrice as Decimal) * Decimal(value)
 
         guard user.balance as Decimal >= transactionCost else {
             output?.showAlert(with: "Oops!", message: "You don't have enough money")
@@ -67,15 +58,17 @@ extension StockDetailInteractor: StockDetailInteractorInput {
         }
 
         user.balance = user.balance.adding(NSDecimalNumber(decimal: -transactionCost))
+        stock.totalCost = stock.totalCost.adding(NSDecimalNumber(decimal: transactionCost))
         stock.amount += value
 
         UserDataService.shared.editUser(user: user)
-        StockDataService.shared.updateStock(name: stock.name, stock: stock)
+        StockDataService.shared.updateStock(symbol: stock.symbol, stock: stock)
     }
 
-    func descreaseAmount(for name: String, value: Int) {
-        guard let stock = StockDataService.shared.getStock(with: name),
-              let user = UserDataService.shared.getUser() else {
+    func descreaseAmount(by value: Int) {
+        guard let stock = self.stock,
+              let user = UserDataService.shared.getUser(),
+              let freshPrice = stock.priceHistory.last else {
             return
         }
 
@@ -84,35 +77,37 @@ extension StockDetailInteractor: StockDetailInteractorInput {
             return
         }
 
-        let transactionCost = (stock.freshPrice as Decimal) * Decimal(value)
+        let transactionCost = (freshPrice as Decimal) * Decimal(value)
 
         user.balance = user.balance.adding(NSDecimalNumber(decimal: transactionCost))
         stock.amount -= value
 
-        UserDataService.shared.editUser(user: user)
-        StockDataService.shared.updateStock(name: stock.name, stock: stock)
-    }
-
-    func fetchStockQuotes(for name: String) {
-        // тут запрос в сеть котировок за последние 20 минут
-
-        var quotes: [(Double, Double)] = []
-
-        for i in 0..<30 {
-            let value = Double.random(in: 0.0 ... 50.0)
-            quotes.append((Double(i), value))
+        if stock.amount == 0 {
+            stock.totalCost = 0
+        } else {
+            stock.totalCost = stock.totalCost.adding(NSDecimalNumber(decimal: -transactionCost))
         }
 
-        guard let stock = model.stock else {
+        UserDataService.shared.editUser(user: user)
+        StockDataService.shared.updateStock(symbol: stock.symbol, stock: stock)
+    }
+
+    func fetchStockQuotes() {
+        guard let stock = self.stock else {
             return
         }
 
-        stock.freshPrice = NSDecimalNumber(value: quotes[quotes.count - 1].1)
-        StockDataService.shared.updateStock(name: stock.name, stock: stock)
+        var priceHistory: [NSDecimalNumber] = []
 
-        self.model.quotes = quotes
+        for _ in 0..<30 {
+            let value = Double.random(in: 0.0 ... 50.0)
+            priceHistory.append(NSDecimalNumber(value: value))
+        }
 
-        output?.stockQuotesDidReceived(model: StockDetailPresenterData(model: self.model))
+        stock.priceHistory = priceHistory
+        StockDataService.shared.updateStock(symbol: stock.symbol, stock: stock)
+
+        output?.stockHistoryDidReceived(model: StockDetailPresenterData(model: stock))
     }
 }
 
