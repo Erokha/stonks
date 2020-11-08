@@ -9,7 +9,7 @@ protocol MyStocksViewInput: class {
 }
 
 protocol MyStocksViewOutput: class {
-    func stock(at indexPath: IndexPath) -> Stock?
+    func stock(at indexPath: IndexPath) -> StockData?
     func numberOfItems() -> Int
     func setBalance(num: Int)
     func setStocksTotal(num: Int)
@@ -18,7 +18,7 @@ protocol MyStocksViewOutput: class {
 }
 
 protocol MyStocksRouterInput: class {
-    func showMainScreen()
+    func showStockDetail()
     func showError(with error: Error)
 }
 
@@ -27,6 +27,6 @@ protocol MyStoksInteractorInput: class {
 }
 
 protocol MyStoksInteractorOutput: class {
-    func didRecive(stoks: [Stock])
+    func didRecive(stoks: [StockData])
     func didReciveError(with error: Error)
 }

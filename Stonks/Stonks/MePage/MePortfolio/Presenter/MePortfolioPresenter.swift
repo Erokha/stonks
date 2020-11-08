@@ -4,7 +4,7 @@ import Charts
 class MePortfolioPresenter {
     weak var view: MePortfolioInput?
     var router: MePortfolioRouterInput?
-    private var stocks: [Stock] = [] {
+    private var stocks: [StockData] = [] {
         didSet {
             setNumbersInChart(number: stocks.count)
         }

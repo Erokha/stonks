@@ -21,7 +21,7 @@ class StockTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
-    func setData(data: Stock) {
+    func setData(data: StockData) {
         self.stockNameLabel.text = data.stockName
         self.stockPriceLabel.text = String(data.stockPrice) + "$"
         self.stockCountLabel.text = "you own: \(data.stockCount)"

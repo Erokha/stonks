@@ -1,4 +1,4 @@
-struct Stock {
+struct StockData {
     let stockName: String
     let stockSymbol: String
     let stockPrice: Float

@@ -21,7 +21,7 @@ final class MyStocksInteractor {
     }
 
     private func handleStock(with stocksRaw: [StockRaw]) {
-        let stocks: [Stock] = stocksRaw.map({ Stock(with: $0) })
+        let stocks: [StockData] = stocksRaw.map({ StockData(with: $0) })
         output?.didRecive(stoks: stocks)
     }
 
@@ -29,7 +29,7 @@ final class MyStocksInteractor {
 
 extension MyStocksInteractor: MyStoksInteractorInput {
     func loadStoks() {
-        let url = "http://192.168.31.36:8000/allStocks"
+        let url = "http://stonks.kkapp.ru:8000/allStocks"
         let request = AF.request(url)
         request.responseDecodable(of: [StockRaw].self) { [weak self] response in
             switch response.result {
@@ -56,7 +56,7 @@ final class MyStocksMockInteractor {
     }
 
     private func handleStock(with stocksRaw: [StockRaw]) {
-        let stocks: [Stock] = stocksRaw.map({ Stock(with: $0) })
+        let stocks: [StockData] = stocksRaw.map({ StockData(with: $0) })
         output?.didRecive(stoks: stocks)
     }
 
