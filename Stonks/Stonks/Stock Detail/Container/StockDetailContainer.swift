@@ -11,10 +11,10 @@ class StockDetailContainer {
             fatalError("StockDetailContainer: view controller must be type StockDetailViewController")
         }
 
-        let model = StockDetailData(quotes: nil, name: context.name)
+        let model = StockDetailPresenterData(name: context.name)
         let presenter = StockDetailPresenter(model: model)
         let router = StockDetailRouter()
-        let interactor = StockDetailInteractor()
+        let interactor = StockDetailInteractor(model: StockDetailInteractorData(name: context.name))
 
         viewController.output = presenter
 
@@ -36,5 +36,5 @@ class StockDetailContainer {
 }
 
 struct StockDetailContext {
-    var name: String?
+    var name: String
 }

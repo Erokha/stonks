@@ -92,6 +92,12 @@ class StockDetailViewController: UIViewController {
     private func setupStockDetailCardView() {
         stockDetailCardView.clipsToBounds = true
         stockDetailCardView.layer.cornerRadius = Constants.StockDetailCardView.cornerRadius
+
+        /*
+        let presenter = CardViewPresenter(view: stockDetailCardView)
+
+        stockDetailCardView.presenter = presenter
+        */
     }
 
     private func setupBuyButton() {

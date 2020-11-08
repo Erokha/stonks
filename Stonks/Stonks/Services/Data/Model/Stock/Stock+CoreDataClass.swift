@@ -8,7 +8,7 @@ extension Stock {
 
     @NSManaged public var name: String
     @NSManaged public var symbol: String
-    @NSManaged public var price: NSDecimalNumber
+    @NSManaged public var freshPrice: NSDecimalNumber
     @NSManaged public var amount: NSInteger
     @NSManaged public var imageURL: NSURL
 
