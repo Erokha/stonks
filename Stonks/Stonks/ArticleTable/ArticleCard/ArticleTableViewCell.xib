@@ -5,17 +5,16 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" selectionStyle="default" showsReorderControl="YES" indentationWidth="10" id="KGk-i7-Jjw" customClass="ArticleTableViewCell" customModule="Stonks" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="319"/>
+        <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" selectionStyle="default" showsReorderControl="YES" indentationWidth="10" rowHeight="270" id="KGk-i7-Jjw" customClass="ArticleTableViewCell" customModule="Stonks" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="270"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="319"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="270"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ZUEV" translatesAutoresizingMaskIntoConstraints="NO" id="JNv-e3-lmv">
@@ -24,49 +23,46 @@
                             <constraint firstAttribute="height" constant="155" id="ic1-dK-tER"/>
                         </constraints>
                     </imageView>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="d5v-PK-Qmp">
-                        <rect key="frame" x="0.0" y="163" width="320" height="109"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="none" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ICK-Zl-XrU">
+                        <rect key="frame" x="16" y="167" width="288" height="60"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="109" id="s7k-AH-IW4"/>
+                            <constraint firstAttribute="height" constant="60" id="KxI-iN-Wfx"/>
                         </constraints>
-                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                        <color key="textColor" systemColor="labelColor"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                    </textView>
+                        <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rnq-bp-E5S">
-                        <rect key="frame" x="7" y="280" width="74" height="30"/>
+                        <rect key="frame" x="225" y="226" width="74" height="30"/>
                         <state key="normal" title="Read more"/>
+                        <connections>
+                            <action selector="didTapReadMoreButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="IWH-ZL-dcr"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="d5v-PK-Qmp" firstAttribute="top" secondItem="JNv-e3-lmv" secondAttribute="bottom" constant="8" symbolic="YES" id="Km2-MZ-JqH"/>
+                    <constraint firstAttribute="trailing" secondItem="ICK-Zl-XrU" secondAttribute="trailing" constant="16" id="Q3C-HM-fAl"/>
                     <constraint firstItem="JNv-e3-lmv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="U0S-tv-Slc"/>
-                    <constraint firstAttribute="trailing" secondItem="d5v-PK-Qmp" secondAttribute="trailing" id="ZIu-q3-7Oh"/>
+                    <constraint firstItem="ICK-Zl-XrU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="ZyC-F3-dxF"/>
+                    <constraint firstItem="rnq-bp-E5S" firstAttribute="top" secondItem="ICK-Zl-XrU" secondAttribute="bottom" constant="-1" id="cbD-BP-X3m"/>
                     <constraint firstItem="JNv-e3-lmv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="g6U-8w-vP2"/>
                     <constraint firstAttribute="trailing" secondItem="JNv-e3-lmv" secondAttribute="trailing" id="i4l-Us-gka"/>
-                    <constraint firstItem="d5v-PK-Qmp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="nd9-CW-Uzr"/>
-                    <constraint firstItem="rnq-bp-E5S" firstAttribute="top" secondItem="d5v-PK-Qmp" secondAttribute="bottom" constant="8" symbolic="YES" id="oEZ-4f-aun"/>
-                    <constraint firstItem="rnq-bp-E5S" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="7" id="yxF-Wd-ZZb"/>
+                    <constraint firstAttribute="trailing" secondItem="rnq-bp-E5S" secondAttribute="trailing" constant="21" id="kIB-Ce-eoP"/>
+                    <constraint firstItem="ICK-Zl-XrU" firstAttribute="top" secondItem="JNv-e3-lmv" secondAttribute="bottom" constant="12" id="s80-Wk-8Ei"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="articleImageView" destination="JNv-e3-lmv" id="egY-Lz-amm"/>
-                <outlet property="articleTextView" destination="d5v-PK-Qmp" id="BFw-3A-OHt"/>
+                <outlet property="articleReadMoreButton" destination="rnq-bp-E5S" id="mYy-yI-JgT"/>
+                <outlet property="articleTextView" destination="ICK-Zl-XrU" id="cbp-Ts-jfs"/>
             </connections>
-            <point key="canvasLocation" x="-24.637681159420293" y="-29.799107142857142"/>
+            <point key="canvasLocation" x="33" y="-38"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="ZUEV" width="446" height="514"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

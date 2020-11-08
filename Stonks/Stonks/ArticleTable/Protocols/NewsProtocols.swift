@@ -12,6 +12,7 @@ protocol ArticleViewOutput: class {
     func numberOfItems() -> Int
     func article(at indexPath: IndexPath) -> ArticleModel?
     func refreshData()
+    func didTapReadMore(url: URL?)
 }
 
 protocol ArticleInteractorInput: class {
@@ -25,4 +26,5 @@ protocol ArticleInteractorOutput: class {
 
 protocol ArticleRouterInput: class {
     func showError(with error: Error)
+    func openUrl(_ url: URL?)
 }
