@@ -22,7 +22,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="138"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="QCW-Um-9o7">
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="QCW-Um-9o7">
                         <rect key="frame" x="16" y="27" width="288" height="84"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ppg-PU-dWL">
@@ -39,6 +39,9 @@
                                         <state key="normal" title="Increase in price">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="increasePriceDidTap:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="yue-se-4GM"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QP7-R0-Nig">
                                         <rect key="frame" x="0.0" y="46" width="130" height="38"/>
@@ -51,6 +54,9 @@
                                         <state key="normal" title="Increase in date">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="increaseDateDidTap:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="W5O-28-poE"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -68,6 +74,9 @@
                                         <state key="normal" title="Descending price">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="descendingPriceDidTap:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="x76-CG-8qc"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pjs-YM-Qdt">
                                         <rect key="frame" x="0.0" y="46" width="130" height="38"/>
@@ -80,6 +89,9 @@
                                         <state key="normal" title="Descending Date">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="descendingDateDidTap:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="pFK-Gq-aOT"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -87,16 +99,16 @@
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="QCW-Um-9o7" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="B33-ad-FOS"/>
-                    <constraint firstItem="QCW-Um-9o7" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Y9a-OJ-akT"/>
+                    <constraint firstItem="QCW-Um-9o7" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="M0t-Dp-0bu"/>
+                    <constraint firstItem="QCW-Um-9o7" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="itZ-kv-mww"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="descendingDateButton" destination="pjs-YM-Qdt" id="eNO-LN-31C"/>
                 <outlet property="descendingPriceButton" destination="k7D-3K-oMO" id="BKU-C3-I3T"/>
+                <outlet property="increaseDateButton" destination="QP7-R0-Nig" id="39m-NV-Xwi"/>
                 <outlet property="increasePriceButton" destination="b5c-fy-37s" id="rS3-Hc-YPD"/>
-                <outlet property="increateDateButton" destination="QP7-R0-Nig" id="39m-NV-Xwi"/>
             </connections>
             <point key="canvasLocation" x="44.927536231884062" y="101.11607142857143"/>
         </tableViewCell>

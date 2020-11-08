@@ -39,7 +39,7 @@ class MeViewController: UIViewController {
         profileImage.layer.cornerRadius = MeViewController.Constants.viewRadius
     }
     private func setShadowContainer() {
-        cardContainer.layer.shadowColor = UIColor.black.cgColor
+        cardContainer.layer.shadowColor = UIColor.gray.cgColor
         cardContainer.layer.shadowOpacity = MeViewController.Constants.shadowOpacity
         cardContainer.layer.shadowOffset = .init(width: 0, height: 3)
         cardContainer.layer.shadowRadius = MeViewController.Constants.cardShadowRadius

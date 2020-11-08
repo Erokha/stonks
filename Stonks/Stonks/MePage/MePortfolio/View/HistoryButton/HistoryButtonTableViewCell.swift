@@ -17,7 +17,7 @@ class HistoryButtonTableViewCell: UITableViewCell {
     private func configureButton() {
         buttonText.text = HistoryButtonTableViewCell.Constants.buttonText
         historyButton.layer.cornerRadius = CGFloat(HistoryButtonTableViewCell.Constants.viewRadius)
-        historyButton.layer.shadowColor = UIColor.black.cgColor
+        historyButton.layer.shadowColor = UIColor.gray.cgColor
         historyButton.layer.shadowRadius = CGFloat(HistoryButtonTableViewCell.Constants.shadowRadius)
         historyButton.layer.shadowOffset = .init(width: 0, height: 3)
         historyButton.layer.shadowOpacity = Float(HistoryButtonTableViewCell.Constants.shadowOpacity)
