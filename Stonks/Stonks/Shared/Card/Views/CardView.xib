@@ -28,7 +28,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5Oa-dD-gxg">
-                    <rect key="frame" x="35" y="32" width="102.5" height="31.5"/>
+                    <rect key="frame" x="26.5" y="32" width="102.5" height="31.5"/>
                     <subviews>
                         <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UJQ-Rs-vv7">
                             <rect key="frame" x="0.0" y="0.0" width="16.5" height="31.5"/>
@@ -47,7 +47,7 @@
                     </subviews>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Cvb-GO-CTb">
-                    <rect key="frame" x="188.5" y="32" width="102.5" height="31.5"/>
+                    <rect key="frame" x="189.5" y="32" width="102.5" height="31.5"/>
                     <subviews>
                         <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XCI-dt-avD">
                             <rect key="frame" x="0.0" y="0.0" width="16.5" height="31.5"/>
@@ -66,13 +66,13 @@
                     </subviews>
                 </stackView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stocks total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUH-RG-8Is">
-                    <rect key="frame" x="210" y="15.5" width="69" height="14.5"/>
+                    <rect key="frame" x="211" y="15.5" width="69" height="14.5"/>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                     <color key="textColor" red="0.28235294119999998" green="0.27058823529999998" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Avaliable balance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LmQ-1x-2gI">
-                    <rect key="frame" x="56.5" y="15.5" width="100.5" height="14.5"/>
+                    <rect key="frame" x="48" y="15.5" width="100.5" height="14.5"/>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                     <color key="textColor" red="0.28235294119999998" green="0.27058823529999998" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <nil key="highlightedColor"/>
@@ -83,11 +83,11 @@
             <accessibility key="accessibilityConfiguration" identifier="CardView"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="5Oa-dD-gxg" secondAttribute="bottom" constant="18.5" id="0gO-oc-s0I"/>
+                <constraint firstItem="LmQ-1x-2gI" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" multiplier="0.6" id="4Re-Ms-fJX"/>
                 <constraint firstItem="vcR-nr-9No" firstAttribute="leading" secondItem="JUH-RG-8Is" secondAttribute="leading" id="62C-uV-boO"/>
                 <constraint firstItem="ssS-vp-lQ2" firstAttribute="leading" secondItem="LmQ-1x-2gI" secondAttribute="leading" id="BuO-J9-jMk"/>
                 <constraint firstItem="JUH-RG-8Is" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15.5" id="DyN-Ua-qqV"/>
-                <constraint firstItem="LmQ-1x-2gI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="56.5" id="WOS-dj-43v"/>
-                <constraint firstAttribute="trailing" secondItem="JUH-RG-8Is" secondAttribute="trailing" constant="48" id="a3F-Kg-XpO"/>
+                <constraint firstItem="JUH-RG-8Is" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" multiplier="1.5" id="hqt-8S-7dW"/>
                 <constraint firstItem="LmQ-1x-2gI" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15.5" id="rDr-Io-yph"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Cvb-GO-CTb" secondAttribute="bottom" constant="18.5" id="uqR-JD-vub"/>
             </constraints>

@@ -6,7 +6,7 @@ class CardView: EmbeddedView, CardViewType {
     @IBOutlet private weak var numberLeft: UILabel!
     @IBOutlet private weak var numberRight: UILabel!
 
-    var presenter: CardViewType!
+    var presenter: CardViewPresenterType!
 
     func showUpperTextLeft(text: String) {
         self.upperTextLeft.text = text
