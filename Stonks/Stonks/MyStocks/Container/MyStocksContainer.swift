@@ -37,5 +37,5 @@ class MyStocksContainer {
 }
 
 struct MyStocksContext {
-    var testmodel: [Stock]?
+    var testmodel: [StockData]?
 }
