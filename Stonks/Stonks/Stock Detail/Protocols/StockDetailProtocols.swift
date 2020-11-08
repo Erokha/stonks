@@ -20,13 +20,13 @@ protocol StockDetailRouterInput: class {
 }
 
 protocol StockDetailInteractorInput: class {
-    func increaseAmount(for name: String, value: Int)
-    func descreaseAmount(for name: String, value: Int)
-    func fetchStockQuotes(for name: String)
+    func increaseAmount(by value: Int)
+    func descreaseAmount(by value: Int)
+    func fetchStockQuotes()
 }
 
 protocol StockDetailInteractorOutput: class {
     func freshCostDidReceived(model: StockDetailPresenterData)
-    func stockQuotesDidReceived(model: StockDetailPresenterData)
+    func stockHistoryDidReceived(model: StockDetailPresenterData)
     func showAlert(with title: String, message: String)
 }

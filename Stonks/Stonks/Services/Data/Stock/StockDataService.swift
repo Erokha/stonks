@@ -16,9 +16,7 @@ class StockDataService {
 extension StockDataService: StockDataServiceInput {
     func createStock(name: String,
                      symbol: String,
-                     freshPrice: Decimal,
-                     imageURL: URL,
-                     amount: Int = 0) {
+                     imageURL: URL) {
         let context = persistentContainer.viewContext
 
         guard let stock = NSEntityDescription.insertNewObject(forEntityName: Entities.stock.rawValue, into: context) as? Stock else {
@@ -27,9 +25,10 @@ extension StockDataService: StockDataServiceInput {
 
         stock.name = name
         stock.symbol = symbol
-        stock.freshPrice = NSDecimalNumber(decimal: freshPrice)
-        stock.amount = amount
+        stock.totalCost = 0
+        stock.amount = 0
         stock.imageURL = NSURL(fileURLWithPath: imageURL.absoluteString)
+        stock.priceHistory = []
 
         stock.user = UserDataService.shared.getUser()
 
@@ -40,11 +39,11 @@ extension StockDataService: StockDataServiceInput {
         }
     }
 
-    func getStock(with name: String) -> Stock? {
+    func getStock(symbol: String) -> Stock? {
         let context = persistentContainer.viewContext
         let stockFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Entities.stock.rawValue)
 
-        let predicate = NSPredicate(format: "name == %@", name)
+        let predicate = NSPredicate(format: "symbol == %@", symbol)
 
         stockFetchRequest.predicate = predicate
 
@@ -57,16 +56,15 @@ extension StockDataService: StockDataServiceInput {
 
             return fetchResult[0] as? Stock
         } catch {
-            print(error)
             return nil
         }
     }
 
-    func updateStock(name: String, stock: Stock) {
+    func updateStock(symbol: String, stock: Stock) {
         let context = persistentContainer.viewContext
         let stockFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Entities.stock.rawValue)
 
-        let predicate = NSPredicate(format: "name == %@", name)
+        let predicate = NSPredicate(format: "symbol == %@", symbol)
 
         stockFetchRequest.predicate = predicate
 
@@ -81,15 +79,14 @@ extension StockDataService: StockDataServiceInput {
 
             try context.save()
         } catch {
-            print(error)
         }
     }
 
-    func deleteStock(name: String) {
+    func deleteStock(symbol: String) {
         let context = persistentContainer.viewContext
         let stockFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Entities.stock.rawValue)
 
-        let predicate = NSPredicate(format: "name == %@", name)
+        let predicate = NSPredicate(format: "symbol == %@", symbol)
 
         stockFetchRequest.predicate = predicate
 
