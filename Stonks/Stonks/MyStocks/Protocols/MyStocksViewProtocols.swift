@@ -15,10 +15,11 @@ protocol MyStocksViewOutput: class {
     func setStocksTotal(num: Int)
     func didLoadView()
     func refreshData()
+    func didTapOnStock(symbol: String)
 }
 
 protocol MyStocksRouterInput: class {
-    func showStockDetail()
+    func showStockDetail(symbol: String)
     func showError(with error: Error)
 }
 

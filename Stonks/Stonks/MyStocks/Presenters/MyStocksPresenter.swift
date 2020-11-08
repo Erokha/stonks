@@ -20,6 +20,10 @@ class MyStocksPresenter {
 }
 
 extension MyStocksPresenter: MyStocksViewOutput {
+    func didTapOnStock(symbol: String) {
+        router?.showStockDetail(symbol: symbol)
+    }
+
     func didLoadView() {
         view?.startActivity()
         interactor.loadStoks()

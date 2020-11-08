@@ -13,13 +13,15 @@ extension MyStocksRouter: MyStocksRouterInput {
         self.viewController?.present(alert, animated: true)
     }
 
-    func showStockDetail() {
+    func showStockDetail(symbol: String) {
+        print(symbol)
+        let container = StockDetailContainer.assemble(with: StockDetailContext(symbol: symbol))
 
-        let emptyVC = UIViewController()
+        let vc = container.viewController
 
-        emptyVC.modalPresentationStyle = .fullScreen
+        vc.modalPresentationStyle = .fullScreen
 
-        let navigationVC = UINavigationController(rootViewController: emptyVC)
+        let navigationVC = UINavigationController(rootViewController: vc)
 
         viewController?.present(navigationVC, animated: true, completion: nil)
     }
