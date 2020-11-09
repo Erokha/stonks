@@ -102,7 +102,28 @@ extension StockDataService: StockDataServiceInput {
 
             try context.save()
         } catch {
-            print(error)
+
         }
+    }
+
+    func stockIsNew(symbol: String) -> Bool {
+        let context = persistentContainer.viewContext
+        let stockFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Entities.stock.rawValue)
+
+        let predicate = NSPredicate(format: "symbol == %@", symbol)
+
+        stockFetchRequest.predicate = predicate
+
+        do {
+            let fetchResult = try context.fetch(stockFetchRequest)
+
+            if fetchResult.isEmpty {
+                return true
+            }
+        } catch {
+
+        }
+
+        return false
     }
 }

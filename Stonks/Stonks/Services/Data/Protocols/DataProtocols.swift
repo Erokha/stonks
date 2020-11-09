@@ -13,4 +13,5 @@ protocol StockDataServiceInput {
     func getStock(symbol: String) -> Stock?
     func updateStock(symbol: String, stock: Stock)
     func deleteStock(symbol: String)
+    func stockIsNew(symbol: String) -> Bool
 }
