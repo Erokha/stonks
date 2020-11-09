@@ -8,7 +8,17 @@ class StockDetailInteractor {
     private var updateQuotesTimer: Timer?
 
     init(symbol: String) {
-        self.stock = StockDataService.shared.getStock(symbol: symbol)
+        if StockDataService.shared.stockIsNew(symbol: symbol) {
+            // тут запрос в сеть
+            guard let url = URL(string: "sdsd") else {
+                return
+            }
+
+            StockDataService.shared.createStock(name: "SpaceX", symbol: symbol, imageURL: url)
+            self.stock = StockDataService.shared.getStock(symbol: symbol)
+        } else {
+            self.stock = StockDataService.shared.getStock(symbol: symbol)
+        }
 
         setupUpdateTimer()
     }
