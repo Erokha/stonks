@@ -14,7 +14,6 @@ extension MyStocksRouter: MyStocksRouterInput {
     }
 
     func showStockDetail(symbol: String) {
-        print(symbol)
         let container = StockDetailContainer.assemble(with: StockDetailContext(symbol: symbol))
 
         let vc = container.viewController
