@@ -3,24 +3,24 @@ import UIKit
 class MePresenter {
     weak var view: MeInput?
     var router: MeRouterInput?
-    var settingsVc: MeSettingsViewController!
-    var portfolioVc: MePortfolioViewController!
     private var interactor: MeInteractorInput
+    private var shouldUpdateData: Bool
 
     var user: User? {
         didSet {
             let name = String(user?.name ?? "")
             let surname = String(user?.surname ?? "")
-            let userBalance = Int(truncating: user?.balance ?? 0)
-            let userSpent = Int(truncating: user?.totalSpent ?? 0)
+            let userBalance = Float(truncating: user?.balance ?? 0)
+            let userSpent = Float(truncating: user?.totalSpent ?? 0)
             view?.setUserData(name: name, lastname: surname, image: nil)
-            view?.setUserCurrentBalance(currentBalance: userBalance)
-            view?.setUserSpentInfo(spent: userSpent)
+            view?.setUserCurrentBalance(currentBalance: Int(userBalance))
+            view?.setUserSpentInfo(spent: Int(userSpent))
         }
     }
 
     init(interactor: MeInteractorInput) {
         self.interactor = interactor
+        self.shouldUpdateData = false
     }
 }
 
@@ -37,19 +37,20 @@ extension MePresenter: MeOutput {
     }
 
     func didLoadView() {
-        guard let settingsViewController = router?.showSettings() else { return }
-        guard let portfolioViewController = router?.showPortfolio() else { return }
-        settingsVc = settingsViewController
-        portfolioVc = portfolioViewController
+        self.shouldUpdateData = true
         interactor.loadUser()
     }
 }
 
 extension MePresenter: MeInteractorOutput {
     func didChangeContetnt(user: User) {
-        view?.setUserData(name: user.name, lastname: user.surname, image: nil)
-        view?.setUserSpentInfo(spent: Int(truncating: user.totalSpent))
-        view?.setUserCurrentBalance(currentBalance: Int(truncating: user.balance))
+        if shouldUpdateData {
+            print("User balance:", user.balance)
+            view?.setUserData(name: user.name, lastname: user.surname, image: nil)
+            view?.setUserSpentInfo(spent: Int(truncating: user.totalSpent))
+            let balance = Float(truncating: user.balance)
+            view?.setUserCurrentBalance(currentBalance: Int(balance))
+        }
     }
 
     func didReceive(user: User) {

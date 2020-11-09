@@ -13,3 +13,10 @@ protocol MeSettingsOutput: class {
     func isUserSure()
     func aboutUs()
 }
+
+protocol MeSettingsInteractorInput: class {
+    func saveChanges(for user: User)
+    func loadUser() -> User
+}
+protocol MeSettingsInteractorOutput: class {
+}

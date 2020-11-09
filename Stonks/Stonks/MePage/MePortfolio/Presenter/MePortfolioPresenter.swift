@@ -4,7 +4,12 @@ import Charts
 class MePortfolioPresenter {
     weak var view: MePortfolioInput?
     var router: MePortfolioRouterInput?
-    private var stocks: [StockData] = []
+
+    private var stocks: [StockData] = [] {
+        didSet {
+            setNumbersInChart(number: stocks.count)
+        }
+    }
     private var numberOfStocksInChart: Int = 0
 
     required init() {
@@ -53,12 +58,17 @@ extension MePortfolioPresenter {
 }
 
 extension MePortfolioPresenter: MePortfolioOutput {
+    func didHistoryButtonTapped() {
+        router?.showHistory()
+    }
+
     func noDataMessage() -> String {
         return MePortfolioPresenter.Constants.noDataMessage
     }
 
     func didLoadView() {
         // Here we will load data from User Defaults
+
     }
 
     func createChartData() -> PieChartData? {

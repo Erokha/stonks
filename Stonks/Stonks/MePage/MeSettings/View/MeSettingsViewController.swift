@@ -11,7 +11,7 @@ enum MeSettingsSections: Int, CaseIterable {
         case .deposit:
             return "Deposit"
         case .changeName:
-            return "ChangeName"
+            return "Change Name"
         case .reportError:
             return "Report Error"
         case .resetData:
@@ -34,7 +34,7 @@ class MeSettingsViewController: UIViewController, UINavigationControllerDelegate
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-
+        tableView.showsVerticalScrollIndicator = false
         let chartNib = UINib(nibName: SettingsTableViewCell.reuseIdentifier, bundle: nil)
         tableView.register(chartNib, forCellReuseIdentifier: SettingsTableViewCell.reuseIdentifier)
     }

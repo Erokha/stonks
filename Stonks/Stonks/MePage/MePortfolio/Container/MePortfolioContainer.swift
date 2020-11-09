@@ -12,7 +12,9 @@ class MePortfolioContainer {
 
         vc.presenter = presenter
         presenter.view = vc
+        presenter.router = router
         router.viewController = vc
+
         return MePortfolioContainer(view: vc, router: router)
     }
 
