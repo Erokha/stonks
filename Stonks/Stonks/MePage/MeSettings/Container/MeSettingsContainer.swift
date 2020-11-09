@@ -5,10 +5,11 @@ class MeSettingsContainer {
 
     class func asseble(with context: MeSettingsContext) -> MeSettingsContainer {
         let vc = MeSettingsViewController()
-        let presenter = MeSettingsPresenter()
-
+        let interactor = MeSettingsInteractor()
+        let presenter = MeSettingsPresenter(interactor: interactor)
         vc.presenter = presenter
         presenter.view = vc
+        interactor.output = presenter
         return MeSettingsContainer(view: vc)
     }
 

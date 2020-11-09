@@ -3,37 +3,39 @@ import MessageUI
 
 class MeSettingsPresenter {
     weak var view: MeSettingsInput?
+    var interactor: MeSettingsInteractorInput
 
-    required init() {
+    required init(interactor: MeSettingsInteractorInput) {
+        self.interactor = interactor
     }
 
     private func saveDeposit(money: Int) {
-        let user = UserDataService.shared.getUser()
-        let userMoney = Int(truncating: user?.balance ?? 0)
+        let user = interactor.loadUser()
+        let userMoney = Int(truncating: user.balance)
         var totalBalance = money + userMoney
         if totalBalance < 0 {
             totalBalance = 0
         }
-        user?.balance = NSDecimalNumber(value: totalBalance)
-        UserDataService.shared.editUser(user: user ?? User())
+        user.balance = NSDecimalNumber(value: totalBalance)
+        interactor.saveChanges(for: user)
     }
 
     private func saveName(name: String, surname: String) {
-        let user = UserDataService.shared.getUser()
+        let user = interactor.loadUser()
         if !name.isEmpty {
-            user?.name = name
+            user.name = name
         }
         if !surname.isEmpty {
-            user?.surname = surname
+            user.surname = surname
         }
-        UserDataService.shared.editUser(user: user ?? User())
+        interactor.saveChanges(for: user)
     }
 
     private func resetData() {
-        let user = UserDataService.shared.getUser()
-        user?.balance = 0
-        user?.totalSpent = 0
-        UserDataService.shared.editUser(user: user ?? User())
+        let user = interactor.loadUser()
+        user.balance = 0
+        user.totalSpent = 0
+        interactor.saveChanges(for: user)
 
     }
     private func configureMailComposer() -> MFMailComposeViewController {
@@ -131,6 +133,9 @@ extension MeSettingsPresenter: MeSettingsOutput {
         alert.addAction(cancel)
         view?.showAlert(alert: alert)
     }
+}
+
+extension MeSettingsPresenter: MeSettingsInteractorOutput {
 }
 
 extension MeSettingsPresenter {

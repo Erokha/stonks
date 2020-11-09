@@ -23,7 +23,7 @@ class MeHistoryTableViewCell: UITableViewCell {
 
         self.preservesSuperviewLayoutMargins = false
     }
-    func setData(stock: Stock) {
+    func setData(stock: StockData) {
         setupCell()
         logoImageView.image = UIImage(named: "ZUEV")
         nameLabel.text = stock.stockName

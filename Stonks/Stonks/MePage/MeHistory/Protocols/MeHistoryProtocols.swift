@@ -5,7 +5,7 @@ protocol MeHistoryInput: class {
 }
 
 protocol MeHistoryOutput: class {
-    func stock(at indexPath: IndexPath) -> Stock?
+    func stock(at indexPath: IndexPath) -> StockData?
     func getNumberOfStocks() -> Int
     func didLoadView()
     func didFilterButtonTapped()
@@ -20,5 +20,5 @@ protocol MeHistoryInteractorInput: class {
 }
 
 protocol MeHistoryInteractorOutput: class {
-    func didReceive(stocks: [Stock])
+    func didReceive(stocks: [StockData])
 }
