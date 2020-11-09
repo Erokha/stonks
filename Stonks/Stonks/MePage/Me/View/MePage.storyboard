@@ -18,11 +18,11 @@
         <scene sceneID="K6F-XE-cUf">
             <objects>
                 <viewController storyboardIdentifier="MePage" id="rir-3h-UJ4" customClass="MeViewController" customModule="Stonks" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="dyH-u4-eK7">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="dyH-u4-eK7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Nr4-hj-uI6">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Nr4-hj-uI6">
                                 <rect key="frame" x="8" y="226" width="398" height="32"/>
                                 <segments>
                                     <segment title="Profile"/>
@@ -32,13 +32,13 @@
                                     <action selector="didIndexChanged:" destination="rir-3h-UJ4" eventType="valueChanged" id="Z3B-IL-bSg"/>
                                 </connections>
                             </segmentedControl>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Cd-JJ-sqQ">
+                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Cd-JJ-sqQ">
                                 <rect key="frame" x="0.0" y="265" width="414" height="597"/>
                                 <connections>
                                     <segue destination="jPW-k7-yrd" kind="embed" identifier="MeContainerPageSegue" id="xW8-fj-cby"/>
                                 </connections>
                             </containerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FhN-MW-RLc">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FhN-MW-RLc">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="206"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gDN-3D-6f1">
@@ -48,11 +48,8 @@
                                             <constraint firstAttribute="width" constant="50" id="mPC-7j-29p"/>
                                         </constraints>
                                     </imageView>
-                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LKH-yz-4BF">
+                                    <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LKH-yz-4BF">
                                         <rect key="frame" x="43.5" y="115" width="327" height="82"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="82" id="tLC-1M-0vU"/>
-                                        </constraints>
                                         <connections>
                                             <segue destination="OyN-GP-hCG" kind="embed" identifier="MeContainerSegue" id="DHq-95-nwc"/>
                                         </connections>
