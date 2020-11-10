@@ -9,7 +9,6 @@ class MeViewController: UIViewController {
     @IBOutlet private weak var headerView: UIView!
     @IBOutlet private weak var tableContainer: UIView!
     @IBOutlet private weak var nameLabel: UILabel!
-    @IBOutlet private weak var surnameLabel: UILabel!
     @IBOutlet private weak var profileImage: UIImageView!
     @IBOutlet private weak var cardContainer: UIView!
 
@@ -33,9 +32,9 @@ class MeViewController: UIViewController {
     }
 
     private func setShadow() {
-        headerView.layer.shadowPath = UIBezierPath(rect: headerView.bounds).cgPath
         headerView.layer.shadowRadius = MeViewController.Constants.shadowRadius
         headerView.layer.shadowOpacity = MeViewController.Constants.shadowOpacity
+        headerView.layer.shadowOffset = .init(width: 0, height: 2)
         profileImage.layer.cornerRadius = MeViewController.Constants.viewRadius
     }
     private func setShadowContainer() {
@@ -68,8 +67,7 @@ extension MeViewController: MeInput {
     }
 
     func setUserData(name: String, lastname: String, image: UIImage?) {
-        nameLabel.text = name
-        surnameLabel.text = lastname
+        nameLabel.text = name + " " + lastname
         profileImage.image = image
     }
 
@@ -96,8 +94,8 @@ extension MeViewController: MePageViewDelegate {
 extension MeViewController {
     struct Constants {
         static let headerRadius: CGFloat = 20
-        static let viewRadius: CGFloat = 15
-        static let shadowRadius: CGFloat = 13
+        static let viewRadius: CGFloat = 10
+        static let shadowRadius: CGFloat = 5
         static let shadowOpacity: Float = 0.6
         static let legendFormSize: Float = 15
         static let cardShadowRadius: CGFloat = 5
