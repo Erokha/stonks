@@ -78,19 +78,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v2J-Ns-aVD" customClass="CardView" customModule="Stonks" customModuleProvider="target">
-                                <rect key="frame" x="19.5" y="0.0" width="327" height="82"/>
+                                <rect key="frame" x="0.0" y="0.0" width="366" height="82"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="82" id="M6D-2Z-I6d"/>
-                                    <constraint firstAttribute="width" constant="327" id="sVZ-kg-z1Q"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zYe-t9-qc1"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="v2J-Ns-aVD" firstAttribute="centerX" secondItem="ydZ-Go-pDJ" secondAttribute="centerX" id="21Q-nV-AgS"/>
-                            <constraint firstItem="v2J-Ns-aVD" firstAttribute="centerY" secondItem="ydZ-Go-pDJ" secondAttribute="centerY" id="bcn-ya-p42"/>
+                            <constraint firstItem="v2J-Ns-aVD" firstAttribute="bottom" secondItem="zYe-t9-qc1" secondAttribute="bottom" id="1if-qf-Daz"/>
+                            <constraint firstItem="v2J-Ns-aVD" firstAttribute="leading" secondItem="zYe-t9-qc1" secondAttribute="leading" id="Eb1-Bc-OHS"/>
+                            <constraint firstItem="zYe-t9-qc1" firstAttribute="trailing" secondItem="v2J-Ns-aVD" secondAttribute="trailing" id="K2i-7n-Wet"/>
+                            <constraint firstItem="v2J-Ns-aVD" firstAttribute="top" secondItem="ydZ-Go-pDJ" secondAttribute="top" id="xze-Le-aLN"/>
                         </constraints>
                     </view>
                     <connections>

@@ -7,18 +7,28 @@
 
 import UIKit
 import Kingfisher
+import SafariServices
 
 class ArticleTableViewCell: UITableViewCell {
 
-    @IBOutlet private weak var articleTextView: UITextView!
+    @IBOutlet private weak var articleTextView: UILabel!
     @IBOutlet private weak var articleImageView: UIImageView!
+    @IBOutlet private weak var articleReadMoreButton: UIButton!
+    weak var output: ArticleViewOutput?
 
-    func load(with model: ArticleModel) {
+    private var url: URL?
+
+    func load(with model: ArticleModel, output: ArticleViewOutput?) {
         self.articleTextView.text = model.text
-        let url = URL(string: model.image)
-        self.articleImageView.kf.setImage(with: url)
+        let imageUrl = URL(string: model.image)
+        self.articleImageView.kf.setImage(with: imageUrl)
+        self.url = URL(string: model.url)
+        self.output = output
         self.setupShadow()
+    }
 
+    @IBAction private func didTapReadMoreButton(_ sender: Any) {
+        output?.didTapReadMore(url: url)
     }
 
 }
@@ -26,6 +36,6 @@ class ArticleTableViewCell: UITableViewCell {
 extension UIView {
     func setupShadow() {
         self.clipsToBounds = true
-        self.layer.cornerRadius = 20
+        self.layer.cornerRadius = 10
    }
 }

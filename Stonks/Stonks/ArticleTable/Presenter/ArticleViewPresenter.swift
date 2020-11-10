@@ -3,7 +3,6 @@ import UIKit
 class ArticleViewPresenter {
     var model: [ArticleModel]? {
         didSet {
-            print("ive changed")
             DispatchQueue.main.async {
                 self.view?.reloadTable()
             }
@@ -20,6 +19,10 @@ class ArticleViewPresenter {
 }
 
 extension ArticleViewPresenter: ArticleViewOutput {
+    func didTapReadMore(url: URL?) {
+        router?.openUrl(url)
+    }
+
     func refreshData() {
         interactor.loadStoks()
     }

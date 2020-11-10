@@ -16,7 +16,7 @@ class StockDetailPresenter {
 
 extension StockDetailPresenter: StockDetailViewOutput {
     func didLoadView() {
-        interactor?.fetchStockQuotes(for: model.name)
+        interactor?.fetchStockQuotes()
     }
 
     func didTapBuyButton(amount: String?) {
@@ -31,7 +31,7 @@ extension StockDetailPresenter: StockDetailViewOutput {
             return
         }
 
-        interactor?.increaseAmount(for: model.name, value: amount)
+        interactor?.increaseAmount(by: amount)
     }
 
     func didTapSellButton(amount: String?) {
@@ -46,7 +46,7 @@ extension StockDetailPresenter: StockDetailViewOutput {
             return
         }
 
-        interactor?.descreaseAmount(for: model.name, value: amount)
+        interactor?.descreaseAmount(by: amount)
     }
 }
 
@@ -54,38 +54,47 @@ extension StockDetailPresenter: StockDetailInteractorOutput {
     func freshCostDidReceived(model: StockDetailPresenterData) {
         self.model = model
 
-        guard let freshPrice = model.freshPrice else {
+        guard let priceHistory = model.quotes,
+              let freshPrice = priceHistory.last else {
             return
         }
 
-        guard let chartData = self.model.quotes?.map({(tuple: (Double, Double)) -> ChartDataEntry in
-            return ChartDataEntry(x: tuple.0, y: tuple.1)
-        }) else {
-            return
+        var chartPoints: [(Double, Double)] = []
+
+        for i in 0..<priceHistory.count {
+            chartPoints.append((Double(i), priceHistory[i].doubleValue))
         }
+
+        let chartData = chartPoints.map({(tuple: (Double, Double)) -> ChartDataEntry in
+            return ChartDataEntry(x: tuple.0, y: tuple.1)
+        })
 
         view?.setChartData(with: chartData)
-        view?.setStockCurrentCostLabel(with: String(format: "%.1f", NSDecimalNumber(decimal: freshPrice).doubleValue) + "$")
+        view?.setStockCurrentCostLabel(with: String(format: "%.1f", freshPrice.doubleValue) + "$")
     }
 
-    func stockQuotesDidReceived(model: StockDetailPresenterData) {
+    func stockHistoryDidReceived(model: StockDetailPresenterData) {
         self.model = model
 
-        guard let chartData = model.quotes?.map({(tuple: (Double, Double)) -> ChartDataEntry in
-            return ChartDataEntry(x: tuple.0, y: tuple.1)
-        }) else {
-            print("Data not fetched")
+        guard let priceHistory = model.quotes,
+              let freshPrice = priceHistory.last,
+              let name = model.name else {
             return
         }
 
-        guard let currentCost = chartData.last?.y else {
-            return
+        var chartPoints: [(Double, Double)] = []
+
+        for i in 0..<priceHistory.count {
+            chartPoints.append((Double(i), priceHistory[i].doubleValue))
         }
+
+        let chartData = chartPoints.map({(tuple: (Double, Double)) -> ChartDataEntry in
+            return ChartDataEntry(x: tuple.0, y: tuple.1)
+        })
 
         view?.setChartData(with: chartData)
-        view?.setNavigationBarTitle(with: model.name)
-        view?.setStockNameLabel(with: model.name)
-        view?.setStockCurrentCostLabel(with: String(format: "%.1f", currentCost) + "$")
+        view?.setStockNameLabel(with: name)
+        view?.setStockCurrentCostLabel(with: String(format: "%.1f", freshPrice.doubleValue) + "$")
     }
 
     func showAlert(with title: String, message: String) {

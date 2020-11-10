@@ -26,6 +26,7 @@
 		0D777778254B22FA00EFF30E /* NewsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D77776D254B22FA00EFF30E /* NewsProtocols.swift */; };
 		0D777779254B22FA00EFF30E /* ArticleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D77776F254B22FA00EFF30E /* ArticleInteractor.swift */; };
 		0D777785254EEA0B00EFF30E /* ArticleRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D777784254EEA0B00EFF30E /* ArticleRouter.swift */; };
+		0D77AB342558271700D283F1 /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13F28AA025348F910004E864 /* CardView.xib */; };
 		0DB3663E254360DC00607812 /* MyStocksInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB3663D254360DC00607812 /* MyStocksInteractor.swift */; };
 		0DD9A40A254A3DA7006095D7 /* MyStocks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D3903A8252F62C200C18036 /* MyStocks.storyboard */; };
 		0DD9A40C254A3DAD006095D7 /* MePage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 134179E4253227A90052D1A9 /* MePage.storyboard */; };
@@ -237,7 +238,7 @@
 		0D3903A5252F62C200C18036 /* MyStocks */ = {
 			isa = PBXGroup;
 			children = (
-				0DB36640254385E200607812 /* interactor */,
+				0DB36640254385E200607812 /* Interactor */,
 				0D751155253A624700D0A719 /* Router */,
 				0D75114A253A604200D0A719 /* Container */,
 				0D3903A6252F62C200C18036 /* Models */,
@@ -389,6 +390,14 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		0D77AB312558265600D283F1 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				0DF01723252F5BD2003FF71B /* Card */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		0D9E2C93B01665EB16593DDF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -397,22 +406,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		0DB36640254385E200607812 /* interactor */ = {
+		0DB36640254385E200607812 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
 				0DB3663D254360DC00607812 /* MyStocksInteractor.swift */,
 			);
-			path = interactor;
+			path = Interactor;
 			sourceTree = "<group>";
 		};
-		0DF01723252F5BD2003FF71B /* card */ = {
+		0DF01723252F5BD2003FF71B /* Card */ = {
 			isa = PBXGroup;
 			children = (
 				0DF01724252F5BD2003FF71B /* Presenters */,
 				0DF01727252F5BD2003FF71B /* Views */,
 				0DF0172A252F5BD2003FF71B /* Protocols */,
 			);
-			path = card;
+			path = Card;
 			sourceTree = "<group>";
 		};
 		0DF01724252F5BD2003FF71B /* Presenters */ = {
@@ -1007,6 +1016,7 @@
 		31BDC086252A1C5A00F56ADD /* Stonks */ = {
 			isa = PBXGroup;
 			children = (
+				0D77AB312558265600D283F1 /* Shared */,
 				0D77775F254B22FA00EFF30E /* ArticleTable */,
 				3155EC27254978C00036F67B /* MainTabBar */,
 				31905F7025361BA0000D71A7 /* Stock Detail */,
@@ -1015,7 +1025,6 @@
 				31E4452F253B1F7500528971 /* Services */,
 				315BE133252F33810074377B /* Support Files */,
 				31B49B34252E1169002E86F6 /* Login */,
-				0DF01723252F5BD2003FF71B /* card */,
 				31BDC087252A1C5B00F56ADD /* AppDelegate.swift */,
 				31BDC0A3252A21A400F56ADD /* Launch.xib */,
 				31BDC090252A1C5D00F56ADD /* Assets.xcassets */,
@@ -1159,6 +1168,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D77AB342558271700D283F1 /* CardView.xib in Resources */,
 				0DD9A410254A3DBB006095D7 /* Launch.xib in Resources */,
 				0DD9A40E254A3DB2006095D7 /* Assets.xcassets in Resources */,
 				0DD9A40C254A3DAD006095D7 /* MePage.storyboard in Resources */,
