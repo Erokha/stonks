@@ -122,14 +122,26 @@
         <scene sceneID="T9a-Qe-YDU">
             <objects>
                 <viewController id="OyN-GP-hCG" customClass="MeContainerViewController" customModule="Stonks" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="wt2-Aj-Nlk" customClass="CardView" customModule="Stonks" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="ZnX-Ot-4F5">
                         <rect key="frame" x="0.0" y="0.0" width="327" height="89.5"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="Bne-8I-ADJ"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hM0-wX-vW2" customClass="CardView" customModule="Stonks" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="327" height="89.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6In-4m-uru"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="hM0-wX-vW2" secondAttribute="bottom" id="8wP-Gz-8IV"/>
+                            <constraint firstItem="hM0-wX-vW2" firstAttribute="top" secondItem="ZnX-Ot-4F5" secondAttribute="top" id="SLL-hz-glM"/>
+                            <constraint firstItem="6In-4m-uru" firstAttribute="trailing" secondItem="hM0-wX-vW2" secondAttribute="trailing" id="Uri-ze-W2v"/>
+                            <constraint firstItem="hM0-wX-vW2" firstAttribute="leading" secondItem="ZnX-Ot-4F5" secondAttribute="leading" id="eKu-Pf-ZKw"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="cardView" destination="wt2-Aj-Nlk" id="EBM-rU-yf1"/>
+                        <outlet property="cardView" destination="hM0-wX-vW2" id="Q0C-Im-TN0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bfw-SZ-ies" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

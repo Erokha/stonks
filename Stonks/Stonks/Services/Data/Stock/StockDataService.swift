@@ -14,6 +14,22 @@ class StockDataService {
 }
 
 extension StockDataService: StockDataServiceInput {
+    func getAllStocks() -> [Stock]? {
+        let context = persistentContainer.viewContext
+        let stockFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Entities.stock.rawValue)
+
+        do {
+            let fetchResult = try context.fetch(stockFetchRequest)
+
+            guard !fetchResult.isEmpty else {
+                return nil
+            }
+
+            return fetchResult as? [Stock]
+        } catch {
+            return nil
+        }
+    }
     func createStock(name: String,
                      symbol: String,
                      imageURL: URL) {

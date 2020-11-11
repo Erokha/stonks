@@ -4,7 +4,7 @@ import Charts
 class MePortfolioPresenter {
     weak var view: MePortfolioInput?
     var router: MePortfolioRouterInput?
-
+    private var interactor: MePortfolioInteractorInput
     private var stocks: [StockData] = [] {
         didSet {
             setNumbersInChart(number: stocks.count)
@@ -12,7 +12,8 @@ class MePortfolioPresenter {
     }
     private var numberOfStocksInChart: Int = 0
 
-    required init() {
+    required init(interactor: MePortfolioInteractorInput) {
+        self.interactor = interactor
     }
 
     private func setNumbersInChart(number: Int) {
@@ -67,8 +68,7 @@ extension MePortfolioPresenter: MePortfolioOutput {
     }
 
     func didLoadView() {
-        // Here we will load data from User Defaults
-
+        interactor.loadStocks()
     }
 
     func createChartData() -> PieChartData? {
@@ -83,4 +83,7 @@ extension MePortfolioPresenter: MePortfolioOutput {
             return nil
         }
     }
+}
+
+extension MePortfolioPresenter: MePortfolioInteractorOutput {
 }

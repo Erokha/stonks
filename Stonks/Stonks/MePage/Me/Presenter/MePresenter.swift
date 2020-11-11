@@ -45,7 +45,6 @@ extension MePresenter: MeOutput {
 extension MePresenter: MeInteractorOutput {
     func didChangeContetnt(user: User) {
         if shouldUpdateData {
-            print("User balance:", user.balance)
             view?.setUserData(name: user.name, lastname: user.surname, image: nil)
             view?.setUserSpentInfo(spent: Int(truncating: user.totalSpent))
             let balance = Float(truncating: user.balance)

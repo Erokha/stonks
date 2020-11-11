@@ -29,18 +29,18 @@ class MeContainerViewController: UIViewController {
     }
 
     func setTotalSpent(spent: Int) {
-        cardView.showNumberLeft(num: spent)
+        cardView.showNumberRight(num: spent)
     }
 
     func setCurrentBalance(currentBalance: Int) {
-        cardView.showNumberRight(num: currentBalance)
+        cardView.showNumberLeft(num: currentBalance)
     }
 }
 
 extension MeContainerViewController {
     struct Constants {
         static let cornerRadius: CGFloat = 20
-        static let upperTextLeft: String = "Spent"
-        static let upperTextRight: String = "Avaliable Balance"
+        static let upperTextLeft: String = "Avaliable Balance"
+        static let upperTextRight: String = "Spent"
     }
 }

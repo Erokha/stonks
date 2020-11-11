@@ -52,7 +52,6 @@ extension MeInteractor: NSFetchedResultsControllerDelegate {
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         if let fetchResult = controller.fetchedObjects {
             let user = prepareModels(for: fetchResult)
-            print(user.balance)
             output?.didChangeContetnt(user: user)
         }
     }

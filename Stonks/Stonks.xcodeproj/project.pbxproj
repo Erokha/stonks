@@ -38,6 +38,7 @@
 		0DF01733252F5BD2003FF71B /* NibLoadedViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0172C252F5BD2003FF71B /* NibLoadedViewType.swift */; };
 		0DF01734252F5BD2003FF71B /* CardViewPresenterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0172D252F5BD2003FF71B /* CardViewPresenterType.swift */; };
 		131D5AFD25378F1C00F32055 /* MePortfolioRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131D5AFC25378F1C00F32055 /* MePortfolioRouter.swift */; };
+		1334532A255BF8B100CA8E01 /* MePortfolioInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13345329255BF8B100CA8E01 /* MePortfolioInteractor.swift */; };
 		133D0ED925436104003CBA81 /* MeContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133D0ED825436104003CBA81 /* MeContainerViewController.swift */; };
 		134179F1253227D50052D1A9 /* ChartColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134179E2253227A90052D1A9 /* ChartColor.swift */; };
 		134179F3253227D50052D1A9 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134179E5253227A90052D1A9 /* MeViewController.swift */; };
@@ -142,6 +143,7 @@
 		0DF0172C252F5BD2003FF71B /* NibLoadedViewType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadedViewType.swift; sourceTree = "<group>"; };
 		0DF0172D252F5BD2003FF71B /* CardViewPresenterType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewPresenterType.swift; sourceTree = "<group>"; };
 		131D5AFC25378F1C00F32055 /* MePortfolioRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MePortfolioRouter.swift; sourceTree = "<group>"; };
+		13345329255BF8B100CA8E01 /* MePortfolioInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MePortfolioInteractor.swift; sourceTree = "<group>"; };
 		133D0ED825436104003CBA81 /* MeContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeContainerViewController.swift; sourceTree = "<group>"; };
 		134179E2253227A90052D1A9 /* ChartColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartColor.swift; sourceTree = "<group>"; };
 		134179E4253227A90052D1A9 /* MePage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MePage.storyboard; sourceTree = "<group>"; };
@@ -460,6 +462,14 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		13345328255BF88D00CA8E01 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				13345329255BF8B100CA8E01 /* MePortfolioInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		134179D9253227A90052D1A9 /* MePage */ = {
 			isa = PBXGroup;
 			children = (
@@ -709,6 +719,7 @@
 		13C27285254170A2000380FB /* MePortfolio */ = {
 			isa = PBXGroup;
 			children = (
+				13345328255BF88D00CA8E01 /* Interactor */,
 				1344878525419EDC008C2D7B /* Model */,
 				1344877B25419C65008C2D7B /* Protocols */,
 				1344877A25419C5B008C2D7B /* Presenter */,
@@ -1293,6 +1304,7 @@
 				31CD548B252BAFE900F65D17 /* LoginData.swift in Sources */,
 				0D777778254B22FA00EFF30E /* NewsProtocols.swift in Sources */,
 				0D777773254B22FA00EFF30E /* ArticleTableViewCell.swift in Sources */,
+				1334532A255BF8B100CA8E01 /* MePortfolioInteractor.swift in Sources */,
 				1344877D25419C9A008C2D7B /* MePortfolioViewController.swift in Sources */,
 				0DF01731252F5BD2003FF71B /* EmbeddedView.swift in Sources */,
 				0D777779254B22FA00EFF30E /* ArticleInteractor.swift in Sources */,
