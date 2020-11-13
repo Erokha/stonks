@@ -14,10 +14,11 @@ protocol StockDetailViewOutput: class {
     func didTapBuyButton(amount: String?)
     func didTapSellButton(amount: String?)
     func viewWillDisappear()
+    func didTapShowMyStocksButton()
 }
 
 protocol StockDetailRouterInput: class {
-
+    func showMyStocksScreen()
 }
 
 protocol StockDetailInteractorInput: class {

@@ -105,6 +105,10 @@ extension StockDetailPresenter: StockDetailInteractorOutput {
         view?.showAlert(with: title, message: message)
     }
 
+    func didTapShowMyStocksButton() {
+        router?.showMyStocksScreen()
+    }
+
     func viewWillDisappear() {
         interactor?.stopFetching()
     }

@@ -5,5 +5,7 @@ class StockDetailRouter {
 }
 
 extension StockDetailRouter: StockDetailRouterInput {
-
+    func showMyStocksScreen() {
+        viewConstroller?.navigationController?.popViewController(animated: true)
+    }
 }

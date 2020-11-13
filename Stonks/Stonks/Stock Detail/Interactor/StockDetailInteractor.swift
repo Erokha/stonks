@@ -48,8 +48,6 @@ class StockDetailInteractor {
     }
 
     deinit {
-        print("interactor deinit")
-
         guard let user = UserDataService.shared.getUser(),
               let stocks = user.stocks?.allObjects as? [Stock] else {
             return
