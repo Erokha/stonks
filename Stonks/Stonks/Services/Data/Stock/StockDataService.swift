@@ -92,7 +92,6 @@ extension StockDataService: StockDataServiceInput {
             }
 
             fetchResult[0] = stock
-
             try context.save()
         } catch {
         }
@@ -139,7 +138,6 @@ extension StockDataService: StockDataServiceInput {
         } catch {
 
         }
-
         return false
     }
 }

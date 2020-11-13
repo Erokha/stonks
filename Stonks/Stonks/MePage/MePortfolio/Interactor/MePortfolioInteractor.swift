@@ -4,6 +4,10 @@ class MePortfolioInteractor {
     weak var output: MePortfolioInteractorOutput?
 
     private func handleStocks(stocks: [Stock]) {
+        print(stocks.count)
+        for stock in stocks {
+            print(stock.symbol)
+        }
     }
 }
 

@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -50,22 +51,28 @@
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gDN-3D-6f1">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ORs-En-PW0">
                                                 <rect key="frame" x="348" y="0.0" width="50" height="50"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="2Gz-yb-GB7"/>
-                                                    <constraint firstAttribute="width" constant="50" id="mPC-7j-29p"/>
+                                                    <constraint firstAttribute="width" constant="50" id="KUI-uI-h6l"/>
+                                                    <constraint firstAttribute="height" constant="50" id="ihj-q1-yLv"/>
                                                 </constraints>
-                                            </imageView>
+                                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                <state key="normal">
+                                                    <imageReference key="image" image="upload" symbolScale="medium" renderingMode="original"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="addImageAction:" destination="rir-3h-UJ4" eventType="touchUpInside" id="BCT-Wv-aSr"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="Y4F-Fc-5y7" firstAttribute="top" secondItem="mUf-pk-HMy" secondAttribute="top" id="3Mn-du-7pk"/>
-                                            <constraint firstAttribute="trailing" secondItem="gDN-3D-6f1" secondAttribute="trailing" id="4RJ-ZH-48I"/>
+                                            <constraint firstAttribute="bottom" secondItem="ORs-En-PW0" secondAttribute="bottom" id="3qZ-gj-N5b"/>
                                             <constraint firstItem="Y4F-Fc-5y7" firstAttribute="leading" secondItem="mUf-pk-HMy" secondAttribute="leading" id="Wkp-wn-ihx"/>
-                                            <constraint firstAttribute="bottom" secondItem="gDN-3D-6f1" secondAttribute="bottom" id="cmL-7z-Ch1"/>
-                                            <constraint firstItem="gDN-3D-6f1" firstAttribute="top" secondItem="mUf-pk-HMy" secondAttribute="top" id="jot-K9-hGP"/>
+                                            <constraint firstAttribute="trailing" secondItem="ORs-En-PW0" secondAttribute="trailing" id="fJc-Tr-FoJ"/>
                                             <constraint firstAttribute="bottom" secondItem="Y4F-Fc-5y7" secondAttribute="bottom" id="keO-8x-QsY"/>
-                                            <constraint firstItem="gDN-3D-6f1" firstAttribute="leading" secondItem="Y4F-Fc-5y7" secondAttribute="trailing" constant="20" id="mIT-do-9nh"/>
+                                            <constraint firstItem="ORs-En-PW0" firstAttribute="top" secondItem="mUf-pk-HMy" secondAttribute="top" id="mVe-oe-sfc"/>
                                         </constraints>
                                     </stackView>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LKH-yz-4BF">
@@ -109,7 +116,7 @@
                         <outlet property="cardContainer" destination="LKH-yz-4BF" id="DaR-Nl-qzE"/>
                         <outlet property="headerView" destination="FhN-MW-RLc" id="RJG-YL-92p"/>
                         <outlet property="nameLabel" destination="Y4F-Fc-5y7" id="dSl-DF-sLb"/>
-                        <outlet property="profileImage" destination="gDN-3D-6f1" id="5RR-HS-t6c"/>
+                        <outlet property="photoButton" destination="ORs-En-PW0" id="ejX-dX-yhg"/>
                         <outlet property="segmentControl" destination="Nr4-hj-uI6" id="mFA-M8-LmU"/>
                         <outlet property="tableContainer" destination="5Cd-JJ-sqQ" id="aw9-nY-OZB"/>
                     </connections>
@@ -295,6 +302,7 @@
         <image name="done" width="32" height="32"/>
         <image name="filter" width="32" height="32"/>
         <image name="previous" width="32" height="32"/>
+        <image name="upload" width="32" height="32"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

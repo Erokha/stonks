@@ -6,15 +6,15 @@ class MePresenter {
     private var interactor: MeInteractorInput
     private var shouldUpdateData: Bool
 
-    var user: User? {
+    var user: MeUserData? {
         didSet {
-            let name = String(user?.name ?? "")
-            let surname = String(user?.surname ?? "")
-            let userBalance = Float(truncating: user?.balance ?? 0)
-            let userSpent = Float(truncating: user?.totalSpent ?? 0)
-            view?.setUserData(name: name, lastname: surname, image: nil)
-            view?.setUserCurrentBalance(currentBalance: Int(userBalance))
-            view?.setUserSpentInfo(spent: Int(userSpent))
+            let name = user?.name ?? ""
+            let surname = user?.surname ?? ""
+            let userBalance = user?.balance ?? 0
+            let userSpent = user?.totalSpent ?? 0
+            view?.setUserData(name: name, lastname: surname, image: user?.avatar)
+            view?.setUserCurrentBalance(currentBalance: userBalance)
+            view?.setUserSpentInfo(spent: userSpent)
         }
     }
 
@@ -25,6 +25,19 @@ class MePresenter {
 }
 
 extension MePresenter: MeOutput {
+    func didImageLoaded(image: UIImage) {
+        if let data = image.pngData() {
+            interactor.saveImage(pngData: data)
+        } else {
+            let alert = UIAlertController(title: Constants.failConvertImgTitle,
+                                          message: Constants.failConvertImgMessage,
+                                          preferredStyle: UIAlertController.Style.alert)
+            let okAction = UIAlertAction(title: "Ok", style: .default)
+            alert.addAction(okAction)
+            view?.showAlert(alert: alert)
+        }
+    }
+
    func didIndexChanged(index: Int) {
         switch index {
         case 0:
@@ -43,16 +56,22 @@ extension MePresenter: MeOutput {
 }
 
 extension MePresenter: MeInteractorOutput {
-    func didChangeContetnt(user: User) {
+    func didChangeContetnt(user: MeUserData) {
         if shouldUpdateData {
             view?.setUserData(name: user.name, lastname: user.surname, image: nil)
-            view?.setUserSpentInfo(spent: Int(truncating: user.totalSpent))
-            let balance = Float(truncating: user.balance)
-            view?.setUserCurrentBalance(currentBalance: Int(balance))
+            view?.setUserSpentInfo(spent: user.totalSpent)
+            view?.setUserCurrentBalance(currentBalance: user.balance)
         }
     }
 
-    func didReceive(user: User) {
+    func didReceive(user: MeUserData) {
         self.user = user
+    }
+}
+
+extension MePresenter {
+    struct Constants {
+        static let failConvertImgTitle = "Oops"
+        static let failConvertImgMessage = "Cannot convert image!"
     }
 }

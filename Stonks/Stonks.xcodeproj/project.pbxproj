@@ -68,6 +68,7 @@
 		137C66132552CB4D00AB0A59 /* MeHistoryFilterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137C66122552CB4D00AB0A59 /* MeHistoryFilterRouter.swift */; };
 		137C66182552CBD300AB0A59 /* SortFilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137C66162552CBD300AB0A59 /* SortFilterTableViewCell.swift */; };
 		137C66192552CBD300AB0A59 /* SortFilterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 137C66172552CBD300AB0A59 /* SortFilterTableViewCell.xib */; };
+		138D65AC255D87E0004CC2DD /* MeUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138D65AB255D87E0004CC2DD /* MeUserData.swift */; };
 		13BBF5FE253AD3F400DA0C32 /* ChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BBF5FC253AD3F400DA0C32 /* ChartTableViewCell.swift */; };
 		13BBF5FF253AD3F400DA0C32 /* ChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13BBF5FD253AD3F400DA0C32 /* ChartTableViewCell.xib */; };
 		13D824C6254AF41F002F654E /* MeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D824C5254AF41F002F654E /* MeInteractor.swift */; };
@@ -174,6 +175,7 @@
 		137C66122552CB4D00AB0A59 /* MeHistoryFilterRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHistoryFilterRouter.swift; sourceTree = "<group>"; };
 		137C66162552CBD300AB0A59 /* SortFilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortFilterTableViewCell.swift; sourceTree = "<group>"; };
 		137C66172552CBD300AB0A59 /* SortFilterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SortFilterTableViewCell.xib; sourceTree = "<group>"; };
+		138D65AB255D87E0004CC2DD /* MeUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeUserData.swift; sourceTree = "<group>"; };
 		13BBF5FC253AD3F400DA0C32 /* ChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTableViewCell.swift; sourceTree = "<group>"; };
 		13BBF5FD253AD3F400DA0C32 /* ChartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartTableViewCell.xib; sourceTree = "<group>"; };
 		13D824C5254AF41F002F654E /* MeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeInteractor.swift; sourceTree = "<group>"; };
@@ -707,6 +709,14 @@
 			path = SortCell;
 			sourceTree = "<group>";
 		};
+		138D65AA255D87D0004CC2DD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				138D65AB255D87E0004CC2DD /* MeUserData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		13BBF601253AD3F800DA0C32 /* Chart */ = {
 			isa = PBXGroup;
 			children = (
@@ -769,6 +779,7 @@
 		13F28AA9253491250004E864 /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				138D65AA255D87D0004CC2DD /* Model */,
 				13D824C8254AF428002F654E /* Interactor */,
 				131D5AFB25378F1200F32055 /* Router */,
 				13F28AC4253499400004E864 /* Container */,
@@ -1318,6 +1329,7 @@
 				0D3903BB252F62C200C18036 /* ContainerViewController.swift in Sources */,
 				1359147B254EC9AA0048E60F /* MeHistoryProtocols.swift in Sources */,
 				134487A82541D724008C2D7B /* MeSettingsPresenter.swift in Sources */,
+				138D65AC255D87E0004CC2DD /* MeUserData.swift in Sources */,
 				0D3903B8252F62C200C18036 /* MyStocksPresenter.swift in Sources */,
 				13F28AC22534936E0004E864 /* MePortfolioPresenter.swift in Sources */,
 				1359147E254ECA330048E60F /* MeHistoryContainer.swift in Sources */,

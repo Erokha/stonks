@@ -25,9 +25,9 @@ class MainTabBar: UITabBarController {
                 return UINavigationController()
             }
 
-            StockDataService.shared.createStock(name: "Apple", symbol: "AAPL", imageURL: url)
+//            StockDataService.shared.createStock(name: "Apple", symbol: "AAPL", imageURL: url)
 
-        let container = StockDetailContainer.assemble(with: StockDetailContext(symbol: "Apple"))
+        let container = StockDetailContainer.assemble(with: StockDetailContext(symbol: "AAPL"))
             let tabBarItem = UITabBarItem(title: Constants.LearnBarItem.title,
                                           image: UIImage(named: Constants.LearnBarItem.imageName)?.withRenderingMode(.alwaysOriginal),
                                           tag: Constants.LearnBarItem.tag)
