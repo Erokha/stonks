@@ -209,6 +209,12 @@ class StockDetailViewController: UIViewController {
 
         output?.didLoadView()
     }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        output?.viewWillDisappear()
+    }
 }
 
 extension StockDetailViewController: StockDetailViewInput {

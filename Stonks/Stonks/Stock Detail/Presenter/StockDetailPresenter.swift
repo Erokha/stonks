@@ -12,6 +12,10 @@ class StockDetailPresenter {
     init(model: StockDetailPresenterData) {
         self.model = model
     }
+
+    deinit {
+        print("presenter deinited")
+    }
 }
 
 extension StockDetailPresenter: StockDetailViewOutput {
@@ -99,5 +103,9 @@ extension StockDetailPresenter: StockDetailInteractorOutput {
 
     func showAlert(with title: String, message: String) {
         view?.showAlert(with: title, message: message)
+    }
+
+    func viewWillDisappear() {
+        interactor?.stopFetching()
     }
 }
