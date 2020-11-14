@@ -12,6 +12,8 @@ protocol MeHistoryFilterInput: class {
 
 protocol MeHistoryFilterOutput: TypeOfSortDelegate, SortByDelegate {
     func didOkButtonTapped()
+    func didChangeTypeOfSort(typeOfSort: TypeOfSort)
+    func didChangeSortBy(sortBy: SortBy)
 }
 
 protocol FilterDelegate: TypeOfSortDelegate, SortByDelegate {

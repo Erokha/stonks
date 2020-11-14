@@ -50,12 +50,13 @@ extension MeHistoryFilterViewController: UITableViewDelegate, UITableViewDataSou
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SortFilterTableViewCell.reuseIdentifier, for: indexPath) as? SortFilterTableViewCell else {
                 return UITableViewCell()
             }
-            
+            cell.sortByDelegate = self
             return cell
         case .typeOfSort:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: TypeOfSortTableViewCell.reuseIdentifier, for: indexPath) as? TypeOfSortTableViewCell else {
                 return UITableViewCell()
             }
+            cell.typeOfSortDelegate = self
             cell.typeOfSortDelegate = output
             return cell
         default:
@@ -102,6 +103,16 @@ extension MeHistoryFilterViewController: UITableViewDelegate, UITableViewDataSou
 }
 
 extension MeHistoryFilterViewController: MeHistoryFilterInput {
+}
+
+extension MeHistoryFilterViewController: FilterDelegate {
+    func didChangeTypeOfSort(typeOfSort: TypeOfSort) {
+        output?.didChangeTypeOfSort(typeOfSort: typeOfSort)
+    }
+
+    func didChangeSortBy(sortBy: SortBy) {
+        output?.didChangeSortBy(sortBy: sortBy)
+    }
 }
 
 extension MeHistoryFilterViewController {

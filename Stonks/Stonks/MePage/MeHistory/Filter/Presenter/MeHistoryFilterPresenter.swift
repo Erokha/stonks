@@ -16,22 +16,16 @@ class MeHistoryFilterPresenter {
 }
 
 extension MeHistoryFilterPresenter: MeHistoryFilterOutput {
-    func didOkButtonTapped() {
-        print("Type of sort:", typeOfSort as Any)
-        print("Sort By:", sortBy as Any)
+    func didChangeSortBy(sortBy: SortBy) {
+        self.sortBy = sortBy
     }
-}
 
-extension MeHistoryFilterPresenter: FilterDelegate {
     func didChangeTypeOfSort(typeOfSort: TypeOfSort) {
         self.typeOfSort = typeOfSort
     }
 
-    func didChangeSortBy(sortBy: SortBy) {
-        self.sortBy = sortBy
+    func didOkButtonTapped() {
+        print("Type of sort:", typeOfSort as Any)
+        print("Sort By:", sortBy as Any)
     }
-}
-
-extension MeHistoryFilterPresenter: SortByDelegate {
-    
 }
