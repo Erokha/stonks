@@ -33,7 +33,7 @@ final class StocksPageViewController: UIPageViewController {
     func setPage(for page: StocksPage) {
         let vc = pages[page.rawValue]
         switch page {
-        case .userStocks:
+        case .allStocks:
             setViewControllers([vc], direction: .reverse, animated: true, completion: nil)
         default:
             setViewControllers([vc], direction: .forward, animated: true, completion: nil)

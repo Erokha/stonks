@@ -47,7 +47,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cKR-F2-kqi">
                                 <rect key="frame" x="0.0" y="225" width="414" height="671"/>
                                 <connections>
-                                    <segue destination="e4R-dz-2aI" kind="embed" identifier="StockContainerSegue" id="n80-wM-2io"/>
+                                    <segue destination="KG6-86-3wY" kind="embed" identifier="StockContainerSegue" id="g4w-J6-XVF"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -70,7 +70,7 @@
                     </view>
                     <connections>
                         <outlet property="segmentControl" destination="aWE-BU-izs" id="bSO-JN-ayV"/>
-                        <outlet property="tableContainer" destination="cKR-F2-kqi" id="ltb-aU-ZDI"/>
+                        <outlet property="tableContainer" destination="cKR-F2-kqi" id="LYi-lI-Hr2"/>
                         <outlet property="viewContainer" destination="QyP-eg-Waw" id="Tdb-VL-qjV"/>
                     </connections>
                 </viewController>
@@ -106,15 +106,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EXV-ey-nS0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="686" y="-102"/>
+            <point key="canvasLocation" x="716" y="-104"/>
         </scene>
         <!--Stocks Page View Controller-->
-        <scene sceneID="8CC-VC-eDZ">
+        <scene sceneID="3mV-3b-7lK">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Gva-pH-cex" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <viewController id="e4R-dz-2aI" customClass="StocksPageViewController" customModule="Stonks" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="KG6-86-3wY" customClass="StocksPageViewController" customModule="Stonks" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jt4-HN-a5N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1093" y="248"/>
+            <point key="canvasLocation" x="751" y="280"/>
         </scene>
     </scenes>
     <resources>
