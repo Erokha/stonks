@@ -79,6 +79,8 @@
 		311057E5253F1E0900B41CDA /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311057E4253F1E0900B41CDA /* User+CoreDataClass.swift */; };
 		311057E8253F1E1C00B41CDA /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311057E7253F1E1C00B41CDA /* User+CoreDataProperties.swift */; };
 		311057EB253F219D00B41CDA /* Entities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311057EA253F219D00B41CDA /* Entities.swift */; };
+		31144407256016F600AF2552 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31144406256016F600AF2552 /* NetworkService.swift */; };
+		3114440B2560171F00AF2552 /* NetworkServiceInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3114440A2560171F00AF2552 /* NetworkServiceInput.swift */; };
 		314C058E253B0D0200105352 /* DMSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 315BE130252F332F0074377B /* DMSans-Bold.ttf */; };
 		314C058F253B0D0200105352 /* DMSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 319B3054252DA640005837ED /* DMSans-Medium.ttf */; };
 		314C0590253B0D0200105352 /* DMSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 315BE131252F334B0074377B /* DMSans-Regular.ttf */; };
@@ -185,6 +187,8 @@
 		311057E4253F1E0900B41CDA /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		311057E7253F1E1C00B41CDA /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		311057EA253F219D00B41CDA /* Entities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entities.swift; sourceTree = "<group>"; };
+		31144406256016F600AF2552 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		3114440A2560171F00AF2552 /* NetworkServiceInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceInput.swift; sourceTree = "<group>"; };
 		3155EC28254978D40036F67B /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		315BE130252F332F0074377B /* DMSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Bold.ttf"; sourceTree = "<group>"; };
 		315BE131252F334B0074377B /* DMSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Regular.ttf"; sourceTree = "<group>"; };
@@ -812,6 +816,23 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		31144405256016DC00AF2552 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				311444092560170200AF2552 /* Protocols */,
+				31144406256016F600AF2552 /* NetworkService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		311444092560170200AF2552 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				3114440A2560171F00AF2552 /* NetworkServiceInput.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		3155EC27254978C00036F67B /* MainTabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -1076,6 +1097,7 @@
 		31E4452F253B1F7500528971 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				31144405256016DC00AF2552 /* Network */,
 				318857A42552BA5900FFDCBC /* Authorization */,
 				31782B73253B419E00B680D9 /* Data */,
 			);
@@ -1259,6 +1281,7 @@
 				3155EC1A254970D00036F67B /* CardView.swift in Sources */,
 				318857832551A63C00FFDCBC /* Stock+CoreDataClass.swift in Sources */,
 				0D751142253A5C4F00D0A719 /* StockTableViewCell.swift in Sources */,
+				31144407256016F600AF2552 /* NetworkService.swift in Sources */,
 				13531273253B4C6600F77A91 /* HistoryButtonTableViewCell.swift in Sources */,
 				13F28AC6253499550004E864 /* MePortfolioContainer.swift in Sources */,
 				134179F1253227D50052D1A9 /* ChartColor.swift in Sources */,
@@ -1330,6 +1353,7 @@
 				0DF0172E252F5BD2003FF71B /* CardViewPresenter.swift in Sources */,
 				31905F8C25361FD9000D71A7 /* StockDetailRouter.swift in Sources */,
 				31905F7D25361BA0000D71A7 /* StockDetailViewController.swift in Sources */,
+				3114440B2560171F00AF2552 /* NetworkServiceInput.swift in Sources */,
 				0D777772254B22FA00EFF30E /* ArticleContainer.swift in Sources */,
 				0D751153253A622A00D0A719 /* MyStocksRouter.swift in Sources */,
 				0D777776254B22FA00EFF30E /* ViewController.swift in Sources */,
