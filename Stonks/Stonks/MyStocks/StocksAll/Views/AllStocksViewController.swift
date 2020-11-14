@@ -1,20 +1,28 @@
+import Foundation
 import UIKit
 
-class MyStocksViewController: UIViewController {
+class AllStocksViewController: UIViewController, UINavigationControllerDelegate {
+    private var tableView = UITableView()
 
-    @IBOutlet private weak var viewContainer: UIView!
-    @IBOutlet private weak var tableView: UITableView!
-    weak var embeddedViewController: ContainerViewController!
-    var output: MyStocksViewOutput?
+    var output: AllStocksViewOutput!
     private let refreshControl = UIRefreshControl()
     private let activityIndicatorView = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
+        setupTableView()
         output?.didLoadView()
-        configureTalbeView()
     }
 
+    private func setupTableView() {
+        tableView.register(UINib(nibName: "StockTableViewCell", bundle: nil), forCellReuseIdentifier: StockTableViewCell.reuseIdentifier)
+        tableView.tableFooterView = UIView(frame: .zero)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+    }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         setupActivityIndicatorView()
@@ -29,30 +37,23 @@ class MyStocksViewController: UIViewController {
 
     }
 
-    private func configureTalbeView() {
-        setShadow()
-        tableView.register(UINib(nibName: "StockTableViewCell", bundle: nil), forCellReuseIdentifier: StockTableViewCell.reuseIdentifier)
-        tableView.tableFooterView = UIView(frame: .zero)
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.refreshControl = refreshControl
-        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
-    }
-
-    private func setShadow() {
-        self.viewContainer.layer.shadowColor = UIColor.black.cgColor
-        self.viewContainer.layer.shadowOpacity = 0.6
-        self.viewContainer.layer.shadowOffset = .zero
-        self.viewContainer.layer.shadowRadius = 10
+    private func setupView() {
+        view.addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        tableView.separatorStyle = .none
     }
 
     @objc private func refreshData(_ sender: Any) {
-        output?.refreshData()
-    }
+            output?.refreshData()
+        }
 
 }
 
-extension MyStocksViewController: UITableViewDelegate, UITableViewDataSource {
+extension AllStocksViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         return self.output?.numberOfItems() ?? 0
@@ -77,18 +78,10 @@ extension MyStocksViewController: UITableViewDelegate, UITableViewDataSource {
 
 }
 
-extension MyStocksViewController: MyStocksViewInput {
+extension AllStocksViewController: AllStocksViewInput {
     func reloadTable() {
         self.tableView.reloadData()
         self.refreshControl.endRefreshing()
-    }
-
-    func setAvaliableBalance(balance: Int) {
-        self.embeddedViewController.showNumberLeft(num: balance)
-    }
-
-    func setStocksTotal(total: Int) {
-        self.embeddedViewController.showNumberRight(num: total)
     }
 
     func startActivity() {
@@ -97,14 +90,4 @@ extension MyStocksViewController: MyStocksViewInput {
     func endActivity() {
         activityIndicatorView.stopAnimating()
     }
-
-}
-
-extension MyStocksViewController {
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if let vc = segue.destination as? ContainerViewController,
-                        segue.identifier == "EmbedSegue" {
-                self.embeddedViewController = vc
-            }
-        }
 }

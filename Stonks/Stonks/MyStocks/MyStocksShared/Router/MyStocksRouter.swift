@@ -1,10 +1,10 @@
 import UIKit
 
-class MyStocksRouter {
+class StocksSharedRouter {
     weak var viewController: UIViewController?
 }
 
-extension MyStocksRouter: MyStocksRouterInput {
+extension StocksSharedRouter: StocksSharedRouterInput {
     func showError(with error: Error) {
         let alert = UIAlertController(title: "Error happend", message: error.localizedDescription, preferredStyle: .alert)
 

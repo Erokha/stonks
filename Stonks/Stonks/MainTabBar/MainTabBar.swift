@@ -36,10 +36,10 @@ class MainTabBar: UITabBarController {
     }
 
     private func prepareMyStocksViewController() -> UINavigationController {
-        let stockRaw = StockRaw(stockName: "Apple", stockSymbol: "AAPL", stockPrice: 432, imageUrl: "")
-        let stock = StockData(with: stockRaw)
+        //let stockRaw = StockRaw(stockName: "Apple", stockSymbol: "AAPL", stockPrice: 432, imageUrl: "")
+        //let stock = StockData(with: stockRaw)
 
-        let container = MyStocksContainer.assemble(with: MyStocksContext(testmodel: [stock]))
+        let container = MainStocksContainer.assemble(with: MainStocksContext())
         let tabBarItem = UITabBarItem(title: Constants.MyStocksBarItem.title,
                                       image: UIImage(named: Constants.MyStocksBarItem.imageName)?.withRenderingMode(.alwaysOriginal),
                                       tag: Constants.MyStocksBarItem.tag)
