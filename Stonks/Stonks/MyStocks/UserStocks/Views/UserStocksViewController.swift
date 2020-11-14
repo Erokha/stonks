@@ -18,7 +18,6 @@ class UserStocksViewController: UIViewController, UINavigationControllerDelegate
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-
         tableView.register(UINib(nibName: "StockTableViewCell", bundle: nil), forCellReuseIdentifier: StockTableViewCell.reuseIdentifier)
     }
     override func viewDidLayoutSubviews() {
@@ -29,8 +28,6 @@ class UserStocksViewController: UIViewController, UINavigationControllerDelegate
     private func setupActivityIndicatorView() {
         activityIndicatorView.color = .black
         self.activityIndicatorView.center = CGPoint(x: UIScreen.main.bounds.size.width / 2, y: UIScreen.main.bounds.size.height / 2)
-
-            view.superview?.addSubview(activityIndicatorView)
             activityIndicatorView.hidesWhenStopped = true
 
     }

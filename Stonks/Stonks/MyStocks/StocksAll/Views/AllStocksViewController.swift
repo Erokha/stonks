@@ -32,7 +32,6 @@ class AllStocksViewController: UIViewController, UINavigationControllerDelegate 
         activityIndicatorView.color = .black
         self.activityIndicatorView.center = CGPoint(x: UIScreen.main.bounds.size.width / 2, y: UIScreen.main.bounds.size.height / 2)
 
-            view.superview?.addSubview(activityIndicatorView)
             activityIndicatorView.hidesWhenStopped = true
 
     }
@@ -81,13 +80,13 @@ extension AllStocksViewController: UITableViewDelegate, UITableViewDataSource {
 extension AllStocksViewController: AllStocksViewInput {
     func reloadTable() {
         self.tableView.reloadData()
-        self.refreshControl.endRefreshing()
+//        self.refreshControl.endRefreshing()
     }
 
     func startActivity() {
-        activityIndicatorView.startAnimating()
+//        activityIndicatorView.startAnimating()
     }
     func endActivity() {
-        activityIndicatorView.stopAnimating()
+//        activityIndicatorView.stopAnimating()
     }
 }
