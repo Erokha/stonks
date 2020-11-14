@@ -14,21 +14,23 @@ class SortFilterTableViewCell: UITableViewCell {
     @IBOutlet private weak var descendingDateButton: UIButton!
 
     private var currentSortBy: SortBy = .increasePrice
+
     override func awakeFromNib() {
         super.awakeFromNib()
         setupCell()
+        setupFirstView()
     }
 
+    private func setupFirstView() {
+        increasePriceButton.backgroundColor = #colorLiteral(red: 0.4431372549, green: 0.3960784314, blue: 0.8901960784, alpha: 1)
+    }
     private func setupCell() {
+        self.selectionStyle = UITableViewCell.SelectionStyle.none
+
         increasePriceButton.layer.cornerRadius = Constants.viewRadius
         descendingPriceButton.layer.cornerRadius = Constants.viewRadius
         increaseDateButton.layer.cornerRadius = Constants.viewRadius
         descendingDateButton.layer.cornerRadius = Constants.viewRadius
-
-        increasePriceButton.layer.shadowColor = UIColor.gray.cgColor
-        descendingPriceButton.layer.shadowColor = UIColor.gray.cgColor
-        increaseDateButton.layer.shadowColor = UIColor.gray.cgColor
-        descendingDateButton.layer.shadowColor = UIColor.gray.cgColor
 
         increasePriceButton.layer.shadowColor = UIColor.gray.cgColor
         descendingPriceButton.layer.shadowColor = UIColor.gray.cgColor
@@ -54,44 +56,52 @@ class SortFilterTableViewCell: UITableViewCell {
         self.preservesSuperviewLayoutMargins = false
     }
 
+    private func setDefault(sortBy: SortBy) {
+        switch sortBy {
+        case .increasePrice:
+            increasePriceButton.backgroundColor = #colorLiteral(red: 0.3540481031, green: 0.3433421254, blue: 0.4038961232, alpha: 1)
+        case .descendingPrice:
+            descendingPriceButton.backgroundColor = #colorLiteral(red: 0.3540481031, green: 0.3433421254, blue: 0.4038961232, alpha: 1)
+        case .increaseDate:
+            increaseDateButton.backgroundColor = #colorLiteral(red: 0.3540481031, green: 0.3433421254, blue: 0.4038961232, alpha: 1)
+        case .descendingDate:
+            descendingDateButton.backgroundColor = #colorLiteral(red: 0.3540481031, green: 0.3433421254, blue: 0.4038961232, alpha: 1)
+        }
+    }
     private func setChoosen(sortBy: SortBy) {
         switch sortBy {
         case .increasePrice:
             increasePriceButton.backgroundColor = #colorLiteral(red: 0.4431372549, green: 0.3960784314, blue: 0.8901960784, alpha: 1)
-            descendingDateButton.backgroundColor = #colorLiteral(red: 0.3540481031, green: 0.3433421254, blue: 0.4038961232, alpha: 1)
-            increaseDateButton.backgroundColor = #colorLiteral(red: 0.3540481031, green: 0.3433421254, blue: 0.4038961232, alpha: 1)
-            descendingPriceButton.backgroundColor = #colorLiteral(red: 0.3540481031, green: 0.3433421254, blue: 0.4038961232, alpha: 1)
         case .descendingPrice:
             descendingPriceButton.backgroundColor = #colorLiteral(red: 0.4431372549, green: 0.3960784314, blue: 0.8901960784, alpha: 1)
-            descendingDateButton.backgroundColor = #colorLiteral(red: 0.3540481031, green: 0.3433421254, blue: 0.4038961232, alpha: 1)
-            increaseDateButton.backgroundColor = #colorLiteral(red: 0.3540481031, green: 0.3433421254, blue: 0.4038961232, alpha: 1)
-            increasePriceButton.backgroundColor = #colorLiteral(red: 0.3540481031, green: 0.3433421254, blue: 0.4038961232, alpha: 1)
         case .increaseDate:
             increaseDateButton.backgroundColor = #colorLiteral(red: 0.4431372549, green: 0.3960784314, blue: 0.8901960784, alpha: 1)
-            descendingDateButton.backgroundColor = #colorLiteral(red: 0.3540481031, green: 0.3433421254, blue: 0.4038961232, alpha: 1)
-            descendingPriceButton.backgroundColor = #colorLiteral(red: 0.3540481031, green: 0.3433421254, blue: 0.4038961232, alpha: 1)
-            increasePriceButton.backgroundColor = #colorLiteral(red: 0.3540481031, green: 0.3433421254, blue: 0.4038961232, alpha: 1)
         case .descendingDate:
             descendingDateButton.backgroundColor = #colorLiteral(red: 0.4431372549, green: 0.3960784314, blue: 0.8901960784, alpha: 1)
-            increaseDateButton.backgroundColor = #colorLiteral(red: 0.3540481031, green: 0.3433421254, blue: 0.4038961232, alpha: 1)
-            descendingPriceButton.backgroundColor = #colorLiteral(red: 0.3540481031, green: 0.3433421254, blue: 0.4038961232, alpha: 1)
-            increasePriceButton.backgroundColor = #colorLiteral(red: 0.3540481031, green: 0.3433421254, blue: 0.4038961232, alpha: 1)
         }
     }
     @IBAction private func increasePriceDidTap(_ sender: Any) {
-        setChoosen(sortBy: .increasePrice)
+        setDefault(sortBy: currentSortBy)
+        currentSortBy = .increasePrice
+        setChoosen(sortBy: currentSortBy)
     }
 
     @IBAction private func increaseDateDidTap(_ sender: Any) {
-        setChoosen(sortBy: .increaseDate)
+        setDefault(sortBy: currentSortBy)
+        currentSortBy = .increaseDate
+        setChoosen(sortBy: currentSortBy)
     }
 
     @IBAction private func descendingPriceDidTap(_ sender: Any) {
-        setChoosen(sortBy: .descendingPrice)
+        setDefault(sortBy: currentSortBy)
+        currentSortBy = .descendingPrice
+        setChoosen(sortBy: currentSortBy)
     }
 
     @IBAction private func descendingDateDidTap(_ sender: Any) {
-        setChoosen(sortBy: .descendingDate)
+        setDefault(sortBy: currentSortBy)
+        currentSortBy = .descendingDate
+        setChoosen(sortBy: currentSortBy)
     }
 }
 
