@@ -17,7 +17,7 @@ final class MyStocksInteractor {
 
 extension MyStocksInteractor: MyStoksInteractorInput {
     func loadStoks() {
-        NetworkService.shared.getAllStocks { [weak self] result in
+        NetworkService.shared.fetchAllStocks { [weak self] result in
             if let error = result.error {
                 self?.handleError(with: error)
                 return

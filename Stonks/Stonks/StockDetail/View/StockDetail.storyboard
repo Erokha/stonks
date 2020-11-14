@@ -121,7 +121,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="88r-IS-0RU">
-                                <rect key="frame" x="31" y="50" width="27" height="27"/>
+                                <rect key="frame" x="10.5" y="50" width="27" height="27"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="27" id="q73-yE-Pjn"/>
                                 </constraints>
@@ -153,7 +153,7 @@
                             <constraint firstItem="kI3-oS-tV7" firstAttribute="centerX" secondItem="ELa-rG-u7X" secondAttribute="centerX" multiplier="1.48" id="qC4-kd-dHo"/>
                             <constraint firstItem="88r-IS-0RU" firstAttribute="width" secondItem="W8A-Gf-YC8" secondAttribute="height" multiplier="11:448" constant="5" id="sZS-UR-XJL"/>
                             <constraint firstItem="TK6-ie-jNg" firstAttribute="centerX" secondItem="W8A-Gf-YC8" secondAttribute="centerX" id="t4b-Tk-E3v"/>
-                            <constraint firstItem="88r-IS-0RU" firstAttribute="centerX" secondItem="ELa-rG-u7X" secondAttribute="centerX" multiplier="0.2" constant="3.0999999999999943" id="uhr-6P-UBS"/>
+                            <constraint firstItem="88r-IS-0RU" firstAttribute="centerX" secondItem="ELa-rG-u7X" secondAttribute="centerX" multiplier="0.1" constant="3.0999999999999943" id="uhr-6P-UBS"/>
                             <constraint firstItem="Gyv-WH-8ok" firstAttribute="top" secondItem="kI3-oS-tV7" secondAttribute="bottom" constant="20" id="vvP-Kz-Bqn"/>
                             <constraint firstItem="kI3-oS-tV7" firstAttribute="top" secondItem="TK6-ie-jNg" secondAttribute="bottom" constant="57" id="xhJ-Gj-Kb1"/>
                             <constraint firstItem="iKs-MY-mte" firstAttribute="width" secondItem="W8A-Gf-YC8" secondAttribute="width" multiplier="0.371981" id="xkt-bD-fmL"/>

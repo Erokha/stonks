@@ -929,7 +929,7 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		31905F7025361BA0000D71A7 /* Stock Detail */ = {
+		31905F7025361BA0000D71A7 /* StockDetail */ = {
 			isa = PBXGroup;
 			children = (
 				31C02BF225531353008FCCB3 /* Interactor */,
@@ -940,7 +940,7 @@
 				31905F7525361BA0000D71A7 /* View */,
 				31905F7825361BA0000D71A7 /* Protocols */,
 			);
-			path = "Stock Detail";
+			path = StockDetail;
 			sourceTree = "<group>";
 		};
 		31905F7125361BA0000D71A7 /* Presenter */ = {
@@ -1039,7 +1039,7 @@
 				0D77AB312558265600D283F1 /* Shared */,
 				0D77775F254B22FA00EFF30E /* ArticleTable */,
 				3155EC27254978C00036F67B /* MainTabBar */,
-				31905F7025361BA0000D71A7 /* Stock Detail */,
+				31905F7025361BA0000D71A7 /* StockDetail */,
 				0D3903A5252F62C200C18036 /* MyStocks */,
 				134179D9253227A90052D1A9 /* MePage */,
 				31E4452F253B1F7500528971 /* Services */,
