@@ -65,12 +65,13 @@
 		137C65FF254F44DB00AB0A59 /* MeHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 137C65FD254F44DB00AB0A59 /* MeHistoryTableViewCell.xib */; };
 		137C66092552CACE00AB0A59 /* MeHistoryFilterContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137C66082552CACD00AB0A59 /* MeHistoryFilterContainer.swift */; };
 		137C660C2552CAF100AB0A59 /* MeHistoryFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137C660B2552CAF100AB0A59 /* MeHistoryFilterViewController.swift */; };
-		137C66132552CB4D00AB0A59 /* MeHistoryFilterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137C66122552CB4D00AB0A59 /* MeHistoryFilterRouter.swift */; };
 		137C66182552CBD300AB0A59 /* SortFilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137C66162552CBD300AB0A59 /* SortFilterTableViewCell.swift */; };
 		137C66192552CBD300AB0A59 /* SortFilterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 137C66172552CBD300AB0A59 /* SortFilterTableViewCell.xib */; };
 		138D65AC255D87E0004CC2DD /* MeUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138D65AB255D87E0004CC2DD /* MeUserData.swift */; };
 		138D65B225601E47004CC2DD /* TypeOfSortTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138D65B025601E47004CC2DD /* TypeOfSortTableViewCell.swift */; };
 		138D65B325601E47004CC2DD /* TypeOfSortTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 138D65B125601E47004CC2DD /* TypeOfSortTableViewCell.xib */; };
+		138D65B7256038CE004CC2DD /* FilterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138D65B6256038CE004CC2DD /* FilterProtocols.swift */; };
+		138D65C125603F46004CC2DD /* MeHistoryFilterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138D65C025603F46004CC2DD /* MeHistoryFilterPresenter.swift */; };
 		13BBF5FE253AD3F400DA0C32 /* ChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BBF5FC253AD3F400DA0C32 /* ChartTableViewCell.swift */; };
 		13BBF5FF253AD3F400DA0C32 /* ChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13BBF5FD253AD3F400DA0C32 /* ChartTableViewCell.xib */; };
 		13D824C6254AF41F002F654E /* MeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D824C5254AF41F002F654E /* MeInteractor.swift */; };
@@ -174,12 +175,13 @@
 		137C65FD254F44DB00AB0A59 /* MeHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeHistoryTableViewCell.xib; sourceTree = "<group>"; };
 		137C66082552CACD00AB0A59 /* MeHistoryFilterContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHistoryFilterContainer.swift; sourceTree = "<group>"; };
 		137C660B2552CAF100AB0A59 /* MeHistoryFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHistoryFilterViewController.swift; sourceTree = "<group>"; };
-		137C66122552CB4D00AB0A59 /* MeHistoryFilterRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHistoryFilterRouter.swift; sourceTree = "<group>"; };
 		137C66162552CBD300AB0A59 /* SortFilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortFilterTableViewCell.swift; sourceTree = "<group>"; };
 		137C66172552CBD300AB0A59 /* SortFilterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SortFilterTableViewCell.xib; sourceTree = "<group>"; };
 		138D65AB255D87E0004CC2DD /* MeUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeUserData.swift; sourceTree = "<group>"; };
 		138D65B025601E47004CC2DD /* TypeOfSortTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOfSortTableViewCell.swift; sourceTree = "<group>"; };
 		138D65B125601E47004CC2DD /* TypeOfSortTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TypeOfSortTableViewCell.xib; sourceTree = "<group>"; };
+		138D65B6256038CE004CC2DD /* FilterProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterProtocols.swift; sourceTree = "<group>"; };
+		138D65C025603F46004CC2DD /* MeHistoryFilterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHistoryFilterPresenter.swift; sourceTree = "<group>"; };
 		13BBF5FC253AD3F400DA0C32 /* ChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTableViewCell.swift; sourceTree = "<group>"; };
 		13BBF5FD253AD3F400DA0C32 /* ChartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartTableViewCell.xib; sourceTree = "<group>"; };
 		13D824C5254AF41F002F654E /* MeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeInteractor.swift; sourceTree = "<group>"; };
@@ -664,9 +666,9 @@
 		137C66062552CA5E00AB0A59 /* Filter */ = {
 			isa = PBXGroup;
 			children = (
-				137C66112552CB1B00AB0A59 /* Presenter */,
+				138D65BF25603E6F004CC2DD /* Presenter */,
+				138D65B5256038BA004CC2DD /* Protocols */,
 				137C66102552CB1600AB0A59 /* Container */,
-				137C660F2552CB1100AB0A59 /* Router */,
 				137C660E2552CB0D00AB0A59 /* View */,
 			);
 			path = Filter;
@@ -682,27 +684,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		137C660F2552CB1100AB0A59 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				137C66122552CB4D00AB0A59 /* MeHistoryFilterRouter.swift */,
-			);
-			path = Router;
-			sourceTree = "<group>";
-		};
 		137C66102552CB1600AB0A59 /* Container */ = {
 			isa = PBXGroup;
 			children = (
 				137C66082552CACD00AB0A59 /* MeHistoryFilterContainer.swift */,
 			);
 			path = Container;
-			sourceTree = "<group>";
-		};
-		137C66112552CB1B00AB0A59 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Presenter;
 			sourceTree = "<group>";
 		};
 		137C66152552CBB200AB0A59 /* SortCell */ = {
@@ -729,6 +716,22 @@
 				138D65B125601E47004CC2DD /* TypeOfSortTableViewCell.xib */,
 			);
 			path = TypeOfSort;
+			sourceTree = "<group>";
+		};
+		138D65B5256038BA004CC2DD /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				138D65B6256038CE004CC2DD /* FilterProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		138D65BF25603E6F004CC2DD /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				138D65C025603F46004CC2DD /* MeHistoryFilterPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		13BBF601253AD3F800DA0C32 /* Chart */ = {
@@ -1309,6 +1312,7 @@
 				137C66182552CBD300AB0A59 /* SortFilterTableViewCell.swift in Sources */,
 				13591478254EC99E0048E60F /* MeHistoryPresenter.swift in Sources */,
 				13BBF5FE253AD3F400DA0C32 /* ChartTableViewCell.swift in Sources */,
+				138D65C125603F46004CC2DD /* MeHistoryFilterPresenter.swift in Sources */,
 				1344878E2541AA3A008C2D7B /* MeContainer.swift in Sources */,
 				13591470254EAE800048E60F /* MeHistoryViewController.swift in Sources */,
 				13591481254ECB9F0048E60F /* MeHistoryInteractor.swift in Sources */,
@@ -1319,7 +1323,6 @@
 				133D0ED925436104003CBA81 /* MeContainerViewController.swift in Sources */,
 				31BDC08C252A1C5B00F56ADD /* LoginViewController.swift in Sources */,
 				31905F8425361C37000D71A7 /* StockDetailContainer.swift in Sources */,
-				137C66132552CB4D00AB0A59 /* MeHistoryFilterRouter.swift in Sources */,
 				318857862551A65500FFDCBC /* Stock+CoreDataProperties.swift in Sources */,
 				0DF01734252F5BD2003FF71B /* CardViewPresenterType.swift in Sources */,
 				31905F7C25361BA0000D71A7 /* StockDetailData.swift in Sources */,
@@ -1365,6 +1368,7 @@
 				0D777775254B22FA00EFF30E /* ArticleModel.swift in Sources */,
 				13D824C6254AF41F002F654E /* MeInteractor.swift in Sources */,
 				311057EB253F219D00B41CDA /* Entities.swift in Sources */,
+				138D65B7256038CE004CC2DD /* FilterProtocols.swift in Sources */,
 				311057E8253F1E1C00B41CDA /* User+CoreDataProperties.swift in Sources */,
 				0D777785254EEA0B00EFF30E /* ArticleRouter.swift in Sources */,
 				3155EC29254978D40036F67B /* MainTabBar.swift in Sources */,

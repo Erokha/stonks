@@ -12,9 +12,15 @@ enum TypeOfSort {
     case sold
 }
 
+protocol TypeOfSortDelegate: class {
+    func didChangeTypeOfSort(typeOfSort: TypeOfSort)
+}
+
 class TypeOfSortTableViewCell: UITableViewCell {
     @IBOutlet private weak var soldButton: UIButton!
     @IBOutlet private weak var boughtButton: UIButton!
+
+    weak var typeOfSortDelegate: TypeOfSortDelegate?
 
     private var currentTypeOfSort: TypeOfSort = .bought
 
@@ -72,12 +78,14 @@ class TypeOfSortTableViewCell: UITableViewCell {
         setDefault(typeOfSort: currentTypeOfSort)
         currentTypeOfSort = .bought
         setChoosen(typeOfSort: currentTypeOfSort)
+        typeOfSortDelegate?.didChangeTypeOfSort(typeOfSort: currentTypeOfSort)
     }
 
     @IBAction private func soldButton(_ sender: Any) {
         setDefault(typeOfSort: currentTypeOfSort)
         currentTypeOfSort = .sold
         setChoosen(typeOfSort: currentTypeOfSort)
+        typeOfSortDelegate?.didChangeTypeOfSort(typeOfSort: currentTypeOfSort)
     }
 }
 

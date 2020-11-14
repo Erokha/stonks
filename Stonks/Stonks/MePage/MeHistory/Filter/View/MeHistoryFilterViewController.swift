@@ -5,13 +5,16 @@ enum Filters: Int, CaseIterable {
 }
 
 class MeHistoryFilterViewController: UIViewController {
+    var output: MeHistoryFilterOutput?
 
     @IBOutlet private weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-
     }
+
+    private var sortBy: SortBy?
+    private var typeOfSort: TypeOfSort?
 
     private func setupTableView() {
         tableView.delegate = self
@@ -23,6 +26,7 @@ class MeHistoryFilterViewController: UIViewController {
     }
 
     @IBAction private func okAction(_ sender: Any) {
+        output?.didOkButtonTapped()
         self.navigationController?.popViewController(animated: true)
     }
 
@@ -46,11 +50,13 @@ extension MeHistoryFilterViewController: UITableViewDelegate, UITableViewDataSou
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SortFilterTableViewCell.reuseIdentifier, for: indexPath) as? SortFilterTableViewCell else {
                 return UITableViewCell()
             }
+            
             return cell
         case .typeOfSort:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: TypeOfSortTableViewCell.reuseIdentifier, for: indexPath) as? TypeOfSortTableViewCell else {
                 return UITableViewCell()
             }
+            cell.typeOfSortDelegate = output
             return cell
         default:
             break
@@ -93,6 +99,9 @@ extension MeHistoryFilterViewController: UITableViewDelegate, UITableViewDataSou
         }
         return view
     }
+}
+
+extension MeHistoryFilterViewController: MeHistoryFilterInput {
 }
 
 extension MeHistoryFilterViewController {

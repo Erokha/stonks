@@ -7,11 +7,16 @@ enum SortBy {
     case descendingDate
 }
 
+protocol SortByDelegate: class {
+    func didChangeSortBy(sortBy: SortBy)
+}
 class SortFilterTableViewCell: UITableViewCell {
     @IBOutlet private weak var increasePriceButton: UIButton!
     @IBOutlet private weak var descendingPriceButton: UIButton!
     @IBOutlet private weak var increaseDateButton: UIButton!
     @IBOutlet private weak var descendingDateButton: UIButton!
+
+    weak var sortByDelegate: SortByDelegate?
 
     private var currentSortBy: SortBy = .increasePrice
 
@@ -56,7 +61,7 @@ class SortFilterTableViewCell: UITableViewCell {
         self.preservesSuperviewLayoutMargins = false
     }
 
-    private func setDefault(sortBy: SortBy) {
+    private func setDefault(_ sortBy: SortBy) {
         switch sortBy {
         case .increasePrice:
             increasePriceButton.backgroundColor = #colorLiteral(red: 0.3540481031, green: 0.3433421254, blue: 0.4038961232, alpha: 1)
@@ -68,7 +73,7 @@ class SortFilterTableViewCell: UITableViewCell {
             descendingDateButton.backgroundColor = #colorLiteral(red: 0.3540481031, green: 0.3433421254, blue: 0.4038961232, alpha: 1)
         }
     }
-    private func setChoosen(sortBy: SortBy) {
+    private func setChoosen(_ sortBy: SortBy) {
         switch sortBy {
         case .increasePrice:
             increasePriceButton.backgroundColor = #colorLiteral(red: 0.4431372549, green: 0.3960784314, blue: 0.8901960784, alpha: 1)
@@ -80,28 +85,28 @@ class SortFilterTableViewCell: UITableViewCell {
             descendingDateButton.backgroundColor = #colorLiteral(red: 0.4431372549, green: 0.3960784314, blue: 0.8901960784, alpha: 1)
         }
     }
+
+    private func didTap(sortBy: SortBy) {
+        setDefault(currentSortBy)
+        currentSortBy = sortBy
+        setChoosen(sortBy)
+        sortByDelegate?.didChangeSortBy(sortBy: sortBy)
+    }
+
     @IBAction private func increasePriceDidTap(_ sender: Any) {
-        setDefault(sortBy: currentSortBy)
-        currentSortBy = .increasePrice
-        setChoosen(sortBy: currentSortBy)
+        didTap(sortBy: .increasePrice)
     }
 
     @IBAction private func increaseDateDidTap(_ sender: Any) {
-        setDefault(sortBy: currentSortBy)
-        currentSortBy = .increaseDate
-        setChoosen(sortBy: currentSortBy)
+        didTap(sortBy: .increaseDate)
     }
 
     @IBAction private func descendingPriceDidTap(_ sender: Any) {
-        setDefault(sortBy: currentSortBy)
-        currentSortBy = .descendingPrice
-        setChoosen(sortBy: currentSortBy)
+        didTap(sortBy: .descendingPrice)
     }
 
     @IBAction private func descendingDateDidTap(_ sender: Any) {
-        setDefault(sortBy: currentSortBy)
-        currentSortBy = .descendingDate
-        setChoosen(sortBy: currentSortBy)
+        didTap(sortBy: .descendingDate)
     }
 }
 

@@ -8,6 +8,11 @@ class MeHistoryFilterContainer {
         guard let vc = storyboard.instantiateViewController(withIdentifier: Storyboard.meFilterPage.name) as? MeHistoryFilterViewController else {
             fatalError("MeHistoryFilterContainer: viewController must be type MeHistoryFilterViewController")
         }
+
+        let presenter = MeHistoryFilterPresenter()
+
+        vc.output = presenter
+        presenter.view = vc
         return MeHistoryFilterContainer(view: vc)
     }
 
