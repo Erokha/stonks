@@ -72,7 +72,6 @@
 		13D824C6254AF41F002F654E /* MeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D824C5254AF41F002F654E /* MeInteractor.swift */; };
 		13DCDD6325481994002D3F99 /* MePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DCDD6225481994002D3F99 /* MePageViewController.swift */; };
 		13E4906125583AF800E567A3 /* MeSettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E4906025583AF800E567A3 /* MeSettingsInteractor.swift */; };
-		13F28AA125348F920004E864 /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13F28AA025348F910004E864 /* CardView.xib */; };
 		13F28AAC2534913F0004E864 /* MePortfolioProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F28AAB2534913F0004E864 /* MePortfolioProtocols.swift */; };
 		13F28AC22534936E0004E864 /* MePortfolioPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F28AC12534936E0004E864 /* MePortfolioPresenter.swift */; };
 		13F28AC6253499550004E864 /* MePortfolioContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F28AC5253499550004E864 /* MePortfolioContainer.swift */; };
@@ -1138,7 +1137,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1200;
-				LastUpgradeCheck = 1200;
+				LastUpgradeCheck = 1210;
 				TargetAttributes = {
 					31BDC083252A1C5A00F56ADD = {
 						CreatedOnToolsVersion = 12.0;
@@ -1185,7 +1184,6 @@
 				13BBF5FF253AD3F400DA0C32 /* ChartTableViewCell.xib in Resources */,
 				137C65FF254F44DB00AB0A59 /* MeHistoryTableViewCell.xib in Resources */,
 				137C66192552CBD300AB0A59 /* SortFilterTableViewCell.xib in Resources */,
-				13F28AA125348F920004E864 /* CardView.xib in Resources */,
 				31CD5485252BAEA400F65D17 /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1323,7 +1321,6 @@
 				31782B76253B41E100B680D9 /* DataProtocols.swift in Sources */,
 				13D824C6254AF41F002F654E /* MeInteractor.swift in Sources */,
 				0D777775254B22FA00EFF30E /* ArticleModel.swift in Sources */,
-				13D824C6254AF41F002F654E /* MeInteractor.swift in Sources */,
 				311057EB253F219D00B41CDA /* Entities.swift in Sources */,
 				311057E8253F1E1C00B41CDA /* User+CoreDataProperties.swift in Sources */,
 				0D777785254EEA0B00EFF30E /* ArticleRouter.swift in Sources */,

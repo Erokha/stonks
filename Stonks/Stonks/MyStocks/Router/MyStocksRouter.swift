@@ -5,6 +5,15 @@ class MyStocksRouter {
 }
 
 extension MyStocksRouter: MyStocksRouterInput {
+    func showStockDetail(symbol: String) {
+        let container = StockDetailContainer.assemble(with: StockDetailContext(symbol: symbol))
+        let vc = container.viewController
+
+        vc.modalPresentationStyle = .fullScreen
+
+        viewController?.navigationController?.pushViewController(vc, animated: true)
+    }
+
     func showError(with error: Error) {
         let alert = UIAlertController(title: "Error happend", message: error.localizedDescription, preferredStyle: .alert)
 

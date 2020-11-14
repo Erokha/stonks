@@ -44,6 +44,10 @@ extension MyStocksPresenter: MyStocksViewOutput {
     func refreshData() {
         self.interactor.loadStoks()
     }
+
+    func didTapOnStock(symbol: String) {
+            router?.showStockDetail(symbol: symbol)
+    }
 }
 
 extension MyStocksPresenter: MyStoksInteractorOutput {
