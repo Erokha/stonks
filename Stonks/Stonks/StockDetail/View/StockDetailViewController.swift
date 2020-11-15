@@ -5,6 +5,8 @@ class StockDetailViewController: UIViewController {
 
     var output: StockDetailViewOutput?
 
+    var cardPresenter: CardViewPresenter?
+
     @IBOutlet private weak var showMyStocksButton: UIButton!
 
     @IBOutlet private weak var stockDetailCardContainerView: UIView!
@@ -95,11 +97,12 @@ class StockDetailViewController: UIViewController {
         stockDetailCardView.clipsToBounds = true
         stockDetailCardView.layer.cornerRadius = Constants.StockDetailCardView.cornerRadius
 
-        /*
-        let presenter = CardViewPresenter(view: stockDetailCardView)
+        self.cardPresenter = CardViewPresenter(view: stockDetailCardView)
 
-        stockDetailCardView.presenter = presenter
-        */
+        stockDetailCardView.presenter = self.cardPresenter
+
+        self.cardPresenter?.setUpperTextLeft(text: Constants.CardView.leftText)
+        self.cardPresenter?.setUpperTextRight(text: Constants.CardView.rightText)
     }
 
     private func setupBuyButton() {
@@ -234,6 +237,22 @@ class StockDetailViewController: UIViewController {
 }
 
 extension StockDetailViewController: StockDetailViewInput {
+    func setCardLeftText(text: String) {
+        cardPresenter?.setUpperTextLeft(text: text)
+    }
+
+    func setCardRightText(text: String) {
+        cardPresenter?.setUpperTextRight(text: text)
+    }
+
+    func setCardLeftNumber(number: Int) {
+        cardPresenter?.setNumberLeft(num: number)
+    }
+
+    func setCardRightNumber(number: Int) {
+        cardPresenter?.setNumberRight(num: number)
+    }
+
     func setStockNameLabel(with name: String) {
         stockNameLabel.text = name
     }
@@ -398,6 +417,11 @@ extension StockDetailViewController {
             static let shadowOffset: CGSize = CGSize(width: 0, height: 3)
             static let shadowRadius: CGFloat = 3
             static let shadowOpacity: Float = 0.5
+        }
+
+        struct CardView {
+            static let leftText: String = "Spent"
+            static let rightText: String = "Available Balance"
         }
     }
 }

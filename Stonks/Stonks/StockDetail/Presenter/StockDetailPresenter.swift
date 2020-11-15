@@ -20,6 +20,7 @@ class StockDetailPresenter {
 
 extension StockDetailPresenter: StockDetailViewOutput {
     func didLoadView() {
+        interactor?.fetchCardData()
         interactor?.fetchStockQuotes()
     }
 
@@ -55,6 +56,15 @@ extension StockDetailPresenter: StockDetailViewOutput {
 }
 
 extension StockDetailPresenter: StockDetailInteractorOutput {
+    func cardDataDidReceived(model: StockDetailPresenterData) {
+        guard let data = model.cardData else {
+            return
+        }
+
+        view?.setCardLeftNumber(number: data.leftNumber)
+        view?.setCardRightNumber(number: data.rightNumber)
+    }
+
     func freshCostDidReceived(model: StockDetailPresenterData) {
         self.model = model
 

@@ -61,6 +61,17 @@ class StockDetailInteractor {
 }
 
 extension StockDetailInteractor: StockDetailInteractorInput {
+    func fetchCardData() {
+        guard let user = UserDataService.shared.getUser() else {
+            return
+        }
+
+        let cardData = CardData(leftNumber: Int(truncating: user.totalSpent),
+                                rightNumber: Int(truncating: user.balance))
+
+        output?.cardDataDidReceived(model: StockDetailPresenterData(cardData: cardData))
+    }
+
     func increaseAmount(by value: Int) {
         guard let stock = self.stock,
               let user = UserDataService.shared.getUser(),

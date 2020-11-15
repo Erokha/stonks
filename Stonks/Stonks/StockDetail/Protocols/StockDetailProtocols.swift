@@ -6,6 +6,10 @@ protocol StockDetailViewInput: class {
     func setNavigationBarTitle(with titel: String)
     func setStockNameLabel(with name: String)
     func setStockCurrentCostLabel(with cost: String)
+    func setCardLeftText(text: String)
+    func setCardRightText(text: String)
+    func setCardLeftNumber(number: Int)
+    func setCardRightNumber(number: Int)
     func showAlert(with title: String, message: String)
 }
 
@@ -25,11 +29,13 @@ protocol StockDetailInteractorInput: class {
     func increaseAmount(by value: Int)
     func descreaseAmount(by value: Int)
     func fetchStockQuotes()
+    func fetchCardData()
     func stopFetching()
 }
 
 protocol StockDetailInteractorOutput: class {
     func freshCostDidReceived(model: StockDetailPresenterData)
     func stockHistoryDidReceived(model: StockDetailPresenterData)
+    func cardDataDidReceived(model: StockDetailPresenterData)
     func showAlert(with title: String, message: String)
 }
