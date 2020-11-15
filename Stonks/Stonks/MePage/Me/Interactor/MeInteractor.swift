@@ -40,12 +40,12 @@ final class MeInteractor: NSObject {
 
 extension MeInteractor: MeInteractorInput {
     func saveImage(pngData: Data) {
-//        guard let user = UserDataService.shared.getUser() else { return }
-        guard var documentURL = FileManager.default.urls(for: .documentDirectory,
-                                                         in: .userDomainMask).first else { return }
-        let newurl = documentURL.appendingPathComponent("avatar.png")
+        guard let user = UserDataService.shared.getUser() else { return }
+//        guard var documentURL = FileManager.default.urls(for: .documentDirectory,
+//                                                         in: .userDomainMask).first else { return }
+//        let newurl = documentURL.appendingPathComponent("avatar.png")
         do {
-//            let url = user.avatarURL as URL
+            let newurl = user.avatarURL as URL
             if FileManager.default.fileExists(atPath: newurl.path) {
                 try FileManager.default.removeItem(atPath: newurl.path)
             }

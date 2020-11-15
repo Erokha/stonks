@@ -20,7 +20,7 @@ protocol MeHistoryFilterInteractorOutput: class {
 }
 
 protocol MeHistoryFilterInteractorInput: class {
-    func loadHistoryStocks(type: TypeOfAction?, sortBy: SortBy?)
+    func loadHistoryStocks(with type: TypeOfAction?, sortBy: SortBy?)
 }
 
 protocol FilterDelegate: TypeOfSortDelegate, SortByDelegate {

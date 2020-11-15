@@ -5,15 +5,15 @@ class MeHistoryFilterInteractor {
 }
 
 extension MeHistoryFilterInteractor: MeHistoryFilterInteractorInput {
-    func loadHistoryStocks(type: TypeOfAction?, sortBy: SortBy?) {
-        if let typeOfAction = type {
-            let stocksType = StockHistoryDataService.shared.getStocks(with: typeOfAction)
-            print(stocksType)
-        } else {
-            let stocks = StockHistoryDataService.shared.getAllStocks()
-            if let coolStocks = stocks {
-                let stock = coolStocks.first
-                print(stock?.type)
+    func loadHistoryStocks(with type: TypeOfAction?, sortBy: SortBy?) {
+        if let allStocks = StockHistoryDataService.shared.getAllStocks() {
+            for stock in allStocks {
+                print(stock.price)
+            }
+        }
+        if let stocksType = StockHistoryDataService.shared.getStocks(with: type, sortby: sortBy) {
+            for stock in stocksType {
+                print(stock.price)
             }
         }
     }

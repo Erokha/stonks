@@ -28,7 +28,7 @@ extension MeHistoryFilterPresenter: MeHistoryFilterOutput {
     }
 
     func didOkButtonTapped() {
-        interactor.loadHistoryStocks(type: typeOfSort, sortBy: sortBy)
+        interactor.loadHistoryStocks(with: typeOfSort, sortBy: sortBy)
     }
 }
 

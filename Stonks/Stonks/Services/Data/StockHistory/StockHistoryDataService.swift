@@ -11,6 +11,33 @@ class StockHistoryDataService {
     private lazy var persistentContainer = {
         return DataService.shared.getPersistentContainer()
     }()
+
+    private func createPredicate(with type: TypeOfAction?) -> NSPredicate? {
+        if let actionType = type {
+            let intType = actionType.rawValue
+            let predicate = NSPredicate(format: "type == %@", String(intType))
+            return predicate
+        } else {
+            return nil
+        }
+    }
+
+    private func createSortDiscriptor(sortBy: SortBy?) -> NSSortDescriptor {
+        if let sort = sortBy {
+            switch sort {
+            case .descendingDate:
+                return NSSortDescriptor(key: "date", ascending: false)
+            case .descendingPrice:
+                return NSSortDescriptor(key: "price", ascending: false)
+            case .increaseDate:
+                return NSSortDescriptor(key: "date", ascending: true)
+            case .increasePrice:
+                return NSSortDescriptor(key: "price", ascending: true)
+            }
+        } else {
+            return NSSortDescriptor(key: "date", ascending: true)
+        }
+    }
 }
 
 extension StockHistoryDataService {
@@ -54,16 +81,16 @@ extension StockHistoryDataService {
         }
     }
 
-    func getStocks(with type: TypeOfAction) -> [StockHistory]? {
-        let intType = Int16(type.rawValue)
-
+    func getStocks(with type: TypeOfAction?, sortby: SortBy?) -> [StockHistory]? {
         let context = persistentContainer.viewContext
         let stockHistoryFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Entities.stockHistory.rawValue)
 
-        let predicate = NSPredicate(format: "type == %@", String(intType))
+        if let predicate = createPredicate(with: type) {
+            stockHistoryFetchRequest.predicate = predicate
+        }
 
-        stockHistoryFetchRequest.predicate = predicate
-
+        let sortDescriptor = createSortDiscriptor(sortBy: sortby)
+        stockHistoryFetchRequest.sortDescriptors = [sortDescriptor]
         do {
             let fetchResult = try context.fetch(stockHistoryFetchRequest)
 

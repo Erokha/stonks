@@ -10,14 +10,17 @@ struct MeUserData {
     init(with user: User) {
         self.name = user.name
         self.surname = user.surname
-        if let documentURL = FileManager.default.urls(for: .documentDirectory,
-                                                      in: .userDomainMask).first {
-            let newurl = documentURL.appendingPathComponent("avatar.png")
-            if let avatarImage = UIImage(contentsOfFile: newurl.path) {
-                self.avatar = avatarImage
-            }
+//        if let documentURL = FileManager.default.urls(for: .documentDirectory,
+//                                                      in: .userDomainMask).first {
+//            let newurl = documentURL.appendingPathComponent("avatar.png")
+//            if let avatarImage = UIImage(contentsOfFile: newurl.path) {
+//                self.avatar = avatarImage
+//            }
+//        }
+        let imageUrl = user.avatarURL
+        if let avatarImage = UIImage(contentsOfFile: imageUrl.path ?? "") {
+            self.avatar = avatarImage
         }
-//        let imageUrl = user.avatarURL.absoluteString ?? ""
         let balance = Float(truncating: user.balance)
         self.balance = Int(balance)
         let totalSpent = Float(truncating: user.totalSpent)
