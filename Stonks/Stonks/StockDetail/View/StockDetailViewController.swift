@@ -5,6 +5,8 @@ class StockDetailViewController: UIViewController {
 
     var output: StockDetailViewOutput?
 
+    @IBOutlet private weak var showMyStocksButton: UIButton!
+
     @IBOutlet private weak var stockDetailCardContainerView: UIView!
 
     @IBOutlet private weak var stockDetailCardView: CardView!
@@ -114,12 +116,19 @@ class StockDetailViewController: UIViewController {
         buyButton.addTarget(self, action: #selector(didTapBuyButton), for: .touchUpInside)
     }
 
-    @objc private func didTapBuyButton() {
+    @objc
+    private func didTapBuyButton() {
         output?.didTapBuyButton(amount: buyTextField.text)
     }
 
-    @objc private func didTapSellButton() {
+    @objc
+    private func didTapSellButton() {
         output?.didTapSellButton(amount: sellTextField.text)
+    }
+
+    @objc
+    private func didTapShowMyStocksButton() {
+        output?.didTapShowMyStocksButton()
     }
 
     private func setupSellButton() {
@@ -186,7 +195,14 @@ class StockDetailViewController: UIViewController {
         stockCurrentCostLabel.font = Constants.StockCurrentCostLabel.font
     }
 
+    private func setupShowMyStocksButton() {
+        showMyStocksButton.setImage(UIImage(named: Constants.ShowMyStocksButton.imageName), for: .normal)
+        showMyStocksButton.imageView?.contentMode = .scaleAspectFill
+        showMyStocksButton.addTarget(self, action: #selector(didTapShowMyStocksButton), for: .touchUpInside)
+    }
+
     private func setupViews() {
+        setupShowMyStocksButton()
         setupStockDetailCardContainerView()
         setupChartContainerView()
         setupStockDetailCardView()
@@ -208,6 +224,12 @@ class StockDetailViewController: UIViewController {
         setupConstraints()
 
         output?.didLoadView()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        output?.viewWillDisappear()
     }
 }
 
@@ -272,11 +294,15 @@ extension StockDetailViewController {
         }
 
         struct StockDetailCardView {
-            static let cornerRadius: CGFloat = 10
+            static let cornerRadius: CGFloat = 20
+        }
+
+        struct ShowMyStocksButton {
+            static let imageName: String = "previous"
         }
 
         struct StockDetailCardContainerView {
-            static let cornerRadius: CGFloat = 10
+            static let cornerRadius: CGFloat = 20
             static let shadowColor: UIColor = .black
             static let shadowOffset: CGSize = CGSize(width: 0, height: 3)
             static let shadowRadius: CGFloat = 3

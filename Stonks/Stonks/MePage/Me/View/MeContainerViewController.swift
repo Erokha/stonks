@@ -41,6 +41,6 @@ extension MeContainerViewController {
     struct Constants {
         static let cornerRadius: CGFloat = 20
         static let upperTextLeft: String = "Spent"
-        static let upperTextRight: String = "Current Balance"
+        static let upperTextRight: String = "Avaliable Balance"
     }
 }

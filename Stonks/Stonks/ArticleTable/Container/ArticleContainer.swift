@@ -11,7 +11,7 @@ class ArticleContainer {
             fatalError("ArticleContainer: viewController must be type ArticleViewController")
         }
 
-        let interactor = ArticleInteractor(with: context.interactorUrl)
+        let interactor = ArticleInteractor(type: context.type)
         let presenter = ArticleViewPresenter(interactor: interactor)
 
         interactor.output = presenter
@@ -33,6 +33,11 @@ class ArticleContainer {
 }
 
 struct ArticleContext {
-    let interactorUrl: String
     let tableViewTitle: String
+    let type: ArticleType
+}
+
+enum ArticleType {
+    case learn
+    case news
 }

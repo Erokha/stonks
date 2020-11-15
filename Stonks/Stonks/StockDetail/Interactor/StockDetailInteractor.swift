@@ -32,7 +32,7 @@ class StockDetailInteractor {
     }
 
     @objc
-    private func fetchFreshCost() {
+    private func fetchFreshCost(timer: Timer) {
         guard let stock = self.stock,
               !stock.priceHistory.isEmpty else {
             return
@@ -48,7 +48,15 @@ class StockDetailInteractor {
     }
 
     deinit {
-        updateQuotesTimer?.invalidate()
+        guard let user = UserDataService.shared.getUser(),
+              let stocks = user.stocks?.allObjects as? [Stock] else {
+            return
+        }
+
+        for stock in stocks where stock.amount == 0 {
+            print(stock.symbol)
+            StockDataService.shared.deleteStock(symbol: stock.symbol)
+        }
     }
 }
 
@@ -118,6 +126,10 @@ extension StockDetailInteractor: StockDetailInteractorInput {
         StockDataService.shared.updateStock(symbol: stock.symbol, stock: stock)
 
         output?.stockHistoryDidReceived(model: StockDetailPresenterData(model: stock))
+    }
+
+    func stopFetching() {
+        updateQuotesTimer?.invalidate()
     }
 }
 

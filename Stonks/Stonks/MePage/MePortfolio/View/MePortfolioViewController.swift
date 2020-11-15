@@ -19,7 +19,7 @@ class MePortfolioViewController: UIViewController {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-
+        tableView.showsVerticalScrollIndicator = false
         let chartNib = UINib(nibName: ChartTableViewCell.reuseIdentifier, bundle: nil)
         tableView.register(chartNib, forCellReuseIdentifier: ChartTableViewCell.reuseIdentifier)
         let historyNib = UINib(nibName: HistoryButtonTableViewCell.reuseIdentifier, bundle: nil)
@@ -74,6 +74,17 @@ extension MePortfolioViewController: UITableViewDelegate, UITableViewDataSource 
             return MePortfolioViewController.Constants.buttonCellHeigth
         default:
             return 0
+        }
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch MePortfolioSections(rawValue: indexPath.section) {
+        case .chart:
+            break
+        case .historyButton:
+            presenter.didHistoryButtonTapped()
+        default:
+            break
         }
     }
 }

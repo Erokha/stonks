@@ -1,10 +1,3 @@
-//
-//  TableViewCell.swift
-//  ochko
-//
-//  Created by kymblc on 08.10.2020.
-//
-
 import UIKit
 import Kingfisher
 

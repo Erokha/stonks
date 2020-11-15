@@ -13,7 +13,7 @@ class SettingsTableViewCell: UITableViewCell {
         buttonView.layer.cornerRadius = SettingsTableViewCell.Constants.viewRadius
         buttonView.layer.shadowColor = UIColor.black.cgColor
         buttonView.layer.shadowRadius = SettingsTableViewCell.Constants.shadowRadius
-        buttonView.layer.shadowOffset = .zero
+        buttonView.layer.shadowOffset = .init(width: 0, height: 3)
         buttonView.layer.shadowOpacity = SettingsTableViewCell.Constants.shadowOpacity
     }
 
@@ -25,8 +25,8 @@ class SettingsTableViewCell: UITableViewCell {
 extension SettingsTableViewCell {
     private struct Constants {
         static let viewRadius: CGFloat = 15
-        static let shadowRadius: CGFloat = 5
-        static let shadowOpacity: Float = 0.6
+        static let shadowRadius: CGFloat = 2
+        static let shadowOpacity: Float = 0.4
         static let legendFormSize: CGFloat = 15
     }
 }
