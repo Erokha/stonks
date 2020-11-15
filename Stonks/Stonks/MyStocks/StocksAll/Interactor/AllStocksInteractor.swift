@@ -4,9 +4,9 @@ import Alamofire
 final class AllStocksInteractor {
     weak var output: AllStoksInteractorOutput?
 
-    private func handleError(with error: AFError?) {
-        switch error {
-        case .sessionTaskFailed:
+    private func handleError(with error: Error) {
+        switch error.localizedDescription {
+        case networkErrors.sessionTaskFailed.type:
             output?.didReciveError(with: AppError.networkError)
         default:
             output?.didReciveError(with: AppError.undefinedError)
@@ -24,7 +24,7 @@ extension AllStocksInteractor: AllStoksInteractorInput {
     func loadStoks() {
         NetworkService.shared.fetchAllStocks { [weak self] result in
             if let error = result.error {
-                self?.handleError(with: error.asAFError)
+                self?.handleError(with: error)
                 return
             }
 
@@ -36,4 +36,21 @@ extension AllStocksInteractor: AllStoksInteractorInput {
         }
     }
 
+}
+
+enum networkErrors {
+    case sessionTaskFailed
+}
+
+extension networkErrors {
+    var type: String {
+        switch self {
+        case .sessionTaskFailed:
+            return errorStrings.sessionTaskFailed
+        }
+    }
+}
+
+private struct errorStrings {
+    static let sessionTaskFailed = "URLSessionTask failed with error: Could not connect to the server."
 }
