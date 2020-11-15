@@ -1,13 +1,21 @@
 import Foundation
+import CoreData
 
-class StockDetailInteractor {
+class StockDetailInteractor: NSObject {
     weak var output: StockDetailInteractorOutput?
+
+    private var frc: NSFetchedResultsController<User>?
 
     private var stock: Stock?
 
     private var updateQuotesTimer: Timer?
 
     init(symbol: String) {
+        super.init()
+
+        configureFrc()
+        frc?.delegate = self
+
         if StockDataService.shared.stockIsNew(symbol: symbol) {
             // тут запрос в сеть
             guard let url = URL(string: "sdsd") else {
@@ -29,6 +37,22 @@ class StockDetailInteractor {
                                                       selector: #selector(fetchFreshCost),
                                                       userInfo: nil,
                                                       repeats: true)
+    }
+
+    private func configureFrc() {
+        let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+
+        frc = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                         managedObjectContext: DataService.shared.getPersistentContainer().viewContext,
+                                         sectionNameKeyPath: nil,
+                                         cacheName: nil)
+        do {
+            try frc?.performFetch()
+        } catch {
+            fatalError("StockDetailInteractor: Request not fetched!")
+        }
     }
 
     @objc
@@ -141,6 +165,19 @@ extension StockDetailInteractor: StockDetailInteractorInput {
 
     func stopFetching() {
         updateQuotesTimer?.invalidate()
+    }
+}
+
+extension StockDetailInteractor: NSFetchedResultsControllerDelegate {
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        guard let fetchResult = controller.fetchedObjects?.first as? User else {
+            return
+        }
+
+        let model = CardData(leftNumber: Int(truncating: fetchResult.totalSpent),
+                             rightNumber: Int(truncating: fetchResult.balance))
+
+        output?.cardDataDidReceived(model: StockDetailPresenterData(cardData: model))
     }
 }
 
