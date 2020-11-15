@@ -14,7 +14,7 @@ class MeHistoryFilterViewController: UIViewController {
     }
 
     private var sortBy: SortBy?
-    private var typeOfSort: TypeOfSort?
+    private var typeOfSort: TypeOfAction?
 
     private func setupTableView() {
         tableView.delegate = self
@@ -106,7 +106,7 @@ extension MeHistoryFilterViewController: MeHistoryFilterInput {
 }
 
 extension MeHistoryFilterViewController: FilterDelegate {
-    func didChangeTypeOfSort(typeOfSort: TypeOfSort) {
+    func didChangeTypeOfSort(typeOfSort: TypeOfAction) {
         output?.didChangeTypeOfSort(typeOfSort: typeOfSort)
     }
 

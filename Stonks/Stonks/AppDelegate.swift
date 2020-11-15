@@ -9,6 +9,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
 
+        let currentDate: Date = Date()
+//        StockHistoryDataService.shared.createHistoryStock(name: "Lol", symbol: "Lal", price: 12, date: currentDate, type: .bought)
+
         self.window?.rootViewController = getInitalViewController(isAuthorized: AuthorizationService.shared.userIsAuthorized())
 
         self.window?.makeKeyAndVisible()

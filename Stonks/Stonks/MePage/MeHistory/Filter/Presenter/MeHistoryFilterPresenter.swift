@@ -9,10 +9,13 @@ import Foundation
 
 class MeHistoryFilterPresenter {
     weak var view: MeHistoryFilterInput?
-
+    private var interactor: MeHistoryFilterInteractorInput
     private var sortBy: SortBy?
-    private var typeOfSort: TypeOfSort?
+    private var typeOfSort: TypeOfAction?
 
+    init(interactor: MeHistoryFilterInteractorInput) {
+        self.interactor = interactor
+    }
 }
 
 extension MeHistoryFilterPresenter: MeHistoryFilterOutput {
@@ -20,12 +23,14 @@ extension MeHistoryFilterPresenter: MeHistoryFilterOutput {
         self.sortBy = sortBy
     }
 
-    func didChangeTypeOfSort(typeOfSort: TypeOfSort) {
+    func didChangeTypeOfSort(typeOfSort: TypeOfAction) {
         self.typeOfSort = typeOfSort
     }
 
     func didOkButtonTapped() {
-        print("Type of sort:", typeOfSort as Any)
-        print("Sort By:", sortBy as Any)
+        interactor.loadHistoryStocks(type: typeOfSort, sortBy: sortBy)
     }
+}
+
+extension MeHistoryFilterPresenter: MeHistoryFilterInteractorOutput {
 }
