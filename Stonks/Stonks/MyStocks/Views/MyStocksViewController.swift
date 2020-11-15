@@ -70,6 +70,10 @@ extension MyStocksViewController: UITableViewDelegate, UITableViewDataSource {
 
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            let symbol: String = output?.stock(at: indexPath)?.stockSymbol ?? "Unknown"
+            output?.didTapOnStock(symbol: symbol)
+    }
 }
 
 extension MyStocksViewController: MyStocksViewInput {

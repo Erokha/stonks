@@ -1,23 +1,11 @@
-//
-//  MyStocksInteractor.swift
-//  Stonks
-//
-//  Created by kymblc on 23.10.2020.
-//
-
 import Foundation
 import Alamofire
 
 final class MyStocksInteractor {
     weak var output: MyStoksInteractorOutput?
 
-    private func handleError(with error: AFError) {
-        switch error {
-        case .sessionTaskFailed:
-            output?.didReciveError(with: AppError.networkError)
-        default:
-            output?.didReciveError(with: AppError.undefinedError)
-        }
+    private func handleError(with error: Error) {
+        print(error)
     }
 
     private func handleStock(with stocksRaw: [StockRaw]) {
@@ -29,15 +17,17 @@ final class MyStocksInteractor {
 
 extension MyStocksInteractor: MyStoksInteractorInput {
     func loadStoks() {
-        let url = "http://stonks.kkapp.ru:8000/allStocks"
-        let request = AF.request(url)
-        request.responseDecodable(of: [StockRaw].self) { [weak self] response in
-            switch response.result {
-            case .success(let stocksRaw):
-                self?.handleStock(with: stocksRaw)
-            case .failure(let error):
+        NetworkService.shared.fetchAllStocks { [weak self] result in
+            if let error = result.error {
                 self?.handleError(with: error)
+                return
             }
+
+            guard let stocks = result.data else {
+                return
+            }
+
+            self?.handleStock(with: stocks)
         }
     }
 

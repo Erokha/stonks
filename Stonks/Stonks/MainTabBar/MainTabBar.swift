@@ -21,40 +21,20 @@ class MainTabBar: UITabBarController {
     }
 
     private func prepareLearnViewController() -> UINavigationController {
-            guard let url = URL(string: "dsdss") else {
-                return UINavigationController()
-            }
+        let container = ArticleContainer.assemble(with: ArticleContext(tableViewTitle: "Learn", type: .learn))
+        let tabBarItem = UITabBarItem(title: Constants.LearnBarItem.title,
+                                      image: UIImage(named: Constants.LearnBarItem.imageName)?.withRenderingMode(.alwaysOriginal),
+                                      tag: Constants.LearnBarItem.tag)
 
-//            StockDataService.shared.createStock(name: "Apple", symbol: "AAPL", imageURL: url)
+        container.viewController.tabBarItem = tabBarItem
 
-        let container = StockDetailContainer.assemble(with: StockDetailContext(symbol: "AAPL"))
-            let tabBarItem = UITabBarItem(title: Constants.LearnBarItem.title,
-                                          image: UIImage(named: Constants.LearnBarItem.imageName)?.withRenderingMode(.alwaysOriginal),
-                                          tag: Constants.LearnBarItem.tag)
+        let navigationVC = UINavigationController(rootViewController: container.viewController)
 
-            container.viewController.tabBarItem = tabBarItem
+        navigationVC.navigationBar.isHidden = true
 
-            let navigationVC = UINavigationController(rootViewController: container.viewController)
+        return navigationVC
+    }
 
-            navigationVC.navigationBar.isHidden = true
-
-            return navigationVC
-
-            /*
-            let container = ArticleContainer.assemble(with: ArticleContext(interactorUrl: "http://stonks.kkapp.ru:8000/learn", tableViewTitle: "Learn"))
-            let tabBarItem = UITabBarItem(title: Constants.LearnBarItem.title,
-                                          image: UIImage(named: Constants.LearnBarItem.imageName)?.withRenderingMode(.alwaysOriginal),
-                                          tag: Constants.LearnBarItem.tag)
-
-            container.viewController.tabBarItem = tabBarItem
-
-            let navigationVC = UINavigationController(rootViewController: container.viewController)
-
-            navigationVC.navigationBar.isHidden = true
-
-            return navigationVC
-             */
-        }
     private func prepareMyStocksViewController() -> UINavigationController {
         let stockRaw = StockRaw(stockName: "Apple", stockSymbol: "AAPL", stockPrice: 432, imageUrl: "")
         let stock = StockData(with: stockRaw)
@@ -74,7 +54,7 @@ class MainTabBar: UITabBarController {
     }
 
     private func prepareNewsViewController() -> UINavigationController {
-        let container = ArticleContainer.assemble(with: ArticleContext(interactorUrl: "http://stonks.kkapp.ru:8000/news", tableViewTitle: "News"))
+        let container = ArticleContainer.assemble(with: ArticleContext(tableViewTitle: "News", type: .news))
         let tabBarItem = UITabBarItem(title: Constants.NewsBarItem.title,
                                       image: UIImage(named: Constants.NewsBarItem.imageName)?.withRenderingMode(.alwaysOriginal),
                                       tag: Constants.NewsBarItem.tag)

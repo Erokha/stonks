@@ -101,35 +101,43 @@ class LoginViewController: UIViewController {
         setupView()
     }
 
-    @objc private func didTapView() {
+    @objc
+    private func didTapView() {
         output?.didTapView()
     }
 
-    @objc private func didTapCheckBox() {
+    @objc
+    private func didTapCheckBox() {
         output?.didTapCheckBox()
     }
 
-    @objc private func didStartNameEditing() {
+    @objc
+    private func didStartNameEditing() {
         output?.didStartNameEditing()
     }
 
-    @objc private func didFinishNameEditing() {
+    @objc
+    private func didFinishNameEditing() {
         output?.didFinishNameEditing()
     }
 
-    @objc private func didStartSurnameEditing() {
+    @objc
+    private func didStartSurnameEditing() {
         output?.didStartSurnameEditing()
     }
 
-    @objc private func didFinishSurnameEditing() {
+    @objc
+    private func didFinishSurnameEditing() {
         output?.didFinishSurnameEditing()
     }
 
-    @objc private func didStartBalanceEditing() {
+    @objc
+    private func didStartBalanceEditing() {
         output?.didStartBalanceEditing()
     }
 
-    @objc private func didFinishBalanceEditing() {
+    @objc
+    private func didFinishBalanceEditing() {
         output?.didFinishBalanceEditing()
     }
 
