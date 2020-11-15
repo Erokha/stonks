@@ -12,6 +12,7 @@
 		0D3903BB252F62C200C18036 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3903B0252F62C200C18036 /* ContainerViewController.swift */; };
 		0D3903BC252F62C200C18036 /* MainStocksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3903B1252F62C200C18036 /* MainStocksViewController.swift */; };
 		0D3903BD252F62C200C18036 /* MyStocksViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3903B3252F62C200C18036 /* MyStocksViewProtocols.swift */; };
+		0D505B0525615412007F764F /* MeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D824C5254AF41F002F654E /* MeInteractor.swift */; };
 		0D751141253A5C4F00D0A719 /* StockTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D75113F253A5C4F00D0A719 /* StockTableViewCell.xib */; };
 		0D751142253A5C4F00D0A719 /* StockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D751140253A5C4F00D0A719 /* StockTableViewCell.swift */; };
 		0D75114C253A606E00D0A719 /* AllStocksContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D75114B253A606E00D0A719 /* AllStocksContainer.swift */; };
@@ -22,7 +23,7 @@
 		0D777774254B22FA00EFF30E /* ArticleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D777766254B22FA00EFF30E /* ArticleTableViewCell.xib */; };
 		0D777775254B22FA00EFF30E /* ArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D777768254B22FA00EFF30E /* ArticleModel.swift */; };
 		0D777776254B22FA00EFF30E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D77776A254B22FA00EFF30E /* ViewController.swift */; };
-		0D777777254B22FA00EFF30E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D77776B254B22FA00EFF30E /* Main.storyboard */; };
+		0D777777254B22FA00EFF30E /* Article.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D77776B254B22FA00EFF30E /* Article.storyboard */; };
 		0D777778254B22FA00EFF30E /* NewsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D77776D254B22FA00EFF30E /* NewsProtocols.swift */; };
 		0D777779254B22FA00EFF30E /* ArticleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D77776F254B22FA00EFF30E /* ArticleInteractor.swift */; };
 		0D777785254EEA0B00EFF30E /* ArticleRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D777784254EEA0B00EFF30E /* ArticleRouter.swift */; };
@@ -80,7 +81,6 @@
 		137C66192552CBD300AB0A59 /* SortFilterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 137C66172552CBD300AB0A59 /* SortFilterTableViewCell.xib */; };
 		13BBF5FE253AD3F400DA0C32 /* ChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BBF5FC253AD3F400DA0C32 /* ChartTableViewCell.swift */; };
 		13BBF5FF253AD3F400DA0C32 /* ChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13BBF5FD253AD3F400DA0C32 /* ChartTableViewCell.xib */; };
-		13D824C6254AF41F002F654E /* MeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D824C5254AF41F002F654E /* MeInteractor.swift */; };
 		13DCDD6325481994002D3F99 /* MePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DCDD6225481994002D3F99 /* MePageViewController.swift */; };
 		13E4906125583AF800E567A3 /* MeSettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E4906025583AF800E567A3 /* MeSettingsInteractor.swift */; };
 		13F28AAC2534913F0004E864 /* MePortfolioProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F28AAB2534913F0004E864 /* MePortfolioProtocols.swift */; };
@@ -142,7 +142,7 @@
 		0D777766254B22FA00EFF30E /* ArticleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArticleTableViewCell.xib; sourceTree = "<group>"; };
 		0D777768254B22FA00EFF30E /* ArticleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleModel.swift; sourceTree = "<group>"; };
 		0D77776A254B22FA00EFF30E /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		0D77776B254B22FA00EFF30E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		0D77776B254B22FA00EFF30E /* Article.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Article.storyboard; sourceTree = "<group>"; };
 		0D77776D254B22FA00EFF30E /* NewsProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsProtocols.swift; sourceTree = "<group>"; };
 		0D77776F254B22FA00EFF30E /* ArticleInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleInteractor.swift; sourceTree = "<group>"; };
 		0D777784254EEA0B00EFF30E /* ArticleRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArticleRouter.swift; path = Stonks/ArticleTable/Router/ArticleRouter.swift; sourceTree = SOURCE_ROOT; };
@@ -381,7 +381,7 @@
 			isa = PBXGroup;
 			children = (
 				0D77776A254B22FA00EFF30E /* ViewController.swift */,
-				0D77776B254B22FA00EFF30E /* Main.storyboard */,
+				0D77776B254B22FA00EFF30E /* Article.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1362,7 +1362,7 @@
 				31905F7E25361BA0000D71A7 /* StockDetail.storyboard in Resources */,
 				134487A22541C40D008C2D7B /* SettingsTableViewCell.xib in Resources */,
 				0D777774254B22FA00EFF30E /* ArticleTableViewCell.xib in Resources */,
-				0D777777254B22FA00EFF30E /* Main.storyboard in Resources */,
+				0D777777254B22FA00EFF30E /* Article.storyboard in Resources */,
 				0D751141253A5C4F00D0A719 /* StockTableViewCell.xib in Resources */,
 				13BBF5FF253AD3F400DA0C32 /* ChartTableViewCell.xib in Resources */,
 				137C65FF254F44DB00AB0A59 /* MeHistoryTableViewCell.xib in Resources */,
@@ -1437,6 +1437,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D505B0525615412007F764F /* MeInteractor.swift in Sources */,
 				3155EC1C254970F00036F67B /* LoginContainer.swift in Sources */,
 				318857942552B54E00FFDCBC /* AuthorizationService.swift in Sources */,
 				0DF11C0B255C8ABA004162BA /* UserStocksViewController.swift in Sources */,
@@ -1509,10 +1510,8 @@
 				0D75114C253A606E00D0A719 /* AllStocksContainer.swift in Sources */,
 				31782B76253B41E100B680D9 /* DataProtocols.swift in Sources */,
 				0DF11C2B255FC436004162BA /* MainStocksPresenter.swift in Sources */,
-				13D824C6254AF41F002F654E /* MeInteractor.swift in Sources */,
 				0D777775254B22FA00EFF30E /* ArticleModel.swift in Sources */,
 				0DF11C06255C89D1004162BA /* UserStocksContainer.swift in Sources */,
-				13D824C6254AF41F002F654E /* MeIteractor.swift in Sources */,
 				0DF11C13255D6955004162BA /* MainStocksContainer.swift in Sources */,
 				311057EB253F219D00B41CDA /* Entities.swift in Sources */,
 				311057E8253F1E1C00B41CDA /* User+CoreDataProperties.swift in Sources */,
