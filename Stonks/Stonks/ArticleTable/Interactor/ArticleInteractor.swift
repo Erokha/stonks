@@ -10,8 +10,13 @@ final class ArticleInteractor {
         self.type = type
     }
 
-    private func handleError(with error: Error) {
-        print(error)
+    private func handleError(with error: AFError) {
+        switch error {
+        case .sessionTaskFailed:
+            output?.didReciveError(with: AppError.networkError)
+        default:
+            output?.didReciveError(with: AppError.undefinedError)
+        }
     }
 
     private func handleArticle(with articles: [ArticleModel]) {
@@ -23,7 +28,7 @@ extension ArticleInteractor: ArticleInteractorInput {
     func loadStoks() {
         NetworkService.shared.fetchArticles(type: type) { [weak self] result in
             if let error = result.error {
-                self?.handleError(with: error)
+                self?.handleError(with: error.asAFError(orFailWith: "Undefined Error"))
                 return
             }
 
