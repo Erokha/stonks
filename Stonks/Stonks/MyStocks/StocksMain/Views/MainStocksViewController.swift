@@ -19,10 +19,11 @@ class MainStocksViewController: UIViewController {
     }
 
     private func setShadow() {
-        self.viewContainer.layer.shadowColor = UIColor.black.cgColor
-        self.viewContainer.layer.shadowOpacity = 0.6
-        self.viewContainer.layer.shadowOffset = .zero
-        self.viewContainer.layer.shadowRadius = 10
+        self.viewContainer.layer.shadowColor =
+            Constants.cardViewShadow.shadowColor
+        self.viewContainer.layer.shadowOpacity = Constants.cardViewShadow.shadowOpacity
+        self.viewContainer.layer.shadowOffset = Constants.cardViewShadow.shadowOffset
+        self.viewContainer.layer.shadowRadius = Constants.cardViewShadow.shadowRadius
     }
 
     @IBAction private func didIndexChanged(_ sender: UISegmentedControl) {
@@ -66,6 +67,17 @@ extension MainStocksViewController: StocksPageViewDelegate {
             segmentControl.selectedSegmentIndex = 0
         case .userStocks:
             segmentControl.selectedSegmentIndex = 1
+        }
+    }
+}
+
+extension MainStocksViewController {
+    private struct Constants {
+        struct cardViewShadow {
+            static let shadowColor: CGColor = UIColor.black.cgColor
+            static let shadowOffset: CGSize = CGSize(width: 0, height: 3)
+            static let shadowRadius: CGFloat = 3
+            static let shadowOpacity: Float = 0.5
         }
     }
 }
