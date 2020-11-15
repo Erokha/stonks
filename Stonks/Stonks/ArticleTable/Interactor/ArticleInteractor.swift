@@ -10,7 +10,7 @@ final class ArticleInteractor {
         self.type = type
     }
 
-    private func handleError(with error: AFError) {
+    private func handleError(with error: AFError?) {
         switch error {
         case .sessionTaskFailed:
             output?.didReciveError(with: AppError.networkError)
@@ -28,7 +28,7 @@ extension ArticleInteractor: ArticleInteractorInput {
     func loadStoks() {
         NetworkService.shared.fetchArticles(type: type) { [weak self] result in
             if let error = result.error {
-                self?.handleError(with: error.asAFError(orFailWith: "Undefined Error"))
+                self?.handleError(with: error.asAFError)
                 return
             }
 
@@ -38,17 +38,6 @@ extension ArticleInteractor: ArticleInteractorInput {
 
             self?.handleArticle(with: articles)
         }
-        /*
-        let request = AF.request(self.requestUrl)
-        request.responseDecodable(of: [ArticleModel].self) { [weak self] response in
-            switch response.result {
-            case .success(let data):
-                self?.output?.didRecive(articles: data)
-            case .failure(let error):
-                self?.handleError(with: error)
-            }
-        }
-        */
     }
 
 }

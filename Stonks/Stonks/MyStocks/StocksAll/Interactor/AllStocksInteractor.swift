@@ -4,7 +4,7 @@ import Alamofire
 final class AllStocksInteractor {
     weak var output: AllStoksInteractorOutput?
 
-    private func handleError(with error: AFError) {
+    private func handleError(with error: AFError?) {
         switch error {
         case .sessionTaskFailed:
             output?.didReciveError(with: AppError.networkError)
@@ -22,15 +22,17 @@ final class AllStocksInteractor {
 
 extension AllStocksInteractor: AllStoksInteractorInput {
     func loadStoks() {
-        let url = "http://stonks.kkapp.ru:8000/allStocks"
-        let request = AF.request(url)
-        request.responseDecodable(of: [StockRaw].self) { [weak self] response in
-            switch response.result {
-            case .success(let stocksRaw):
-                self?.handleStock(with: stocksRaw)
-            case .failure(let error):
-                self?.handleError(with: error)
+        NetworkService.shared.fetchAllStocks { [weak self] result in
+            if let error = result.error {
+                self?.handleError(with: error.asAFError)
+                return
             }
+
+            guard let stocks = result.data else {
+                return
+            }
+
+            self?.handleStock(with: stocks)
         }
     }
 
