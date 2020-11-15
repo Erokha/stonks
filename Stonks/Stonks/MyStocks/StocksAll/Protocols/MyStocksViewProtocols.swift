@@ -15,7 +15,6 @@ protocol AllStocksViewOutput: class {
 }
 
 protocol StocksSharedRouterInput: class {
-    func showStockDetail(symbol: String)
     func showError(with error: Error)
     func showStockDetail(symbol: String)
 }
