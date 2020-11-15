@@ -6,6 +6,7 @@ enum Storyboard {
     case mePage
     case meHistoryPage
     case meFilterPage
+    case article
 }
 
 extension Storyboard {
@@ -25,6 +26,8 @@ extension Storyboard {
             return Constants.meHistoryPage
         case .meFilterPage:
             return Constants.meFilterPage
+        case .article:
+            return Constants.article
         }
     }
 }
@@ -37,4 +40,5 @@ private struct Constants {
     static let mePage = "MePage"
     static let meHistoryPage = "MeHistoryPage"
     static let meFilterPage = "MeFilterPage"
+    static let article = "Article"
 }

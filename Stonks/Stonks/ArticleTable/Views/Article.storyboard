@@ -11,7 +11,7 @@
         <!--Article View Controller-->
         <scene sceneID="c7e-vv-l1H">
             <objects>
-                <viewController storyboardIdentifier="Main" useStoryboardIdentifierAsRestorationIdentifier="YES" id="k9y-0Y-NSu" customClass="ArticleViewController" customModule="Stonks" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Article" useStoryboardIdentifierAsRestorationIdentifier="YES" id="k9y-0Y-NSu" customClass="ArticleViewController" customModule="Stonks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sFa-CQ-uPq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
