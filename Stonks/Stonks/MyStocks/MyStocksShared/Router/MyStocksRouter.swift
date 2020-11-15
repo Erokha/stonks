@@ -20,8 +20,8 @@ extension StocksSharedRouter: StocksSharedRouterInput {
 
         vc.modalPresentationStyle = .fullScreen
 
-        let navigationVC = UINavigationController(rootViewController: vc)
+        viewController?.navigationItem.backButtonTitle = "Fuck me"
 
-        viewController?.present(navigationVC, animated: true, completion: nil)
+        viewController?.navigationController?.pushViewController(vc, animated: true)
     }
 }
