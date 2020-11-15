@@ -55,6 +55,15 @@ class StockDetailInteractor: NSObject {
         }
     }
 
+    private func sendCardData(data: CardData) {
+        output?.cardDataDidReceived(model: StockDetailPresenterData(cardData: data))
+    }
+
+    private func prepareModel(user: User) -> CardData {
+        return CardData(leftNumber: Int(user.totalSpent.floatValue),
+                        rightNumber: Int(user.balance.floatValue))
+    }
+
     @objc
     private func fetchFreshCost(timer: Timer) {
         guard let stock = self.stock,
@@ -90,10 +99,7 @@ extension StockDetailInteractor: StockDetailInteractorInput {
             return
         }
 
-        let cardData = CardData(leftNumber: Int(truncating: user.totalSpent),
-                                rightNumber: Int(truncating: user.balance))
-
-        output?.cardDataDidReceived(model: StockDetailPresenterData(cardData: cardData))
+        sendCardData(data: prepareModel(user: user))
     }
 
     func increaseAmount(by value: Int) {
@@ -174,10 +180,7 @@ extension StockDetailInteractor: NSFetchedResultsControllerDelegate {
             return
         }
 
-        let model = CardData(leftNumber: Int(truncating: fetchResult.totalSpent),
-                             rightNumber: Int(truncating: fetchResult.balance))
-
-        output?.cardDataDidReceived(model: StockDetailPresenterData(cardData: model))
+        sendCardData(data: prepareModel(user: fetchResult))
     }
 }
 
