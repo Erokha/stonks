@@ -44,18 +44,20 @@ extension StockHistoryDataService {
     func createHistoryStock(name: String,
                             symbol: String,
                             price: Double,
-                            date: Date,
-                            type: TypeOfAction) {
+                            type: TypeOfAction,
+                            imageUrl: URL) {
         let typeInt = type.rawValue
         let context = persistentContainer.viewContext
 
         guard let stockHistory = NSEntityDescription.insertNewObject(forEntityName: Entities.stockHistory.rawValue, into: context) as? StockHistory else { return }
 
+        let date = Date()
         stockHistory.name = name
         stockHistory.symbol = symbol
         stockHistory.price = price
         stockHistory.type = Int16(typeInt)
         stockHistory.date = date
+        stockHistory.imageURL = NSURL(fileURLWithPath: imageUrl.path)
 
         do {
             try context.save()

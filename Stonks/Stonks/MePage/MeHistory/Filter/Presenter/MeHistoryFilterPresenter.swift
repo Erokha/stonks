@@ -23,7 +23,7 @@ extension MeHistoryFilterPresenter: MeHistoryFilterOutput {
         self.sortBy = sortBy
     }
 
-    func didChangeTypeOfSort(typeOfSort: TypeOfAction) {
+    func didChangeTypeOfSort(typeOfSort: TypeOfAction?) {
         self.typeOfSort = typeOfSort
     }
 
@@ -33,4 +33,7 @@ extension MeHistoryFilterPresenter: MeHistoryFilterOutput {
 }
 
 extension MeHistoryFilterPresenter: MeHistoryFilterInteractorOutput {
+    func didSortedStocksLoaded(with sotcks: [StockHistoryData]) {
+        view?.stocksLoaded(stocks: sotcks)
+    }
 }

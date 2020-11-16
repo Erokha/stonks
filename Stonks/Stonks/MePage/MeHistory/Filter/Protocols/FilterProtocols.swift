@@ -8,15 +8,17 @@
 import Foundation
 
 protocol MeHistoryFilterInput: class {
+    func stocksLoaded(stocks: [StockHistoryData])
 }
 
 protocol MeHistoryFilterOutput: TypeOfSortDelegate, SortByDelegate {
     func didOkButtonTapped()
-    func didChangeTypeOfSort(typeOfSort: TypeOfAction)
+    func didChangeTypeOfSort(typeOfSort: TypeOfAction?)
     func didChangeSortBy(sortBy: SortBy)
 }
 
 protocol MeHistoryFilterInteractorOutput: class {
+    func didSortedStocksLoaded(with sotcks: [StockHistoryData])
 }
 
 protocol MeHistoryFilterInteractorInput: class {

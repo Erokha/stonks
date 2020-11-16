@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "error-2.png",
+      "filename" : "error.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "error-3.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "error-4.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

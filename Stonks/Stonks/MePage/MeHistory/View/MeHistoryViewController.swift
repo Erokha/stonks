@@ -57,6 +57,11 @@ extension MeHistoryViewController: MeHistoryInput {
     }
 }
 
+extension MeHistoryViewController: MeHistoryFilterDelegate {
+    func didSortedStocksLoaded(stocks: [StockHistoryData]) {
+        output?.didSortedStocksLoaded(stocks: stocks)
+    }
+}
 extension MeHistoryViewController {
     private struct Constants {
         static let rowHeight: CGFloat = 62

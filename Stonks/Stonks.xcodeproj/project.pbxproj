@@ -72,6 +72,7 @@
 		138D65B325601E47004CC2DD /* TypeOfSortTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 138D65B125601E47004CC2DD /* TypeOfSortTableViewCell.xib */; };
 		138D65B7256038CE004CC2DD /* FilterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138D65B6256038CE004CC2DD /* FilterProtocols.swift */; };
 		138D65C125603F46004CC2DD /* MeHistoryFilterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138D65C025603F46004CC2DD /* MeHistoryFilterPresenter.swift */; };
+		13A27FAD2562790C0015D03C /* HistoryStockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A27FAC2562790C0015D03C /* HistoryStockData.swift */; };
 		13BBF5FE253AD3F400DA0C32 /* ChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BBF5FC253AD3F400DA0C32 /* ChartTableViewCell.swift */; };
 		13BBF5FF253AD3F400DA0C32 /* ChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13BBF5FD253AD3F400DA0C32 /* ChartTableViewCell.xib */; };
 		13C1DC01256117B70043BDA5 /* StockHistory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C1DC00256117B70043BDA5 /* StockHistory+CoreDataProperties.swift */; };
@@ -187,6 +188,7 @@
 		138D65B125601E47004CC2DD /* TypeOfSortTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TypeOfSortTableViewCell.xib; sourceTree = "<group>"; };
 		138D65B6256038CE004CC2DD /* FilterProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterProtocols.swift; sourceTree = "<group>"; };
 		138D65C025603F46004CC2DD /* MeHistoryFilterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHistoryFilterPresenter.swift; sourceTree = "<group>"; };
+		13A27FAC2562790C0015D03C /* HistoryStockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryStockData.swift; sourceTree = "<group>"; };
 		13BBF5FC253AD3F400DA0C32 /* ChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTableViewCell.swift; sourceTree = "<group>"; };
 		13BBF5FD253AD3F400DA0C32 /* ChartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartTableViewCell.xib; sourceTree = "<group>"; };
 		13C1DC00256117B70043BDA5 /* StockHistory+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StockHistory+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -605,6 +607,7 @@
 		1359146D254EA9A40048E60F /* MeHistory */ = {
 			isa = PBXGroup;
 			children = (
+				13A27FAB256278FD0015D03C /* Model */,
 				137C66062552CA5E00AB0A59 /* Filter */,
 				137C65F6254ED8A700AB0A59 /* Router */,
 				13591476254EC9860048E60F /* Container */,
@@ -744,6 +747,14 @@
 				138D65C025603F46004CC2DD /* MeHistoryFilterPresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		13A27FAB256278FD0015D03C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				13A27FAC2562790C0015D03C /* HistoryStockData.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		13BBF601253AD3F800DA0C32 /* Chart */ = {
@@ -1363,6 +1374,7 @@
 				134179F1253227D50052D1A9 /* ChartColor.swift in Sources */,
 				31C02BF42553137C008FCCB3 /* StockDetailInteractor.swift in Sources */,
 				13C1DC0E256133A50043BDA5 /* MeHistoryFilterInteractor.swift in Sources */,
+				13A27FAD2562790C0015D03C /* HistoryStockData.swift in Sources */,
 				1344877025419B5A008C2D7B /* MeSettingsViewController.swift in Sources */,
 				134487A12541C40D008C2D7B /* SettingsTableViewCell.swift in Sources */,
 				13F28AAC2534913F0004E864 /* MePortfolioProtocols.swift in Sources */,

@@ -4,8 +4,13 @@ enum Filters: Int, CaseIterable {
     case sortBy = 0, typeOfSort
 }
 
+protocol MeHistoryFilterDelegate: class {
+    func didSortedStocksLoaded(stocks: [StockHistoryData])
+}
+
 class MeHistoryFilterViewController: UIViewController {
     var output: MeHistoryFilterOutput?
+    weak var meHistoryFilterDelegate: MeHistoryFilterDelegate?
 
     @IBOutlet private weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -103,10 +108,13 @@ extension MeHistoryFilterViewController: UITableViewDelegate, UITableViewDataSou
 }
 
 extension MeHistoryFilterViewController: MeHistoryFilterInput {
+    func stocksLoaded(stocks: [StockHistoryData]) {
+        meHistoryFilterDelegate?.didSortedStocksLoaded(stocks: stocks)
+    }
 }
 
 extension MeHistoryFilterViewController: FilterDelegate {
-    func didChangeTypeOfSort(typeOfSort: TypeOfAction) {
+    func didChangeTypeOfSort(typeOfSort: TypeOfAction?) {
         output?.didChangeTypeOfSort(typeOfSort: typeOfSort)
     }
 

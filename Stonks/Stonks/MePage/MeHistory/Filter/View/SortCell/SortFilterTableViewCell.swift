@@ -18,17 +18,13 @@ class SortFilterTableViewCell: UITableViewCell {
 
     weak var sortByDelegate: SortByDelegate?
 
-    private var currentSortBy: SortBy = .increasePrice
+    private var currentSortBy: SortBy = .descendingDate
 
     override func awakeFromNib() {
         super.awakeFromNib()
         setupCell()
-        setupFirstView()
     }
 
-    private func setupFirstView() {
-        increasePriceButton.backgroundColor = #colorLiteral(red: 0.4431372549, green: 0.3960784314, blue: 0.8901960784, alpha: 1)
-    }
     private func setupCell() {
         self.selectionStyle = UITableViewCell.SelectionStyle.none
 

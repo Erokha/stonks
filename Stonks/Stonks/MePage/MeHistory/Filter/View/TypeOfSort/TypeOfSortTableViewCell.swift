@@ -12,7 +12,7 @@ enum TypeOfAction: Int {
 }
 
 protocol TypeOfSortDelegate: class {
-    func didChangeTypeOfSort(typeOfSort: TypeOfAction)
+    func didChangeTypeOfSort(typeOfSort: TypeOfAction?)
 }
 
 class TypeOfSortTableViewCell: UITableViewCell {
@@ -21,12 +21,11 @@ class TypeOfSortTableViewCell: UITableViewCell {
 
     weak var typeOfSortDelegate: TypeOfSortDelegate?
 
-    private var currentTypeOfSort: TypeOfAction = .bought
+    private var currentTypeOfSort: TypeOfAction?
 
     override func awakeFromNib() {
         super.awakeFromNib()
         setupButtons()
-        setupFirstCell()
     }
 
     private func setupButtons() {
@@ -55,21 +54,25 @@ class TypeOfSortTableViewCell: UITableViewCell {
         boughtButton.backgroundColor = #colorLiteral(red: 0.4431372549, green: 0.3960784314, blue: 0.8901960784, alpha: 1)
     }
 
-    private func setDefault(typeOfSort: TypeOfAction) {
+    private func setDefault(typeOfSort: TypeOfAction?) {
         switch typeOfSort {
         case .bought:
             boughtButton.backgroundColor = #colorLiteral(red: 0.3540481031, green: 0.3433421254, blue: 0.4038961232, alpha: 1)
         case .sold:
             soldButton.backgroundColor = #colorLiteral(red: 0.3540481031, green: 0.3433421254, blue: 0.4038961232, alpha: 1)
+        case .none:
+            break
         }
     }
 
-    private func setChoosen(typeOfSort: TypeOfAction) {
+    private func setChoosen(typeOfSort: TypeOfAction?) {
         switch typeOfSort {
         case .bought:
             boughtButton.backgroundColor = #colorLiteral(red: 0.4431372549, green: 0.3960784314, blue: 0.8901960784, alpha: 1)
         case .sold:
             soldButton.backgroundColor = #colorLiteral(red: 0.4431372549, green: 0.3960784314, blue: 0.8901960784, alpha: 1)
+        case .none:
+            break
         }
     }
 
