@@ -229,6 +229,7 @@
                     <navigationItem key="navigationItem" id="OoB-9t-yjl"/>
                     <connections>
                         <outlet property="backButton" destination="3eX-8c-WrI" id="gGd-Tg-VLa"/>
+                        <outlet property="searchBar" destination="AXt-OR-Rwx" id="GdD-ph-ysT"/>
                         <outlet property="tableView" destination="s8T-I5-uan" id="9kM-Zs-vFW"/>
                     </connections>
                 </viewController>

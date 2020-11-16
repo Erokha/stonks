@@ -19,6 +19,21 @@ final class MeHistoryPresenter {
 }
 
 extension MeHistoryPresenter: MeHistoryOutput {
+    func didUserStartToSearch(search: String) {
+        var filtered: [StockHistoryData] = []
+
+        if !search.isEmpty {
+            for stock in stocks {
+                if stock.name.lowercased().contains(search.lowercased()) {
+                    filtered.append(stock)
+                }
+            }
+            stocks = filtered
+        } else {
+            interactor.loadStocks()
+        }
+    }
+
     func didSortedStocksLoaded(stocks: [StockHistoryData]) {
         self.stocks = stocks
     }

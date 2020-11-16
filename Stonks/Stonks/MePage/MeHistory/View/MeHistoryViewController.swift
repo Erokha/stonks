@@ -5,6 +5,7 @@ final class MeHistoryViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var backButton: UIButton!
+    @IBOutlet private weak var searchBar: UISearchBar!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,6 +17,7 @@ final class MeHistoryViewController: UIViewController {
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.delegate = self
         tableView.dataSource = self
+        searchBar.delegate = self
         let chartNib = UINib(nibName: MeHistoryTableViewCell.reuseIdentifier, bundle: nil)
         tableView.register(chartNib, forCellReuseIdentifier: MeHistoryTableViewCell.reuseIdentifier)
     }
@@ -62,6 +64,13 @@ extension MeHistoryViewController: MeHistoryFilterDelegate {
         output?.didSortedStocksLoaded(stocks: stocks)
     }
 }
+
+extension MeHistoryViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        output?.didUserStartToSearch(search: searchText)
+    }
+}
+
 extension MeHistoryViewController {
     private struct Constants {
         static let rowHeight: CGFloat = 62

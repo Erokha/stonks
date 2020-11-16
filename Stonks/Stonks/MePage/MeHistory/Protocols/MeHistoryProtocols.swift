@@ -10,6 +10,7 @@ protocol MeHistoryOutput: class {
     func didLoadView()
     func didFilterButtonTapped()
     func didSortedStocksLoaded(stocks: [StockHistoryData])
+    func didUserStartToSearch(search: String)
 }
 
 protocol MeHistoryRouterInput: class {
