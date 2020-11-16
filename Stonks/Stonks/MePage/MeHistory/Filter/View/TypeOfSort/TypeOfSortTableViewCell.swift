@@ -15,7 +15,7 @@ protocol TypeOfSortDelegate: class {
     func didChangeTypeOfSort(typeOfSort: TypeOfAction?)
 }
 
-class TypeOfSortTableViewCell: UITableViewCell {
+final class TypeOfSortTableViewCell: UITableViewCell {
     @IBOutlet private weak var soldButton: UIButton!
     @IBOutlet private weak var boughtButton: UIButton!
 

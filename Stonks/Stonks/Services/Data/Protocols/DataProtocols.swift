@@ -16,3 +16,13 @@ protocol StockDataServiceInput {
     func stockIsNew(symbol: String) -> Bool
     func getAllStocks() -> [Stock]?
 }
+
+protocol StockHistoryDataServiceInput {
+    func createHistoryStock(name: String,
+                            symbol: String,
+                            price: Double,
+                            type: TypeOfAction,
+                            imageUrl: URL)
+    func getAllStocks() -> [StockHistory]?
+    func getStocks(with type: TypeOfAction?, sortby: SortBy?) -> [StockHistory]?
+}

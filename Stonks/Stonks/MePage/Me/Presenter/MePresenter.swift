@@ -1,6 +1,6 @@
 import UIKit
 
-class MePresenter {
+final class MePresenter {
     weak var view: MeInput?
     var router: MeRouterInput?
     private var interactor: MeInteractorInput

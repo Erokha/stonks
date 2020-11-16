@@ -1,6 +1,6 @@
 import Foundation
 
-class MeHistoryFilterInteractor {
+final class MeHistoryFilterInteractor {
     weak var output: MeHistoryFilterInteractorOutput?
     weak var meHistoryFilterDelegate: MeHistoryFilterDelegate?
 

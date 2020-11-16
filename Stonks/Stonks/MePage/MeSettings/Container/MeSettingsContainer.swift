@@ -1,6 +1,6 @@
 import Foundation
 
-class MeSettingsContainer {
+final class MeSettingsContainer {
     let viewController: MeSettingsViewController
 
     class func asseble(with context: MeSettingsContext) -> MeSettingsContainer {

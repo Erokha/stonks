@@ -1,6 +1,6 @@
 import UIKit
 
-class MeHistoryFilterContainer {
+final class MeHistoryFilterContainer {
     let viewController: MeHistoryFilterViewController
 
     class func assemble(with context: MeHistoryFilterContext) -> MeHistoryFilterContainer {

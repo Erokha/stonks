@@ -1,6 +1,6 @@
 import UIKit
 
-class MeContainer {
+final class MeContainer {
     let viewController: MeViewController
     private(set) weak var router: MeRouter?
 

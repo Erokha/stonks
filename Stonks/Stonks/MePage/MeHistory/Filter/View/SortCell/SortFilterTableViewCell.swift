@@ -10,7 +10,8 @@ enum SortBy {
 protocol SortByDelegate: class {
     func didChangeSortBy(sortBy: SortBy)
 }
-class SortFilterTableViewCell: UITableViewCell {
+
+final class SortFilterTableViewCell: UITableViewCell {
     @IBOutlet private weak var increasePriceButton: UIButton!
     @IBOutlet private weak var descendingPriceButton: UIButton!
     @IBOutlet private weak var increaseDateButton: UIButton!

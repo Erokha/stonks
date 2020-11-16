@@ -40,7 +40,7 @@ class StockHistoryDataService {
     }
 }
 
-extension StockHistoryDataService {
+extension StockHistoryDataService: StockHistoryDataServiceInput {
     func createHistoryStock(name: String,
                             symbol: String,
                             price: Double,

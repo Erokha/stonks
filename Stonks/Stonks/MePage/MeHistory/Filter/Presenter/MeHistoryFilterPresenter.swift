@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MeHistoryFilterPresenter {
+final class MeHistoryFilterPresenter {
     weak var view: MeHistoryFilterInput?
     private var interactor: MeHistoryFilterInteractorInput
     private var sortBy: SortBy?

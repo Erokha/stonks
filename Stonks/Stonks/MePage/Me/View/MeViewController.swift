@@ -2,7 +2,7 @@ import UIKit
 import Charts
 import CoreData
 
-class MeViewController: UIViewController {
+final class MeViewController: UIViewController {
     @IBOutlet private weak var segmentControl: UISegmentedControl!
     weak var embeddedViewController: MeContainerViewController!
     weak var pageViewViewController: MePageViewController!

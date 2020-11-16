@@ -1,6 +1,6 @@
 import Foundation
 
-class MeSettingsInteractor {
+final class MeSettingsInteractor {
     weak var output: MeSettingsInteractorOutput?
 }
 

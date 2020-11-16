@@ -1,6 +1,6 @@
 import UIKit
 
-class MeContainerViewController: UIViewController {
+final class MeContainerViewController: UIViewController {
 
     @IBOutlet private var cardView: CardView!
     override func viewDidLoad() {

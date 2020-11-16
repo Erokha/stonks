@@ -8,7 +8,7 @@ protocol MeHistoryFilterDelegate: class {
     func didSortedStocksLoaded(stocks: [StockHistoryData])
 }
 
-class MeHistoryFilterViewController: UIViewController {
+final class MeHistoryFilterViewController: UIViewController {
     var output: MeHistoryFilterOutput?
     weak var meHistoryFilterDelegate: MeHistoryFilterDelegate?
 

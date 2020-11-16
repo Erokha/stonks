@@ -1,6 +1,6 @@
 import Foundation
 
-class MePortfolioInteractor {
+final class MePortfolioInteractor {
     weak var output: MePortfolioInteractorOutput?
 
     private func handleStocks(stocks: [Stock]) {

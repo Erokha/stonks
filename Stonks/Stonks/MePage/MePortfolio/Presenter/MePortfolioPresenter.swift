@@ -1,7 +1,7 @@
 import UIKit
 import Charts
 
-class MePortfolioPresenter {
+final class MePortfolioPresenter {
     weak var view: MePortfolioInput?
     var router: MePortfolioRouterInput?
     private var interactor: MePortfolioInteractorInput
