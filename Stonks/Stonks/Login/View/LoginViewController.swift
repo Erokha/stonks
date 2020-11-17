@@ -147,11 +147,12 @@ class LoginViewController: UIViewController {
 }
 
 extension LoginViewController: LoginViewInput {
-    func setCheckBoxImage(isChecked: Bool) {
-        let checkBoxImageName: String = isChecked ?
-            Constants.checkBoxIsCheckedImageName : Constants.checkBoxNotCheckedImageName
+    func setCheckBoxChecked() {
+        checkBoxImageView.image = UIImage(named: Constants.checkBoxIsCheckedImageName)
+    }
 
-        checkBoxImageView.image = UIImage(named: checkBoxImageName)
+    func setCheckBoxUnchecked() {
+        checkBoxImageView.image = UIImage(named: Constants.checkBoxNotCheckedImageName)
     }
 
     func showAlert(with title: String, message: String) {

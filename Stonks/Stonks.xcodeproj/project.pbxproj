@@ -97,6 +97,7 @@
 		3155EC1A254970D00036F67B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF01728252F5BD2003FF71B /* CardView.swift */; };
 		3155EC1C254970F00036F67B /* LoginContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2B698E25335B9C0042A932 /* LoginContainer.swift */; };
 		3155EC29254978D40036F67B /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3155EC28254978D40036F67B /* MainTabBar.swift */; };
+		316AC3F82563E35C009CD714 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316AC3F72563E35B009CD714 /* LoginInteractor.swift */; };
 		31782B76253B41E100B680D9 /* DataProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31782B75253B41E100B680D9 /* DataProtocols.swift */; };
 		318857832551A63C00FFDCBC /* Stock+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318857822551A63C00FFDCBC /* Stock+CoreDataClass.swift */; };
 		318857862551A65500FFDCBC /* Stock+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318857852551A65500FFDCBC /* Stock+CoreDataProperties.swift */; };
@@ -116,7 +117,6 @@
 		31BDC0AB252A23B200F56ADD /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDC0AA252A23B200F56ADD /* LoginPresenter.swift */; };
 		31C02BF42553137C008FCCB3 /* StockDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C02BF32553137C008FCCB3 /* StockDetailInteractor.swift */; };
 		31CD5485252BAEA400F65D17 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31CD5484252BAEA400F65D17 /* Login.storyboard */; };
-		31CD548B252BAFE900F65D17 /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CD548A252BAFE900F65D17 /* LoginData.swift */; };
 		31E44531253B1FBB00528971 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E44530253B1FBB00528971 /* DataService.swift */; };
 		3819997E42B9EB92462DCA86 /* Pods_Stonks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A21BC3C91C41C86C824A1C90 /* Pods_Stonks.framework */; };
 		9C2B6984253353D90042A932 /* LoginProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2B6983253353D90042A932 /* LoginProtocols.swift */; };
@@ -212,6 +212,7 @@
 		3155EC28254978D40036F67B /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		315BE130252F332F0074377B /* DMSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Bold.ttf"; sourceTree = "<group>"; };
 		315BE131252F334B0074377B /* DMSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Regular.ttf"; sourceTree = "<group>"; };
+		316AC3F72563E35B009CD714 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 		31782B75253B41E100B680D9 /* DataProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProtocols.swift; sourceTree = "<group>"; };
 		318857822551A63C00FFDCBC /* Stock+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stock+CoreDataClass.swift"; sourceTree = "<group>"; };
 		318857852551A65500FFDCBC /* Stock+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stock+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -236,7 +237,6 @@
 		31BDC0AA252A23B200F56ADD /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		31C02BF32553137C008FCCB3 /* StockDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailInteractor.swift; sourceTree = "<group>"; };
 		31CD5484252BAEA400F65D17 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
-		31CD548A252BAFE900F65D17 /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
 		31E44530253B1FBB00528971 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		9C2B6983253353D90042A932 /* LoginProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProtocols.swift; sourceTree = "<group>"; };
 		9C2B698B25335A430042A932 /* Storyboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
@@ -935,6 +935,14 @@
 			path = "Support Files";
 			sourceTree = "<group>";
 		};
+		316AC3F62563E33E009CD714 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				316AC3F72563E35B009CD714 /* LoginInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		31782B73253B419E00B680D9 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -1091,10 +1099,10 @@
 		31B49B34252E1169002E86F6 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				316AC3F62563E33E009CD714 /* Interactor */,
 				9C2B69942533635A0042A932 /* Router */,
 				9C2B699125335BAE0042A932 /* Container */,
 				31BDC0AD252A2CB400F56ADD /* Protocols */,
-				31BDC0AE252A2CC500F56ADD /* Model */,
 				31BDC0AF252A2CD300F56ADD /* Presenter */,
 				31BDC0B0252A2D2200F56ADD /* View */,
 			);
@@ -1145,14 +1153,6 @@
 				9C2B6983253353D90042A932 /* LoginProtocols.swift */,
 			);
 			path = Protocols;
-			sourceTree = "<group>";
-		};
-		31BDC0AE252A2CC500F56ADD /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				31CD548A252BAFE900F65D17 /* LoginData.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		31BDC0AF252A2CD300F56ADD /* Presenter */ = {
@@ -1401,7 +1401,6 @@
 				318857A72552BAC500FFDCBC /* AuthorizationServiceInput.swift in Sources */,
 				0D3903B6252F62C200C18036 /* Stock.swift in Sources */,
 				134487942541BBFB008C2D7B /* MePresenter.swift in Sources */,
-				31CD548B252BAFE900F65D17 /* LoginData.swift in Sources */,
 				0D777778254B22FA00EFF30E /* NewsProtocols.swift in Sources */,
 				0D777773254B22FA00EFF30E /* ArticleTableViewCell.swift in Sources */,
 				1334532A255BF8B100CA8E01 /* MePortfolioInteractor.swift in Sources */,
@@ -1431,6 +1430,7 @@
 				134487A52541D678008C2D7B /* MeSettingsContainer.swift in Sources */,
 				134487972541BC31008C2D7B /* MeProtocols.swift in Sources */,
 				134487912541AB60008C2D7B /* MeRouter.swift in Sources */,
+				316AC3F82563E35C009CD714 /* LoginInteractor.swift in Sources */,
 				3188578E2552AE8C00FFDCBC /* UserDataService.swift in Sources */,
 				9C2B6984253353D90042A932 /* LoginProtocols.swift in Sources */,
 				13DCDD6325481994002D3F99 /* MePageViewController.swift in Sources */,

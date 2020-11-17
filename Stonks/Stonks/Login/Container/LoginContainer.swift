@@ -1,6 +1,6 @@
 import UIKit
 
-class LoginContainer {
+final class LoginContainer {
     let viewController: LoginViewController
     private weak var router: LoginRouter?
 
@@ -11,17 +11,15 @@ class LoginContainer {
             fatalError("LoginContainer: viewController must be type LoginViewController")
         }
 
-        let model = LoginData(name: nil,
-                              surname: nil,
-                              balance: nil,
-                              isChecked: context.isChecked)
-
-        let presenter = LoginPresenter(model: model)
+        let presenter = LoginPresenter()
+        let interactor = LoginInteractor(termsAccepted: context.isChecked)
         let router = LoginRouter()
 
         viewController.output = presenter
         presenter.view = viewController
         presenter.router = router
+        presenter.interactor = interactor
+        interactor.output = presenter
 
         router.viewController = viewController
 
