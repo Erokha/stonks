@@ -12,10 +12,12 @@ protocol StockDetailViewInput: class {
     func setCardLeftNumber(number: Int)
     func setCardRightNumber(number: Int)
     func showAlert(with title: String, message: String)
+    func disableKeyboard()
 }
 
 protocol StockDetailViewOutput: class {
     func didLoadView()
+    func didTapView()
     func didTapBuyButton(amount: String?)
     func didTapSellButton(amount: String?)
     func viewWillDisappear()

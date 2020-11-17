@@ -24,6 +24,10 @@ extension StockDetailPresenter: StockDetailViewOutput {
         interactor?.fetchStockData()
     }
 
+    func didTapView() {
+        view?.disableKeyboard()
+    }
+
     func didTapBuyButton(amount: String?) {
         guard let amountString = amount,
               !amountString.isEmpty else {

@@ -227,9 +227,17 @@ class StockDetailViewController: UIViewController {
         setupSellTextFieldContainerView()
     }
 
+    private func setupView() {
+        let viewTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapView))
+
+        viewTapRecognizer.numberOfTapsRequired = Constants.TapRecognizer.tapsRequired
+        view.addGestureRecognizer(viewTapRecognizer)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupView()
         addSubviews()
         setupViews()
         setupConstraints()
@@ -241,6 +249,11 @@ class StockDetailViewController: UIViewController {
         super.viewWillDisappear(animated)
 
         output?.viewWillDisappear()
+    }
+
+    @objc
+    private func didTapView() {
+        output?.didTapView()
     }
 }
 
@@ -304,6 +317,10 @@ extension StockDetailViewController: StockDetailViewInput {
         alert.addAction(UIAlertAction(title: "ОК", style: .default, handler: nil))
 
         present(alert, animated: true)
+    }
+
+    func disableKeyboard() {
+        view.endEditing(true)
     }
 }
 
@@ -438,6 +455,10 @@ extension StockDetailViewController {
         struct CardView {
             static let leftText: String = "Spent"
             static let rightText: String = "Available Balance"
+        }
+
+        struct TapRecognizer {
+            static let tapsRequired: Int = 1
         }
     }
 }
