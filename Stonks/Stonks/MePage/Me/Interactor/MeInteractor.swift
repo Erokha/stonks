@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 import CoreData
 
 final class MeInteractor: NSObject {
@@ -25,7 +25,7 @@ final class MeInteractor: NSObject {
         }
     }
 
-    func prepareModels(for fetchResult: [NSFetchRequestResult]) -> User {
+    private func prepareModels(for fetchResult: [NSFetchRequestResult]) -> User {
         if let object = fetchResult[0] as? User {
             return object
         } else {
@@ -34,11 +34,28 @@ final class MeInteractor: NSObject {
     }
 
     private func handleUser(with user: User) {
-        output?.didReceive(user: user)
+        output?.didReceive(user: MeUserData(with: user))
     }
 }
 
 extension MeInteractor: MeInteractorInput {
+    func saveImage(pngData: Data) {
+        guard let user = UserDataService.shared.getUser() else { return }
+//        guard var documentURL = FileManager.default.urls(for: .documentDirectory,
+//                                                         in: .userDomainMask).first else { return }
+//        let newurl = documentURL.appendingPathComponent("avatar.png")
+        do {
+            let newurl = user.avatarURL as URL
+            if FileManager.default.fileExists(atPath: newurl.path) {
+                try FileManager.default.removeItem(atPath: newurl.path)
+            }
+            try pngData.write(to: newurl, options: .atomic)
+            loadUser()
+        } catch {
+            fatalError("Unable to write image to url")
+        }
+    }
+
     func loadUser() {
         if let user = UserDataService.shared.getUser() {
             handleUser(with: user)
@@ -52,8 +69,7 @@ extension MeInteractor: NSFetchedResultsControllerDelegate {
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         if let fetchResult = controller.fetchedObjects {
             let user = prepareModels(for: fetchResult)
-            print(user.balance)
-            output?.didChangeContetnt(user: user)
+            output?.didChangeContetnt(user: MeUserData(with: user))
         }
     }
 }

@@ -1,6 +1,6 @@
 import UIKit
 
-class HistoryButtonTableViewCell: UITableViewCell {
+final class HistoryButtonTableViewCell: UITableViewCell {
     @IBOutlet private weak var historyButton: UIView!
     @IBOutlet private weak var buttonText: UILabel!
 

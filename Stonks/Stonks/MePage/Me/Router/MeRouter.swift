@@ -1,6 +1,6 @@
 import UIKit
 
-class MeRouter {
+final class MeRouter {
     weak var viewController: UIViewController?
 }
 
