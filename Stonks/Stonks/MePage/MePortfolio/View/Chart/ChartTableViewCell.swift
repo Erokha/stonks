@@ -36,6 +36,8 @@ final class ChartTableViewCell: UITableViewCell {
 
     private func chartViewSettings() {
         stocksPieChartView.chartDescription?.enabled = false
+        stocksPieChartView.rotationAngle = 0
+        stocksPieChartView.rotationEnabled = false
         stocksPieChartView.drawHoleEnabled = false
         stocksPieChartView.isUserInteractionEnabled = false
         stocksPieChartView.drawEntryLabelsEnabled = false

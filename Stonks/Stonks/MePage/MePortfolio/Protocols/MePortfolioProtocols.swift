@@ -21,4 +21,5 @@ protocol MePortfolioInteractorInput: class {
 }
 
 protocol MePortfolioInteractorOutput: class {
+    func didLoaded(stocks: [MePortfolioStockData])
 }

@@ -43,7 +43,7 @@ extension StockDataService: StockDataServiceInput {
         stock.name = name
         stock.symbol = symbol
         stock.totalCost = 0
-        stock.amount = 0
+        stock.amount = 3
         stock.imageURL = NSURL(fileURLWithPath: imageURL.absoluteString)
         stock.priceHistory = []
 

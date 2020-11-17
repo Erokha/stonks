@@ -5,7 +5,7 @@ final class MePortfolioPresenter {
     weak var view: MePortfolioInput?
     var router: MePortfolioRouterInput?
     private var interactor: MePortfolioInteractorInput
-    private var stocks: [StockData] = [] {
+    private var stocks: [MePortfolioStockData] = [] {
         didSet {
             setNumbersInChart(number: stocks.count)
         }
@@ -17,15 +17,18 @@ final class MePortfolioPresenter {
     }
 
     private func setNumbersInChart(number: Int) {
-        guard number < MePortfolioPresenter.Constants.maxStocksInChart  else { return }
-        numberOfStocksInChart = number
+        if number < Constants.maxStocksInChart {
+            numberOfStocksInChart = number
+        } else {
+            numberOfStocksInChart = Constants.maxStocksInChart
+        }
     }
 
     // MARK: PieChartData prepare
     private func countStocks() -> [(String, Float)] {
         var stocksWithPrices: [String: Float] = [:]
         for stock in stocks {
-            stocksWithPrices[stock.stockSymbol] = Float(stock.stockCount) * stock.stockPrice
+            stocksWithPrices[stock.stockSymbol] = Float(stock.amount) * stock.currentPrice
         }
         let sortedStocksByPrice = stocksWithPrices.sorted { (first: (key: String, value: Float), second: (key: String, value: Float)) -> Bool in
             return first.value > second.value
@@ -86,4 +89,7 @@ extension MePortfolioPresenter: MePortfolioOutput {
 }
 
 extension MePortfolioPresenter: MePortfolioInteractorOutput {
+    func didLoaded(stocks: [MePortfolioStockData]) {
+        self.stocks = stocks
+    }
 }

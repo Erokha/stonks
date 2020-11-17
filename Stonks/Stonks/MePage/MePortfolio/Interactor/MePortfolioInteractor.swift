@@ -1,13 +1,21 @@
 import Foundation
+import Alamofire
 
 final class MePortfolioInteractor {
     weak var output: MePortfolioInteractorOutput?
 
+    private func handleError(with error: Error) {
+        // DO ERRORS
+    }
+
     private func handleStocks(stocks: [Stock]) {
-        print(stocks.count)
+        var stocksData: [MePortfolioStockData] = []
         for stock in stocks {
-            print(stock.symbol)
+            // request to network
+            let stockData = MePortfolioStockData(with: stock, currentPrice: Float(Int.random(in: 1...50)))
+            stocksData.append(stockData)
         }
+        output?.didLoaded(stocks: stocksData)
     }
 }
 
