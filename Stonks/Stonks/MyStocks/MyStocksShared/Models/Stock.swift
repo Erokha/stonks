@@ -1,7 +1,7 @@
 struct StockData {
     let stockName: String
     let stockSymbol: String
-    let stockPrice: Float
+    var stockPrice: Float
     var stockCount: Int
     let imageUrl: String
 
@@ -10,6 +10,14 @@ struct StockData {
         self.stockSymbol = raw.stockSymbol
         self.stockPrice = raw.stockPrice
         self.imageUrl = raw.imageUrl
+        self.stockCount = 0
+    }
+
+    init(with coreStock: Stock) {
+        self.stockName = coreStock.name
+        self.stockSymbol = coreStock.symbol
+        self.stockPrice = 0
+        self.imageUrl = coreStock.imageURL.path ?? "not found"
         self.stockCount = 0
     }
 }

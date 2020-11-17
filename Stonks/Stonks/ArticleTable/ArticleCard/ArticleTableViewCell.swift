@@ -25,6 +25,7 @@ class ArticleTableViewCell: UITableViewCell {
         self.url = URL(string: model.url)
         self.output = output
         self.setupShadow()
+        self.selectionStyle = .none
     }
 
     @IBAction private func didTapReadMoreButton(_ sender: Any) {

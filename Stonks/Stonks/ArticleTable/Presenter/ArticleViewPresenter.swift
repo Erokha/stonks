@@ -20,7 +20,13 @@ class ArticleViewPresenter {
 
 extension ArticleViewPresenter: ArticleViewOutput {
     func didTapReadMore(url: URL?) {
-        router?.openUrl(url)
+        guard let urlunwrapped = url else { router?.showError(with: AppError.unvalidUrlError); return
+        }
+        if UIApplication.shared.canOpenURL(urlunwrapped) {
+            router?.openUrl(url)
+        } else {
+            router?.showError(with: AppError.unvalidUrlError)
+        }
     }
 
     func refreshData() {

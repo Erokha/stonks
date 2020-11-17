@@ -1,34 +1,29 @@
 import UIKit
 
-protocol MyStocksViewInput: class {
-    func setAvaliableBalance(balance: Int)
-    func setStocksTotal(total: Int)
+protocol AllStocksViewInput: class {
     func reloadTable()
     func startActivity()
     func endActivity()
 }
 
-protocol MyStocksViewOutput: class {
+protocol AllStocksViewOutput: class {
     func stock(at indexPath: IndexPath) -> StockData?
     func numberOfItems() -> Int
-    func setBalance(num: Int)
-    func setStocksTotal(num: Int)
     func didLoadView()
     func refreshData()
     func didTapOnStock(symbol: String)
 }
 
-protocol MyStocksRouterInput: class {
-    func showStockDetail()
+protocol StocksSharedRouterInput: class {
     func showError(with error: Error)
     func showStockDetail(symbol: String)
 }
 
-protocol MyStoksInteractorInput: class {
+protocol AllStoksInteractorInput: class {
     func loadStoks()
 }
 
-protocol MyStoksInteractorOutput: class {
+protocol AllStoksInteractorOutput: class {
     func didRecive(stoks: [StockData])
     func didReciveError(with error: Error)
 }

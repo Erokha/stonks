@@ -1,7 +1,7 @@
 import UIKit
 import Alamofire
 
-class MyStocksPresenter {
+class AllStocksPresenter {
     var model: [StockData]? {
         didSet {
             DispatchQueue.main.async {
@@ -9,17 +9,17 @@ class MyStocksPresenter {
             }
         }
     }
-    weak var view: MyStocksViewInput?
-    var router: MyStocksRouterInput?
-    private let interactor: MyStoksInteractorInput
+    weak var view: AllStocksViewInput?
+    var router: StocksSharedRouterInput?
+    private let interactor: AllStoksInteractorInput
 
-    init(interactor: MyStoksInteractorInput) {
+    init(interactor: AllStoksInteractorInput) {
         self.interactor = interactor
     }
 
 }
 
-extension MyStocksPresenter: MyStocksViewOutput {
+extension AllStocksPresenter: AllStocksViewOutput {
     func didLoadView() {
         view?.startActivity()
         interactor.loadStoks()
@@ -33,24 +33,16 @@ extension MyStocksPresenter: MyStocksViewOutput {
         return self.model?[indexPath.row] ?? nil
     }
 
-    func setBalance(num: Int) {
-        self.view?.setAvaliableBalance(balance: num)
-    }
-
-    func setStocksTotal(num: Int) {
-        self.view?.setStocksTotal(total: num)
-    }
-
     func refreshData() {
         self.interactor.loadStoks()
     }
 
     func didTapOnStock(symbol: String) {
-            router?.showStockDetail(symbol: symbol)
+        router?.showStockDetail(symbol: symbol)
     }
 }
 
-extension MyStocksPresenter: MyStoksInteractorOutput {
+extension AllStocksPresenter: AllStoksInteractorOutput {
 
     func didRecive(stoks: [StockData]) {
         self.model = stoks
@@ -67,6 +59,7 @@ extension MyStocksPresenter: MyStoksInteractorOutput {
 public enum AppError: Error {
     case networkError
     case undefinedError
+    case unvalidUrlError
 }
 
 extension AppError: LocalizedError {
@@ -77,6 +70,9 @@ extension AppError: LocalizedError {
 
         case .undefinedError:
             return NSLocalizedString("Error occured", comment: "")
+
+        case .unvalidUrlError:
+            return NSLocalizedString("Unavalible to open url", comment: "")
         }
     }
 }
