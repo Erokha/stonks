@@ -59,6 +59,7 @@ extension AllStocksPresenter: AllStoksInteractorOutput {
 public enum AppError: Error {
     case networkError
     case undefinedError
+    case unvalidUrlError
 }
 
 extension AppError: LocalizedError {
@@ -69,6 +70,9 @@ extension AppError: LocalizedError {
 
         case .undefinedError:
             return NSLocalizedString("Error occured", comment: "")
+
+        case .unvalidUrlError:
+            return NSLocalizedString("Unavalible to open url", comment: "")
         }
     }
 }
