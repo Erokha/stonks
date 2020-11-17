@@ -1,7 +1,7 @@
 import UIKit
 import MessageUI
 
-class MeSettingsPresenter {
+final class MeSettingsPresenter {
     weak var view: MeSettingsInput?
     var interactor: MeSettingsInteractorInput
 

@@ -20,7 +20,7 @@ enum MeSettingsSections: Int, CaseIterable {
     }
 }
 
-class MeSettingsViewController: UIViewController, UINavigationControllerDelegate {
+final class MeSettingsViewController: UIViewController, UINavigationControllerDelegate {
     private var tableView = UITableView()
 
     var presenter: MeSettingsOutput!

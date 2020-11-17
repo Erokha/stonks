@@ -1,3 +1,5 @@
+import Foundation
+
 protocol LoginViewOutput: class {
     func didTapRegisterButton(name: String?, surname: String?, balance: String?)
     func didTapCheckBox()
@@ -12,7 +14,8 @@ protocol LoginViewOutput: class {
 }
 
 protocol LoginViewInput: class {
-    func setCheckBoxImage(isChecked: Bool)
+    func setCheckBoxChecked()
+    func setCheckBoxUnchecked()
     func showAlert(with title: String, message: String)
     func setNameTextField(isEditing: Bool)
     func setSurnameTextField(isEditing: Bool)
@@ -22,4 +25,15 @@ protocol LoginViewInput: class {
 
 protocol LoginRouterInput: class {
     func showMainScreen()
+}
+
+protocol LoginInteractorInput: class {
+    func toggleTermsState()
+    func termsAreAccepted() -> Bool
+    func createUser(name: String, surname: String, balance: Decimal)
+}
+
+protocol LoginInteractorOutput: class {
+    func userSuccesfullyAuthorized()
+    func showAlert(with title: String, message: String)
 }

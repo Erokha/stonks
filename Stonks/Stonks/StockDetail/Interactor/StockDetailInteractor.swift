@@ -1,13 +1,25 @@
 import Foundation
+import CoreData
 
-class StockDetailInteractor {
+final class StockDetailInteractor: NSObject {
     weak var output: StockDetailInteractorOutput?
+
+    private var frcUser: NSFetchedResultsController<User>?
+
+    private var frcStock: NSFetchedResultsController<Stock>?
 
     private var stock: Stock?
 
     private var updateQuotesTimer: Timer?
 
     init(symbol: String) {
+        super.init()
+
+        configureFrcUser()
+        configureFrcStock()
+        frcUser?.delegate = self
+        frcStock?.delegate = self
+
         if StockDataService.shared.stockIsNew(symbol: symbol) {
             // тут запрос в сеть
             guard let url = URL(string: "sdsd") else {
@@ -29,6 +41,50 @@ class StockDetailInteractor {
                                                       selector: #selector(fetchFreshCost),
                                                       userInfo: nil,
                                                       repeats: true)
+    }
+
+    private func configureFrcUser() {
+        let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+
+        fetchRequest.sortDescriptors = [sortDescriptor]
+
+        frcUser = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                         managedObjectContext: DataService.shared.getPersistentContainer().viewContext,
+                                         sectionNameKeyPath: nil,
+                                         cacheName: nil)
+        do {
+            try frcUser?.performFetch()
+        } catch {
+            fatalError("StockDetailInteractor: User request not fetched!")
+        }
+    }
+
+    private func configureFrcStock() {
+        let fetchRequest: NSFetchRequest<Stock> = Stock.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+
+        fetchRequest.sortDescriptors = [sortDescriptor]
+
+        frcStock = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                              managedObjectContext: DataService.shared.getPersistentContainer().viewContext,
+                                              sectionNameKeyPath: nil,
+                                              cacheName: nil)
+
+        do {
+            try frcStock?.performFetch()
+        } catch {
+            fatalError("StockDetailInteractor: Stock request not fetched")
+        }
+    }
+
+    private func sendCardData(data: CardData) {
+        output?.cardDataDidReceived(model: StockDetailPresenterData(cardData: data))
+    }
+
+    private func prepareCardModel(user: User) -> CardData {
+        return CardData(leftNumber: Int(user.totalSpent.floatValue),
+                        rightNumber: Int(user.balance.floatValue))
     }
 
     @objc
@@ -61,6 +117,14 @@ class StockDetailInteractor {
 }
 
 extension StockDetailInteractor: StockDetailInteractorInput {
+    func fetchCardData() {
+        guard let user = UserDataService.shared.getUser() else {
+            return
+        }
+
+        sendCardData(data: prepareCardModel(user: user))
+    }
+
     func increaseAmount(by value: Int) {
         guard let stock = self.stock,
               let user = UserDataService.shared.getUser(),
@@ -110,7 +174,7 @@ extension StockDetailInteractor: StockDetailInteractorInput {
         StockDataService.shared.updateStock(symbol: stock.symbol, stock: stock)
     }
 
-    func fetchStockQuotes() {
+    func fetchStockData() {
         guard let stock = self.stock else {
             return
         }
@@ -125,11 +189,21 @@ extension StockDetailInteractor: StockDetailInteractorInput {
         stock.priceHistory = priceHistory
         StockDataService.shared.updateStock(symbol: stock.symbol, stock: stock)
 
-        output?.stockHistoryDidReceived(model: StockDetailPresenterData(model: stock))
+        output?.stockDataDidReceived(model: StockDetailPresenterData(model: stock))
     }
 
     func stopFetching() {
         updateQuotesTimer?.invalidate()
+    }
+}
+
+extension StockDetailInteractor: NSFetchedResultsControllerDelegate {
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        if let user = controller.fetchedObjects?.first as? User {
+            sendCardData(data: prepareCardModel(user: user))
+        } else if let stock = controller.fetchedObjects?.first as? Stock {
+            output?.stockDataDidReceived(model: StockDetailPresenterData(model: stock))
+        }
     }
 }
 

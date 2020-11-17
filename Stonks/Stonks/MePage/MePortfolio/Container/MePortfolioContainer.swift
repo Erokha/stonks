@@ -6,14 +6,16 @@ class MePortfolioContainer {
 
     class func assemble(with context: MePortfolioContext) -> MePortfolioContainer {
         let vc = MePortfolioViewController()
+        let interactor = MePortfolioInteractor()
 
-        let presenter = MePortfolioPresenter()
+        let presenter = MePortfolioPresenter(interactor: interactor)
         let router = MePortfolioRouter()
 
         vc.presenter = presenter
         presenter.view = vc
         presenter.router = router
         router.viewController = vc
+        interactor.output = presenter
 
         return MePortfolioContainer(view: vc, router: router)
     }

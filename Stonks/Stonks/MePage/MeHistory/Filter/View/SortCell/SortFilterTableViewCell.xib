@@ -70,7 +70,7 @@
                                             <constraint firstAttribute="width" constant="130" id="7e3-nV-1QD"/>
                                             <constraint firstAttribute="height" constant="38" id="uUl-Jt-C8C"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="DMSans-Regular" family="DM Sans" pointSize="15"/>
                                         <state key="normal" title="Descending price">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>

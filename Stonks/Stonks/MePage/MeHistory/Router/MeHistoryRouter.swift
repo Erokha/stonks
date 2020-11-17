@@ -7,8 +7,9 @@ final class MeHistoryRouter {
 
 extension MeHistoryRouter: MeHistoryRouterInput {
     func showFilter() {
-        let container = MeHistoryFilterContainer.assemble(with: MeHistoryFilterContext())
+        let vc = MeHistoryFilterContainer.assemble(with: MeHistoryFilterContext()).viewController
+        vc.meHistoryFilterDelegate = viewController
+        viewController?.navigationController?.pushViewController(vc, animated: true)
 
-        viewController?.navigationController?.pushViewController(container.viewController, animated: true)
     }
 }

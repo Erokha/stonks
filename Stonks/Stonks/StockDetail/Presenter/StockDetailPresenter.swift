@@ -1,7 +1,7 @@
 import Foundation
 import Charts
 
-class StockDetailPresenter {
+final class StockDetailPresenter {
 
     weak var view: StockDetailViewInput?
     var router: StockDetailRouterInput?
@@ -20,7 +20,12 @@ class StockDetailPresenter {
 
 extension StockDetailPresenter: StockDetailViewOutput {
     func didLoadView() {
-        interactor?.fetchStockQuotes()
+        interactor?.fetchCardData()
+        interactor?.fetchStockData()
+    }
+
+    func didTapView() {
+        view?.disableKeyboard()
     }
 
     func didTapBuyButton(amount: String?) {
@@ -55,6 +60,15 @@ extension StockDetailPresenter: StockDetailViewOutput {
 }
 
 extension StockDetailPresenter: StockDetailInteractorOutput {
+    func cardDataDidReceived(model: StockDetailPresenterData) {
+        guard let data = model.cardData else {
+            return
+        }
+
+        view?.setCardLeftNumber(number: data.leftNumber)
+        view?.setCardRightNumber(number: data.rightNumber)
+    }
+
     func freshCostDidReceived(model: StockDetailPresenterData) {
         self.model = model
 
@@ -77,11 +91,12 @@ extension StockDetailPresenter: StockDetailInteractorOutput {
         view?.setStockCurrentCostLabel(with: String(format: "%.1f", freshPrice.doubleValue) + "$")
     }
 
-    func stockHistoryDidReceived(model: StockDetailPresenterData) {
+    func stockDataDidReceived(model: StockDetailPresenterData) {
         self.model = model
 
         guard let priceHistory = model.quotes,
               let freshPrice = priceHistory.last,
+              let amount = model.amount,
               let name = model.name else {
             return
         }
@@ -98,6 +113,7 @@ extension StockDetailPresenter: StockDetailInteractorOutput {
 
         view?.setChartData(with: chartData)
         view?.setStockNameLabel(with: name)
+        view?.setStockAmountLabel(with: String(amount))
         view?.setStockCurrentCostLabel(with: String(format: "%.1f", freshPrice.doubleValue) + "$")
     }
 

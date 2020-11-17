@@ -15,3 +15,10 @@ protocol MePortfolioOutput: class {
 protocol MePortfolioRouterInput: class {
     func showHistory()
 }
+
+protocol MePortfolioInteractorInput: class {
+    func loadStocks()
+}
+
+protocol MePortfolioInteractorOutput: class {
+}

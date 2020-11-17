@@ -18,11 +18,10 @@ extension ArticleRouter: ArticleRouterInput {
         guard let trueUrl = url else {
             return
         }
-        let safariViewController = SFSafariViewController(url: trueUrl)
-        safariViewController.modalPresentationStyle = .pageSheet
-        self.viewController?.present(safariViewController, animated: true, completion: nil)
-//        if UIApplication.shared.canOpenURL(trueUrl) {
-//                UIApplication.shared.open(trueUrl, options: [:])
-//        }
+        if UIApplication.shared.canOpenURL(trueUrl) {
+            let safariViewController = SFSafariViewController(url: trueUrl)
+            safariViewController.modalPresentationStyle = .pageSheet
+            self.viewController?.present(safariViewController, animated: true, completion: nil)
+        }
     }
 }

@@ -1,9 +1,11 @@
 import UIKit
 import Charts
 
-class StockDetailViewController: UIViewController {
+final class StockDetailViewController: UIViewController {
 
     var output: StockDetailViewOutput?
+
+    var cardPresenter: CardViewPresenter?
 
     @IBOutlet private weak var showMyStocksButton: UIButton!
 
@@ -16,6 +18,8 @@ class StockDetailViewController: UIViewController {
     @IBOutlet private weak var stockNameLabel: UILabel!
 
     @IBOutlet private weak var stockCurrentCostLabel: UILabel!
+
+    @IBOutlet private weak var stockAmountLabel: UILabel!
 
     @IBOutlet private weak var buyButton: UIButton!
 
@@ -95,11 +99,12 @@ class StockDetailViewController: UIViewController {
         stockDetailCardView.clipsToBounds = true
         stockDetailCardView.layer.cornerRadius = Constants.StockDetailCardView.cornerRadius
 
-        /*
-        let presenter = CardViewPresenter(view: stockDetailCardView)
+        self.cardPresenter = CardViewPresenter(view: stockDetailCardView)
 
-        stockDetailCardView.presenter = presenter
-        */
+        stockDetailCardView.presenter = self.cardPresenter
+
+        self.cardPresenter?.setUpperTextLeft(text: Constants.CardView.leftText)
+        self.cardPresenter?.setUpperTextRight(text: Constants.CardView.rightText)
     }
 
     private func setupBuyButton() {
@@ -201,6 +206,11 @@ class StockDetailViewController: UIViewController {
         showMyStocksButton.addTarget(self, action: #selector(didTapShowMyStocksButton), for: .touchUpInside)
     }
 
+    private func setupStockAmountLabel() {
+        stockAmountLabel.textAlignment = .center
+        stockAmountLabel.font = Constants.StockAmountLabel.font
+    }
+
     private func setupViews() {
         setupShowMyStocksButton()
         setupStockDetailCardContainerView()
@@ -208,6 +218,7 @@ class StockDetailViewController: UIViewController {
         setupStockDetailCardView()
         setupStockNameLabel()
         setupStockCurrentCostLabel()
+        setupStockAmountLabel()
         setupBuyButton()
         setupSellButton()
         setupBuyTextField()
@@ -216,9 +227,17 @@ class StockDetailViewController: UIViewController {
         setupSellTextFieldContainerView()
     }
 
+    private func setupView() {
+        let viewTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapView))
+
+        viewTapRecognizer.numberOfTapsRequired = Constants.TapRecognizer.tapsRequired
+        view.addGestureRecognizer(viewTapRecognizer)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupView()
         addSubviews()
         setupViews()
         setupConstraints()
@@ -231,11 +250,36 @@ class StockDetailViewController: UIViewController {
 
         output?.viewWillDisappear()
     }
+
+    @objc
+    private func didTapView() {
+        output?.didTapView()
+    }
 }
 
 extension StockDetailViewController: StockDetailViewInput {
+    func setCardLeftText(text: String) {
+        cardPresenter?.setUpperTextLeft(text: text)
+    }
+
+    func setCardRightText(text: String) {
+        cardPresenter?.setUpperTextRight(text: text)
+    }
+
+    func setCardLeftNumber(number: Int) {
+        cardPresenter?.setNumberLeft(num: number)
+    }
+
+    func setCardRightNumber(number: Int) {
+        cardPresenter?.setNumberRight(num: number)
+    }
+
     func setStockNameLabel(with name: String) {
         stockNameLabel.text = name
+    }
+
+    func setStockAmountLabel(with amount: String) {
+        stockAmountLabel.text = "You owns: " + amount
     }
 
     func setStockCurrentCostLabel(with cost: String) {
@@ -273,6 +317,10 @@ extension StockDetailViewController: StockDetailViewInput {
         alert.addAction(UIAlertAction(title: "ОК", style: .default, handler: nil))
 
         present(alert, animated: true)
+    }
+
+    func disableKeyboard() {
+        view.endEditing(true)
     }
 }
 
@@ -336,13 +384,17 @@ extension StockDetailViewController {
             static let trailingConstraintContant: CGFloat = 0
         }
 
+        struct StockAmountLabel {
+            static let font: UIFont? = UIFont(name: "DMSans-Medium", size: 12)
+        }
+
         struct BuyButton {
             static let backgroundColor: UIColor = UIColor(red: 71 / 255,
                                                           green: 190 / 255,
                                                           blue: 162 / 255,
                                                           alpha: 1)
 
-            static let font = UIFont(name: "DMSans-Bold", size: 17)
+            static let font: UIFont? = UIFont(name: "DMSans-Bold", size: 17)
             static let textColor: UIColor = .white
             static let cornerRadius: CGFloat = 10
 
@@ -398,6 +450,15 @@ extension StockDetailViewController {
             static let shadowOffset: CGSize = CGSize(width: 0, height: 3)
             static let shadowRadius: CGFloat = 3
             static let shadowOpacity: Float = 0.5
+        }
+
+        struct CardView {
+            static let leftText: String = "Spent"
+            static let rightText: String = "Available Balance"
+        }
+
+        struct TapRecognizer {
+            static let tapsRequired: Int = 1
         }
     }
 }

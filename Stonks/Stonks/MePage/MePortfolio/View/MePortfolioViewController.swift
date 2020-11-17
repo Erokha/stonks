@@ -4,7 +4,7 @@ enum MePortfolioSections: Int, CaseIterable {
     case chart = 0, historyButton
 }
 
-class MePortfolioViewController: UIViewController {
+final class MePortfolioViewController: UIViewController {
     private var tableView = UITableView()
 
     var presenter: MePortfolioOutput!

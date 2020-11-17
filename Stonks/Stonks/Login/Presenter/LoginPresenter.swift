@@ -1,32 +1,30 @@
 import Foundation
 
-class LoginPresenter {
+final class LoginPresenter {
+
     weak var view: LoginViewInput?
+
     var router: LoginRouterInput?
 
-    private var model: LoginData
-
-    private var termsAccepted: Bool = false
-
-    init(model: LoginData) {
-        self.model = model
-    }
-
-    private func toogleTermsState() {
-        termsAccepted = !termsAccepted
-    }
+    var interactor: LoginInteractorInput?
 }
 
 extension LoginPresenter: LoginViewOutput {
     func didTapCheckBox() {
-        toogleTermsState()
+        guard let interactor = interactor else {
+            return
+        }
 
-        view?.setCheckBoxImage(isChecked: termsAccepted)
+        interactor.toggleTermsState()
+        interactor.termsAreAccepted() ? view?.setCheckBoxChecked() : view?.setCheckBoxUnchecked()
     }
 
     func didLoadView() {
-        termsAccepted = model.isChecked
-        view?.setCheckBoxImage(isChecked: termsAccepted)
+        guard let interactor = interactor else {
+            return
+        }
+
+        interactor.termsAreAccepted() ? view?.setCheckBoxChecked() : view?.setCheckBoxUnchecked()
     }
 
     func didStartNameEditing() {
@@ -81,18 +79,16 @@ extension LoginPresenter: LoginViewOutput {
             return
         }
 
-        guard termsAccepted else {
-            view?.showAlert(with: "Oops!", message: "Terms need to be accepted")
-            return
-        }
+        interactor?.createUser(name: name, surname: surname, balance: balance)
+    }
+}
 
-        model.name = name
-        model.surname = surname
-        model.balance = balance
-
-        AuthorizationService.shared.authorize()
-        UserDataService.shared.createUser(name: name, surname: surname, balance: balance)
-
+extension LoginPresenter: LoginInteractorOutput {
+    func userSuccesfullyAuthorized() {
         router?.showMainScreen()
+    }
+
+    func showAlert(with title: String, message: String) {
+        view?.showAlert(with: title, message: message)
     }
 }

@@ -1,6 +1,6 @@
 import UIKit
 
-class MeHistoryTableViewCell: UITableViewCell {
+final class MeHistoryTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var logoImageView: UIImageView!
@@ -23,13 +23,19 @@ class MeHistoryTableViewCell: UITableViewCell {
 
         self.preservesSuperviewLayoutMargins = false
     }
-    func setData(stock: StockData) {
+    func setData(stock: StockHistoryData) {
         setupCell()
-        logoImageView.image = UIImage(named: "ZUEV")
-        nameLabel.text = stock.stockName
-        priceLabel.text = String(stock.stockPrice) + "$"
-        let url = URL(string: stock.imageUrl)
-        logoImageView.kf.setImage(with: url)
+        logoImageView.image = stock.image
+        nameLabel.text = stock.name
+        priceLabel.text = String(stock.price) + "$"
+        dateLabel.text = stock.date
+
+        switch stock.type {
+        case .bought:
+            priceLabel.textColor = #colorLiteral(red: 0.2784313725, green: 0.7450980392, blue: 0.6352941176, alpha: 1)
+        case .sold:
+            priceLabel.textColor = #colorLiteral(red: 0.862745098, green: 0.2196078431, blue: 0.231372549, alpha: 1)
+        }
     }
 }
 

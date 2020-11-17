@@ -1,7 +1,7 @@
 import UIKit
 import Charts
 
-class ChartTableViewCell: UITableViewCell {
+final class ChartTableViewCell: UITableViewCell {
     @IBOutlet private weak var stocksPieChartView: PieChartView!
     @IBOutlet private weak var noDataLabel: UILabel!
     @IBOutlet private weak var mainChartView: UIView!

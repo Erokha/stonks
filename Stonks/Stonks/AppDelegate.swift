@@ -8,6 +8,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
+//        guard let url = URL(string: "KMN") else { return true }
+//        StockHistoryDataService.shared.createHistoryStock(name: "SELL", symbol: "dsds", price: 5000, type: .sold, imageUrl: url)
 
         self.window?.rootViewController = getInitalViewController(isAuthorized: AuthorizationService.shared.userIsAuthorized())
 

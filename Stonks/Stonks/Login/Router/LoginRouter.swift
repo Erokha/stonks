@@ -1,6 +1,6 @@
 import UIKit
 
-class LoginRouter {
+final class LoginRouter {
     weak var viewController: UIViewController?
 }
 
