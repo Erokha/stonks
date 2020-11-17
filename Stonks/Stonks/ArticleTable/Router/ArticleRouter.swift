@@ -1,4 +1,5 @@
 import UIKit
+import SafariServices
 
 class ArticleRouter {
     weak var viewController: UIViewController?
@@ -17,8 +18,11 @@ extension ArticleRouter: ArticleRouterInput {
         guard let trueUrl = url else {
             return
         }
-        if UIApplication.shared.canOpenURL(trueUrl) {
-                UIApplication.shared.open(trueUrl, options: [:])
-        }
+        let safariViewController = SFSafariViewController(url: trueUrl)
+        safariViewController.modalPresentationStyle = .pageSheet
+        self.viewController?.present(safariViewController, animated: true, completion: nil)
+//        if UIApplication.shared.canOpenURL(trueUrl) {
+//                UIApplication.shared.open(trueUrl, options: [:])
+//        }
     }
 }
