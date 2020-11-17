@@ -4,9 +4,9 @@ import Alamofire
 final class UserStocksInteractor {
     weak var output: UserStoksInteractorOutput?
 
-    private func handleError(with error: AFError) {
-        switch error {
-        case .sessionTaskFailed:
+    private func handleError(with error: Error) {
+        switch error.localizedDescription {
+        case networkErrors.sessionTaskFailed.type:
             output?.didReciveError(with: AppError.networkError)
         default:
             output?.didReciveError(with: AppError.undefinedError)
