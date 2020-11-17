@@ -1,7 +1,7 @@
 import UIKit
 import Charts
 
-class StockDetailViewController: UIViewController {
+final class StockDetailViewController: UIViewController {
 
     var output: StockDetailViewOutput?
 

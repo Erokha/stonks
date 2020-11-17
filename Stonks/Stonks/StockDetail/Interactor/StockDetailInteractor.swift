@@ -1,7 +1,7 @@
 import Foundation
 import CoreData
 
-class StockDetailInteractor: NSObject {
+final class StockDetailInteractor: NSObject {
     weak var output: StockDetailInteractorOutput?
 
     private var frcUser: NSFetchedResultsController<User>?

@@ -1,6 +1,6 @@
 import UIKit
 
-class StockDetailRouter {
+final class StockDetailRouter {
     weak var viewConstroller: UIViewController?
 }
 

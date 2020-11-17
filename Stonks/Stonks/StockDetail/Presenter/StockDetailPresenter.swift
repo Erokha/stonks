@@ -1,7 +1,7 @@
 import Foundation
 import Charts
 
-class StockDetailPresenter {
+final class StockDetailPresenter {
 
     weak var view: StockDetailViewInput?
     var router: StockDetailRouterInput?
