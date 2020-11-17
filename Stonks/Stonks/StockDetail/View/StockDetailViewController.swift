@@ -19,6 +19,8 @@ class StockDetailViewController: UIViewController {
 
     @IBOutlet private weak var stockCurrentCostLabel: UILabel!
 
+    @IBOutlet private weak var stockAmountLabel: UILabel!
+
     @IBOutlet private weak var buyButton: UIButton!
 
     @IBOutlet private weak var sellButton: UIButton!
@@ -204,6 +206,11 @@ class StockDetailViewController: UIViewController {
         showMyStocksButton.addTarget(self, action: #selector(didTapShowMyStocksButton), for: .touchUpInside)
     }
 
+    private func setupStockAmountLabel() {
+        stockAmountLabel.textAlignment = .center
+        stockAmountLabel.font = Constants.StockAmountLabel.font
+    }
+
     private func setupViews() {
         setupShowMyStocksButton()
         setupStockDetailCardContainerView()
@@ -211,6 +218,7 @@ class StockDetailViewController: UIViewController {
         setupStockDetailCardView()
         setupStockNameLabel()
         setupStockCurrentCostLabel()
+        setupStockAmountLabel()
         setupBuyButton()
         setupSellButton()
         setupBuyTextField()
@@ -255,6 +263,10 @@ extension StockDetailViewController: StockDetailViewInput {
 
     func setStockNameLabel(with name: String) {
         stockNameLabel.text = name
+    }
+
+    func setStockAmountLabel(with amount: String) {
+        stockAmountLabel.text = "You owns: " + amount
     }
 
     func setStockCurrentCostLabel(with cost: String) {
@@ -355,13 +367,17 @@ extension StockDetailViewController {
             static let trailingConstraintContant: CGFloat = 0
         }
 
+        struct StockAmountLabel {
+            static let font: UIFont? = UIFont(name: "DMSans-Medium", size: 12)
+        }
+
         struct BuyButton {
             static let backgroundColor: UIColor = UIColor(red: 71 / 255,
                                                           green: 190 / 255,
                                                           blue: 162 / 255,
                                                           alpha: 1)
 
-            static let font = UIFont(name: "DMSans-Bold", size: 17)
+            static let font: UIFont? = UIFont(name: "DMSans-Bold", size: 17)
             static let textColor: UIColor = .white
             static let cornerRadius: CGFloat = 10
 
