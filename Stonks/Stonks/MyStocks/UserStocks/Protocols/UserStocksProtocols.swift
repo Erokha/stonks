@@ -20,7 +20,7 @@ protocol UserStoksInteractorInput: class {
 }
 
 protocol UserStoksInteractorOutput: class {
-    func didReciveUpdate(userStockUpdate: [String: Float])
+    func didReciveUpdate(userStockUpdate: [String: (Float, String)])
     func didReciveCoreData(stocks: [StockData])
     func didReciveError(with error: Error)
 }

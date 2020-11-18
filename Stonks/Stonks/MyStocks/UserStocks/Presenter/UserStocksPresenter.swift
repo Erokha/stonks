@@ -43,10 +43,11 @@ extension UserStocksPresenter: UserStocksViewOutput {
 }
 
 extension UserStocksPresenter: UserStoksInteractorOutput {
-    func didReciveUpdate(userStockUpdate: [String: Float]) {
+    func didReciveUpdate(userStockUpdate: [String: (Float, String)]) {
         guard var data = self.model else { return }
         for i in 0...data.count - 1 {
-            data[i].stockPrice = userStockUpdate[data[i].stockSymbol] ?? 0
+            data[i].stockPrice = userStockUpdate[data[i].stockSymbol]?.0 ?? 0
+            data[i].imageUrl = userStockUpdate[data[i].stockSymbol]?.1 ?? "not found"
         }
         self.model = data
         view?.endActivity()
