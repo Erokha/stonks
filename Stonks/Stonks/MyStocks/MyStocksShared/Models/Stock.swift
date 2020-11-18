@@ -18,7 +18,7 @@ struct StockData {
         self.stockSymbol = coreStock.symbol
         self.stockPrice = 0
         self.imageUrl = coreStock.imageURL.path ?? "not found"
-        self.stockCount = 0
+        self.stockCount = coreStock.amount
     }
 }
 

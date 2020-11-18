@@ -9,13 +9,15 @@ final class StockDetailViewController: UIViewController {
 
     @IBOutlet private weak var showMyStocksButton: UIButton!
 
+    @IBOutlet private weak var companyNameLabel: UILabel!
+
     @IBOutlet private weak var stockDetailCardContainerView: UIView!
 
     @IBOutlet private weak var stockDetailCardView: CardView!
 
     @IBOutlet private weak var chartContainerView: UIView!
 
-    @IBOutlet private weak var stockNameLabel: UILabel!
+    @IBOutlet private weak var stockSymbolLabel: UILabel!
 
     @IBOutlet private weak var stockCurrentCostLabel: UILabel!
 
@@ -191,8 +193,8 @@ final class StockDetailViewController: UIViewController {
     }
 
     private func setupStockNameLabel() {
-        stockNameLabel.textAlignment = .left
-        stockNameLabel.font = Constants.StockNameLabel.font
+        stockSymbolLabel.textAlignment = .left
+        stockSymbolLabel.font = Constants.StockSymbolLabel.font
     }
 
     private func setupStockCurrentCostLabel() {
@@ -211,7 +213,15 @@ final class StockDetailViewController: UIViewController {
         stockAmountLabel.font = Constants.StockAmountLabel.font
     }
 
+    private func setupCompanyNameLabel() {
+        companyNameLabel.textAlignment = .center
+        companyNameLabel.font = Constants.CompanyNameLabel.font
+        companyNameLabel.numberOfLines = Constants.CompanyNameLabel.numberOfLines
+        companyNameLabel.lineBreakMode = .byWordWrapping
+    }
+
     private func setupViews() {
+        setupCompanyNameLabel()
         setupShowMyStocksButton()
         setupStockDetailCardContainerView()
         setupChartContainerView()
@@ -274,8 +284,12 @@ extension StockDetailViewController: StockDetailViewInput {
         cardPresenter?.setNumberRight(num: number)
     }
 
-    func setStockNameLabel(with name: String) {
-        stockNameLabel.text = name
+    func setStockSymbolLabel(with name: String) {
+        stockSymbolLabel.text = name
+    }
+
+    func setCompanyNameLebel(with name: String) {
+        companyNameLabel.text = name
     }
 
     func setStockAmountLabel(with amount: String) {
@@ -336,6 +350,11 @@ extension StockDetailViewController {
                                                      blue: 227 / 255,
                                                      alpha: 0.6)
 
+        struct CompanyNameLabel {
+            static let font: UIFont? = UIFont(name: "DMSans-Medium", size: 15)
+            static let numberOfLines: Int = 2
+        }
+
         struct ChartDataset {
             static let circleRadius: CGFloat = 3
             static let lineWidth: CGFloat = 1
@@ -365,7 +384,7 @@ extension StockDetailViewController {
             static let shadowOpacity: Float = 0.5
         }
 
-        struct StockNameLabel {
+        struct StockSymbolLabel {
             static let font = UIFont(name: "DMSans-Bold", size: 30)
         }
 

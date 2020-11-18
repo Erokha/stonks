@@ -56,6 +56,60 @@ extension NetworkService: NetworkServiceInput {
             completion(result)
         }
     }
+
+    func fetchStockName(for symbol: String, completion: @escaping (Result<String, Error>) -> Void) {
+        let request = AF.request(Constants.baseURL + "stock/\(symbol)")
+
+        request.responseDecodable(of: [StockRaw].self) { response in
+            let result = Result<String, Error>()
+
+            switch response.result {
+            case .success(let stocks):
+                result.data = stocks.first?.stockName
+            case .failure(let error):
+                result.error = error
+            }
+
+            completion(result)
+        }
+    }
+
+    func fetchStockHistory(for symbol: String, completion: @escaping (Result<[Decimal], Error>) -> Void) {
+
+    }
+
+    func fetchStocksFreshPrice(for symbols: [String], completion: @escaping (Result<[Float], Error>) -> Void) {
+        var url = Constants.baseURL + "stock/"
+
+        guard !symbols.isEmpty else {
+            return
+        }
+
+        for symbol in symbols {
+            url += "\(symbol),"
+        }
+
+        url.removeLast()
+
+        let request = AF.request(url)
+
+        request.responseDecodable(of: [StockRaw].self) { response in
+            let result = Result<[Float], Error>()
+
+            switch response.result {
+            case .success(let stocks):
+                result.data = []
+
+                stocks.forEach { stock in
+                    result.data?.append(stock.stockPrice)
+                }
+            case .failure(let error):
+                result.error = error
+            }
+
+            completion(result)
+        }
+    }
 }
 
 extension NetworkService {

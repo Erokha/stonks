@@ -4,7 +4,8 @@ import Charts
 protocol StockDetailViewInput: class {
     func setChartData(with quotes: [ChartDataEntry])
     func setNavigationBarTitle(with titel: String)
-    func setStockNameLabel(with name: String)
+    func setStockSymbolLabel(with name: String)
+    func setCompanyNameLebel(with name: String)
     func setStockAmountLabel(with amount: String)
     func setStockCurrentCostLabel(with cost: String)
     func setCardLeftText(text: String)
