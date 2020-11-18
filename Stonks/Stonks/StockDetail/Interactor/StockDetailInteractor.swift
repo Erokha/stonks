@@ -26,8 +26,21 @@ final class StockDetailInteractor: NSObject {
                 return
             }
 
-            StockDataService.shared.createStock(name: "SpaceX", symbol: symbol, imageURL: url)
-            self.stock = StockDataService.shared.getStock(symbol: symbol)
+            NetworkService.shared.fetchStockName(for: symbol) { [weak self] result in
+                if let error = result.error {
+                    print(error)
+                    return
+                }
+
+                guard let stockName = result.data else {
+                    return
+                }
+
+                StockDataService.shared.createStock(name: stockName, symbol: symbol, imageURL: url)
+                self?.stock = StockDataService.shared.getStock(symbol: symbol)
+                self?.fetchStockData()
+                //self?.updateQuotesTimer?.fire()
+            }
         } else {
             self.stock = StockDataService.shared.getStock(symbol: symbol)
         }
@@ -94,13 +107,22 @@ final class StockDetailInteractor: NSObject {
             return
         }
 
-        let freshPrice = Double.random(in: 0...50)
+        NetworkService.shared.fetchFreshStockPrice(for: stock.symbol) { [weak self] result in
+            if let error = result.error {
+                print(error)
+                return
+            }
 
-        stock.priceHistory.removeFirst()
-        stock.priceHistory.append(NSDecimalNumber(value: freshPrice))
+            guard let freshPrice = result.data else {
+                return
+            }
 
-        StockDataService.shared.updateStock(symbol: stock.symbol, stock: stock)
-        output?.freshCostDidReceived(model: StockDetailPresenterData(model: stock))
+            stock.priceHistory.removeFirst()
+            stock.priceHistory.append(NSDecimalNumber(value: freshPrice))
+
+            StockDataService.shared.updateStock(symbol: stock.symbol, stock: stock)
+            self?.output?.freshCostDidReceived(model: StockDetailPresenterData(model: stock))
+        }
     }
 
     deinit {
@@ -110,7 +132,6 @@ final class StockDetailInteractor: NSObject {
         }
 
         for stock in stocks where stock.amount == 0 {
-            print(stock.symbol)
             StockDataService.shared.deleteStock(symbol: stock.symbol)
         }
     }
@@ -201,8 +222,15 @@ extension StockDetailInteractor: NSFetchedResultsControllerDelegate {
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         if let user = controller.fetchedObjects?.first as? User {
             sendCardData(data: prepareCardModel(user: user))
-        } else if let stock = controller.fetchedObjects?.first as? Stock {
-            output?.stockDataDidReceived(model: StockDetailPresenterData(model: stock))
+        } else if let stocks = controller.fetchedObjects as? [Stock] {
+            guard let stock = stock else {
+                return
+            }
+
+            for updatedStock in stocks where updatedStock.symbol == stock.symbol {
+                output?.stockDataDidReceived(model: StockDetailPresenterData(model: stock))
+                break
+            }
         }
     }
 }
