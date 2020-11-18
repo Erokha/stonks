@@ -97,7 +97,8 @@ extension StockDetailPresenter: StockDetailInteractorOutput {
         guard let priceHistory = model.quotes,
               let freshPrice = priceHistory.last,
               let amount = model.amount,
-              let name = model.name else {
+              let name = model.name,
+              let symbol = model.symbol else {
             return
         }
 
@@ -112,7 +113,8 @@ extension StockDetailPresenter: StockDetailInteractorOutput {
         })
 
         view?.setChartData(with: chartData)
-        view?.setStockNameLabel(with: name)
+        view?.setStockSymbolLabel(with: symbol)
+        view?.setCompanyNameLebel(with: name)
         view?.setStockAmountLabel(with: String(amount))
         view?.setStockCurrentCostLabel(with: String(format: "%.1f", freshPrice.doubleValue) + "$")
     }
