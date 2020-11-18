@@ -24,7 +24,7 @@ extension AuthorizationService: AuthorizationServiceInput {
     func authorize() {
         UserDefaults.standard.setValue(true, forKey: Constants.authKey)
     }
-    
+
     func deAuthorize() {
         UserDefaults.standard.setValue(false, forKey: Constants.authKey)
     }
