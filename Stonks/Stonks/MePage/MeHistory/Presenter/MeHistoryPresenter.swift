@@ -7,9 +7,7 @@ final class MeHistoryPresenter {
 
     private var stocks: [StockHistoryData] = [] {
         didSet {
-            DispatchQueue.main.async {
-                self.view?.reloadTable()
-            }
+            self.view?.reloadTable()
         }
     }
     init(interactor: MeHistoryInteractorInput) {
