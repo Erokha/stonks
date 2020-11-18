@@ -14,9 +14,9 @@ final class UserStocksInteractor {
     }
 
     private func handleStock(with stocksRaw: [StockRaw]) {
-        var stocksDict: [String: Float] = [:]
+        var stocksDict: [String: (Float, String)] = [:]
         for element in stocksRaw {
-            stocksDict[element.stockSymbol] = element.stockPrice
+            stocksDict[element.stockSymbol] = (element.stockPrice, element.imageUrl)
         }
         output?.didReciveUpdate(userStockUpdate: stocksDict)
     }
