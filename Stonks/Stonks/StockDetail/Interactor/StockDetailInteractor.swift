@@ -107,13 +107,13 @@ final class StockDetailInteractor: NSObject {
             return
         }
 
-        NetworkService.shared.fetchFreshStockPrice(for: stock.symbol) { [weak self] result in
+        NetworkService.shared.fetchStocksFreshPrice(for: [stock.symbol]) { [weak self] result in
             if let error = result.error {
                 print(error)
                 return
             }
 
-            guard let freshPrice = result.data else {
+            guard let freshPrice = result.data?.first else {
                 return
             }
 
