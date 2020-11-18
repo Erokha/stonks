@@ -19,6 +19,8 @@ class UserStocksViewController: UIViewController, UINavigationControllerDelegate
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "StockTableViewCell", bundle: nil), forCellReuseIdentifier: StockTableViewCell.reuseIdentifier)
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()

@@ -38,7 +38,8 @@ extension UserStocksPresenter: UserStocksViewOutput {
     }
 
     func refreshData() {
-        interactor.loadStoks(symbols: ["AAPL", "MSFT"]) // HARDCODE
+        view?.startActivity()
+        interactor.loadStocksFromCoreData()
     }
 }
 
@@ -61,6 +62,7 @@ extension UserStocksPresenter: UserStoksInteractorOutput {
             symbolsArray.append(stock.stockSymbol)
         }
         interactor.loadStoks(symbols: symbolsArray)
+        view?.endActivity()
     }
 
     func didReciveError(with error: Error) {
