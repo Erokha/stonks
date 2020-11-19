@@ -34,6 +34,17 @@ class CardView: EmbeddedView, CardViewType {
 
     override func setupNib() {
         super.setupNib()
+        upperTextLeft.font = Constants.upperTextFont
+        upperTextRight.font = Constants.upperTextFont
+        numberLeft.font = Constants.numbersFont
+        numberRight.font = Constants.numbersFont
     }
 
+}
+
+extension CardView {
+    private struct Constants {
+        static let upperTextFont: UIFont? = UIFont(name: "DMSans-Medium", size: 12)
+        static let numbersFont: UIFont? = UIFont(name: "DMSans-Bold", size: 26)
+    }
 }
