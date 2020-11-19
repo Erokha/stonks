@@ -14,13 +14,17 @@ protocol MainStocksViewOutput: class {
 protocol MainStocksRouterInput: class {
     func showAllStocks() -> AllStocksViewController
     func showUserStocks() -> UserStocksViewController
+    func showError(with error: Error)
 }
 
 protocol MainStocksInteractorInput: class {
     func loadUser()
+    func loadStocks()
 }
 
 protocol MainStocksInteractorOutput: class {
+    var model: [StockData]? { get set }
     func didReceive(user: MeUserData)
-    //func didChangeContetnt(user: MeUserData)
+    func handleFreshStocks(data: [String: Float])
+    func didReciveError(with error: Error)
 }
