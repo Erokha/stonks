@@ -21,11 +21,6 @@ final class StockDetailInteractor: NSObject {
         frcStock?.delegate = self
 
         if StockDataService.shared.stockIsNew(symbol: symbol) {
-            // тут запрос в сеть
-            guard let url = URL(string: "sdsd") else {
-                return
-            }
-
             NetworkService.shared.fetchStockName(for: symbol) { [weak self] result in
                 if let error = result.error {
                     print(error)
@@ -36,7 +31,7 @@ final class StockDetailInteractor: NSObject {
                     return
                 }
 
-                StockDataService.shared.createStock(name: stockName, symbol: symbol, imageURL: url)
+                StockDataService.shared.createStock(name: stockName, symbol: symbol)
                 self?.stock = StockDataService.shared.getStock(symbol: symbol)
                 self?.fetchStockData()
                 //self?.updateQuotesTimer?.fire()

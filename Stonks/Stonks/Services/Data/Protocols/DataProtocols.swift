@@ -8,8 +8,7 @@ protocol UserDataServiceInput {
 
 protocol StockDataServiceInput {
     func createStock(name: String,
-                     symbol: String,
-                     imageURL: URL)
+                     symbol: String)
     func getStock(symbol: String) -> Stock?
     func updateStock(symbol: String, stock: Stock)
     func deleteStock(symbol: String)

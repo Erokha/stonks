@@ -32,8 +32,7 @@ extension StockDataService: StockDataServiceInput {
     }
 
     func createStock(name: String,
-                     symbol: String,
-                     imageURL: URL) {
+                     symbol: String) {
         let context = persistentContainer.viewContext
 
         guard let stock = NSEntityDescription.insertNewObject(forEntityName: Entities.stock.rawValue, into: context) as? Stock else {
@@ -44,7 +43,6 @@ extension StockDataService: StockDataServiceInput {
         stock.symbol = symbol
         stock.totalCost = 0
         stock.amount = 0
-        stock.imageURL = NSURL(fileURLWithPath: imageURL.absoluteString)
         stock.priceHistory = []
 
         stock.user = UserDataService.shared.getUser()
