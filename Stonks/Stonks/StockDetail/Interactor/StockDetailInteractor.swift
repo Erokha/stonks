@@ -112,7 +112,7 @@ final class StockDetailInteractor: NSObject {
             }
 
             stock.priceHistory.removeFirst()
-            stock.priceHistory.append(NSDecimalNumber(value: freshPrice))
+            stock.priceHistory.append(NSDecimalNumber(value: freshPrice.stockPrice))
 
             StockDataService.shared.updateStock(symbol: stock.symbol, stock: stock)
             self?.output?.freshCostDidReceived(model: StockDetailPresenterData(model: stock))
