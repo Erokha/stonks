@@ -535,7 +535,6 @@
 				0DF11BF6255C7CC8004162BA /* Interactor */,
 				0DF11BF4255C7CBF004162BA /* Container */,
 				0DF11BF2255C7CB1004162BA /* Presenter */,
-				0DF11BF1255C7CA8004162BA /* TableViewCell */,
 				0DF11BF0255C7CA4004162BA /* Views */,
 				0DF11BEF255C7C9E004162BA /* Protocols */,
 			);
@@ -556,13 +555,6 @@
 				0DF11C0A255C8ABA004162BA /* UserStocksViewController.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		0DF11BF1255C7CA8004162BA /* TableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 		0DF11BF2255C7CB1004162BA /* Presenter */ = {
