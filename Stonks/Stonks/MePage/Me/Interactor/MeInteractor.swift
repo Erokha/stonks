@@ -8,10 +8,9 @@ final class MeInteractor: NSObject {
     required override init() {
         super.init()
         configureFrc()
-        frc?.delegate = self
     }
 
-    func configureFrc() {
+    private func configureFrc() {
         let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
@@ -19,6 +18,7 @@ final class MeInteractor: NSObject {
         frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: DataService.shared.getPersistentContainer().viewContext, sectionNameKeyPath: nil, cacheName: nil)
 
         do {
+            frc?.delegate = self
             try frc?.performFetch()
         } catch {
             fatalError("Error while performing fetch")

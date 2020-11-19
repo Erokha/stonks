@@ -92,7 +92,6 @@
 		13C1DC04256117F50043BDA5 /* StockHistory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C1DC03256117F50043BDA5 /* StockHistory+CoreDataClass.swift */; };
 		13C1DC0A256119BC0043BDA5 /* StockHistoryDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C1DC09256119BC0043BDA5 /* StockHistoryDataService.swift */; };
 		13C1DC0E256133A50043BDA5 /* MeHistoryFilterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C1DC0D256133A50043BDA5 /* MeHistoryFilterInteractor.swift */; };
-		13D824C6254AF41F002F654E /* MeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D824C5254AF41F002F654E /* MeInteractor.swift */; };
 		13DCDD6325481994002D3F99 /* MePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DCDD6225481994002D3F99 /* MePageViewController.swift */; };
 		13E4906125583AF800E567A3 /* MeSettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E4906025583AF800E567A3 /* MeSettingsInteractor.swift */; };
 		13F28AAC2534913F0004E864 /* MePortfolioProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F28AAB2534913F0004E864 /* MePortfolioProtocols.swift */; };
@@ -525,7 +524,6 @@
 				0DF11BF6255C7CC8004162BA /* Interactor */,
 				0DF11BF4255C7CBF004162BA /* Container */,
 				0DF11BF2255C7CB1004162BA /* Presenter */,
-				0DF11BF1255C7CA8004162BA /* TableViewCell */,
 				0DF11BF0255C7CA4004162BA /* Views */,
 				0DF11BEF255C7C9E004162BA /* Protocols */,
 			);
@@ -546,13 +544,6 @@
 				0DF11C0A255C8ABA004162BA /* UserStocksViewController.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		0DF11BF1255C7CA8004162BA /* TableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 		0DF11BF2255C7CB1004162BA /* Presenter */ = {
@@ -1591,7 +1582,7 @@
 				1359147B254EC9AA0048E60F /* MeHistoryProtocols.swift in Sources */,
 				134487A82541D724008C2D7B /* MeSettingsPresenter.swift in Sources */,
 				138D65AC255D87E0004CC2DD /* MeUserData.swift in Sources */,
-				0D3903B8252F62C200C18036 /* MyStocksPresenter.swift in Sources */,
+				0D3903B8252F62C200C18036 /* AllStocksPresenter.swift in Sources */,
 				13F28AC22534936E0004E864 /* MePortfolioPresenter.swift in Sources */,
 				1359147E254ECA330048E60F /* MeHistoryContainer.swift in Sources */,
 				131D5AFD25378F1C00F32055 /* MePortfolioRouter.swift in Sources */,
