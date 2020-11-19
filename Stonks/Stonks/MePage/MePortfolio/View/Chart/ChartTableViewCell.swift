@@ -47,7 +47,16 @@ final class ChartTableViewCell: UITableViewCell {
         stocksPieChartView.noDataText = ""
     }
 
+    private func setDataFormatter(pieChartData: PieChartData) {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.currencySymbol = "$"
+        formatter.zeroSymbol = ""
+        pieChartData.setValueFormatter(DefaultValueFormatter(formatter: formatter))
+    }
+
     func configureChartView(pieChartData: PieChartData) {
+        setDataFormatter(pieChartData: pieChartData)
         self.stocksPieChartView.data = pieChartData
     }
 

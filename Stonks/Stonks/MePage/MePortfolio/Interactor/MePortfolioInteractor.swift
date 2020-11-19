@@ -27,6 +27,20 @@ final class MePortfolioInteractor: NSObject {
     }
 
     private func didStocksChanged(stocks: [Stock]) {
+        var stockSymbols: [String] = []
+
+        stocks.forEach { stock in
+            stockSymbols.append(stock.symbol)
+        }
+
+        NetworkService.shared.fetchStocksFreshPrice(for: stockSymbols) { [self] result in
+            if let error = result.error {
+                handleError(with: error)
+            }
+            guard let prices = result.data  else { return }
+            let stockData: [MePortfolioStockData] = stocks.enumerated().map({ MePortfolioStockData(with: $1, currentPrice: prices[$0]) })
+            print("PRICES:", stockData)
+        }
     }
 
     private func prepareModels(for fetchResult: [NSFetchRequestResult]) -> [Stock]? {
@@ -65,6 +79,7 @@ extension MePortfolioInteractor: MePortfolioInteractorInput {
 extension MePortfolioInteractor: NSFetchedResultsControllerDelegate {
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         if let fetchResult = controller.fetchedObjects {
+            print(fetchResult)
             if let stocks = prepareModels(for: fetchResult) {
                 didStocksChanged(stocks: stocks)
             }
