@@ -35,6 +35,8 @@ final class StockDetailViewController: UIViewController {
 
     @IBOutlet private weak var sellTextField: UITextField!
 
+    @IBOutlet private weak var loadIndicator: UIActivityIndicatorView!
+
     private lazy var stockLineChartView: LineChartView = {
         let chart = LineChartView()
 
@@ -220,6 +222,10 @@ final class StockDetailViewController: UIViewController {
         companyNameLabel.lineBreakMode = .byWordWrapping
     }
 
+    private func setupActivityIndicator() {
+        loadIndicator.hidesWhenStopped = true
+    }
+
     private func setupViews() {
         setupCompanyNameLabel()
         setupShowMyStocksButton()
@@ -235,6 +241,7 @@ final class StockDetailViewController: UIViewController {
         setupBuyTextFieldContainerView()
         setupSellTextField()
         setupSellTextFieldContainerView()
+        setupActivityIndicator()
     }
 
     private func setupView() {
@@ -331,6 +338,22 @@ extension StockDetailViewController: StockDetailViewInput {
         alert.addAction(UIAlertAction(title: "ОК", style: .default, handler: nil))
 
         present(alert, animated: true)
+    }
+
+    func showActivityIndicator() {
+        chartContainerView.isHidden = true
+        stockAmountLabel.isHidden = true
+        companyNameLabel.isHidden = true
+
+        loadIndicator.startAnimating()
+    }
+
+    func hideActivityIndicator() {
+        chartContainerView.isHidden = false
+        stockAmountLabel.isHidden = false
+        companyNameLabel.isHidden = false
+
+        loadIndicator.stopAnimating()
     }
 
     func disableKeyboard() {

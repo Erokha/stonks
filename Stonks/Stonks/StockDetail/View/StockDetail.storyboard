@@ -139,14 +139,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="C0I-2L-ZPM">
+                                <rect key="frame" x="197" y="331" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ELa-rG-u7X"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="C0I-2L-ZPM" firstAttribute="centerY" secondItem="TK6-ie-jNg" secondAttribute="centerY" id="1iS-0b-M5r"/>
                             <constraint firstItem="YXH-ed-3D5" firstAttribute="centerX" secondItem="W8A-Gf-YC8" secondAttribute="centerX" id="4EZ-dd-5KY"/>
                             <constraint firstItem="2dK-mQ-bUY" firstAttribute="height" secondItem="W8A-Gf-YC8" secondAttribute="height" multiplier="0.0558036" priority="999" id="4gq-71-lij"/>
                             <constraint firstItem="uIk-tB-WpB" firstAttribute="top" secondItem="W8A-Gf-YC8" secondAttribute="top" constant="44" id="5ud-zm-4Oc"/>
                             <constraint firstItem="TK6-ie-jNg" firstAttribute="height" secondItem="W8A-Gf-YC8" secondAttribute="height" multiplier="0.262277" id="7f5-FB-1B6"/>
+                            <constraint firstItem="C0I-2L-ZPM" firstAttribute="centerX" secondItem="TK6-ie-jNg" secondAttribute="centerX" id="APn-lt-jU9"/>
                             <constraint firstItem="Wag-hC-Ijx" firstAttribute="centerX" secondItem="ELa-rG-u7X" secondAttribute="centerX" id="ATW-BO-yvz"/>
                             <constraint firstAttribute="top" secondItem="88r-IS-0RU" secondAttribute="top" constant="-50" id="DzB-N3-CO9"/>
                             <constraint firstItem="uIk-tB-WpB" firstAttribute="width" secondItem="W8A-Gf-YC8" secondAttribute="width" multiplier="0.635266" id="FuK-Pl-yCx"/>
@@ -185,6 +190,7 @@
                         <outlet property="buyTextFieldContainerView" destination="kI3-oS-tV7" id="ex7-Mv-k7I"/>
                         <outlet property="chartContainerView" destination="TK6-ie-jNg" id="rui-mB-b69"/>
                         <outlet property="companyNameLabel" destination="uIk-tB-WpB" id="9JS-pI-MRb"/>
+                        <outlet property="loadIndicator" destination="C0I-2L-ZPM" id="SOM-f2-fCb"/>
                         <outlet property="sellButton" destination="113-jI-mP2" id="DB0-S8-GkV"/>
                         <outlet property="sellTextField" destination="fd3-ti-DaT" id="1jm-eh-cNG"/>
                         <outlet property="sellTextFieldContainerView" destination="Gyv-WH-8ok" id="T91-oX-pGN"/>

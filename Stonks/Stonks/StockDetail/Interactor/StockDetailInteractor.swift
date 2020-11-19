@@ -204,7 +204,7 @@ extension StockDetailInteractor: StockDetailInteractorInput {
                 return
             }
 
-            stock.priceHistory = data.map { NSDecimalNumber(value: $0) }
+            stock.priceHistory = data.map { NSDecimalNumber(value: $0) }.reversed()
             StockDataService.shared.updateStock(symbol: stock.symbol, stock: stock)
 
             self?.output?.stockDataDidReceived(model: StockDetailPresenterData(model: stock))
