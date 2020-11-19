@@ -17,6 +17,8 @@ protocol MeSettingsOutput: class {
 protocol MeSettingsInteractorInput: class {
     func saveChanges(for user: User)
     func loadUser() -> User
+    func resetData()
 }
 protocol MeSettingsInteractorOutput: class {
+    func didAllEntitiesDeleted()
 }

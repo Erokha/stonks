@@ -36,6 +36,7 @@ final class MeSettingsPresenter {
         user.balance = 0
         user.totalSpent = 0
         interactor.saveChanges(for: user)
+        interactor.resetData()
 
     }
     private func configureMailComposer() -> MFMailComposeViewController {
@@ -136,6 +137,10 @@ extension MeSettingsPresenter: MeSettingsOutput {
 }
 
 extension MeSettingsPresenter: MeSettingsInteractorOutput {
+    func didAllEntitiesDeleted() {
+        guard let appDelegate: AppDelegate = UIApplication.shared.delegate as? AppDelegate  else { return }
+        appDelegate.reloadUserData()
+    }
 }
 
 extension MeSettingsPresenter {
