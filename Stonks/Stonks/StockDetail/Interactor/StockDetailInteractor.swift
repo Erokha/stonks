@@ -21,11 +21,6 @@ final class StockDetailInteractor: NSObject {
         frcStock?.delegate = self
 
         if StockDataService.shared.stockIsNew(symbol: symbol) {
-            // тут запрос в сеть
-            guard let url = URL(string: "sdsd") else {
-                return
-            }
-
             NetworkService.shared.fetchStockName(for: symbol) { [weak self] result in
                 if let error = result.error {
                     print(error)
@@ -36,10 +31,9 @@ final class StockDetailInteractor: NSObject {
                     return
                 }
 
-                StockDataService.shared.createStock(name: stockName, symbol: symbol, imageURL: url)
+                StockDataService.shared.createStock(name: stockName, symbol: symbol)
                 self?.stock = StockDataService.shared.getStock(symbol: symbol)
                 self?.fetchStockData()
-                //self?.updateQuotesTimer?.fire()
             }
         } else {
             self.stock = StockDataService.shared.getStock(symbol: symbol)
@@ -200,17 +194,21 @@ extension StockDetailInteractor: StockDetailInteractorInput {
             return
         }
 
-        var priceHistory: [NSDecimalNumber] = []
+        NetworkService.shared.fetchStockHistory(for: stock.symbol) { [weak self] result in
+            if let error = result.error {
+                print(error)
+                return
+            }
 
-        for _ in 0..<30 {
-            let value = Double.random(in: 0.0 ... 50.0)
-            priceHistory.append(NSDecimalNumber(value: value))
+            guard let data = result.data else {
+                return
+            }
+
+            stock.priceHistory = data.map { NSDecimalNumber(value: $0) }.reversed()
+            StockDataService.shared.updateStock(symbol: stock.symbol, stock: stock)
+
+            self?.output?.stockDataDidReceived(model: StockDetailPresenterData(model: stock))
         }
-
-        stock.priceHistory = priceHistory
-        StockDataService.shared.updateStock(symbol: stock.symbol, stock: stock)
-
-        output?.stockDataDidReceived(model: StockDetailPresenterData(model: stock))
     }
 
     func stopFetching() {

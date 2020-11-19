@@ -13,6 +13,8 @@ protocol StockDetailViewInput: class {
     func setCardLeftNumber(number: Int)
     func setCardRightNumber(number: Int)
     func showAlert(with title: String, message: String)
+    func showActivityIndicator()
+    func hideActivityIndicator()
     func disableKeyboard()
 }
 
