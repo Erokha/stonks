@@ -1,10 +1,12 @@
 import Foundation
 import CoreData
 
-class StockDetailInteractor: NSObject {
+final class StockDetailInteractor: NSObject {
     weak var output: StockDetailInteractorOutput?
 
-    private var frc: NSFetchedResultsController<User>?
+    private var frcUser: NSFetchedResultsController<User>?
+
+    private var frcStock: NSFetchedResultsController<Stock>?
 
     private var stock: Stock?
 
@@ -13,8 +15,10 @@ class StockDetailInteractor: NSObject {
     init(symbol: String) {
         super.init()
 
-        configureFrc()
-        frc?.delegate = self
+        configureFrcUser()
+        configureFrcStock()
+        frcUser?.delegate = self
+        frcStock?.delegate = self
 
         if StockDataService.shared.stockIsNew(symbol: symbol) {
             // тут запрос в сеть
@@ -22,8 +26,21 @@ class StockDetailInteractor: NSObject {
                 return
             }
 
-            StockDataService.shared.createStock(name: "SpaceX", symbol: symbol, imageURL: url)
-            self.stock = StockDataService.shared.getStock(symbol: symbol)
+            NetworkService.shared.fetchStockName(for: symbol) { [weak self] result in
+                if let error = result.error {
+                    print(error)
+                    return
+                }
+
+                guard let stockName = result.data else {
+                    return
+                }
+
+                StockDataService.shared.createStock(name: stockName, symbol: symbol, imageURL: url)
+                self?.stock = StockDataService.shared.getStock(symbol: symbol)
+                self?.fetchStockData()
+                //self?.updateQuotesTimer?.fire()
+            }
         } else {
             self.stock = StockDataService.shared.getStock(symbol: symbol)
         }
@@ -39,19 +56,38 @@ class StockDetailInteractor: NSObject {
                                                       repeats: true)
     }
 
-    private func configureFrc() {
+    private func configureFrcUser() {
         let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+
         fetchRequest.sortDescriptors = [sortDescriptor]
 
-        frc = NSFetchedResultsController(fetchRequest: fetchRequest,
+        frcUser = NSFetchedResultsController(fetchRequest: fetchRequest,
                                          managedObjectContext: DataService.shared.getPersistentContainer().viewContext,
                                          sectionNameKeyPath: nil,
                                          cacheName: nil)
         do {
-            try frc?.performFetch()
+            try frcUser?.performFetch()
         } catch {
-            fatalError("StockDetailInteractor: Request not fetched!")
+            fatalError("StockDetailInteractor: User request not fetched!")
+        }
+    }
+
+    private func configureFrcStock() {
+        let fetchRequest: NSFetchRequest<Stock> = Stock.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+
+        fetchRequest.sortDescriptors = [sortDescriptor]
+
+        frcStock = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                              managedObjectContext: DataService.shared.getPersistentContainer().viewContext,
+                                              sectionNameKeyPath: nil,
+                                              cacheName: nil)
+
+        do {
+            try frcStock?.performFetch()
+        } catch {
+            fatalError("StockDetailInteractor: Stock request not fetched")
         }
     }
 
@@ -59,7 +95,7 @@ class StockDetailInteractor: NSObject {
         output?.cardDataDidReceived(model: StockDetailPresenterData(cardData: data))
     }
 
-    private func prepareModel(user: User) -> CardData {
+    private func prepareCardModel(user: User) -> CardData {
         return CardData(leftNumber: Int(user.totalSpent.floatValue),
                         rightNumber: Int(user.balance.floatValue))
     }
@@ -71,13 +107,22 @@ class StockDetailInteractor: NSObject {
             return
         }
 
-        let freshPrice = Double.random(in: 0...50)
+        NetworkService.shared.fetchStocksFreshPrice(for: [stock.symbol]) { [weak self] result in
+            if let error = result.error {
+                print(error)
+                return
+            }
 
-        stock.priceHistory.removeFirst()
-        stock.priceHistory.append(NSDecimalNumber(value: freshPrice))
+            guard let freshPrice = result.data?.first else {
+                return
+            }
 
-        StockDataService.shared.updateStock(symbol: stock.symbol, stock: stock)
-        output?.freshCostDidReceived(model: StockDetailPresenterData(model: stock))
+            stock.priceHistory.removeFirst()
+            stock.priceHistory.append(NSDecimalNumber(value: freshPrice))
+
+            StockDataService.shared.updateStock(symbol: stock.symbol, stock: stock)
+            self?.output?.freshCostDidReceived(model: StockDetailPresenterData(model: stock))
+        }
     }
 
     deinit {
@@ -87,7 +132,6 @@ class StockDetailInteractor: NSObject {
         }
 
         for stock in stocks where stock.amount == 0 {
-            print(stock.symbol)
             StockDataService.shared.deleteStock(symbol: stock.symbol)
         }
     }
@@ -99,7 +143,7 @@ extension StockDetailInteractor: StockDetailInteractorInput {
             return
         }
 
-        sendCardData(data: prepareModel(user: user))
+        sendCardData(data: prepareCardModel(user: user))
     }
 
     func increaseAmount(by value: Int) {
@@ -151,7 +195,7 @@ extension StockDetailInteractor: StockDetailInteractorInput {
         StockDataService.shared.updateStock(symbol: stock.symbol, stock: stock)
     }
 
-    func fetchStockQuotes() {
+    func fetchStockData() {
         guard let stock = self.stock else {
             return
         }
@@ -166,7 +210,7 @@ extension StockDetailInteractor: StockDetailInteractorInput {
         stock.priceHistory = priceHistory
         StockDataService.shared.updateStock(symbol: stock.symbol, stock: stock)
 
-        output?.stockHistoryDidReceived(model: StockDetailPresenterData(model: stock))
+        output?.stockDataDidReceived(model: StockDetailPresenterData(model: stock))
     }
 
     func stopFetching() {
@@ -176,11 +220,18 @@ extension StockDetailInteractor: StockDetailInteractorInput {
 
 extension StockDetailInteractor: NSFetchedResultsControllerDelegate {
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        guard let fetchResult = controller.fetchedObjects?.first as? User else {
-            return
-        }
+        if let user = controller.fetchedObjects?.first as? User {
+            sendCardData(data: prepareCardModel(user: user))
+        } else if let stocks = controller.fetchedObjects as? [Stock] {
+            guard let stock = stock else {
+                return
+            }
 
-        sendCardData(data: prepareModel(user: fetchResult))
+            for updatedStock in stocks where updatedStock.symbol == stock.symbol {
+                output?.stockDataDidReceived(model: StockDetailPresenterData(model: stock))
+                break
+            }
+        }
     }
 }
 

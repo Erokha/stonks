@@ -11,7 +11,12 @@ final class ArticleInteractor {
     }
 
     private func handleError(with error: Error) {
-        print(error)
+        switch error.localizedDescription {
+        case networkErrors.sessionTaskFailed.type:
+            output?.didReciveError(with: AppError.networkError)
+        default:
+            output?.didReciveError(with: AppError.undefinedError)
+        }
     }
 
     private func handleArticle(with articles: [ArticleModel]) {
@@ -33,17 +38,6 @@ extension ArticleInteractor: ArticleInteractorInput {
 
             self?.handleArticle(with: articles)
         }
-        /*
-        let request = AF.request(self.requestUrl)
-        request.responseDecodable(of: [ArticleModel].self) { [weak self] response in
-            switch response.result {
-            case .success(let data):
-                self?.output?.didRecive(articles: data)
-            case .failure(let error):
-                self?.handleError(with: error)
-            }
-        }
-        */
     }
 
 }

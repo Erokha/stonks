@@ -5,9 +5,9 @@ class ArticleContainer {
     let viewController: ArticleViewController
 
     class func assemble(with context: ArticleContext) -> ArticleContainer {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboard = UIStoryboard(name: Storyboard.article.name, bundle: nil)
 
-        guard let viewController = storyboard.instantiateViewController(withIdentifier: "Main") as? ArticleViewController else {
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: Storyboard.article.name) as? ArticleViewController else {
             fatalError("ArticleContainer: viewController must be type ArticleViewController")
         }
 

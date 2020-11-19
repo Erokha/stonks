@@ -37,3 +37,14 @@ extension AppDelegate {
         }
     }
 }
+
+extension AppDelegate {
+    func reloadUserData() {
+        AuthorizationService.shared.deAuthorize()
+
+        let context = LoginContext(isChecked: false)
+        let container = LoginContainer.assemble(with: context)
+
+        self.window?.rootViewController = container.viewController
+    }
+}
