@@ -13,6 +13,14 @@ protocol MainStocksViewOutput: class {
 
 protocol MainStocksRouterInput: class {
     func showAllStocks() -> AllStocksViewController
-
     func showUserStocks() -> UserStocksViewController
+}
+
+protocol MainStocksInteractorInput: class {
+    func loadUser()
+}
+
+protocol MainStocksInteractorOutput: class {
+    func didReceive(user: MeUserData)
+    //func didChangeContetnt(user: MeUserData)
 }

@@ -29,6 +29,7 @@
 		0D777785254EEA0B00EFF30E /* ArticleRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D777784254EEA0B00EFF30E /* ArticleRouter.swift */; };
 		0D77AB342558271700D283F1 /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13F28AA025348F910004E864 /* CardView.xib */; };
 		0DB3663E254360DC00607812 /* AllStocksInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB3663D254360DC00607812 /* AllStocksInteractor.swift */; };
+		0DC142812566A9EF00A18C8B /* MainStocksInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC142802566A9EF00A18C8B /* MainStocksInteractor.swift */; };
 		0DD9A40A254A3DA7006095D7 /* MainStocks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D3903A8252F62C200C18036 /* MainStocks.storyboard */; };
 		0DD9A40C254A3DAD006095D7 /* MePage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 134179E4253227A90052D1A9 /* MePage.storyboard */; };
 		0DD9A40E254A3DB2006095D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31BDC090252A1C5D00F56ADD /* Assets.xcassets */; };
@@ -91,7 +92,6 @@
 		13C1DC04256117F50043BDA5 /* StockHistory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C1DC03256117F50043BDA5 /* StockHistory+CoreDataClass.swift */; };
 		13C1DC0A256119BC0043BDA5 /* StockHistoryDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C1DC09256119BC0043BDA5 /* StockHistoryDataService.swift */; };
 		13C1DC0E256133A50043BDA5 /* MeHistoryFilterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C1DC0D256133A50043BDA5 /* MeHistoryFilterInteractor.swift */; };
-		13D824C6254AF41F002F654E /* MeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D824C5254AF41F002F654E /* MeInteractor.swift */; };
 		13DCDD6325481994002D3F99 /* MePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DCDD6225481994002D3F99 /* MePageViewController.swift */; };
 		13E4906125583AF800E567A3 /* MeSettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E4906025583AF800E567A3 /* MeSettingsInteractor.swift */; };
 		13F28AAC2534913F0004E864 /* MePortfolioProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F28AAB2534913F0004E864 /* MePortfolioProtocols.swift */; };
@@ -158,6 +158,7 @@
 		0D77776F254B22FA00EFF30E /* ArticleInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleInteractor.swift; sourceTree = "<group>"; };
 		0D777784254EEA0B00EFF30E /* ArticleRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArticleRouter.swift; path = Stonks/ArticleTable/Router/ArticleRouter.swift; sourceTree = SOURCE_ROOT; };
 		0DB3663D254360DC00607812 /* AllStocksInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllStocksInteractor.swift; sourceTree = "<group>"; };
+		0DC142802566A9EF00A18C8B /* MainStocksInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStocksInteractor.swift; sourceTree = "<group>"; };
 		0DF01725252F5BD2003FF71B /* CardViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewPresenter.swift; sourceTree = "<group>"; };
 		0DF01728252F5BD2003FF71B /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		0DF01729252F5BD2003FF71B /* EmbeddedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmbeddedView.swift; sourceTree = "<group>"; };
@@ -455,6 +456,14 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
+		0DC1427F2566A9D700A18C8B /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				0DC142802566A9EF00A18C8B /* MainStocksInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		0DF01723252F5BD2003FF71B /* Card */ = {
 			isa = PBXGroup;
 			children = (
@@ -496,6 +505,7 @@
 		0DF11BEC255C7C61004162BA /* StocksMain */ = {
 			isa = PBXGroup;
 			children = (
+				0DC1427F2566A9D700A18C8B /* Interactor */,
 				0DF11C16255D69A2004162BA /* Router */,
 				0DF11C11255D6904004162BA /* Container */,
 				0DF11C0F255D6821004162BA /* Presenters */,
@@ -1526,6 +1536,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D505B0525615412007F764F /* MeInteractor.swift in Sources */,
+				0DC142812566A9EF00A18C8B /* MainStocksInteractor.swift in Sources */,
 				3155EC1C254970F00036F67B /* LoginContainer.swift in Sources */,
 				318857942552B54E00FFDCBC /* AuthorizationService.swift in Sources */,
 				0DF11C0B255C8ABA004162BA /* UserStocksViewController.swift in Sources */,
@@ -1587,7 +1598,7 @@
 				1359147B254EC9AA0048E60F /* MeHistoryProtocols.swift in Sources */,
 				134487A82541D724008C2D7B /* MeSettingsPresenter.swift in Sources */,
 				138D65AC255D87E0004CC2DD /* MeUserData.swift in Sources */,
-				0D3903B8252F62C200C18036 /* MyStocksPresenter.swift in Sources */,
+				0D3903B8252F62C200C18036 /* AllStocksPresenter.swift in Sources */,
 				13F28AC22534936E0004E864 /* MePortfolioPresenter.swift in Sources */,
 				1359147E254ECA330048E60F /* MeHistoryContainer.swift in Sources */,
 				131D5AFD25378F1C00F32055 /* MePortfolioRouter.swift in Sources */,

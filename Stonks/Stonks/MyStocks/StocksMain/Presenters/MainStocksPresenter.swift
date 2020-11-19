@@ -3,16 +3,19 @@ import UIKit
 class MainStocksPresenter {
     var router: MainStocksRouterInput?
     weak var view: MainStocksViewInput?
-    var allStocksViewController: AllStocksViewController!
-    var userStocksViewController: UserStocksViewController!
+    private var interactor: MainStocksInteractorInput
+    private var shouldUpdateData: Bool
+
+    init(interactor: MainStocksInteractorInput) {
+        self.interactor = interactor
+        shouldUpdateData = false
+    }
 }
 
 extension MainStocksPresenter: MainStocksViewOutput {
     func didLoadView() {
-        guard let allvc = router?.showAllStocks() else { return }
-        guard let uservc = router?.showUserStocks() else { return }
-        allStocksViewController = allvc
-        userStocksViewController = uservc
+        shouldUpdateData = true
+        interactor.loadUser()
     }
 
     func didIndexChanged(index: Int) {
@@ -25,4 +28,12 @@ extension MainStocksPresenter: MainStocksViewOutput {
              break
          }
      }
+}
+
+extension MainStocksPresenter: MainStocksInteractorOutput {
+    func didReceive(user: MeUserData) {
+        if shouldUpdateData {
+            self.view?.setAvaliableBalance(num: user.balance)
+        }
+    }
 }

@@ -12,9 +12,11 @@ class MainStocksContainer {
             fatalError("MyStocksContainer: viewController must be type MyStocksViewController")
         }
 
-        let presenter = MainStocksPresenter()
-
         let router = MainStocksRouter()
+        let interactor = MainStocksInteractor()
+        let presenter = MainStocksPresenter(interactor: interactor)
+
+        interactor.output = presenter
 
         viewController.output = presenter
         presenter.view = viewController
