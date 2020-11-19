@@ -1,7 +1,7 @@
 import Alamofire
 import Foundation
 
-class Result<DataType, ErrorType> {
+struct Result<DataType, ErrorType> {
     var data: DataType?
     var error: ErrorType?
 }
@@ -19,7 +19,7 @@ extension NetworkService: NetworkServiceInput {
         let request = AF.request(Constants.baseURL + Constants.allStocksPath)
 
         request.responseDecodable(of: [StockRaw].self) { response in
-            let result = Result<[StockRaw], Error>()
+            var result = Result<[StockRaw], Error>()
 
             switch response.result {
             case .success(let stocks):
@@ -44,7 +44,7 @@ extension NetworkService: NetworkServiceInput {
         let request = AF.request(url)
 
         request.responseDecodable(of: [ArticleModel].self) { response in
-            let result = Result<[ArticleModel], Error>()
+            var result = Result<[ArticleModel], Error>()
 
             switch response.result {
             case .success(let articles):
@@ -61,7 +61,7 @@ extension NetworkService: NetworkServiceInput {
         let request = AF.request(Constants.baseURL + "stock/\(symbol)")
 
         request.responseDecodable(of: [StockRaw].self) { response in
-            let result = Result<String, Error>()
+            var result = Result<String, Error>()
 
             switch response.result {
             case .success(let stocks):
@@ -74,11 +74,28 @@ extension NetworkService: NetworkServiceInput {
         }
     }
 
-    func fetchStockHistory(for symbol: String, completion: @escaping (Result<[Decimal], Error>) -> Void) {
+    func fetchStockHistory(for symbol: String, completion: @escaping (Result<[Float], Error>) -> Void) {
+        let request = AF.request(Constants.baseURL + "history/\(symbol)")
 
+        request.responseDecodable(of: [HistoryRaw].self) { response in
+            var result = Result<[Float], Error>()
+
+            switch response.result {
+            case .success(let history):
+                result.data = []
+
+                history.forEach { historyPoint in
+                    result.data?.append(historyPoint.close)
+                }
+            case .failure(let error):
+                result.error = error
+            }
+
+            completion(result)
+        }
     }
 
-    func fetchStocksFreshPrice(for symbols: [String], completion: @escaping (Result<[Float], Error>) -> Void) {
+    func fetchStocksFreshPrice(for symbols: [String], completion: @escaping (Result<[StockRaw], Error>) -> Void) {
         var url = Constants.baseURL + "stock/"
 
         guard !symbols.isEmpty else {
@@ -94,15 +111,11 @@ extension NetworkService: NetworkServiceInput {
         let request = AF.request(url)
 
         request.responseDecodable(of: [StockRaw].self) { response in
-            let result = Result<[Float], Error>()
+            var result = Result<[StockRaw], Error>()
 
             switch response.result {
             case .success(let stocks):
-                result.data = []
-
-                stocks.forEach { stock in
-                    result.data?.append(stock.stockPrice)
-                }
+                result.data = stocks
             case .failure(let error):
                 result.error = error
             }

@@ -29,7 +29,6 @@ class MainStocksViewController: UIViewController {
     @IBAction private func didIndexChanged(_ sender: UISegmentedControl) {
         output?.didIndexChanged(index: segmentControl.selectedSegmentIndex)
     }
-
 }
 
 extension MainStocksViewController: MainStocksViewInput {

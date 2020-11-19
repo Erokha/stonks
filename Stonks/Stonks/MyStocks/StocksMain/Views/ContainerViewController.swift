@@ -1,7 +1,7 @@
 import UIKit
 
 class ContainerViewController: UIViewController {
-    @IBOutlet private weak var cardView: CardView!
+    @IBOutlet private weak var cardView: CardView?
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -14,34 +14,34 @@ class ContainerViewController: UIViewController {
     }
 
     private func setupLeftSideCard() {
-        cardView.showUpperTextLeft(text: "Avaliable balance")
-        cardView.showNumberLeft(num: 2700)
+        cardView?.showUpperTextLeft(text: "Avaliable balance")
+        cardView?.showNumberLeft(num: 2700)
     }
 
     private func setupRightSideCard() {
-        cardView.showUpperTextRight(text: "Stocks total")
-        cardView.showNumberRight(num: 1400)
+        cardView?.showUpperTextRight(text: "Stocks total")
+        cardView?.showNumberRight(num: 1400)
     }
 
     private func setCorners() {
-        self.cardView.clipsToBounds = true
-        self.cardView.layer.cornerRadius = 20
+        self.cardView?.clipsToBounds = true
+        self.cardView?.layer.cornerRadius = 20
     }
 
     func showUpperTextLeft(text: String) {
-        self.cardView.showUpperTextLeft(text: text)
+        self.cardView?.showUpperTextLeft(text: text)
     }
 
     func showUpperTextRight(text: String) {
-        self.cardView.showUpperTextRight(text: text)
+        self.cardView?.showUpperTextRight(text: text)
     }
 
     func showNumberLeft(num: Int?) {
-        self.cardView.showNumberLeft(num: num)
+        self.cardView?.showNumberLeft(num: num)
     }
 
     func showNumberRight(num: Int?) {
-        self.cardView.showNumberRight(num: num)
+        self.cardView?.showNumberRight(num: num)
     }
 
 }

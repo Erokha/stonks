@@ -5,9 +5,9 @@ protocol NetworkServiceInput {
 
     func fetchStockName(for symbol: String, completion: @escaping (Result<String, Error>) -> Void)
 
-    func fetchStockHistory(for symbol: String, completion: @escaping (Result<[Decimal], Error>) -> Void)
+    func fetchStockHistory(for symbol: String, completion: @escaping (Result<[Float], Error>) -> Void)
 
-    func fetchStocksFreshPrice(for symbols: [String], completion: @escaping (Result<[Float], Error>) -> Void)
+    func fetchStocksFreshPrice(for symbols: [String], completion: @escaping (Result<[StockRaw], Error>) -> Void)
 
     func fetchAllStocks(completion: @escaping (Result<[StockRaw], Error>) -> Void)
 

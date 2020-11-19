@@ -25,7 +25,7 @@
                                     <constraint firstAttribute="height" constant="82" id="yJQ-o6-SHb"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="8KC-9g-FmZ" kind="embed" id="1kr-dT-5WF"/>
+                                    <segue destination="8KC-9g-FmZ" kind="embed" identifier="EmbedSegue" id="1kr-dT-5WF"/>
                                 </connections>
                             </containerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My stocks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D9i-6K-OON">

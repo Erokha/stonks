@@ -20,6 +20,7 @@ final class StockDetailPresenter {
 
 extension StockDetailPresenter: StockDetailViewOutput {
     func didLoadView() {
+        view?.showActivityIndicator()
         interactor?.fetchCardData()
         interactor?.fetchStockData()
     }
@@ -117,6 +118,8 @@ extension StockDetailPresenter: StockDetailInteractorOutput {
         view?.setCompanyNameLebel(with: name)
         view?.setStockAmountLabel(with: String(amount))
         view?.setStockCurrentCostLabel(with: String(format: "%.1f", freshPrice.doubleValue) + "$")
+
+        view?.hideActivityIndicator()
     }
 
     func showAlert(with title: String, message: String) {
