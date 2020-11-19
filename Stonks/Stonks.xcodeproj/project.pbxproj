@@ -91,7 +91,6 @@
 		13C1DC04256117F50043BDA5 /* StockHistory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C1DC03256117F50043BDA5 /* StockHistory+CoreDataClass.swift */; };
 		13C1DC0A256119BC0043BDA5 /* StockHistoryDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C1DC09256119BC0043BDA5 /* StockHistoryDataService.swift */; };
 		13C1DC0E256133A50043BDA5 /* MeHistoryFilterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C1DC0D256133A50043BDA5 /* MeHistoryFilterInteractor.swift */; };
-		13D824C6254AF41F002F654E /* MeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D824C5254AF41F002F654E /* MeInteractor.swift */; };
 		13DCDD6325481994002D3F99 /* MePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DCDD6225481994002D3F99 /* MePageViewController.swift */; };
 		13E4906125583AF800E567A3 /* MeSettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E4906025583AF800E567A3 /* MeSettingsInteractor.swift */; };
 		13F28AAC2534913F0004E864 /* MePortfolioProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F28AAB2534913F0004E864 /* MePortfolioProtocols.swift */; };
@@ -110,6 +109,7 @@
 		3155EC1C254970F00036F67B /* LoginContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2B698E25335B9C0042A932 /* LoginContainer.swift */; };
 		3155EC29254978D40036F67B /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3155EC28254978D40036F67B /* MainTabBar.swift */; };
 		316AC3F82563E35C009CD714 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316AC3F72563E35B009CD714 /* LoginInteractor.swift */; };
+		316AC40E256677C0009CD714 /* RawModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316AC40D256677BF009CD714 /* RawModels.swift */; };
 		31782B76253B41E100B680D9 /* DataProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31782B75253B41E100B680D9 /* DataProtocols.swift */; };
 		318857832551A63C00FFDCBC /* Stock+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318857822551A63C00FFDCBC /* Stock+CoreDataClass.swift */; };
 		318857862551A65500FFDCBC /* Stock+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318857852551A65500FFDCBC /* Stock+CoreDataProperties.swift */; };
@@ -236,6 +236,7 @@
 		315BE130252F332F0074377B /* DMSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Bold.ttf"; sourceTree = "<group>"; };
 		315BE131252F334B0074377B /* DMSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Regular.ttf"; sourceTree = "<group>"; };
 		316AC3F72563E35B009CD714 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
+		316AC40D256677BF009CD714 /* RawModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawModels.swift; sourceTree = "<group>"; };
 		31782B75253B41E100B680D9 /* DataProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProtocols.swift; sourceTree = "<group>"; };
 		318857822551A63C00FFDCBC /* Stock+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stock+CoreDataClass.swift"; sourceTree = "<group>"; };
 		318857852551A65500FFDCBC /* Stock+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stock+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -1066,6 +1067,7 @@
 		31144405256016DC00AF2552 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				316AC40C25667788009CD714 /* RawModels */,
 				311444092560170200AF2552 /* Protocols */,
 				31144406256016F600AF2552 /* NetworkService.swift */,
 			);
@@ -1103,6 +1105,14 @@
 				316AC3F72563E35B009CD714 /* LoginInteractor.swift */,
 			);
 			path = Interactor;
+			sourceTree = "<group>";
+		};
+		316AC40C25667788009CD714 /* RawModels */ = {
+			isa = PBXGroup;
+			children = (
+				316AC40D256677BF009CD714 /* RawModels.swift */,
+			);
+			path = RawModels;
 			sourceTree = "<group>";
 		};
 		31782B73253B419E00B680D9 /* Data */ = {
@@ -1587,7 +1597,7 @@
 				1359147B254EC9AA0048E60F /* MeHistoryProtocols.swift in Sources */,
 				134487A82541D724008C2D7B /* MeSettingsPresenter.swift in Sources */,
 				138D65AC255D87E0004CC2DD /* MeUserData.swift in Sources */,
-				0D3903B8252F62C200C18036 /* MyStocksPresenter.swift in Sources */,
+				0D3903B8252F62C200C18036 /* AllStocksPresenter.swift in Sources */,
 				13F28AC22534936E0004E864 /* MePortfolioPresenter.swift in Sources */,
 				1359147E254ECA330048E60F /* MeHistoryContainer.swift in Sources */,
 				131D5AFD25378F1C00F32055 /* MePortfolioRouter.swift in Sources */,
@@ -1596,6 +1606,7 @@
 				31905F7B25361BA0000D71A7 /* StockDetailPresenter.swift in Sources */,
 				134487A52541D678008C2D7B /* MeSettingsContainer.swift in Sources */,
 				134487972541BC31008C2D7B /* MeProtocols.swift in Sources */,
+				316AC40E256677C0009CD714 /* RawModels.swift in Sources */,
 				134487912541AB60008C2D7B /* MeRouter.swift in Sources */,
 				0DF11C1D255D6AE8004162BA /* MainStocksProtocols.swift in Sources */,
 				316AC3F82563E35C009CD714 /* LoginInteractor.swift in Sources */,
