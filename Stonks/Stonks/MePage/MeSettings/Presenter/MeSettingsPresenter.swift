@@ -149,7 +149,7 @@ extension MeSettingsPresenter {
         static let addDepositMessage: String = "Enter amount ofmoney you want to add:"
         static let changeNameTitle: String = "Change name."
         static let changeNameMessage: String = "Enter your new name:"
-        static let mailToSend: String = "alexanzakharov@gmail.com"
+        static let mailToSend: String = "stonks.official@mail.ru"
         static let mailBody: String = "Please, tell us what happened!"
         static let mailSubject: String = "Report error."
         static let resetDataTitle: String = "Warining!"
