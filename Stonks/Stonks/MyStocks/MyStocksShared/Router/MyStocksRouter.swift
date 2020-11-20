@@ -20,7 +20,7 @@ extension StocksSharedRouter: StocksSharedRouterInput {
 
         vc.modalPresentationStyle = .fullScreen
 
-        viewController?.navigationItem.backButtonTitle = "Fuck me"
+        viewController?.navigationItem.backButtonTitle = "printf(\"Jopa\n\");"
 
         viewController?.navigationController?.pushViewController(vc, animated: true)
     }
