@@ -186,7 +186,6 @@ extension StockDetailInteractor: StockDetailInteractorInput {
         }
 
         UserDataService.shared.editUser(user: user)
-        StockDataService.shared.updateStock(symbol: stock.symbol, stock: stock)
     }
 
     func fetchStockData() {

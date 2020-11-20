@@ -57,11 +57,8 @@ extension MeInteractor: MeInteractorInput {
     }
 
     func loadUser() {
-        if let user = UserDataService.shared.getUser() {
-            handleUser(with: user)
-        } else {
-            handleUser(with: User())
-        }
+        guard let user = UserDataService.shared.getUser() else { return }
+        handleUser(with: user)
     }
 }
 

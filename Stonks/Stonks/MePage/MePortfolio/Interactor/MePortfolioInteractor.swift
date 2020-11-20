@@ -29,18 +29,18 @@ final class MePortfolioInteractor: NSObject {
     private func didStocksChanged(stocks: [Stock]) {
         var stockSymbols: [String] = []
 
-        stocks.forEach { stock in
-            stockSymbols.append(stock.symbol)
+        for stock in stocks {
+            print("Stock name:\(stock.symbol) Stock price: \(String(describing: stock.priceHistory.last))")
         }
-
-        NetworkService.shared.fetchStocksFreshPrice(for: stockSymbols) { [self] result in
-            if let error = result.error {
-                handleError(with: error)
-            }
-            guard let prices = result.data  else { return }
-            let stockData: [MePortfolioStockData] = stocks.enumerated().map({ MePortfolioStockData(with: $1, currentPrice: prices[$0]) })
-            print("PRICES:", stockData)
-        }
+//        NetworkService.shared.fetchStocksFreshPrice(for: stockSymbols) { [self] result in
+//            if let error = result.error {
+//                handleError(with: error)
+//            }
+//            guard let prices = result.data  else { return }
+//
+//            let stockData: [MePortfolioStockData] = stocks.enumerated().map({ MePortfolioStockData(with: $1, currentPrice: prices[$0].stockPrice) })
+//            print("PRICES:", stockData)
+//        }
     }
 
     private func prepareModels(for fetchResult: [NSFetchRequestResult]) -> [Stock]? {
@@ -68,18 +68,14 @@ final class MePortfolioInteractor: NSObject {
 
 extension MePortfolioInteractor: MePortfolioInteractorInput {
     func loadStocks() {
-        if let stocks = StockDataService.shared.getAllStocks() {
-            handleStocks(stocks: stocks)
-        } else {
-            handleStocks(stocks: [])
-        }
+        guard let stocks = StockDataService.shared.getAllStocks() else { return }
+        handleStocks(stocks: stocks)
     }
 }
 
 extension MePortfolioInteractor: NSFetchedResultsControllerDelegate {
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         if let fetchResult = controller.fetchedObjects {
-            print(fetchResult)
             if let stocks = prepareModels(for: fetchResult) {
                 didStocksChanged(stocks: stocks)
             }
