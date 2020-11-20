@@ -12,9 +12,18 @@ class UserStocksPresenter {
     weak var view: UserStocksViewInput?
     var router: StocksSharedRouterInput?
     private let interactor: UserStoksInteractorInput
+    private var updateTimer: Timer?
 
     init(interactor: UserStoksInteractorInput) {
         self.interactor = interactor
+    }
+
+    private func setupTimer() {
+        self.updateTimer = Timer.scheduledTimer(timeInterval: Constants.requestPeriod,
+                                                      target: self,
+                                                      selector: #selector(self.requestUpdate),
+                                                      userInfo: nil,
+                                                      repeats: true)
     }
 
 }
@@ -27,6 +36,7 @@ extension UserStocksPresenter: UserStocksViewOutput {
     func didLoadView() {
         view?.startActivity()
         interactor.loadStocksFromCoreData()
+        setupTimer()
     }
 
     func numberOfItems() -> Int {
@@ -65,9 +75,25 @@ extension UserStocksPresenter: UserStoksInteractorOutput {
         view?.endActivity()
     }
 
+    @objc func requestUpdate() {
+        var symbolsArray: [String] = []
+        guard let data = model else { return }
+        for stock in data {
+            symbolsArray.append(stock.stockSymbol)
+        }
+        interactor.loadStoks(symbols: symbolsArray)
+        view?.endActivity()
+    }
+
     func didReciveError(with error: Error) {
         router?.showError(with: error)
         view?.endActivity()
     }
 
+}
+
+extension UserStocksPresenter {
+    private struct Constants {
+        static let requestPeriod: TimeInterval = 15
+    }
 }

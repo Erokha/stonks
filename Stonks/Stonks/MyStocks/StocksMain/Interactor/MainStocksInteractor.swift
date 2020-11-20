@@ -125,3 +125,9 @@ extension MainStocksInteractor: NSFetchedResultsControllerDelegate {
         }
     }
 }
+
+extension MainStocksInteractor {
+    private struct Constants {
+        static let requestPeriod: TimeInterval = 15
+    }
+}
