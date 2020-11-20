@@ -17,19 +17,11 @@ class CardView: EmbeddedView, CardViewType {
     }
 
     func showNumberLeft(num: Int?) {
-        if let number = num {
-            self.numberLeft.text = "$" + String(number)
-        } else {
-            self.numberLeft.text = ""
-        }
+        self.numberLeft.text = String.adoptStonksCardPrice(with: num)
     }
 
     func showNumberRight(num: Int?) {
-        if let number = num {
-            self.numberRight.text = "$" + String(number)
-        } else {
-            self.numberRight.text = ""
-        }
+        self.numberRight.text = String.adoptStonksCardPrice(with: num)
     }
 
     override func setupNib() {
@@ -46,5 +38,23 @@ extension CardView {
     private struct Constants {
         static let upperTextFont: UIFont? = UIFont(name: "DMSans-Medium", size: 12)
         static let numbersFont: UIFont? = UIFont(name: "DMSans-Bold", size: 26)
+    }
+}
+
+extension String {
+    static func adoptStonksCardPrice(with num: Int?) -> String {
+        guard let number = num else { return "" }
+        if number >= 1000000000 {
+            let res = String(format: "%.1f", Float(number) / 1000000000)
+            return "$\(res)B"
+        } else if number >= 1000000 {
+            let res = String(format: "%.1f", Float(number) / 1000000)
+            return "$\(res)M"
+        } else if number >= 100000 {
+            let res = String(format: "%.2f", Float(number) / 1000)
+            return "$\(res)k"
+        } else {
+            return "$\(number)"
+        }
     }
 }
