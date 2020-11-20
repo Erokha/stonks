@@ -19,12 +19,12 @@ protocol MainStocksRouterInput: class {
 
 protocol MainStocksInteractorInput: class {
     func loadUser()
-    func loadStocks()
+    //func loadStocks()
 }
 
 protocol MainStocksInteractorOutput: class {
-    var model: [StockData]? { get set }
+    //var model: [StockData]? { get set }
     func didReceive(user: MeUserData)
-    func handleFreshStocks(data: [String: Float])
+   // func handleFreshStocks(data: [String: Float])
     func didReciveError(with error: Error)
 }

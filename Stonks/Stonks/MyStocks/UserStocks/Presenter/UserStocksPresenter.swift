@@ -6,11 +6,13 @@ class UserStocksPresenter {
         didSet {
             DispatchQueue.main.async {
                 self.view?.reloadTable()
+                self.delegate?.getTotalStocksCount(with: self.calculateStocksTotal)
             }
         }
     }
     weak var view: UserStocksViewInput?
     var router: StocksSharedRouterInput?
+    weak var delegate: UserStocksDelegate?
     private let interactor: UserStoksInteractorInput
     private var updateTimer: Timer?
 
@@ -24,6 +26,15 @@ class UserStocksPresenter {
                                                       selector: #selector(self.requestUpdate),
                                                       userInfo: nil,
                                                       repeats: true)
+    }
+
+    private var calculateStocksTotal: Int {
+        var tmp: Float = 0
+        guard let data = self.model else { return 0 }
+        for stock in data {
+            tmp += Float(stock.stockCount) * stock.stockPrice
+        }
+        return Int(tmp)
     }
 
 }
@@ -62,6 +73,7 @@ extension UserStocksPresenter: UserStoksInteractorOutput {
         }
         self.model = data
         view?.endActivity()
+        delegate?.getTotalStocksCount(with: 100)
     }
 
     func didReciveCoreData(stocks: [StockData]) {

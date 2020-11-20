@@ -12,6 +12,7 @@ protocol UserStocksViewOutput: class {
     func didLoadView()
     func refreshData()
     func didTapOnStock(symbol: String)
+    var delegate: UserStocksDelegate? { get set }
 }
 
 protocol UserStoksInteractorInput: class {
@@ -24,4 +25,8 @@ protocol UserStoksInteractorOutput: class {
     func didReciveCoreData(stocks: [StockData])
     func didReciveError(with error: Error)
     func requestUpdate()
+}
+
+protocol UserStocksDelegate: class {
+    func getTotalStocksCount(with num: Int)
 }
