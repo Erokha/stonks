@@ -28,12 +28,6 @@
                                     <segue destination="8KC-9g-FmZ" kind="embed" identifier="EmbedSegue" id="1kr-dT-5WF"/>
                                 </connections>
                             </containerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My stocks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D9i-6K-OON">
-                                <rect key="frame" x="11" y="187" width="119" height="30"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                <color key="textColor" red="0.28235294119999998" green="0.27058823529999998" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="aWE-BU-izs">
                                 <rect key="frame" x="24" y="148" width="366" height="32"/>
                                 <segments>
@@ -45,7 +39,7 @@
                                 </connections>
                             </segmentedControl>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cKR-F2-kqi">
-                                <rect key="frame" x="0.0" y="225" width="414" height="671"/>
+                                <rect key="frame" x="0.0" y="187" width="414" height="709"/>
                                 <connections>
                                     <segue destination="KG6-86-3wY" kind="embed" identifier="StockContainerSegue" id="g4w-J6-XVF"/>
                                 </connections>
@@ -55,17 +49,15 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="QyP-eg-Waw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="14" id="Eue-A4-t1C"/>
-                            <constraint firstItem="cKR-F2-kqi" firstAttribute="top" secondItem="D9i-6K-OON" secondAttribute="bottom" constant="8" symbolic="YES" id="LZr-sm-bXI"/>
+                            <constraint firstItem="cKR-F2-kqi" firstAttribute="top" secondItem="aWE-BU-izs" secondAttribute="bottom" constant="8" symbolic="YES" id="Kml-r3-3ep"/>
                             <constraint firstItem="cKR-F2-kqi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="NJv-6N-NB7"/>
                             <constraint firstItem="QyP-eg-Waw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="QuU-ny-wID"/>
                             <constraint firstItem="aWE-BU-izs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="S3R-SR-iat"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aWE-BU-izs" secondAttribute="trailing" constant="24" id="X9b-R9-RXL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QyP-eg-Waw" secondAttribute="trailing" constant="24" id="XNI-4h-JCk"/>
-                            <constraint firstItem="D9i-6K-OON" firstAttribute="top" secondItem="aWE-BU-izs" secondAttribute="bottom" constant="8" symbolic="YES" id="Y75-li-8XD"/>
                             <constraint firstItem="cKR-F2-kqi" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="cA0-aW-cdH"/>
                             <constraint firstAttribute="bottom" secondItem="cKR-F2-kqi" secondAttribute="bottom" id="cuR-zb-rRN"/>
                             <constraint firstItem="aWE-BU-izs" firstAttribute="top" secondItem="QyP-eg-Waw" secondAttribute="bottom" constant="8" symbolic="YES" id="jvW-7S-nAI"/>
-                            <constraint firstItem="D9i-6K-OON" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="11" id="zbs-6h-6R4"/>
                         </constraints>
                     </view>
                     <connections>
