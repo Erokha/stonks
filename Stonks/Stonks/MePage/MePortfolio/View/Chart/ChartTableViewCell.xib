@@ -35,9 +35,14 @@
                                         <color key="textColor" red="0.4431372549" green="0.39607843139999999" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="zRw-9h-eWY">
+                                        <rect key="frame" x="150" y="122.5" width="20" height="20"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="zRw-9h-eWY" firstAttribute="centerY" secondItem="lTS-E7-FUd" secondAttribute="centerY" id="Q2O-hd-nNY"/>
+                                    <constraint firstItem="zRw-9h-eWY" firstAttribute="centerX" secondItem="lTS-E7-FUd" secondAttribute="centerX" id="f6W-Ic-gi8"/>
                                     <constraint firstItem="jzd-5R-m09" firstAttribute="centerX" secondItem="lTS-E7-FUd" secondAttribute="centerX" id="fM1-UR-LeV"/>
                                     <constraint firstItem="jzd-5R-m09" firstAttribute="centerY" secondItem="lTS-E7-FUd" secondAttribute="centerY" id="tcp-Nd-fjU"/>
                                 </constraints>
@@ -69,6 +74,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="activityIndicator" destination="zRw-9h-eWY" id="HPh-ot-ZzH"/>
                 <outlet property="mainChartView" destination="xze-0T-9DS" id="IvQ-qS-hbK"/>
                 <outlet property="noDataLabel" destination="jzd-5R-m09" id="WKL-lW-oqO"/>
                 <outlet property="stocksPieChartView" destination="lTS-E7-FUd" id="oF0-fG-ItO"/>
