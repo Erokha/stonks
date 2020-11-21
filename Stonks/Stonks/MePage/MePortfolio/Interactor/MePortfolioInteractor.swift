@@ -29,18 +29,19 @@ final class MePortfolioInteractor: NSObject {
     private func didStocksChanged(stocks: [Stock]) {
         var stockSymbols: [String] = []
 
-        for stock in stocks {
-            print("Stock name:\(stock.symbol) Stock price: \(String(describing: stock.priceHistory.last))")
+        stocks.forEach({ stock in
+            stockSymbols.append(stock.symbol)
+        })
+
+        NetworkService.shared.fetchStocksFreshPrice(for: stockSymbols) { [self] result in
+            if let error = result.error {
+                handleError(with: error)
+            }
+            guard let prices = result.data  else { return }
+
+            let stockData: [MePortfolioStockData] = stocks.enumerated().map({ MePortfolioStockData(with: $1, currentPrice: prices[$0].stockPrice) })
+            print("PRICES:", stockData)
         }
-//        NetworkService.shared.fetchStocksFreshPrice(for: stockSymbols) { [self] result in
-//            if let error = result.error {
-//                handleError(with: error)
-//            }
-//            guard let prices = result.data  else { return }
-//
-//            let stockData: [MePortfolioStockData] = stocks.enumerated().map({ MePortfolioStockData(with: $1, currentPrice: prices[$0].stockPrice) })
-//            print("PRICES:", stockData)
-//        }
     }
 
     private func prepareModels(for fetchResult: [NSFetchRequestResult]) -> [Stock]? {
