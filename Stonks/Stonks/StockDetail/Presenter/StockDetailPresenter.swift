@@ -7,14 +7,10 @@ final class StockDetailPresenter {
     var router: StockDetailRouterInput?
     var interactor: StockDetailInteractorInput?
 
-    private var model: StockDetailPresenterData
+    private var model: StockPresenterData
 
-    init(model: StockDetailPresenterData) {
+    init(model: StockPresenterData) {
         self.model = model
-    }
-
-    deinit {
-        print("presenter deinited")
     }
 }
 
@@ -61,7 +57,7 @@ extension StockDetailPresenter: StockDetailViewOutput {
 }
 
 extension StockDetailPresenter: StockDetailInteractorOutput {
-    func cardDataDidReceived(model: StockDetailPresenterData) {
+    func cardDataDidReceived(model: StockPresenterData) {
         guard let data = model.cardData else {
             return
         }
@@ -70,7 +66,7 @@ extension StockDetailPresenter: StockDetailInteractorOutput {
         view?.setCardRightNumber(number: data.rightNumber)
     }
 
-    func freshCostDidReceived(model: StockDetailPresenterData) {
+    func freshCostDidReceived(model: StockPresenterData) {
         self.model = model
 
         guard let priceHistory = model.quotes,
@@ -92,7 +88,15 @@ extension StockDetailPresenter: StockDetailInteractorOutput {
         view?.setStockCurrentCostLabel(with: String(format: "%.1f", freshPrice.doubleValue) + "$")
     }
 
-    func stockDataDidReceived(model: StockDetailPresenterData) {
+    func stockAmountUpdated(model: StockPresenterData) {
+        guard let amount = model.amount else {
+            return
+        }
+
+        view?.setStockAmountLabel(with: String(amount))
+    }
+
+    func stockDataDidReceived(model: StockPresenterData) {
         self.model = model
 
         guard let priceHistory = model.quotes,

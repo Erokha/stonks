@@ -32,7 +32,10 @@ extension StockDataService: StockDataServiceInput {
     }
 
     func createStock(name: String,
-                     symbol: String) {
+                     symbol: String,
+                     totalCost: NSDecimalNumber,
+                     amount: NSInteger,
+                     priceHistory: [NSDecimalNumber]) {
         let context = persistentContainer.viewContext
 
         guard let stock = NSEntityDescription.insertNewObject(forEntityName: Entities.stock.rawValue, into: context) as? Stock else {
@@ -41,9 +44,9 @@ extension StockDataService: StockDataServiceInput {
 
         stock.name = name
         stock.symbol = symbol
-        stock.totalCost = 0
-        stock.amount = 0
-        stock.priceHistory = []
+        stock.totalCost = totalCost
+        stock.amount = amount
+        stock.priceHistory = priceHistory
 
         stock.user = UserDataService.shared.getUser()
 
