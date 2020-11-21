@@ -6,7 +6,7 @@ final class AllStocksInteractor {
 
     private func handleError(with error: Error) {
         switch error.localizedDescription {
-        case networkErrors.sessionTaskFailed.type:
+        case NetworkErrors.sessionTaskFailed.type:
             output?.didReciveError(with: AppError.networkError)
         default:
             output?.didReciveError(with: AppError.undefinedError)
@@ -38,11 +38,11 @@ extension AllStocksInteractor: AllStoksInteractorInput {
 
 }
 
-enum networkErrors {
+enum NetworkErrors {
     case sessionTaskFailed
 }
 
-extension networkErrors {
+extension NetworkErrors {
     var type: String {
         switch self {
         case .sessionTaskFailed:
