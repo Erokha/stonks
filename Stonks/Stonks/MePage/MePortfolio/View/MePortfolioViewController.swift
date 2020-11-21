@@ -90,7 +90,9 @@ extension MePortfolioViewController: UITableViewDelegate, UITableViewDataSource 
 }
 
 extension MePortfolioViewController: MePortfolioInput {
-
+    func reloadTable() {
+        self.tableView.reloadData()
+    }
 }
 
 extension MePortfolioViewController {

@@ -7,7 +7,10 @@ final class MePortfolioPresenter {
     private var interactor: MePortfolioInteractorInput
     private var stocks: [MePortfolioStockData] = [] {
         didSet {
-            setNumbersInChart(number: stocks.count)
+            self.setNumbersInChart(number: stocks.count)
+            DispatchQueue.main.async {
+                self.view?.reloadTable()
+            }
         }
     }
     private var numberOfStocksInChart: Int = 0

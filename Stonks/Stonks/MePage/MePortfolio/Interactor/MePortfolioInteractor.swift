@@ -26,24 +26,6 @@ final class MePortfolioInteractor: NSObject {
         }
     }
 
-    private func didStocksChanged(stocks: [Stock]) {
-        var stockSymbols: [String] = []
-
-        stocks.forEach({ stock in
-            stockSymbols.append(stock.symbol)
-        })
-
-        NetworkService.shared.fetchStocksFreshPrice(for: stockSymbols) { [self] result in
-            if let error = result.error {
-                handleError(with: error)
-            }
-            guard let prices = result.data  else { return }
-
-            let stockData: [MePortfolioStockData] = stocks.enumerated().map({ MePortfolioStockData(with: $1, currentPrice: prices[$0].stockPrice) })
-            print("PRICES:", stockData)
-        }
-    }
-
     private func prepareModels(for fetchResult: [NSFetchRequestResult]) -> [Stock]? {
         if let object = fetchResult as? [Stock] {
             return object
@@ -57,13 +39,21 @@ final class MePortfolioInteractor: NSObject {
     }
 
     private func handleStocks(stocks: [Stock]) {
-        var stocksData: [MePortfolioStockData] = []
-        for stock in stocks {
-            // request to network
-            let stockData = MePortfolioStockData(with: stock, currentPrice: Float(Int.random(in: 1...50)))
-            stocksData.append(stockData)
+        var stockSymbols: [String] = []
+
+        stocks.forEach({ stock in
+            stockSymbols.append(stock.symbol)
+        })
+
+        NetworkService.shared.fetchStocksFreshPrice(for: stockSymbols) { [self] result in
+            if let error = result.error {
+                handleError(with: error)
+            }
+            guard let prices = result.data  else { return }
+
+            let stocksData: [MePortfolioStockData] = stocks.enumerated().map({ MePortfolioStockData(with: $1, currentPrice: prices[$0].stockPrice) })
+            output?.didLoaded(stocks: stocksData)
         }
-        output?.didLoaded(stocks: stocksData)
     }
 }
 
@@ -78,7 +68,7 @@ extension MePortfolioInteractor: NSFetchedResultsControllerDelegate {
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         if let fetchResult = controller.fetchedObjects {
             if let stocks = prepareModels(for: fetchResult) {
-                didStocksChanged(stocks: stocks)
+                handleStocks(stocks: stocks)
             }
         }
     }

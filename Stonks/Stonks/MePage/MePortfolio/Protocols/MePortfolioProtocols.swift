@@ -2,7 +2,7 @@ import Foundation
 import Charts
 
 protocol MePortfolioInput: class {
-
+    func reloadTable()
 }
 
 protocol MePortfolioOutput: class {
