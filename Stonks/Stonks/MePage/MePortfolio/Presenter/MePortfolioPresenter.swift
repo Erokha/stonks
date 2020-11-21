@@ -5,6 +5,7 @@ final class MePortfolioPresenter {
     weak var view: MePortfolioInput?
     var router: MePortfolioRouterInput?
     private var interactor: MePortfolioInteractorInput
+    private var isGetInternetConnection: Bool
     private var stocks: [MePortfolioStockData] = [] {
         didSet {
             self.setNumbersInChart(number: stocks.count)
@@ -17,6 +18,7 @@ final class MePortfolioPresenter {
 
     required init(interactor: MePortfolioInteractorInput) {
         self.interactor = interactor
+        self.isGetInternetConnection = false
     }
 
     private func setNumbersInChart(number: Int) {
@@ -60,7 +62,6 @@ extension MePortfolioPresenter {
     private struct Constants {
         static let chartColors: [NSUIColor] = ChartColors.allCases.map { NSUIColor(hex: $0.rawValue) }
         static let maxStocksInChart = 5
-        static let noDataMessage = "You don't have any stocks:("
     }
 }
 
@@ -69,17 +70,13 @@ extension MePortfolioPresenter: MePortfolioOutput {
         router?.showHistory()
     }
 
-    func noDataMessage() -> String {
-        return MePortfolioPresenter.Constants.noDataMessage
-    }
-
     func didLoadView() {
         interactor.loadStocks()
     }
 
     func createChartData() -> PieChartData? {
-        let dataEntries = createDataEntry()
-        if !dataEntries.isEmpty {
+        if isGetInternetConnection {
+            let dataEntries = createDataEntry()
             let colors = generateColors(numberOfColors: dataEntries.count)
             let dataSet = PieChartDataSet(entries: dataEntries, label: "")
             dataSet.colors = colors
@@ -93,6 +90,15 @@ extension MePortfolioPresenter: MePortfolioOutput {
 
 extension MePortfolioPresenter: MePortfolioInteractorOutput {
     func didLoaded(stocks: [MePortfolioStockData]) {
+        self.isGetInternetConnection = true
         self.stocks = stocks
+    }
+
+    func didReceiveError(with error: Error) {
+        self.isGetInternetConnection = false
+        DispatchQueue.main.async {
+            self.view?.reloadTable()
+        }
+        router?.showError(with: error)
     }
 }

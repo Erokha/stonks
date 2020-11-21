@@ -35,7 +35,12 @@ final class MePortfolioInteractor: NSObject {
     }
 
     private func handleError(with error: Error) {
-        // DO ERRORS
+        switch error.localizedDescription {
+        case NetworkErrors.sessionTaskFailed.type:
+            output?.didReceiveError(with: AppError.networkError)
+        default:
+            output?.didReceiveError(with: AppError.undefinedError)
+        }
     }
 
     private func handleStocks(stocks: [Stock]) {
@@ -59,8 +64,11 @@ final class MePortfolioInteractor: NSObject {
 
 extension MePortfolioInteractor: MePortfolioInteractorInput {
     func loadStocks() {
-        guard let stocks = StockDataService.shared.getAllStocks() else { return }
-        handleStocks(stocks: stocks)
+        if let stocks = StockDataService.shared.getAllStocks() {
+            handleStocks(stocks: stocks)
+        } else {
+            output?.didLoaded(stocks: [])
+        }
     }
 }
 
