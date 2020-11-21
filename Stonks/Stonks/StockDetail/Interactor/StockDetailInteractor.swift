@@ -8,7 +8,7 @@ final class StockDetailInteractor: NSObject {
 
     private var frcStock: NSFetchedResultsController<Stock>?
 
-    private var stock: Stock?
+    private var stock: StockInteractorData?
 
     private var updateQuotesTimer: Timer?
 
@@ -16,9 +16,7 @@ final class StockDetailInteractor: NSObject {
         super.init()
 
         configureFrcUser()
-        configureFrcStock()
         frcUser?.delegate = self
-        frcStock?.delegate = self
 
         if StockDataService.shared.stockIsNew(symbol: symbol) {
             NetworkService.shared.fetchStockName(for: symbol) { [weak self] result in
@@ -31,12 +29,15 @@ final class StockDetailInteractor: NSObject {
                     return
                 }
 
-                StockDataService.shared.createStock(name: stockName, symbol: symbol)
-                self?.stock = StockDataService.shared.getStock(symbol: symbol)
+                self?.stock = StockInteractorData(name: stockName, symbol: symbol)
                 self?.fetchStockData()
             }
         } else {
-            self.stock = StockDataService.shared.getStock(symbol: symbol)
+            guard let fetchedStock = StockDataService.shared.getStock(symbol: symbol) else {
+                return
+            }
+
+            self.stock = StockInteractorData(stock: fetchedStock)
         }
 
         setupUpdateTimer()
@@ -67,26 +68,8 @@ final class StockDetailInteractor: NSObject {
         }
     }
 
-    private func configureFrcStock() {
-        let fetchRequest: NSFetchRequest<Stock> = Stock.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
-
-        fetchRequest.sortDescriptors = [sortDescriptor]
-
-        frcStock = NSFetchedResultsController(fetchRequest: fetchRequest,
-                                              managedObjectContext: DataService.shared.getPersistentContainer().viewContext,
-                                              sectionNameKeyPath: nil,
-                                              cacheName: nil)
-
-        do {
-            try frcStock?.performFetch()
-        } catch {
-            fatalError("StockDetailInteractor: Stock request not fetched")
-        }
-    }
-
     private func sendCardData(data: CardData) {
-        output?.cardDataDidReceived(model: StockDetailPresenterData(cardData: data))
+        output?.cardDataDidReceived(model: StockPresenterData(cardData: data))
     }
 
     private func prepareCardModel(user: User) -> CardData {
@@ -94,9 +77,17 @@ final class StockDetailInteractor: NSObject {
                         rightNumber: Int(user.balance.floatValue))
     }
 
+    private func refreshStock(stockToUpdate: Stock?, with stock: StockInteractorData) {
+        stockToUpdate?.name = stock.name
+        stockToUpdate?.symbol = stock.symbol
+        stockToUpdate?.amount = stock.amount
+        stockToUpdate?.priceHistory = stock.priceHistory
+        stockToUpdate?.totalCost = stock.totalCost
+    }
+
     @objc
     private func fetchFreshCost(timer: Timer) {
-        guard let stock = self.stock,
+        guard var stock = stock,
               !stock.priceHistory.isEmpty else {
             return
         }
@@ -114,19 +105,17 @@ final class StockDetailInteractor: NSObject {
             stock.priceHistory.removeFirst()
             stock.priceHistory.append(NSDecimalNumber(value: freshPrice.stockPrice))
 
-            StockDataService.shared.updateStock(symbol: stock.symbol, stock: stock)
-            self?.output?.freshCostDidReceived(model: StockDetailPresenterData(model: stock))
-        }
-    }
+            if !StockDataService.shared.stockIsNew(symbol: stock.symbol) {
+                guard let fetchedStock = StockDataService.shared.getStock(symbol: stock.symbol) else {
+                    return
+                }
 
-    deinit {
-        guard let user = UserDataService.shared.getUser(),
-              let stocks = user.stocks?.allObjects as? [Stock] else {
-            return
-        }
+                self?.refreshStock(stockToUpdate: fetchedStock, with: stock)
+                StockDataService.shared.updateStock(symbol: stock.symbol, stock: fetchedStock)
+            }
 
-        for stock in stocks where stock.amount == 0 {
-            StockDataService.shared.deleteStock(symbol: stock.symbol)
+            self?.stock = stock
+            self?.output?.freshCostDidReceived(model: StockPresenterData(model: stock))
         }
     }
 }
@@ -141,7 +130,7 @@ extension StockDetailInteractor: StockDetailInteractorInput {
     }
 
     func increaseAmount(by value: Int) {
-        guard let stock = self.stock,
+        guard var stock = self.stock,
               let user = UserDataService.shared.getUser(),
               let freshPrice = stock.priceHistory.last else {
             return
@@ -159,11 +148,28 @@ extension StockDetailInteractor: StockDetailInteractorInput {
         stock.amount += value
 
         UserDataService.shared.editUser(user: user)
-        StockDataService.shared.updateStock(symbol: stock.symbol, stock: stock)
+
+        if !StockDataService.shared.stockIsNew(symbol: stock.symbol) {
+            guard let fetchedStock = StockDataService.shared.getStock(symbol: stock.symbol) else {
+                return
+            }
+
+            refreshStock(stockToUpdate: fetchedStock, with: stock)
+            StockDataService.shared.updateStock(symbol: stock.symbol, stock: fetchedStock)
+        } else if stock.amount > 0 {
+            StockDataService.shared.createStock(name: stock.name,
+                                                symbol: stock.symbol,
+                                                totalCost: stock.totalCost,
+                                                amount: stock.amount,
+                                                priceHistory: stock.priceHistory)
+        }
+
+        self.stock = stock
+        output?.stockAmountUpdated(model: StockPresenterData(model: stock))
     }
 
     func descreaseAmount(by value: Int) {
-        guard let stock = self.stock,
+        guard var stock = self.stock,
               let user = UserDataService.shared.getUser(),
               let freshPrice = stock.priceHistory.last else {
             return
@@ -186,10 +192,26 @@ extension StockDetailInteractor: StockDetailInteractorInput {
         }
 
         UserDataService.shared.editUser(user: user)
+
+        if stock.amount == 0 && !StockDataService.shared.stockIsNew(symbol: stock.symbol) {
+            StockDataService.shared.deleteStock(symbol: stock.symbol)
+        }
+
+        if !StockDataService.shared.stockIsNew(symbol: stock.symbol) {
+            guard let fetchedStock = StockDataService.shared.getStock(symbol: stock.symbol) else {
+                return
+            }
+
+            refreshStock(stockToUpdate: fetchedStock, with: stock)
+            StockDataService.shared.updateStock(symbol: stock.symbol, stock: fetchedStock)
+        }
+
+        self.stock = stock
+        output?.stockAmountUpdated(model: StockPresenterData(model: stock))
     }
 
     func fetchStockData() {
-        guard let stock = self.stock else {
+        guard var stock = self.stock else {
             return
         }
 
@@ -204,9 +226,18 @@ extension StockDetailInteractor: StockDetailInteractorInput {
             }
 
             stock.priceHistory = data.map { NSDecimalNumber(value: $0) }.reversed()
-            StockDataService.shared.updateStock(symbol: stock.symbol, stock: stock)
 
-            self?.output?.stockDataDidReceived(model: StockDetailPresenterData(model: stock))
+            if !StockDataService.shared.stockIsNew(symbol: stock.symbol) {
+                guard let fetchedStock = StockDataService.shared.getStock(symbol: stock.symbol) else {
+                    return
+                }
+
+                self?.refreshStock(stockToUpdate: fetchedStock, with: stock)
+                StockDataService.shared.updateStock(symbol: stock.symbol, stock: fetchedStock)
+            }
+
+            self?.stock = stock
+            self?.output?.stockDataDidReceived(model: StockPresenterData(model: stock))
         }
     }
 
@@ -219,15 +250,6 @@ extension StockDetailInteractor: NSFetchedResultsControllerDelegate {
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         if let user = controller.fetchedObjects?.first as? User {
             sendCardData(data: prepareCardModel(user: user))
-        } else if let stocks = controller.fetchedObjects as? [Stock] {
-            guard let stock = stock else {
-                return
-            }
-
-            for updatedStock in stocks where updatedStock.symbol == stock.symbol {
-                output?.stockDataDidReceived(model: StockDetailPresenterData(model: stock))
-                break
-            }
         }
     }
 }
