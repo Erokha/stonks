@@ -74,6 +74,22 @@ extension NetworkService: NetworkServiceInput {
         }
     }
 
+    func fetchStockImageUrl(for symbol: String, completion: @escaping (Result<String, Error>) -> Void) {
+        let request = AF.request(Constants.baseURL + "stock/\(symbol)")
+
+        request.responseDecodable(of: [StockRaw].self) { response in
+            var result = Result<String, Error>()
+
+            switch response.result {
+            case .success(let stocks):
+                result.data = stocks.first?.imageUrl
+            case .failure(let error):
+                result.error = error
+            }
+
+            completion(result)
+        }
+    }
     func fetchStockHistory(for symbol: String, completion: @escaping (Result<[Float], Error>) -> Void) {
         let request = AF.request(Constants.baseURL + "history/\(symbol)")
 
