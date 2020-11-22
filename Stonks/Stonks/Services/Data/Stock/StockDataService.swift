@@ -30,7 +30,6 @@ extension StockDataService: StockDataServiceInput {
             return nil
         }
     }
-    
 
     func createStock(name: String,
                      symbol: String,

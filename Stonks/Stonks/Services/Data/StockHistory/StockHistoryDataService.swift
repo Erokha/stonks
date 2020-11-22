@@ -53,7 +53,7 @@ extension StockHistoryDataService: StockHistoryDataServiceInput {
         let date = Date()
         stockHistory.name = name
         stockHistory.symbol = symbol
-        stockHistory.price = Double(truncating: price as NSNumber).round(to: 2)
+        stockHistory.price = Double(truncating: price as NSNumber).round(to: 1)
         stockHistory.type = Int16(typeInt)
         stockHistory.date = date
 
