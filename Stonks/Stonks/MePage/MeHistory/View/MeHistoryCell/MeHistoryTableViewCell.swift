@@ -14,15 +14,15 @@ final class MeHistoryTableViewCell: UITableViewCell {
 
     private func setupCell() {
         imageAreaView.layer.cornerRadius = MeHistoryTableViewCell.Constants.viewRadius
-        imageAreaView.layer.shadowColor = UIColor.black.cgColor
+        imageAreaView.layer.shadowColor = UIColor.gray.cgColor
         imageAreaView.layer.shadowRadius = MeHistoryTableViewCell.Constants.shadowRadius
         imageAreaView.layer.shadowOffset = .init(width: 0, height: 2)
         imageAreaView.layer.shadowOpacity = MeHistoryTableViewCell.Constants.shadowOpacity
         logoImageView.layer.cornerRadius = MeHistoryTableViewCell.Constants.imageRadius
         self.layoutMargins = UIEdgeInsets.zero
-
         self.preservesSuperviewLayoutMargins = false
     }
+
     func setData(stock: StockHistoryData) {
         setupCell()
         nameLabel.text = stock.name
