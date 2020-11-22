@@ -80,13 +80,13 @@ extension AllStocksViewController: UITableViewDelegate, UITableViewDataSource {
 extension AllStocksViewController: AllStocksViewInput {
     func reloadTable() {
         self.tableView.reloadData()
-//        self.refreshControl.endRefreshing()
+        self.refreshControl.endRefreshing()
     }
 
     func startActivity() {
-//        activityIndicatorView.startAnimating()
+        activityIndicatorView.startAnimating()
     }
     func endActivity() {
-//        activityIndicatorView.stopAnimating()
+        activityIndicatorView.stopAnimating()
     }
 }
