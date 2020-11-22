@@ -6,8 +6,6 @@ final class StockDetailInteractor: NSObject {
 
     private var frcUser: NSFetchedResultsController<User>?
 
-    private var frcStock: NSFetchedResultsController<Stock>?
-
     private var stock: StockInteractorData?
 
     private var updateQuotesTimer: Timer?
@@ -77,12 +75,18 @@ final class StockDetailInteractor: NSObject {
                         rightNumber: Int(user.balance.floatValue))
     }
 
-    private func refreshStock(stockToUpdate: Stock?, with stock: StockInteractorData) {
-        stockToUpdate?.name = stock.name
-        stockToUpdate?.symbol = stock.symbol
-        stockToUpdate?.amount = stock.amount
-        stockToUpdate?.priceHistory = stock.priceHistory
-        stockToUpdate?.totalCost = stock.totalCost
+    private func refreshCoreDataStock(with stock: StockInteractorData) {
+        guard let fetchedStock = StockDataService.shared.getStock(symbol: stock.symbol) else {
+            return
+        }
+
+        fetchedStock.name = stock.name
+        fetchedStock.symbol = stock.symbol
+        fetchedStock.amount = stock.amount
+        fetchedStock.priceHistory = stock.priceHistory
+        fetchedStock.totalCost = stock.totalCost
+
+        StockDataService.shared.updateStock(symbol: stock.symbol, stock: fetchedStock)
     }
 
     @objc
@@ -106,12 +110,7 @@ final class StockDetailInteractor: NSObject {
             stock.priceHistory.append(NSDecimalNumber(value: freshPrice.stockPrice))
 
             if !StockDataService.shared.stockIsNew(symbol: stock.symbol) {
-                guard let fetchedStock = StockDataService.shared.getStock(symbol: stock.symbol) else {
-                    return
-                }
-
-                self?.refreshStock(stockToUpdate: fetchedStock, with: stock)
-                StockDataService.shared.updateStock(symbol: stock.symbol, stock: fetchedStock)
+                self?.refreshCoreDataStock(with: stock)
             }
 
             self?.stock = stock
@@ -130,6 +129,11 @@ extension StockDetailInteractor: StockDetailInteractorInput {
     }
 
     func increaseAmount(by value: Int) {
+        guard value > 0 else {
+            output?.showAlert(with: "Oops!", message: "Amount should be > 0")
+            return
+        }
+
         guard var stock = self.stock,
               let user = UserDataService.shared.getUser(),
               let freshPrice = stock.priceHistory.last else {
@@ -150,12 +154,7 @@ extension StockDetailInteractor: StockDetailInteractorInput {
         UserDataService.shared.editUser(user: user)
 
         if !StockDataService.shared.stockIsNew(symbol: stock.symbol) {
-            guard let fetchedStock = StockDataService.shared.getStock(symbol: stock.symbol) else {
-                return
-            }
-
-            refreshStock(stockToUpdate: fetchedStock, with: stock)
-            StockDataService.shared.updateStock(symbol: stock.symbol, stock: fetchedStock)
+            refreshCoreDataStock(with: stock)
         } else if stock.amount > 0 {
             StockDataService.shared.createStock(name: stock.name,
                                                 symbol: stock.symbol,
@@ -170,6 +169,11 @@ extension StockDetailInteractor: StockDetailInteractorInput {
     }
 
     func descreaseAmount(by value: Int) {
+        guard value > 0 else {
+            output?.showAlert(with: "Oops!", message: "Amount should be > 0")
+            return
+        }
+
         guard var stock = self.stock,
               let user = UserDataService.shared.getUser(),
               let freshPrice = stock.priceHistory.last else {
@@ -199,12 +203,7 @@ extension StockDetailInteractor: StockDetailInteractorInput {
         }
 
         if !StockDataService.shared.stockIsNew(symbol: stock.symbol) {
-            guard let fetchedStock = StockDataService.shared.getStock(symbol: stock.symbol) else {
-                return
-            }
-
-            refreshStock(stockToUpdate: fetchedStock, with: stock)
-            StockDataService.shared.updateStock(symbol: stock.symbol, stock: fetchedStock)
+            refreshCoreDataStock(with: stock)
         }
 
         self.stock = stock
@@ -230,12 +229,7 @@ extension StockDetailInteractor: StockDetailInteractorInput {
             stock.priceHistory = data.map { NSDecimalNumber(value: $0) }.reversed()
 
             if !StockDataService.shared.stockIsNew(symbol: stock.symbol) {
-                guard let fetchedStock = StockDataService.shared.getStock(symbol: stock.symbol) else {
-                    return
-                }
-
-                self?.refreshStock(stockToUpdate: fetchedStock, with: stock)
-                StockDataService.shared.updateStock(symbol: stock.symbol, stock: fetchedStock)
+                self?.refreshCoreDataStock(with: stock)
             }
 
             self?.stock = stock
