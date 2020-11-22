@@ -86,6 +86,7 @@
 		138D65B7256038CE004CC2DD /* FilterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138D65B6256038CE004CC2DD /* FilterProtocols.swift */; };
 		138D65C125603F46004CC2DD /* MeHistoryFilterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138D65C025603F46004CC2DD /* MeHistoryFilterPresenter.swift */; };
 		13A27FAD2562790C0015D03C /* HistoryStockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A27FAC2562790C0015D03C /* HistoryStockData.swift */; };
+		13AF96612563D03B001988E6 /* MePortfolioStockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AF96602563D03B001988E6 /* MePortfolioStockData.swift */; };
 		13BBF5FE253AD3F400DA0C32 /* ChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BBF5FC253AD3F400DA0C32 /* ChartTableViewCell.swift */; };
 		13BBF5FF253AD3F400DA0C32 /* ChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13BBF5FD253AD3F400DA0C32 /* ChartTableViewCell.xib */; };
 		13C1DC01256117B70043BDA5 /* StockHistory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C1DC00256117B70043BDA5 /* StockHistory+CoreDataProperties.swift */; };
@@ -214,6 +215,7 @@
 		138D65B6256038CE004CC2DD /* FilterProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterProtocols.swift; sourceTree = "<group>"; };
 		138D65C025603F46004CC2DD /* MeHistoryFilterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHistoryFilterPresenter.swift; sourceTree = "<group>"; };
 		13A27FAC2562790C0015D03C /* HistoryStockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryStockData.swift; sourceTree = "<group>"; };
+		13AF96602563D03B001988E6 /* MePortfolioStockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MePortfolioStockData.swift; sourceTree = "<group>"; };
 		13BBF5FC253AD3F400DA0C32 /* ChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTableViewCell.swift; sourceTree = "<group>"; };
 		13BBF5FD253AD3F400DA0C32 /* ChartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartTableViewCell.xib; sourceTree = "<group>"; };
 		13C1DC00256117B70043BDA5 /* StockHistory+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StockHistory+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -715,6 +717,7 @@
 			isa = PBXGroup;
 			children = (
 				134179E2253227A90052D1A9 /* ChartColor.swift */,
+				13AF96602563D03B001988E6 /* MePortfolioStockData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1401,7 +1404,7 @@
 				31BDC080252A1C5A00F56ADD /* Sources */,
 				31BDC081252A1C5A00F56ADD /* Frameworks */,
 				31BDC082252A1C5A00F56ADD /* Resources */,
-				31C7C5562535C90900B99E1C /* ShellScript */,
+				31C7C5562535C90900B99E1C /* Run Script */,
 				6B8C0BC379D1F5BAAB62A859 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
@@ -1475,7 +1478,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		31C7C5562535C90900B99E1C /* ShellScript */ = {
+		31C7C5562535C90900B99E1C /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1484,6 +1487,7 @@
 			);
 			inputPaths = (
 			);
+			name = "Run Script";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -1544,6 +1548,7 @@
 				318857942552B54E00FFDCBC /* AuthorizationService.swift in Sources */,
 				0DF11C0B255C8ABA004162BA /* UserStocksViewController.swift in Sources */,
 				3155EC1A254970D00036F67B /* CardView.swift in Sources */,
+				13AF96612563D03B001988E6 /* MePortfolioStockData.swift in Sources */,
 				318857832551A63C00FFDCBC /* Stock+CoreDataClass.swift in Sources */,
 				0D751142253A5C4F00D0A719 /* StockTableViewCell.swift in Sources */,
 				31144407256016F600AF2552 /* NetworkService.swift in Sources */,

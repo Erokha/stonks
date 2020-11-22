@@ -34,7 +34,8 @@ extension AllStocksPresenter: AllStocksViewOutput {
     }
 
     func refreshData() {
-        self.interactor.loadStoks()
+        view?.startActivity()
+        interactor.loadStoks()
     }
 
     func didTapOnStock(symbol: String) {

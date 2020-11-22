@@ -27,28 +27,41 @@
                         <rect key="frame" x="35" y="20" width="330" height="290"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lTS-E7-FUd" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="5" y="5" width="320" height="280"/>
+                                <rect key="frame" x="5" y="20" width="320" height="265"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jzd-5R-m09">
-                                        <rect key="frame" x="136.5" y="128.5" width="47.5" height="23.5"/>
+                                        <rect key="frame" x="136.5" y="121" width="47.5" height="23.5"/>
                                         <fontDescription key="fontDescription" name="DMSans-Bold" family="DM Sans" pointSize="18"/>
                                         <color key="textColor" red="0.4431372549" green="0.39607843139999999" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="zRw-9h-eWY">
+                                        <rect key="frame" x="150" y="122.5" width="20" height="20"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="zRw-9h-eWY" firstAttribute="centerY" secondItem="lTS-E7-FUd" secondAttribute="centerY" id="Q2O-hd-nNY"/>
+                                    <constraint firstItem="zRw-9h-eWY" firstAttribute="centerX" secondItem="lTS-E7-FUd" secondAttribute="centerX" id="f6W-Ic-gi8"/>
                                     <constraint firstItem="jzd-5R-m09" firstAttribute="centerX" secondItem="lTS-E7-FUd" secondAttribute="centerX" id="fM1-UR-LeV"/>
                                     <constraint firstItem="jzd-5R-m09" firstAttribute="centerY" secondItem="lTS-E7-FUd" secondAttribute="centerY" id="tcp-Nd-fjU"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Statistic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8K3-hk-lyF">
+                                <rect key="frame" x="10" y="8" width="65.5" height="21"/>
+                                <fontDescription key="fontDescription" name="DMSans-Bold" family="DM Sans" pointSize="16"/>
+                                <color key="textColor" red="0.14901960784313725" green="0.19607843137254902" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="lTS-E7-FUd" firstAttribute="top" secondItem="xze-0T-9DS" secondAttribute="top" constant="5" id="2oM-Kh-EWU"/>
+                            <constraint firstItem="lTS-E7-FUd" firstAttribute="top" secondItem="xze-0T-9DS" secondAttribute="top" constant="20" id="2oM-Kh-EWU"/>
                             <constraint firstItem="lTS-E7-FUd" firstAttribute="leading" secondItem="xze-0T-9DS" secondAttribute="leading" constant="5" id="6D0-H6-lh6"/>
                             <constraint firstAttribute="bottom" secondItem="lTS-E7-FUd" secondAttribute="bottom" constant="5" id="T0h-S4-qLR"/>
                             <constraint firstAttribute="trailing" secondItem="lTS-E7-FUd" secondAttribute="trailing" constant="5" id="f7k-iR-NYK"/>
+                            <constraint firstItem="8K3-hk-lyF" firstAttribute="leading" secondItem="xze-0T-9DS" secondAttribute="leading" constant="10" id="fP5-hz-9NL"/>
+                            <constraint firstItem="8K3-hk-lyF" firstAttribute="top" secondItem="xze-0T-9DS" secondAttribute="top" constant="8" id="ltb-6v-b2V"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -61,6 +74,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="activityIndicator" destination="zRw-9h-eWY" id="HPh-ot-ZzH"/>
                 <outlet property="mainChartView" destination="xze-0T-9DS" id="IvQ-qS-hbK"/>
                 <outlet property="noDataLabel" destination="jzd-5R-m09" id="WKL-lW-oqO"/>
                 <outlet property="stocksPieChartView" destination="lTS-E7-FUd" id="oF0-fG-ItO"/>

@@ -24,14 +24,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="69" height="35"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="LMf-Tg-ZE4">
-                                        <rect key="frame" x="25.5" y="0.0" width="43.5" height="21.5"/>
+                                        <rect key="frame" x="25.5" y="0.0" width="43.5" height="23"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <color key="textColor" red="0.2784313725" green="0.74509803919999995" blue="0.63529411759999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u4F-5R-iij">
-                                        <rect key="frame" x="39.5" y="21.5" width="29.5" height="13.5"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="own:" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u4F-5R-iij">
+                                        <rect key="frame" x="45.5" y="23" width="23.5" height="12"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
                                         <color key="textColor" red="0.28235294119999998" green="0.27058823529999998" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -39,7 +39,7 @@
                             </stackView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="width" constant="69" id="04j-J7-eYN"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="69" id="04j-J7-eYN"/>
                             <constraint firstAttribute="height" constant="35" id="eNf-Ai-wbF"/>
                         </constraints>
                     </stackView>

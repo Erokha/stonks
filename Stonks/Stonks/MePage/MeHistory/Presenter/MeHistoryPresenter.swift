@@ -36,6 +36,11 @@ extension MeHistoryPresenter: MeHistoryOutput {
 
     func didSortedStocksLoaded(stocks: [StockHistoryData]) {
         self.stocks = stocks
+        var stockSymbols: [String] = []
+        stocks.forEach({ stock in
+            stockSymbols.append(stock.symbol)
+        })
+        interactor.loadImageUrl(for: Array(Set(stockSymbols)))
     }
 
     func didFilterButtonTapped() {
@@ -56,7 +61,20 @@ extension MeHistoryPresenter: MeHistoryOutput {
 }
 
 extension MeHistoryPresenter: MeHistoryInteractorOutput {
-    func didReceive(stocks: [StockHistoryData]) {
-        self.stocks = stocks
+    func didReceiveImage(images: [String: String]) {
+        var data = stocks
+        for i in 0..<stocks.count {
+            data[i].imageUrl = images[data[i].symbol]
+        }
+        self.stocks = data
+    }
+
+    func didReceive(newStocks: [StockHistoryData]) {
+        self.stocks = newStocks
+        var stockSymbols: [String] = []
+        stocks.forEach({ stock in
+            stockSymbols.append(stock.symbol)
+        })
+        interactor.loadImageUrl(for: Array(Set(stockSymbols)))
     }
 }

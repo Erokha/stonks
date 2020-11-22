@@ -55,6 +55,8 @@ extension MainStocksViewController {
                       segue.identifier == "StockContainerSegue" {
                 self.pageViewViewController = vc
                 self.pageViewViewController.stocksPageDelegate = self
+                guard let tmp = pageViewViewController.pages.first as? UserStocksViewController else { return }
+                tmp.output.delegate = self
             }
         }
 }
@@ -78,5 +80,11 @@ extension MainStocksViewController {
             static let shadowRadius: CGFloat = 3
             static let shadowOpacity: Float = 0.5
         }
+    }
+}
+
+extension MainStocksViewController: UserStocksDelegate {
+    func getTotalStocksCount(with num: Int) {
+        self.setStocksTotal(num: num)
     }
 }

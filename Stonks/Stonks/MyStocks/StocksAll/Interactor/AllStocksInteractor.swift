@@ -3,10 +3,23 @@ import Alamofire
 
 final class AllStocksInteractor {
     weak var output: AllStoksInteractorOutput?
+    private var updateTimer: Timer?
+
+    init() {
+        setupTimer()
+    }
+
+    private func setupTimer() {
+        self.updateTimer = Timer.scheduledTimer(timeInterval: Constants.requestPeriod,
+                                                      target: self,
+                                                      selector: #selector(loadStoks),
+                                                      userInfo: nil,
+                                                      repeats: true)
+    }
 
     private func handleError(with error: Error) {
         switch error.localizedDescription {
-        case networkErrors.sessionTaskFailed.type:
+        case NetworkErrors.sessionTaskFailed.type:
             output?.didReciveError(with: AppError.networkError)
         default:
             output?.didReciveError(with: AppError.undefinedError)
@@ -21,7 +34,7 @@ final class AllStocksInteractor {
 }
 
 extension AllStocksInteractor: AllStoksInteractorInput {
-    func loadStoks() {
+    @objc func loadStoks() {
         NetworkService.shared.fetchAllStocks { [weak self] result in
             if let error = result.error {
                 self?.handleError(with: error)
@@ -38,11 +51,11 @@ extension AllStocksInteractor: AllStoksInteractorInput {
 
 }
 
-enum networkErrors {
+enum NetworkErrors {
     case sessionTaskFailed
 }
 
-extension networkErrors {
+extension NetworkErrors {
     var type: String {
         switch self {
         case .sessionTaskFailed:
@@ -53,4 +66,10 @@ extension networkErrors {
 
 private struct errorStrings {
     static let sessionTaskFailed = "URLSessionTask failed with error: Could not connect to the server."
+}
+
+extension AllStocksInteractor {
+    private struct Constants {
+        static let requestPeriod: TimeInterval = 15
+    }
 }
