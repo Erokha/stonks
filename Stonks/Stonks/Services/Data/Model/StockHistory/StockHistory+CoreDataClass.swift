@@ -11,5 +11,4 @@ extension StockHistory {
     @NSManaged public var price: Double
     @NSManaged public var date: Date
     @NSManaged public var type: Int16
-    @NSManaged public var imageURL: NSURL
 }

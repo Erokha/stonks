@@ -83,7 +83,7 @@ final class MainStocksInteractor: NSObject {
 
     private func handleError(with error: Error) {
         switch error.localizedDescription {
-        case networkErrors.sessionTaskFailed.type:
+        case NetworkErrors.sessionTaskFailed.type:
             output?.didReciveError(with: AppError.networkError)
         default:
             output?.didReciveError(with: AppError.undefinedError)

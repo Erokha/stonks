@@ -5,27 +5,35 @@ final class MePortfolioPresenter {
     weak var view: MePortfolioInput?
     var router: MePortfolioRouterInput?
     private var interactor: MePortfolioInteractorInput
-    private var stocks: [StockData] = [] {
+    private var isGetInternetConnection: Bool
+    private var stocks: [MePortfolioStockData] = [] {
         didSet {
-            setNumbersInChart(number: stocks.count)
+            self.setNumbersInChart(number: stocks.count)
+            DispatchQueue.main.async {
+                self.view?.reloadTable()
+            }
         }
     }
     private var numberOfStocksInChart: Int = 0
 
     required init(interactor: MePortfolioInteractorInput) {
         self.interactor = interactor
+        self.isGetInternetConnection = false
     }
 
     private func setNumbersInChart(number: Int) {
-        guard number < MePortfolioPresenter.Constants.maxStocksInChart  else { return }
-        numberOfStocksInChart = number
+        if number < Constants.maxStocksInChart {
+            numberOfStocksInChart = number
+        } else {
+            numberOfStocksInChart = Constants.maxStocksInChart
+        }
     }
 
     // MARK: PieChartData prepare
     private func countStocks() -> [(String, Float)] {
         var stocksWithPrices: [String: Float] = [:]
         for stock in stocks {
-            stocksWithPrices[stock.stockSymbol] = Float(stock.stockCount) * stock.stockPrice
+            stocksWithPrices[stock.stockSymbol] = Float(stock.amount) * stock.currentPrice
         }
         let sortedStocksByPrice = stocksWithPrices.sorted { (first: (key: String, value: Float), second: (key: String, value: Float)) -> Bool in
             return first.value > second.value
@@ -54,7 +62,6 @@ extension MePortfolioPresenter {
     private struct Constants {
         static let chartColors: [NSUIColor] = ChartColors.allCases.map { NSUIColor(hex: $0.rawValue) }
         static let maxStocksInChart = 5
-        static let noDataMessage = "You don't have any stocks:("
     }
 }
 
@@ -63,17 +70,13 @@ extension MePortfolioPresenter: MePortfolioOutput {
         router?.showHistory()
     }
 
-    func noDataMessage() -> String {
-        return MePortfolioPresenter.Constants.noDataMessage
-    }
-
     func didLoadView() {
         interactor.loadStocks()
     }
 
     func createChartData() -> PieChartData? {
-        let dataEntries = createDataEntry()
-        if !dataEntries.isEmpty {
+        if isGetInternetConnection {
+            let dataEntries = createDataEntry()
             let colors = generateColors(numberOfColors: dataEntries.count)
             let dataSet = PieChartDataSet(entries: dataEntries, label: "")
             dataSet.colors = colors
@@ -86,4 +89,16 @@ extension MePortfolioPresenter: MePortfolioOutput {
 }
 
 extension MePortfolioPresenter: MePortfolioInteractorOutput {
+    func didLoaded(stocks: [MePortfolioStockData]) {
+        self.isGetInternetConnection = true
+        self.stocks = stocks
+    }
+
+    func didReceiveError(with error: Error) {
+        self.isGetInternetConnection = false
+        DispatchQueue.main.async {
+            self.view?.reloadTable()
+        }
+        router?.showError(with: error)
+    }
 }

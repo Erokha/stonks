@@ -7,15 +7,19 @@ enum MePortfolioSections: Int, CaseIterable {
 final class MePortfolioViewController: UIViewController {
     private var tableView = UITableView()
 
-    var presenter: MePortfolioOutput!
+    var output: MePortfolioOutput!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.didLoadView()
         setupTableView()
         setupView()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        output.didLoadView()
+
+    }
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -52,10 +56,10 @@ extension MePortfolioViewController: UITableViewDelegate, UITableViewDataSource 
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ChartTableViewCell.reuseIdentifier, for: indexPath) as? ChartTableViewCell else {
                 return UITableViewCell()
             }
-            if let chartData = presenter.createChartData() {
+            if let chartData = output.createChartData() {
                 cell.configureChartView(pieChartData: chartData)
             } else {
-                cell.noDataMessage(message: presenter.noDataMessage())
+                cell.dataIsNotAvaliable()
             }
             return cell
         case .historyButton:
@@ -82,7 +86,7 @@ extension MePortfolioViewController: UITableViewDelegate, UITableViewDataSource 
         case .chart:
             break
         case .historyButton:
-            presenter.didHistoryButtonTapped()
+            output.didHistoryButtonTapped()
         default:
             break
         }
@@ -90,7 +94,9 @@ extension MePortfolioViewController: UITableViewDelegate, UITableViewDataSource 
 }
 
 extension MePortfolioViewController: MePortfolioInput {
-
+    func reloadTable() {
+        self.tableView.reloadData()
+    }
 }
 
 extension MePortfolioViewController {

@@ -18,9 +18,11 @@ protocol MeHistoryRouterInput: class {
 }
 
 protocol MeHistoryInteractorInput: class {
+    func loadImageUrl(for stocks: [String])
     func loadStocks()
 }
 
 protocol MeHistoryInteractorOutput: class {
-    func didReceive(stocks: [StockHistoryData])
+    func didReceive(newStocks: [StockHistoryData])
+    func didReceiveImage(images: [String: String])
 }

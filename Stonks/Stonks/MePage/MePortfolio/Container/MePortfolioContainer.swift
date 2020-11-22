@@ -11,7 +11,7 @@ class MePortfolioContainer {
         let presenter = MePortfolioPresenter(interactor: interactor)
         let router = MePortfolioRouter()
 
-        vc.presenter = presenter
+        vc.output = presenter
         presenter.view = vc
         presenter.router = router
         router.viewController = vc

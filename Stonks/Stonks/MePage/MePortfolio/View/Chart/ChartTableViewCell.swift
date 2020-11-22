@@ -5,7 +5,7 @@ final class ChartTableViewCell: UITableViewCell {
     @IBOutlet private weak var stocksPieChartView: PieChartView!
     @IBOutlet private weak var noDataLabel: UILabel!
     @IBOutlet private weak var mainChartView: UIView!
-
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     override func awakeFromNib() {
         super.awakeFromNib()
         setupMainView()
@@ -18,6 +18,7 @@ final class ChartTableViewCell: UITableViewCell {
         self.selectionStyle = UITableViewCell.SelectionStyle.none
     }
     private func setupMainView() {
+        activityIndicator.hidesWhenStopped = true
         mainChartView.layer.cornerRadius = ChartTableViewCell.Constants.viewRadius
         mainChartView.layer.shadowColor = UIColor.gray.cgColor
         mainChartView.layer.shadowRadius = ChartTableViewCell.Constants.shadowRadius
@@ -36,6 +37,8 @@ final class ChartTableViewCell: UITableViewCell {
 
     private func chartViewSettings() {
         stocksPieChartView.chartDescription?.enabled = false
+        stocksPieChartView.rotationAngle = 0
+        stocksPieChartView.rotationEnabled = false
         stocksPieChartView.drawHoleEnabled = false
         stocksPieChartView.isUserInteractionEnabled = false
         stocksPieChartView.drawEntryLabelsEnabled = false
@@ -45,12 +48,28 @@ final class ChartTableViewCell: UITableViewCell {
         stocksPieChartView.noDataText = ""
     }
 
+    private func setDataFormatter(pieChartData: PieChartData) {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.currencySymbol = "$"
+        formatter.zeroSymbol = ""
+        pieChartData.setValueFormatter(DefaultValueFormatter(formatter: formatter))
+    }
+
     func configureChartView(pieChartData: PieChartData) {
+        activityIndicator.stopAnimating()
+        if pieChartData.entryCount == 0 {
+            self.noDataLabel.text = Constants.noDataMessage
+        } else {
+            self.noDataLabel.text = ""
+        }
+        setDataFormatter(pieChartData: pieChartData)
         self.stocksPieChartView.data = pieChartData
     }
 
-    func noDataMessage(message: String) {
-        self.noDataLabel.text = message
+    func dataIsNotAvaliable() {
+        self.stocksPieChartView.data = nil
+        self.activityIndicator.startAnimating()
     }
 }
 
@@ -60,5 +79,6 @@ extension ChartTableViewCell {
         static let shadowRadius: CGFloat = 3
         static let shadowOpacity: Float = 0.4
         static let legendFormSize: CGFloat = 15
+        static let noDataMessage: String = "You don't have any stocks:("
     }
 }
