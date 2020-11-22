@@ -37,9 +37,8 @@ protocol StockDataServiceInput {
 protocol StockHistoryDataServiceInput {
     func createHistoryStock(name: String,
                             symbol: String,
-                            price: Double,
-                            type: TypeOfAction,
-                            imageUrl: URL)
+                            price: Decimal,
+                            type: TypeOfAction)
     func getAllStocks() -> [StockHistory]?
     func getStocks(with type: TypeOfAction?, sortby: SortBy?) -> [StockHistory]?
 }

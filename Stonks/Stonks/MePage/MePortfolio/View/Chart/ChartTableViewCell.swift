@@ -60,6 +60,8 @@ final class ChartTableViewCell: UITableViewCell {
         activityIndicator.stopAnimating()
         if pieChartData.entryCount == 0 {
             self.noDataLabel.text = Constants.noDataMessage
+        } else {
+            self.noDataLabel.text = ""
         }
         setDataFormatter(pieChartData: pieChartData)
         self.stocksPieChartView.data = pieChartData
