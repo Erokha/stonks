@@ -15,12 +15,12 @@ class ContainerViewController: UIViewController {
 
     private func setupLeftSideCard() {
         cardView?.showUpperTextLeft(text: "Avaliable balance")
-        cardView?.showNumberLeft(num: 2700)
+        cardView?.showNumberLeft(num: 0)
     }
 
     private func setupRightSideCard() {
         cardView?.showUpperTextRight(text: "Stocks total")
-        cardView?.showNumberRight(num: 1400)
+        cardView?.showNumberRight(num: 0)
     }
 
     private func setCorners() {

@@ -46,7 +46,11 @@ extension AllStocksPresenter: AllStocksViewOutput {
 extension AllStocksPresenter: AllStoksInteractorOutput {
 
     func didRecive(stoks: [StockData]) {
-        self.model = stoks
+        var copy = stoks
+        for i in 0...copy.count - 1 {
+            copy[i].stockCount = StockDataService.shared.getStock(symbol: copy[i].stockSymbol)?.amount ?? 0
+        }
+        self.model = copy
         view?.endActivity()
     }
 
