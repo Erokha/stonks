@@ -43,7 +43,7 @@ class StockHistoryDataService {
 extension StockHistoryDataService: StockHistoryDataServiceInput {
     func createHistoryStock(name: String,
                             symbol: String,
-                            price: Double,
+                            price: Decimal,
                             type: TypeOfAction) {
         let typeInt = type.rawValue
         let context = persistentContainer.viewContext
@@ -53,7 +53,7 @@ extension StockHistoryDataService: StockHistoryDataServiceInput {
         let date = Date()
         stockHistory.name = name
         stockHistory.symbol = symbol
-        stockHistory.price = price
+        stockHistory.price = Double(truncating: price as NSNumber).round(to: 2)
         stockHistory.type = Int16(typeInt)
         stockHistory.date = date
 
@@ -102,5 +102,12 @@ extension StockHistoryDataService: StockHistoryDataServiceInput {
         } catch {
             return nil
         }
+    }
+}
+
+extension Double {
+    func round(to places: Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return Darwin.round(self * divisor) / divisor
     }
 }
