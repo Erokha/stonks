@@ -165,6 +165,7 @@ extension StockDetailInteractor: StockDetailInteractorInput {
         }
 
         self.stock = stock
+        StockHistoryDataService.shared.createHistoryStock(name: stock.name, symbol: stock.symbol, price: Double(value), type: .bought)
         output?.stockAmountUpdated(model: StockPresenterData(model: stock))
     }
 
@@ -207,6 +208,7 @@ extension StockDetailInteractor: StockDetailInteractorInput {
         }
 
         self.stock = stock
+        StockHistoryDataService.shared.createHistoryStock(name: stock.name, symbol: stock.symbol, price: Double(value), type: .sold)
         output?.stockAmountUpdated(model: StockPresenterData(model: stock))
     }
 

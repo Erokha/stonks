@@ -25,11 +25,11 @@ final class MeHistoryTableViewCell: UITableViewCell {
     }
     func setData(stock: StockHistoryData) {
         setupCell()
-        logoImageView.image = stock.image
         nameLabel.text = stock.name
         priceLabel.text = String(stock.price) + "$"
         dateLabel.text = stock.date
-
+        let url = URL(string: stock.imageUrl ?? "")
+        self.logoImageView.kf.setImage(with: url)
         switch stock.type {
         case .bought:
             priceLabel.textColor = #colorLiteral(red: 0.2784313725, green: 0.7450980392, blue: 0.6352941176, alpha: 1)

@@ -44,8 +44,7 @@ extension StockHistoryDataService: StockHistoryDataServiceInput {
     func createHistoryStock(name: String,
                             symbol: String,
                             price: Double,
-                            type: TypeOfAction,
-                            imageUrl: URL) {
+                            type: TypeOfAction) {
         let typeInt = type.rawValue
         let context = persistentContainer.viewContext
 
@@ -57,7 +56,6 @@ extension StockHistoryDataService: StockHistoryDataServiceInput {
         stockHistory.price = price
         stockHistory.type = Int16(typeInt)
         stockHistory.date = date
-        stockHistory.imageURL = NSURL(fileURLWithPath: imageUrl.path)
 
         do {
             try context.save()

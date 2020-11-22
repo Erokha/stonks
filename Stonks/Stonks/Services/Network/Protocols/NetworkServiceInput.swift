@@ -13,5 +13,5 @@ protocol NetworkServiceInput {
 
     func fetchArticles(type: ArticleType, completion: @escaping (Result<[ArticleModel], Error>) -> Void)
 
-    func fetchStockImageUrl(for symbol: String, completion: @escaping (Result<String, Error>) -> Void)
+    func fetchStockImageUrl(for symbols: [String], completion: @escaping (Result<[String: String], Error>) -> Void)
 }
