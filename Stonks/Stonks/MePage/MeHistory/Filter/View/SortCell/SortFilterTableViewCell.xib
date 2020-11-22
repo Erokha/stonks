@@ -36,7 +36,7 @@
                                             <constraint firstAttribute="height" constant="38" id="bNF-EW-7Hm"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="DMSans-Regular" family="DM Sans" pointSize="15"/>
-                                        <state key="normal" title="Increase in price">
+                                        <state key="normal" title="Price high to low">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -51,7 +51,7 @@
                                             <constraint firstAttribute="width" constant="130" id="mKa-mp-Khd"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="DMSans-Regular" family="DM Sans" pointSize="15"/>
-                                        <state key="normal" title="Increase in date">
+                                        <state key="normal" title="First new">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -71,7 +71,7 @@
                                             <constraint firstAttribute="height" constant="38" id="uUl-Jt-C8C"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="DMSans-Regular" family="DM Sans" pointSize="15"/>
-                                        <state key="normal" title="Descending price">
+                                        <state key="normal" title="Price low to high">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -86,7 +86,7 @@
                                             <constraint firstAttribute="width" constant="130" id="Co7-aM-Grh"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="DMSans-Regular" family="DM Sans" pointSize="15"/>
-                                        <state key="normal" title="Descending Date">
+                                        <state key="normal" title="First old">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
