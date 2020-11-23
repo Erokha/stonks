@@ -45,6 +45,7 @@ class UserStocksViewController: UIViewController, UINavigationControllerDelegate
     }
 
     @objc private func refreshData(_ sender: Any) {
+        output.routerHardResetUpdate()
         output?.refreshData()
     }
 
@@ -63,6 +64,7 @@ extension UserStocksViewController: UITableViewDelegate, UITableViewDataSource {
         }
         guard let viewModel = output?.stock(at: indexPath) else { return UITableViewCell() }
         cell.setData(data: viewModel)
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
 
         return cell
 
@@ -86,5 +88,6 @@ extension UserStocksViewController: UserStocksViewInput {
     }
     func endActivity() {
         activityIndicatorView.stopAnimating()
+        self.refreshControl.endRefreshing()
     }
 }

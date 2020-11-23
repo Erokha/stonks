@@ -20,6 +20,10 @@ class AllStocksPresenter {
 }
 
 extension AllStocksPresenter: AllStocksViewOutput {
+    func routerHardResetUpdate() {
+        router?.hardResetUpdateFlag()
+    }
+
     func didLoadView() {
         view?.startActivity()
         interactor.loadStoks()
@@ -47,16 +51,18 @@ extension AllStocksPresenter: AllStoksInteractorOutput {
 
     func didRecive(stoks: [StockData]) {
         var copy = stoks
-        for i in 0...copy.count - 1 {
-            copy[i].stockCount = StockDataService.shared.getStock(symbol: copy[i].stockSymbol)?.amount ?? 0
+        if !copy.isEmpty {
+            for i in 0...stoks.count - 1 {
+                copy[i].stockCount = StockDataService.shared.getStock(symbol: copy[i].stockSymbol)?.amount ?? 0
+            }
+            self.model = copy
         }
-        self.model = copy
         view?.endActivity()
     }
 
     func didReciveError(with error: Error) {
-        router?.showError(with: error)
         view?.endActivity()
+        router?.showError(with: error)
     }
 
 }
