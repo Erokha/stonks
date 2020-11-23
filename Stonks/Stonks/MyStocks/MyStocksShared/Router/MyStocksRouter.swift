@@ -2,15 +2,19 @@ import UIKit
 
 class StocksSharedRouter {
     weak var viewController: UIViewController?
+    var needToShowError: Bool = true
 }
 
 extension StocksSharedRouter: StocksSharedRouterInput {
     func showError(with error: Error) {
-        let alert = UIAlertController(title: "Error happend", message: error.localizedDescription, preferredStyle: .alert)
+        if needToShowError {
+            let alert = UIAlertController(title: "Error happend", message: error.localizedDescription, preferredStyle: .alert)
 
-        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
 
-        self.viewController?.present(alert, animated: true)
+            self.viewController?.present(alert, animated: true)
+            needToShowError = false
+        }
     }
 
     func showStockDetail(symbol: String) {
@@ -23,5 +27,9 @@ extension StocksSharedRouter: StocksSharedRouterInput {
         viewController?.navigationItem.backButtonTitle = "printf(\"Jopa\n\");"
 
         viewController?.navigationController?.pushViewController(vc, animated: true)
+    }
+
+    func hardResetUpdateFlag() {
+        needToShowError = true
     }
 }

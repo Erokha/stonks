@@ -62,6 +62,10 @@ extension UserStocksPresenter: UserStocksViewOutput {
         view?.startActivity()
         interactor.loadStocksFromCoreData()
     }
+
+    func routerHardResetUpdate() {
+        router?.hardResetUpdateFlag()
+    }
 }
 
 extension UserStocksPresenter: UserStoksInteractorOutput {
@@ -98,8 +102,8 @@ extension UserStocksPresenter: UserStoksInteractorOutput {
     }
 
     func didReciveError(with error: Error) {
-        router?.showError(with: error)
         view?.endActivity()
+        router?.showError(with: error)
     }
 
 }

@@ -45,6 +45,7 @@ class UserStocksViewController: UIViewController, UINavigationControllerDelegate
     }
 
     @objc private func refreshData(_ sender: Any) {
+        output.routerHardResetUpdate()
         output?.refreshData()
     }
 
@@ -85,5 +86,6 @@ extension UserStocksViewController: UserStocksViewInput {
     }
     func endActivity() {
         activityIndicatorView.stopAnimating()
+        self.refreshControl.endRefreshing()
     }
 }

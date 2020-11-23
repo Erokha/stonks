@@ -12,11 +12,13 @@ protocol AllStocksViewOutput: class {
     func didLoadView()
     func refreshData()
     func didTapOnStock(symbol: String)
+    func routerHardResetUpdate()
 }
 
 protocol StocksSharedRouterInput: class {
     func showError(with error: Error)
     func showStockDetail(symbol: String)
+    func hardResetUpdateFlag()
 }
 
 protocol AllStoksInteractorInput: class {
