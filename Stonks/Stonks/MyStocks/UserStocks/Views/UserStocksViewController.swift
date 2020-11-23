@@ -63,7 +63,6 @@ extension UserStocksViewController: UITableViewDelegate, UITableViewDataSource {
         }
         guard let viewModel = output?.stock(at: indexPath) else { return UITableViewCell() }
         cell.setData(data: viewModel)
-
         return cell
 
     }

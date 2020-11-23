@@ -16,6 +16,7 @@ class StockTableViewCell: UITableViewCell {
     }
 
     func setData(data: StockData) {
+//        self.selectionStyle = UITableViewCell.SelectionStyle.none
         self.setShadow()
         self.stockNameLabel.text = data.stockName
         self.stockPriceLabel.text = String(data.stockPrice) + "$"
