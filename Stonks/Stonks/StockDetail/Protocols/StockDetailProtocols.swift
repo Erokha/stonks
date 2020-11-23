@@ -60,7 +60,9 @@ protocol StockDetailInteractorInput: class {
 
     func fetchStockData()
 
-    func fetchCardData()
+    func fetchBalance()
+
+    func fetchAmountPrice()
 
     func stopFetching()
 }
@@ -71,7 +73,9 @@ protocol StockDetailInteractorOutput: class {
 
     func stockDataDidReceived(model: StockPresenterData)
 
-    func cardDataDidReceived(model: StockPresenterData)
+    func amountPriceUpdateDidReceived(amountPrice: Int)
+
+    func balanceUpdateDidReceived(balance: Int)
 
     func stockAmountUpdated(model: StockPresenterData)
 

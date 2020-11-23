@@ -66,12 +66,22 @@ final class StockDetailInteractor: NSObject {
         }
     }
 
-    private func sendCardData(data: CardData) {
-        output?.cardDataDidReceived(model: StockPresenterData(cardData: data))
+    private func sendCardBalance(newBalance: NSDecimalNumber) {
+        output?.balanceUpdateDidReceived(balance: Int(newBalance.floatValue))
+    }
+
+    private func sendCardAmountPrice(newPrice: NSDecimalNumber) {
+        output?.amountPriceUpdateDidReceived(amountPrice: Int(newPrice.floatValue))
     }
 
     private func prepareCardModel(user: User) -> CardData {
-        return CardData(leftNumber: Int(user.totalSpent.floatValue),
+        guard let stock = stock else {
+            return CardData(leftNumber: 0, rightNumber: 0)
+        }
+
+        let yourAmountPrice = (stock.priceHistory.last ?? 0).multiplying(by: NSDecimalNumber(value: stock.amount))
+
+        return CardData(leftNumber: Int(yourAmountPrice.floatValue),
                         rightNumber: Int(user.balance.floatValue))
     }
 
@@ -120,12 +130,22 @@ final class StockDetailInteractor: NSObject {
 }
 
 extension StockDetailInteractor: StockDetailInteractorInput {
-    func fetchCardData() {
+    func fetchAmountPrice() {
+        guard let stock = stock else {
+            return
+        }
+
+        let price = (stock.priceHistory.last ?? 0).multiplying(by: NSDecimalNumber(value: stock.amount))
+
+        sendCardAmountPrice(newPrice: price)
+    }
+
+    func fetchBalance() {
         guard let user = UserDataService.shared.getUser() else {
             return
         }
 
-        sendCardData(data: prepareCardModel(user: user))
+        sendCardBalance(newBalance: user.balance)
     }
 
     func increaseAmount(by value: Int) {
@@ -245,7 +265,7 @@ extension StockDetailInteractor: StockDetailInteractorInput {
 extension StockDetailInteractor: NSFetchedResultsControllerDelegate {
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         if let user = controller.fetchedObjects?.first as? User {
-            sendCardData(data: prepareCardModel(user: user))
+            sendCardBalance(newBalance: user.balance)
         }
     }
 }
