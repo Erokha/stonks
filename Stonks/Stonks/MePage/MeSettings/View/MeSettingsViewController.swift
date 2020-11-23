@@ -93,7 +93,7 @@ extension MeSettingsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension MeSettingsViewController: MeSettingsInput, MFMailComposeViewControllerDelegate {
+extension MeSettingsViewController: MeSettingsInput {
     func showMailComposer(mailComposer: MFMailComposeViewController) {
         mailComposer.delegate = self
         self.present(mailComposer, animated: true, completion: nil)
@@ -104,6 +104,11 @@ extension MeSettingsViewController: MeSettingsInput, MFMailComposeViewController
     }
 }
 
+extension MeSettingsViewController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
+    }
+}
 extension MeSettingsViewController {
     struct Constants {
         static let numberOfRowsInSection: Int = 1

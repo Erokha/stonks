@@ -19,8 +19,8 @@ final class MeViewController: UIViewController {
         super.viewDidLoad()
         setShadowContainer()
         configureHeader()
-        presenter.didLoadView()
         setupImagePicker()
+        presenter.didLoadView()
     }
 
     private func setupImagePicker() {
@@ -71,9 +71,6 @@ extension MeViewController {
 }
 
 extension MeViewController: MeInput {
-    func showAlert(alert: UIAlertController) {
-        self.present(alert, animated: true, completion: nil)
-    }
 
     func setPage(with page: MePage) {
         pageViewViewController.setPage(for: page)
@@ -107,18 +104,6 @@ extension MeViewController: MePageViewDelegate {
     }
 }
 
-extension MeViewController {
-    struct Constants {
-        static let headerRadius: CGFloat = 20
-        static let viewRadius: CGFloat = 10
-        static let shadowRadius: CGFloat = 5
-        static let shadowOpacity: Float = 0.6
-        static let legendFormSize: Float = 15
-        static let cardShadowRadius: CGFloat = 5
-        static let imageCornerRadius: CGFloat = 15
-    }
-}
-
 extension MeViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     private func action(for type: UIImagePickerController.SourceType, title: String) -> UIAlertAction? {
            return UIAlertAction(title: title, style: .default) { [unowned self] _ in
@@ -137,11 +122,11 @@ extension MeViewController: UINavigationControllerDelegate, UIImagePickerControl
         }
 
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        present(alertController, animated: true, completion: nil)
+        present(alertController, animated: true)
     }
 
     private func pickerController(_ controller: UIImagePickerController, didSelect image: UIImage?) {
-        controller.dismiss(animated: true, completion: nil)
+        controller.dismiss(animated: true)
         guard let img = image else {
             return
         }
@@ -161,15 +146,14 @@ extension MeViewController: UINavigationControllerDelegate, UIImagePickerControl
     }
 }
 
-extension  NSUIColor {
-    convenience init(red: Int, green: Int, blue: Int) {
-        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
-    }
-    convenience init(hex: Int) {
-        self.init(
-            red: (hex >> 16) & 0xFF,
-            green: (hex >> 8) & 0xFF,
-            blue: hex & 0xFF
-        )
+extension MeViewController {
+    struct Constants {
+        static let headerRadius: CGFloat = 20
+        static let viewRadius: CGFloat = 10
+        static let shadowRadius: CGFloat = 5
+        static let shadowOpacity: Float = 0.6
+        static let legendFormSize: Float = 15
+        static let cardShadowRadius: CGFloat = 5
+        static let imageCornerRadius: CGFloat = 15
     }
 }

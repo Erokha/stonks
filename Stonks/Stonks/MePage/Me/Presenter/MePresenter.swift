@@ -34,7 +34,7 @@ extension MePresenter: MeOutput {
                                           preferredStyle: UIAlertController.Style.alert)
             let okAction = UIAlertAction(title: "Ok", style: .default)
             alert.addAction(okAction)
-            view?.showAlert(alert: alert)
+            router?.show(alert: alert)
         }
     }
 

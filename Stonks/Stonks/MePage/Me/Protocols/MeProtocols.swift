@@ -5,7 +5,6 @@ protocol MeInput: class {
     func setUserSpentInfo(spent: Int)
     func setUserCurrentBalance(currentBalance: Int)
     func setPage(with page: MePage)
-    func showAlert(alert: UIAlertController)
 }
 
 protocol MeOutput: class {
@@ -15,6 +14,7 @@ protocol MeOutput: class {
 }
 
 protocol MeRouterInput: class {
+    func show(alert: UIAlertController)
 }
 
 protocol MeInteractorInput: class {

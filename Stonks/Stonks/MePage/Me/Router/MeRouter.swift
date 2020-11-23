@@ -5,5 +5,7 @@ final class MeRouter {
 }
 
 extension MeRouter: MeRouterInput {
-
+    func show(alert: UIAlertController) {
+        viewController?.present(alert, animated: true)
+    }
 }

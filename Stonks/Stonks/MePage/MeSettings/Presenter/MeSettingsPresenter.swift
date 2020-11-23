@@ -44,7 +44,6 @@ final class MeSettingsPresenter {
     }
     private func configureMailComposer() -> MFMailComposeViewController {
         let mailComposeVc = MFMailComposeViewController()
-
         mailComposeVc.setToRecipients([MeSettingsPresenter.Constants.mailToSend])
         mailComposeVc.setSubject(MeSettingsPresenter.Constants.mailSubject)
         mailComposeVc.setMessageBody(MeSettingsPresenter.Constants.mailBody, isHTML: false)
