@@ -98,6 +98,7 @@
 		13F28AAC2534913F0004E864 /* MePortfolioProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F28AAB2534913F0004E864 /* MePortfolioProtocols.swift */; };
 		13F28AC22534936E0004E864 /* MePortfolioPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F28AC12534936E0004E864 /* MePortfolioPresenter.swift */; };
 		13F28AC6253499550004E864 /* MePortfolioContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F28AC5253499550004E864 /* MePortfolioContainer.swift */; };
+		13F79ACE256BD6490084B256 /* MeExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F79ACD256BD6490084B256 /* MeExtentions.swift */; };
 		311057E2253F1AF200B41CDA /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 311057E0253F1AF100B41CDA /* Model.xcdatamodeld */; };
 		311057E5253F1E0900B41CDA /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311057E4253F1E0900B41CDA /* User+CoreDataClass.swift */; };
 		311057E8253F1E1C00B41CDA /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311057E7253F1E1C00B41CDA /* User+CoreDataProperties.swift */; };
@@ -229,6 +230,7 @@
 		13F28AAB2534913F0004E864 /* MePortfolioProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MePortfolioProtocols.swift; sourceTree = "<group>"; };
 		13F28AC12534936E0004E864 /* MePortfolioPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MePortfolioPresenter.swift; sourceTree = "<group>"; };
 		13F28AC5253499550004E864 /* MePortfolioContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MePortfolioContainer.swift; sourceTree = "<group>"; };
+		13F79ACD256BD6490084B256 /* MeExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeExtentions.swift; sourceTree = "<group>"; };
 		25DB7050CABF5A761D78D768 /* Pods-Stonks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stonks.release.xcconfig"; path = "Target Support Files/Pods-Stonks/Pods-Stonks.release.xcconfig"; sourceTree = "<group>"; };
 		311057E1253F1AF100B41CDA /* User.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = User.xcdatamodel; sourceTree = "<group>"; };
 		311057E4253F1E0900B41CDA /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -1013,6 +1015,7 @@
 		13F28AA9253491250004E864 /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				13F79ACC256BD6390084B256 /* Extentions */,
 				138D65AA255D87D0004CC2DD /* Model */,
 				13D824C8254AF428002F654E /* Interactor */,
 				131D5AFB25378F1200F32055 /* Router */,
@@ -1056,6 +1059,14 @@
 				1344878D2541AA3A008C2D7B /* MeContainer.swift */,
 			);
 			path = Container;
+			sourceTree = "<group>";
+		};
+		13F79ACC256BD6390084B256 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				13F79ACD256BD6490084B256 /* MeExtentions.swift */,
+			);
+			path = Extentions;
 			sourceTree = "<group>";
 		};
 		311057DF253F1ADC00B41CDA /* Model */ = {
@@ -1576,6 +1587,7 @@
 				134179F3253227D50052D1A9 /* MeViewController.swift in Sources */,
 				9C2B698C25335A430042A932 /* Storyboards.swift in Sources */,
 				137C660C2552CAF100AB0A59 /* MeHistoryFilterViewController.swift in Sources */,
+				13F79ACE256BD6490084B256 /* MeExtentions.swift in Sources */,
 				133D0ED925436104003CBA81 /* MeContainerViewController.swift in Sources */,
 				31BDC08C252A1C5B00F56ADD /* LoginViewController.swift in Sources */,
 				31905F8425361C37000D71A7 /* StockDetailContainer.swift in Sources */,
