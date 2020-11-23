@@ -342,6 +342,7 @@ extension StockDetailViewController: StockDetailViewInput {
 
     func showActivityIndicator() {
         chartContainerView.isHidden = true
+        stockDetailCardContainerView.isHidden = true
         stockAmountLabel.isHidden = true
         companyNameLabel.isHidden = true
 
@@ -350,6 +351,7 @@ extension StockDetailViewController: StockDetailViewInput {
 
     func hideActivityIndicator() {
         chartContainerView.isHidden = false
+        stockDetailCardContainerView.isHidden = false
         stockAmountLabel.isHidden = false
         companyNameLabel.isHidden = false
 
@@ -495,8 +497,8 @@ extension StockDetailViewController {
         }
 
         struct CardView {
-            static let leftText: String = "Spent"
-            static let rightText: String = "Available Balance"
+            static let rightText: String = "Your Amount Price"
+            static let leftText: String = "Available Balance"
         }
 
         struct TapRecognizer {

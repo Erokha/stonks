@@ -17,7 +17,6 @@ final class StockDetailPresenter {
 extension StockDetailPresenter: StockDetailViewOutput {
     func didLoadView() {
         view?.showActivityIndicator()
-        interactor?.fetchCardData()
         interactor?.fetchStockData()
     }
 
@@ -38,6 +37,7 @@ extension StockDetailPresenter: StockDetailViewOutput {
         }
 
         interactor?.increaseAmount(by: amount)
+        interactor?.fetchAmountPrice()
     }
 
     func didTapSellButton(amount: String?) {
@@ -53,20 +53,21 @@ extension StockDetailPresenter: StockDetailViewOutput {
         }
 
         interactor?.descreaseAmount(by: amount)
+        interactor?.fetchAmountPrice()
     }
 }
 
 extension StockDetailPresenter: StockDetailInteractorOutput {
-    func cardDataDidReceived(model: StockPresenterData) {
-        guard let data = model.cardData else {
-            return
-        }
+    func balanceUpdateDidReceived(balance: Int) {
+        view?.setCardLeftNumber(number: balance)
+    }
 
-        view?.setCardLeftNumber(number: data.leftNumber)
-        view?.setCardRightNumber(number: data.rightNumber)
+    func amountPriceUpdateDidReceived(amountPrice: Int) {
+        view?.setCardRightNumber(number: amountPrice)
     }
 
     func freshCostDidReceived(model: StockPresenterData) {
+        interactor?.fetchAmountPrice()
         self.model = model
 
         guard let priceHistory = model.quotes,
@@ -97,6 +98,8 @@ extension StockDetailPresenter: StockDetailInteractorOutput {
     }
 
     func stockDataDidReceived(model: StockPresenterData) {
+        interactor?.fetchAmountPrice()
+        interactor?.fetchBalance()
         self.model = model
 
         guard let priceHistory = model.quotes,
