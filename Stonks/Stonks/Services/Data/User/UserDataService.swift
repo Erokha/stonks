@@ -24,7 +24,7 @@ extension UserDataService: UserDataServiceInput {
           user.name = name
           user.surname = surname
           user.balance = NSDecimalNumber(decimal: balance)
-          user.totalSpent = NSDecimalNumber(decimal: 0)
+          user.totalSpent = NSDecimalNumber(decimal: balance)
 
           let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
 
