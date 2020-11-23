@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="20B29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Stock" representedClassName="Stock" syncable="YES">
+        <attribute name="amount" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="priceHistory" attributeType="Transformable" valueTransformerName="" customClassName="[NSDecimalNumber]"/>
+        <attribute name="symbol" attributeType="String"/>
+        <attribute name="totalCost" attributeType="Decimal" defaultValueString="0.0"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="stocks" inverseEntity="User"/>
+    </entity>
+    <entity name="StockHistory" representedClassName="StockHistory" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="symbol" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES">
+        <attribute name="avatarURL" attributeType="URI"/>
+        <attribute name="balance" attributeType="Decimal" defaultValueString="0.0"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="surname" attributeType="String"/>
+        <attribute name="totalSpent" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <relationship name="stocks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Stock" inverseName="user" inverseEntity="Stock"/>
+    </entity>
+    <elements>
+        <element name="Stock" positionX="203.0625" positionY="-10.28125" width="128" height="133"/>
+        <element name="StockHistory" positionX="72" positionY="45" width="128" height="104"/>
+        <element name="User" positionX="-63" positionY="-18" width="128" height="133"/>
+    </elements>
+</model>

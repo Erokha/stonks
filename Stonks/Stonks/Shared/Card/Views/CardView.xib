@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CardView" customModule="Stonks" customModuleProvider="target">
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="numberLeft" destination="ssS-vp-lQ2" id="htV-mz-FLX"/>
+                <outlet property="numberRight" destination="vcR-nr-9No" id="4pt-GJ-rHw"/>
+                <outlet property="upperTextLeft" destination="LmQ-1x-2gI" id="Fic-dS-cqb"/>
+                <outlet property="upperTextRight" destination="JUH-RG-8Is" id="l2P-yA-kMD"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CardView" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="327" height="82"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5Oa-dD-gxg">
+                    <rect key="frame" x="30.5" y="33.5" width="102.5" height="31.5"/>
+                    <subviews>
+                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UJQ-Rs-vv7">
+                            <rect key="frame" x="0.0" y="0.0" width="16.5" height="31.5"/>
+                            <color key="tintColor" red="0.44313725490196076" green="0.396078431372549" blue="0.8901960784313725" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <state key="normal">
+                                <color key="titleColor" name="AccentColor"/>
+                                <imageReference key="image" image="circle.fill" catalog="system" symbolScale="small"/>
+                            </state>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$2500" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ssS-vp-lQ2">
+                            <rect key="frame" x="21.5" y="0.0" width="81" height="31.5"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                            <color key="textColor" red="0.28235294119999998" green="0.27058823529999998" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="UJQ-Rs-vv7" firstAttribute="width" secondItem="5Oa-dD-gxg" secondAttribute="width" multiplier="0.160976" id="6e2-ob-gnl"/>
+                        <constraint firstItem="ssS-vp-lQ2" firstAttribute="width" secondItem="5Oa-dD-gxg" secondAttribute="width" multiplier="0.790244" id="VQp-8m-odr"/>
+                    </constraints>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Cvb-GO-CTb">
+                    <rect key="frame" x="194" y="33.5" width="102.5" height="31.5"/>
+                    <subviews>
+                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XCI-dt-avD">
+                            <rect key="frame" x="0.0" y="0.0" width="16.5" height="31.5"/>
+                            <color key="tintColor" red="0.86274509799999999" green="0.21960784310000001" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <state key="normal">
+                                <color key="titleColor" name="AccentColor"/>
+                                <imageReference key="image" image="circle.fill" catalog="system" symbolScale="small"/>
+                            </state>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$2500" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vcR-nr-9No">
+                            <rect key="frame" x="21.5" y="0.0" width="81" height="31.5"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                            <color key="textColor" red="0.28235294119999998" green="0.27058823529999998" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="vcR-nr-9No" firstAttribute="width" secondItem="Cvb-GO-CTb" secondAttribute="width" multiplier="0.790244" id="Fwb-MO-Oc4"/>
+                        <constraint firstItem="XCI-dt-avD" firstAttribute="width" secondItem="Cvb-GO-CTb" secondAttribute="width" multiplier="0.160976" id="Gz7-VM-FUd"/>
+                    </constraints>
+                </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stocks total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUH-RG-8Is">
+                    <rect key="frame" x="211" y="13.5" width="69" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                    <color key="textColor" red="0.28235294119999998" green="0.27058823529999998" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Avaliable balance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LmQ-1x-2gI">
+                    <rect key="frame" x="48" y="13.5" width="100.5" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                    <color key="textColor" red="0.28235294119999998" green="0.27058823529999998" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <accessibility key="accessibilityConfiguration" identifier="CardView"/>
+            <constraints>
+                <constraint firstItem="LmQ-1x-2gI" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" multiplier="0.6" id="4Re-Ms-fJX"/>
+                <constraint firstItem="ssS-vp-lQ2" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.384146" id="6fT-pG-ork"/>
+                <constraint firstItem="LmQ-1x-2gI" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="0.5" id="7Zm-1Y-kVv"/>
+                <constraint firstItem="Cvb-GO-CTb" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" multiplier="1.5" id="GTG-Ts-m78"/>
+                <constraint firstItem="vcR-nr-9No" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.384146" id="TJW-bY-uCG"/>
+                <constraint firstItem="JUH-RG-8Is" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="0.5" id="VRq-rt-iRy"/>
+                <constraint firstItem="5Oa-dD-gxg" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="1.2" id="exS-65-TSr"/>
+                <constraint firstItem="Cvb-GO-CTb" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="1.2" id="g32-cb-tTW"/>
+                <constraint firstItem="JUH-RG-8Is" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" multiplier="1.5" id="hqt-8S-7dW"/>
+                <constraint firstItem="5Oa-dD-gxg" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" multiplier="0.5" id="xlv-dZ-WYD"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="42.028985507246382" y="334.48660714285711"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="circle.fill" catalog="system" width="128" height="121"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

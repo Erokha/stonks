@@ -1,6 +1,6 @@
 # Stonks💰
 
-![](https://imgur.com/DOwwPQ3.png)
+![](https://imgur.com/hV7JQTH.png)
 
 ## Introduction
 Stonks has re-invented investing.
@@ -11,16 +11,22 @@ We provide people with the mobile app that helps newbie traders to start their t
 
 ## Stack
 ### IOS
-**MVP**
+**VIPER** - best architecture.🤙
+
 **Alamofire** - great service for networking.👻
 
+**Charts** - visualing info.📈
+
+**KingFisher** - caching photos.🐠
+
 **Core Data** - safety and time-tested framework.👌
+
+**SwiftLint** - we appreciate clean code.🧹
 
 ### Backend
 **Node.js** - easy way  to run server.💩🖕
 
 **Postgres** - simply and reliable database.✌️
-
 
 ### Infrastructure
 Localhost - intermediate stage.
@@ -38,5 +44,4 @@ You can see our design [here](https://www.figma.com/file/skwhsYv5dsydv0429PQolZ/
 
 - Vlad Krivozubov - [Git](https://github.com/el-autor), [VK](https://vk.com/dliosh)
 
-
-Ios Project for technopark course, 2020.
+Ios Project for technopark course, 2020

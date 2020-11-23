@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main Stocks View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="MainStocks" id="BYZ-38-t0r" customClass="MainStocksViewController" customModule="Stonks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QyP-eg-Waw">
+                                <rect key="frame" x="24" y="58" width="366" height="82"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="82" id="yJQ-o6-SHb"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="8KC-9g-FmZ" kind="embed" identifier="EmbedSegue" id="1kr-dT-5WF"/>
+                                </connections>
+                            </containerView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="aWE-BU-izs">
+                                <rect key="frame" x="24" y="148" width="366" height="32"/>
+                                <segments>
+                                    <segment title="My Stocks"/>
+                                    <segment title="All Stocks"/>
+                                </segments>
+                                <connections>
+                                    <action selector="didIndexChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="htA-Db-Aru"/>
+                                </connections>
+                            </segmentedControl>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cKR-F2-kqi">
+                                <rect key="frame" x="0.0" y="187" width="414" height="709"/>
+                                <connections>
+                                    <segue destination="KG6-86-3wY" kind="embed" identifier="StockContainerSegue" id="g4w-J6-XVF"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="QyP-eg-Waw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="14" id="Eue-A4-t1C"/>
+                            <constraint firstItem="cKR-F2-kqi" firstAttribute="top" secondItem="aWE-BU-izs" secondAttribute="bottom" constant="8" symbolic="YES" id="Kml-r3-3ep"/>
+                            <constraint firstItem="cKR-F2-kqi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="NJv-6N-NB7"/>
+                            <constraint firstItem="QyP-eg-Waw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="QuU-ny-wID"/>
+                            <constraint firstItem="aWE-BU-izs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="S3R-SR-iat"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aWE-BU-izs" secondAttribute="trailing" constant="24" id="X9b-R9-RXL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QyP-eg-Waw" secondAttribute="trailing" constant="24" id="XNI-4h-JCk"/>
+                            <constraint firstItem="cKR-F2-kqi" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="cA0-aW-cdH"/>
+                            <constraint firstAttribute="bottom" secondItem="cKR-F2-kqi" secondAttribute="bottom" id="cuR-zb-rRN"/>
+                            <constraint firstItem="aWE-BU-izs" firstAttribute="top" secondItem="QyP-eg-Waw" secondAttribute="bottom" constant="8" symbolic="YES" id="jvW-7S-nAI"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="segmentControl" destination="aWE-BU-izs" id="bSO-JN-ayV"/>
+                        <outlet property="tableContainer" destination="cKR-F2-kqi" id="LYi-lI-Hr2"/>
+                        <outlet property="viewContainer" destination="QyP-eg-Waw" id="Tdb-VL-qjV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-23.188405797101453" y="63.616071428571423"/>
+        </scene>
+        <!--Container View Controller-->
+        <scene sceneID="N1G-eJ-fk0">
+            <objects>
+                <viewController id="8KC-9g-FmZ" customClass="ContainerViewController" customModule="Stonks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ydZ-Go-pDJ">
+                        <rect key="frame" x="0.0" y="0.0" width="366" height="82"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v2J-Ns-aVD" customClass="CardView" customModule="Stonks" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="366" height="82"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="zYe-t9-qc1"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="v2J-Ns-aVD" firstAttribute="bottom" secondItem="zYe-t9-qc1" secondAttribute="bottom" id="1if-qf-Daz"/>
+                            <constraint firstItem="v2J-Ns-aVD" firstAttribute="leading" secondItem="zYe-t9-qc1" secondAttribute="leading" id="Eb1-Bc-OHS"/>
+                            <constraint firstItem="zYe-t9-qc1" firstAttribute="trailing" secondItem="v2J-Ns-aVD" secondAttribute="trailing" id="K2i-7n-Wet"/>
+                            <constraint firstItem="v2J-Ns-aVD" firstAttribute="top" secondItem="ydZ-Go-pDJ" secondAttribute="top" id="xze-Le-aLN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cardView" destination="v2J-Ns-aVD" id="24H-tI-MLv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EXV-ey-nS0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="716" y="-104"/>
+        </scene>
+        <!--Stocks Page View Controller-->
+        <scene sceneID="3mV-3b-7lK">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="KG6-86-3wY" customClass="StocksPageViewController" customModule="Stonks" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jt4-HN-a5N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="751" y="280"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
