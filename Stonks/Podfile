@@ -9,6 +9,7 @@ target 'Stonks' do
     pod 'Charts'
     pod 'Alamofire'
     pod 'Kingfisher'
+    pod 'PinLayout'
 end
 
 post_install do |installer|

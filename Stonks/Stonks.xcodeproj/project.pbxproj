@@ -130,7 +130,6 @@
 		31BDC08C252A1C5B00F56ADD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDC08B252A1C5B00F56ADD /* LoginViewController.swift */; };
 		31BDC0AB252A23B200F56ADD /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDC0AA252A23B200F56ADD /* LoginPresenter.swift */; };
 		31C02BF42553137C008FCCB3 /* StockDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C02BF32553137C008FCCB3 /* StockDetailInteractor.swift */; };
-		31CD5485252BAEA400F65D17 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31CD5484252BAEA400F65D17 /* Login.storyboard */; };
 		31E44531253B1FBB00528971 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E44530253B1FBB00528971 /* DataService.swift */; };
 		3819997E42B9EB92462DCA86 /* Pods_Stonks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A21BC3C91C41C86C824A1C90 /* Pods_Stonks.framework */; };
 		9C2B6984253353D90042A932 /* LoginProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2B6983253353D90042A932 /* LoginProtocols.swift */; };
@@ -264,7 +263,6 @@
 		31BDC0A3252A21A400F56ADD /* Launch.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Launch.xib; sourceTree = "<group>"; };
 		31BDC0AA252A23B200F56ADD /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		31C02BF32553137C008FCCB3 /* StockDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailInteractor.swift; sourceTree = "<group>"; };
-		31CD5484252BAEA400F65D17 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		31E44530253B1FBB00528971 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		9C2B6983253353D90042A932 /* LoginProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProtocols.swift; sourceTree = "<group>"; };
 		9C2B698B25335A430042A932 /* Storyboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
@@ -1345,7 +1343,6 @@
 			isa = PBXGroup;
 			children = (
 				31BDC08B252A1C5B00F56ADD /* LoginViewController.swift */,
-				31CD5484252BAEA400F65D17 /* Login.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1471,7 +1468,6 @@
 				137C65FF254F44DB00AB0A59 /* MeHistoryTableViewCell.xib in Resources */,
 				137C66192552CBD300AB0A59 /* SortFilterTableViewCell.xib in Resources */,
 				138D65B325601E47004CC2DD /* TypeOfSortTableViewCell.xib in Resources */,
-				31CD5485252BAEA400F65D17 /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
