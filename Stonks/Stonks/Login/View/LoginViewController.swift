@@ -1,7 +1,7 @@
 import UIKit
 import PinLayout
 
-class LoginViewController: UIViewController {
+final class LoginViewController: UIViewController {
     var output: LoginViewOutput?
 
     private weak var welcomeImageView: UIImageView!
@@ -24,7 +24,7 @@ class LoginViewController: UIViewController {
         welcomeImageView = imageView
         view.addSubview(welcomeImageView)
 
-        welcomeImageView.image = UIImage(named: "welcome")
+        welcomeImageView.image = UIImage(named: Constants.WelcomeImageView.imageName)
     }
 
     private func setupNameTextField() {
@@ -33,20 +33,25 @@ class LoginViewController: UIViewController {
         nameTextField = textField
         view.addSubview(nameTextField)
 
-        nameTextField.attributedPlaceholder = NSAttributedString(string: Constants.namePlaceholderText,
-                                                                 attributes: [NSAttributedString.Key.foregroundColor: Constants.NameTextField.placeholderColor])
+        nameTextField.attributedPlaceholder = NSAttributedString(string: Constants.NameTextField.placeholderText,
+                                                                 attributes: [NSAttributedString.Key.foregroundColor: Constants.textFieldPlaceholderColor])
 
-        nameTextField.clipsToBounds = Constants.NameTextField.clipsToBounds
-        nameTextField.layer.cornerRadius = Constants.NameTextField.cornerRadius
-        nameTextField.layer.borderWidth = Constants.NameTextField.borderWidth
+        nameTextField.clipsToBounds = true
+        nameTextField.layer.cornerRadius = Constants.textFieldCornerRadius
+        nameTextField.layer.borderWidth = Constants.textFieldBorderWidth
         nameTextField.layer.borderColor = Constants.defaultStyleEntriesColor.cgColor
         nameTextField.backgroundColor = Constants.defaultStyleEntriesColor
-        nameTextField.font = UIFont(name: "DMSans-Regular", size: 15)
-        nameTextField.placeholder = Constants.namePlaceholderText
+        nameTextField.font = Constants.textFieldFont
 
-        nameTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
+        nameTextField.leftView = UIView(frame: CGRect(x: .zero,
+                                                      y: .zero,
+                                                      width: Constants.textFieldTextLeftSpacing,
+                                                      height: .zero))
         nameTextField.leftViewMode = .always
-        nameTextField.rightView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
+        nameTextField.rightView = UIView(frame: CGRect(x: .zero,
+                                                       y: .zero,
+                                                       width: Constants.textFieldTextRightSpacing,
+                                                       height: .zero))
         nameTextField.rightViewMode = .unlessEditing
 
         nameTextField.clearButtonMode = .whileEditing
@@ -62,20 +67,25 @@ class LoginViewController: UIViewController {
         surnameTextField = textField
         view.addSubview(surnameTextField)
 
-        surnameTextField.attributedPlaceholder = NSAttributedString(string: Constants.surnamePlaceholderText,
-                                                                 attributes: [NSAttributedString.Key.foregroundColor: Constants.SurnameTextField.placeholderColor])
+        surnameTextField.attributedPlaceholder = NSAttributedString(string: Constants.SurnameTextField.placeholderText,
+                                                                 attributes: [NSAttributedString.Key.foregroundColor: Constants.textFieldPlaceholderColor])
 
-        surnameTextField.clipsToBounds = Constants.SurnameTextField.clipsToBounds
-        surnameTextField.layer.cornerRadius = Constants.SurnameTextField.cornerRadius
-        surnameTextField.layer.borderWidth = Constants.SurnameTextField.borderWidth
+        surnameTextField.clipsToBounds = true
+        surnameTextField.layer.cornerRadius = Constants.textFieldCornerRadius
+        surnameTextField.layer.borderWidth = Constants.textFieldBorderWidth
         surnameTextField.layer.borderColor = Constants.defaultStyleEntriesColor.cgColor
         surnameTextField.backgroundColor = Constants.defaultStyleEntriesColor
-        surnameTextField.font = UIFont(name: "DMSans-Regular", size: 15)
-        surnameTextField.placeholder = Constants.surnamePlaceholderText
+        surnameTextField.font = Constants.textFieldFont
 
-        surnameTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
+        surnameTextField.leftView = UIView(frame: CGRect(x: .zero,
+                                                         y: .zero,
+                                                         width: Constants.textFieldTextLeftSpacing,
+                                                         height: .zero))
         surnameTextField.leftViewMode = .always
-        surnameTextField.rightView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
+        surnameTextField.rightView = UIView(frame: CGRect(x: .zero,
+                                                          y: .zero,
+                                                          width: Constants.textFieldTextRightSpacing,
+                                                          height: .zero))
         surnameTextField.rightViewMode = .unlessEditing
 
         surnameTextField.clearButtonMode = .whileEditing
@@ -91,20 +101,25 @@ class LoginViewController: UIViewController {
         balanceTextField = textField
         view.addSubview(balanceTextField)
 
-        balanceTextField.attributedPlaceholder = NSAttributedString(string: Constants.balancePlaceholderText,
-                                                                    attributes: [NSAttributedString.Key.foregroundColor: Constants.BalanceTextField.placeholderColor])
+        balanceTextField.attributedPlaceholder = NSAttributedString(string: Constants.BalanceTextField.placeholderText,
+                                                                    attributes: [NSAttributedString.Key.foregroundColor: Constants.textFieldPlaceholderColor])
 
-        balanceTextField.clipsToBounds = Constants.BalanceTextField.clipsToBounds
-        balanceTextField.layer.cornerRadius = Constants.BalanceTextField.cornerRadius
-        balanceTextField.layer.borderWidth = Constants.BalanceTextField.borderWidth
+        balanceTextField.clipsToBounds = true
+        balanceTextField.layer.cornerRadius = Constants.textFieldCornerRadius
+        balanceTextField.layer.borderWidth = Constants.textFieldBorderWidth
         balanceTextField.layer.borderColor = Constants.defaultStyleEntriesColor.cgColor
         balanceTextField.backgroundColor = Constants.defaultStyleEntriesColor
-        balanceTextField.font = UIFont(name: "DMSans-Regular", size: 15)
-        balanceTextField.placeholder = Constants.balancePlaceholderText
+        balanceTextField.font = Constants.textFieldFont
 
-        balanceTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
+        balanceTextField.leftView = UIView(frame: CGRect(x: .zero,
+                                                         y: .zero,
+                                                         width: Constants.textFieldTextLeftSpacing,
+                                                         height: .zero))
         balanceTextField.leftViewMode = .always
-        balanceTextField.rightView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
+        balanceTextField.rightView = UIView(frame: CGRect(x: .zero,
+                                                          y: .zero,
+                                                          width: Constants.textFieldTextRightSpacing,
+                                                          height: .zero))
         balanceTextField.rightViewMode = .unlessEditing
 
         balanceTextField.clearButtonMode = .whileEditing
@@ -120,13 +135,13 @@ class LoginViewController: UIViewController {
         checkBoxImageView = imageView
         view.addSubview(checkBoxImageView)
 
-        checkBoxImageView.image = UIImage(named: "checkBoxNotChecked")
+        checkBoxImageView.image = UIImage(named: Constants.CheckBoxImageView.checkBoxNotCheckedImageName)
 
         let boxTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapCheckBox))
 
         boxTapRecognizer.numberOfTapsRequired = Constants.CheckBoxImageView.recognizerTapsRequired
         checkBoxImageView.addGestureRecognizer(boxTapRecognizer)
-        checkBoxImageView.isUserInteractionEnabled = Constants.CheckBoxImageView.isUserInteractionEnabled
+        checkBoxImageView.isUserInteractionEnabled = true
     }
 
     private func setupCheckBoxDescriptionLabel() {
@@ -136,8 +151,8 @@ class LoginViewController: UIViewController {
         view.addSubview(checkBoxDescriptionLabel)
 
         checkBoxDescriptionLabel.lineBreakMode = .byWordWrapping
-        checkBoxDescriptionLabel.font = UIFont(name: "DMSans-Regular", size: 13)
-        checkBoxDescriptionLabel.text = "By creating your account you have to agree with our Terms and Conditions"
+        checkBoxDescriptionLabel.font = Constants.CheckBoxDescriptionLabel.font
+        checkBoxDescriptionLabel.text = Constants.CheckBoxDescriptionLabel.text
         checkBoxDescriptionLabel.textAlignment = .left
         checkBoxDescriptionLabel.numberOfLines = .zero
     }
@@ -155,9 +170,9 @@ class LoginViewController: UIViewController {
         registerButton.layer.shadowColor = Constants.RegisterButton.shadowColor.cgColor
         registerButton.layer.shadowOpacity = Constants.RegisterButton.shadowOpacity
 
-        registerButton.titleLabel?.font = UIFont(name: "DMSans-Bold", size: 17)
-        registerButton.setTitleColor(.white, for: .normal)
-        registerButton.setTitle("Register my account", for: .normal)
+        registerButton.titleLabel?.font = Constants.RegisterButton.font
+        registerButton.setTitleColor(Constants.RegisterButton.fontColor, for: .normal)
+        registerButton.setTitle(Constants.RegisterButton.title, for: .normal)
 
         registerButton.addTarget(self, action: #selector(didTapRegisterButton), for: .touchUpInside)
     }
@@ -173,7 +188,7 @@ class LoginViewController: UIViewController {
     }
 
     private func setupView() {
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
 
         let viewTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapView))
 
@@ -204,56 +219,56 @@ class LoginViewController: UIViewController {
 
     private func layoutWelcomeImageView() {
         welcomeImageView.pin
-            .top(16.5%)
+            .top(Constants.WelcomeImageView.topPercent)
             .hCenter()
             .sizeToFit()
     }
 
     private func layoutNameTextField() {
         nameTextField.pin
-            .top(welcomeImageView.frame.maxY + UIScreen.main.bounds.height * 0.098)
+            .top(welcomeImageView.frame.maxY + Constants.screenHeight * Constants.NameTextField.topSpacingMultiplier)
             .hCenter()
-            .width(90%)
-            .height(48)
+            .width(Constants.textFieldWidthPercent)
+            .height(Constants.textFieldHeightConstant)
     }
 
     private func layoutSurnameTextField() {
         surnameTextField.pin
-            .top(nameTextField.frame.maxY + UIScreen.main.bounds.height * 0.012)
+            .top(nameTextField.frame.maxY + Constants.screenHeight * Constants.SurnameTextField.topSpacingMultiplier)
             .hCenter()
-            .width(90%)
-            .height(48)
+            .width(Constants.textFieldWidthPercent)
+            .height(Constants.textFieldHeightConstant)
     }
 
     private func layoutBalanceTextField() {
         balanceTextField.pin
-            .top(surnameTextField.frame.maxY + UIScreen.main.bounds.height * 0.012)
+            .top(surnameTextField.frame.maxY + Constants.screenHeight * Constants.BalanceTextField.topSpacingMultiplier)
             .hCenter()
-            .width(90%)
-            .height(48)
+            .width(Constants.textFieldWidthPercent)
+            .height(Constants.textFieldHeightConstant)
     }
 
     private func layoutCheckBoxImageView() {
         checkBoxImageView.pin
-            .top(balanceTextField.frame.maxY + UIScreen.main.bounds.height * 0.035)
-            .left(5%)
+            .top(balanceTextField.frame.maxY + Constants.screenHeight * Constants.CheckBoxImageView.topSpacingMultiplier)
+            .left(Constants.CheckBoxImageView.leftPercent)
             .sizeToFit()
     }
 
     private func layoutCheckBoxDescriptionLabel() {
         checkBoxDescriptionLabel.pin
-            .top(balanceTextField.frame.maxY + UIScreen.main.bounds.height * 0.025)
-            .left(checkBoxImageView.frame.maxX + UIScreen.main.bounds.width * 0.05)
-            .right(5%)
-            .height(45)
+            .top(balanceTextField.frame.maxY + Constants.screenHeight * Constants.CheckBoxDescriptionLabel.topSpacingMultiplier)
+            .left(checkBoxImageView.frame.maxX + Constants.screenWidth * Constants.CheckBoxDescriptionLabel.leftSpacingMultiplier)
+            .right(Constants.CheckBoxDescriptionLabel.rightPercent)
+            .height(Constants.CheckBoxDescriptionLabel.heightConstant)
     }
 
     private func layoutRegisterButton() {
         registerButton.pin
-            .top(checkBoxImageView.frame.maxY + UIScreen.main.bounds.height * 0.05)
+            .top(checkBoxImageView.frame.maxY + Constants.screenHeight * Constants.RegisterButton.topSpacingMultiplier)
             .hCenter()
-            .width(90%)
-            .height(55)
+            .width(Constants.RegisterButton.widthPercent)
+            .height(Constants.RegisterButton.heightConstant)
     }
 
     @objc
@@ -296,18 +311,19 @@ class LoginViewController: UIViewController {
         output?.didFinishBalanceEditing()
     }
 
-    @IBAction private func didTapRegisterButton(_ sender: UIButton) {
+    @objc
+    private func didTapRegisterButton(_ sender: UIButton) {
         output?.didTapRegisterButton(name: nameTextField.text, surname: surnameTextField.text, balance: balanceTextField.text)
     }
 }
 
 extension LoginViewController: LoginViewInput {
     func setCheckBoxChecked() {
-        checkBoxImageView.image = UIImage(named: Constants.checkBoxIsCheckedImageName)
+        checkBoxImageView.image = UIImage(named: Constants.CheckBoxImageView.checkBoxIsCheckedImageName)
     }
 
     func setCheckBoxUnchecked() {
-        checkBoxImageView.image = UIImage(named: Constants.checkBoxNotCheckedImageName)
+        checkBoxImageView.image = UIImage(named: Constants.CheckBoxImageView.checkBoxNotCheckedImageName)
     }
 
     func showAlert(with title: String, message: String) {
@@ -370,51 +386,104 @@ extension LoginViewController {
                                                                blue: 227 / 255,
                                                                alpha: 0.2)
 
+        static let screenHeight: CGFloat = UIScreen.main.bounds.height
+
+        static let screenWidth: CGFloat = UIScreen.main.bounds.width
+
+        static let textFieldFont: UIFont? = UIFont(name: "DMSans-Regular", size: 15)
+
+        static let textFieldCornerRadius: CGFloat = 10
+
+        static let textFieldBorderWidth: CGFloat = 1
+
+        static let textFieldPlaceholderColor: UIColor = .black
+
+        static let textFieldTextLeftSpacing: CGFloat = 10
+
+        static let textFieldTextRightSpacing: CGFloat = 10
+
+        static let textFieldHeightConstant: CGFloat = 48
+
+        static let textFieldWidthPercent: Percent = 90%
+
+        struct WelcomeImageView {
+            static let topPercent: Percent = 16.5%
+
+            static let imageName: String = "welcome"
+        }
+
         struct NameTextField {
-            static let clipsToBounds: Bool = true
-            static let cornerRadius: CGFloat = 10
-            static let borderWidth: CGFloat = 1
-            static let placeholderColor: UIColor = .black
+            static let placeholderText = String(repeating: " ", count: 4) + "Name"
+
+            static let topSpacingMultiplier: CGFloat = 0.098
         }
 
         struct SurnameTextField {
-            static let clipsToBounds: Bool = true
-            static let cornerRadius: CGFloat = 10
-            static let borderWidth: CGFloat = 1
-            static let placeholderColor: UIColor = .black
+            static let placeholderText = String(repeating: " ", count: 4) + "Surname"
+
+            static let topSpacingMultiplier: CGFloat = 0.012
         }
 
         struct BalanceTextField {
-            static let clipsToBounds: Bool = true
-            static let cornerRadius: CGFloat = 10
-            static let borderWidth: CGFloat = 1
-            static let placeholderColor: UIColor = .black
+            static let placeholderText = String(repeating: " ", count: 4) + "Start Balance"
+
+            static let topSpacingMultiplier: CGFloat = 0.012
+        }
+
+        struct CheckBoxDescriptionLabel {
+            static let font: UIFont? = UIFont(name: "DMSans-Regular", size: 13)
+
+            static let text: String = "By creating your account you have to agree with our Terms and Conditions"
+
+            static let topSpacingMultiplier: CGFloat = 0.025
+
+            static let leftSpacingMultiplier: CGFloat = 0.05
+
+            static let rightPercent: Percent = 5%
+
+            static let heightConstant: CGFloat = 45
         }
 
         struct RegisterButton {
             static let cornerRadius: CGFloat = 10
+
             static let borderWidth: CGFloat = 1
+
             static let shadowOffset: CGSize = CGSize(width: 5, height: 5)
+
             static let shadowColor: UIColor = .gray
+
             static let shadowOpacity: Float = 1
+
             static let backgroundColor: UIColor = UIColor(red: 113 / 255,
                                                           green: 101 / 255,
                                                           blue: 227 / 255,
                                                           alpha: 1)
+
+            static let font: UIFont? = UIFont(name: "DMSans-Bold", size: 17)
+
+            static let title: String = "Register my account"
+
+            static let fontColor: UIColor = .white
+
+            static let topSpacingMultiplier: CGFloat = 0.05
+
+            static let widthPercent: Percent = 90%
+
+            static let heightConstant: CGFloat = 55
         }
 
         struct CheckBoxImageView {
+            static let checkBoxIsCheckedImageName: String = "checkBoxChecked"
+
+            static let checkBoxNotCheckedImageName: String = "checkBoxNotChecked"
+
             static let recognizerTapsRequired: Int = 1
 
-            static let isUserInteractionEnabled: Bool = true
+            static let topSpacingMultiplier: CGFloat = 0.035
+
+            static let leftPercent: Percent = 5%
         }
-
-        static let namePlaceholderText = String(repeating: " ", count: 4) + "Name"
-        static let surnamePlaceholderText = String(repeating: " ", count: 4) + "Surname"
-        static let balancePlaceholderText = String(repeating: " ", count: 4) + "Start Balance"
-
-        static let checkBoxIsCheckedImageName: String = "checkBoxChecked"
-        static let checkBoxNotCheckedImageName: String = "checkBoxNotChecked"
 
         struct TapRecognizer {
             static let tapsRequired: Int = 1
