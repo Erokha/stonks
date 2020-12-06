@@ -51,6 +51,7 @@
 		0DF11C28255FC320004162BA /* StocksPageViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF11C27255FC320004162BA /* StocksPageViewContoller.swift */; };
 		0DF11C2B255FC436004162BA /* MainStocksPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF11C2A255FC436004162BA /* MainStocksPresenter.swift */; };
 		131D5AFD25378F1C00F32055 /* MePortfolioRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131D5AFC25378F1C00F32055 /* MePortfolioRouter.swift */; };
+		1328DC62257BC88500565315 /* MeViewControllerPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1328DC61257BC88500565315 /* MeViewControllerPin.swift */; };
 		1334532A255BF8B100CA8E01 /* MePortfolioInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13345329255BF8B100CA8E01 /* MePortfolioInteractor.swift */; };
 		133D0ED925436104003CBA81 /* MeContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133D0ED825436104003CBA81 /* MeContainerViewController.swift */; };
 		134179F1253227D50052D1A9 /* ChartColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134179E2253227A90052D1A9 /* ChartColor.swift */; };
@@ -179,6 +180,7 @@
 		0DF11C27255FC320004162BA /* StocksPageViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksPageViewContoller.swift; sourceTree = "<group>"; };
 		0DF11C2A255FC436004162BA /* MainStocksPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStocksPresenter.swift; sourceTree = "<group>"; };
 		131D5AFC25378F1C00F32055 /* MePortfolioRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MePortfolioRouter.swift; sourceTree = "<group>"; };
+		1328DC61257BC88500565315 /* MeViewControllerPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewControllerPin.swift; sourceTree = "<group>"; };
 		13345329255BF8B100CA8E01 /* MePortfolioInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MePortfolioInteractor.swift; sourceTree = "<group>"; };
 		133D0ED825436104003CBA81 /* MeContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeContainerViewController.swift; sourceTree = "<group>"; };
 		134179E2253227A90052D1A9 /* ChartColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartColor.swift; sourceTree = "<group>"; };
@@ -1046,6 +1048,7 @@
 				134179E5253227A90052D1A9 /* MeViewController.swift */,
 				134179E4253227A90052D1A9 /* MePage.storyboard */,
 				133D0ED825436104003CBA81 /* MeContainerViewController.swift */,
+				1328DC61257BC88500565315 /* MeViewControllerPin.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1646,6 +1649,7 @@
 				0D777776254B22FA00EFF30E /* ViewController.swift in Sources */,
 				311057E5253F1E0900B41CDA /* User+CoreDataClass.swift in Sources */,
 				311057E2253F1AF200B41CDA /* Model.xcdatamodeld in Sources */,
+				1328DC62257BC88500565315 /* MeViewControllerPin.swift in Sources */,
 				9C2B6996253363680042A932 /* LoginRouter.swift in Sources */,
 				31BDC0AB252A23B200F56ADD /* LoginPresenter.swift in Sources */,
 				0DF11C21255D6BE3004162BA /* AllStocksViewController.swift in Sources */,

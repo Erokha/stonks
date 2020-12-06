@@ -1,15 +1,15 @@
+import Foundation
 import UIKit
-import Charts
-import CoreData
 import PinLayout
 
-final class MeViewController: UIViewController {
-    @IBOutlet private weak var segmentControl: UISegmentedControl!
+final class MeViewControllerPin: UIViewController {
     weak var embeddedViewController: MeContainerViewController!
     weak var pageViewViewController: MePageViewController!
+
     private var headerViewPin: UIView = {
         let view = UIView()
         view.backgroundColor = #colorLiteral(red: 0.4431372549, green: 0.3960784314, blue: 0.8901960784, alpha: 1)
+        view.layer.shadowColor = UIColor.gray.cgColor
         view.layer.shadowRadius = Constants.shadowRadius
         view.layer.shadowOpacity = Constants.shadowOpacity
         view.layer.cornerRadius = Constants.headerRadius
@@ -17,54 +17,96 @@ final class MeViewController: UIViewController {
         return view
     }()
 
-    @IBOutlet private weak var headerView: UIView!
-    @IBOutlet private weak var tableContainer: UIView!
-    @IBOutlet private weak var nameLabel: UILabel!
-    @IBOutlet private weak var cardContainer: UIView!
-    @IBOutlet private weak var photoButton: UIButton!
+    private let nameLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Sasha Zakharov"
+        label.font = UIFont(name: "DMSans-Bold", size: 33)
+        label.textColor = Constants.whiteThemeFont
+        label.adjustsFontSizeToFitWidth = true
+        return label
+    }()
+
+    private let photoButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "upload"), for: .normal)
+        return button
+    }()
+
+    // HERE WILL BE CARD VIEW!
+    private let cardView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.layer.shadowColor = UIColor.gray.cgColor
+        view.layer.shadowOpacity = Constants.shadowOpacity
+        view.layer.shadowRadius = Constants.cardShadowRadius
+        view.layer.shadowOffset = .init(width: 0, height: 3)
+        view.layer.cornerRadius = 10
+        return view
+    }()
 
     var presenter: MeOutput!
     private let pickerController: UIImagePickerController = UIImagePickerController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
-        setShadowContainer()
-        configureHeader()
-        presenter.didLoadView()
-        setupImagePicker()
+        setupMainView()
+        setupHeaderView()
+
+//        presenter.didLoadView()
+//        setupImagePicker()
     }
 
-    private func setupHeaderView() {
+    override func viewDidLayoutSubviews() {
+        setupNameLabel()
+        setupImageView()
+        setupCardView()
+    }
+    private func setupMainView() {
+        self.view.backgroundColor = .white
         self.view.addSubview(headerViewPin)
+    }
+    private func setupHeaderView() {
+        headerViewPin.pin.top(-12)
+            .left()
+            .right()
+            .height(25%)
+    }
+
+    private func setupNameLabel() {
+        headerViewPin.addSubview(nameLabel)
+        nameLabel.pin
+            .top(view.pin.safeArea.top)
+            .left(8)
+            .right(10)
+            .height(55)
+            .sizeToFit(.height)
+    }
+
+    private func setupImageView() {
+        headerViewPin.addSubview(photoButton)
+        photoButton.pin
+            .top(view.pin.safeArea.top + 4)
+            .right(8)
+            .height(50)
+            .width(50)
+    }
+
+    private func setupCardView() {
+        headerViewPin.addSubview(cardView)
+        cardView.pin
+            .below(of: [nameLabel, photoButton])
+            .hCenter()
+            .marginTop(7%)
+            .height(35%)
+            .width(85%)
     }
     private func setupImagePicker() {
         pickerController.delegate = self
         pickerController.allowsEditing = true
     }
-    private func configureHeader() {
-        setRoundedCorners()
-        setShadow()
-    }
 
-    private func setRoundedCorners() {
-        headerView.layer.cornerRadius = Constants.headerRadius
-        headerView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-    }
-
-    private func setShadow() {
-        headerView.layer.shadowRadius = Constants.shadowRadius
-        headerView.layer.shadowOpacity = Constants.shadowOpacity
-        headerView.layer.shadowOffset = .init(width: 0, height: 2)
-    }
-    private func setShadowContainer() {
-        cardContainer.layer.shadowColor = UIColor.gray.cgColor
-        cardContainer.layer.shadowOpacity = Constants.shadowOpacity
-        cardContainer.layer.shadowOffset = .init(width: 0, height: 3)
-        cardContainer.layer.shadowRadius = Constants.cardShadowRadius
-    }
     @IBAction private func didIndexChanged(_ sender: UISegmentedControl) {
-        presenter.didIndexChanged(index: segmentControl.selectedSegmentIndex)
+//        presenter.didIndexChanged(index: segmentControl.selectedSegmentIndex)
     }
 
     @IBAction private func addImageAction(_ sender: Any) {
@@ -72,7 +114,7 @@ final class MeViewController: UIViewController {
     }
 }
 
-extension MeViewController {
+extension MeViewControllerPin {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? MeContainerViewController,
                     segue.identifier == "MeContainerSegue" {
@@ -85,7 +127,7 @@ extension MeViewController {
     }
 }
 
-extension MeViewController: MeInput {
+extension MeViewControllerPin: MeInput {
     func showAlert(alert: UIAlertController) {
         self.present(alert, animated: true, completion: nil)
     }
@@ -95,11 +137,11 @@ extension MeViewController: MeInput {
     }
 
     func setUserData(name: String, lastname: String, image: UIImage?) {
-        nameLabel.text = name + " " + lastname
-        if let img = image {
-            photoButton.setImage(img, for: .normal)
-            photoButton.imageView?.layer.cornerRadius = Constants.imageCornerRadius
-        }
+//        nameLabel.text = name + " " + lastname
+//        if let img = image {
+//            photoButton.setImage(img, for: .normal)
+//            photoButton.imageView?.layer.cornerRadius = Constants.imageCornerRadius
+//        }
     }
 
     func setUserSpentInfo(spent: Int) {
@@ -111,18 +153,18 @@ extension MeViewController: MeInput {
     }
 }
 
-extension MeViewController: MePageViewDelegate {
+extension MeViewControllerPin: MePageViewDelegate {
     func mePageViewControllerDidSet(with page: MePage) {
-        switch page {
-        case .mePortfolio:
-            segmentControl.selectedSegmentIndex = 0
-        case .meSettings:
-            segmentControl.selectedSegmentIndex = 1
-        }
+//        switch page {
+//        case .mePortfolio:
+//            segmentControl.selectedSegmentIndex = 0
+//        case .meSettings:
+//            segmentControl.selectedSegmentIndex = 1
+//        }
     }
 }
 
-extension MeViewController {
+extension MeViewControllerPin {
     struct Constants {
         static let headerRadius: CGFloat = 20
         static let viewRadius: CGFloat = 10
@@ -131,10 +173,11 @@ extension MeViewController {
         static let legendFormSize: Float = 15
         static let cardShadowRadius: CGFloat = 5
         static let imageCornerRadius: CGFloat = 15
+        static let whiteThemeFont: UIColor = .white
     }
 }
 
-extension MeViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+extension MeViewControllerPin: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     private func action(for type: UIImagePickerController.SourceType, title: String) -> UIAlertAction? {
            return UIAlertAction(title: title, style: .default) { [unowned self] _ in
                pickerController.sourceType = type
@@ -173,18 +216,5 @@ extension MeViewController: UINavigationControllerDelegate, UIImagePickerControl
             return
         }
         pickerController(picker, didSelect: image)
-    }
-}
-
-extension  NSUIColor {
-    convenience init(red: Int, green: Int, blue: Int) {
-        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
-    }
-    convenience init(hex: Int) {
-        self.init(
-            red: (hex >> 16) & 0xFF,
-            green: (hex >> 8) & 0xFF,
-            blue: hex & 0xFF
-        )
     }
 }
