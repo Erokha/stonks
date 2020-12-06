@@ -32,7 +32,7 @@ line_length:
   - 200
 
 file_length:
-  warning: 600
+  warning: 700
   error: 1200
 
 type_body_length:

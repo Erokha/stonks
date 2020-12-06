@@ -1,5 +1,7 @@
 import UIKit
 import PinLayout
+import Firebase
+import GoogleSignIn
 
 final class LoginViewController: UIViewController {
     var output: LoginViewOutput?
@@ -17,6 +19,18 @@ final class LoginViewController: UIViewController {
     private weak var checkBoxDescriptionLabel: UILabel!
 
     private weak var registerButton: UIButton!
+
+    private weak var leftSeparatorView: UIView!
+
+    private weak var signInSeparatorLabel: UILabel!
+
+    private weak var rightSeparatorView: UIView!
+
+    private weak var googleSignInButton: UIButton!
+
+    private weak var googleLogoImageView: UIImageView!
+
+    let tabBar: UIViewController = MainTabBar()
 
     private func setupWelcomeImageView() {
         let imageView = UIImageView()
@@ -166,7 +180,7 @@ final class LoginViewController: UIViewController {
         registerButton.backgroundColor = Constants.RegisterButton.backgroundColor
         registerButton.layer.cornerRadius = Constants.RegisterButton.cornerRadius
         registerButton.layer.shadowOffset = Constants.RegisterButton.shadowOffset
-        registerButton.layer.shadowRadius = Constants.RegisterButton.cornerRadius
+        registerButton.layer.shadowRadius = Constants.RegisterButton.shadowRadius
         registerButton.layer.shadowColor = Constants.RegisterButton.shadowColor.cgColor
         registerButton.layer.shadowOpacity = Constants.RegisterButton.shadowOpacity
 
@@ -177,6 +191,61 @@ final class LoginViewController: UIViewController {
         registerButton.addTarget(self, action: #selector(didTapRegisterButton), for: .touchUpInside)
     }
 
+    private func setupLeftSeparatorView() {
+        let separator = UIView()
+
+        leftSeparatorView = separator
+        view.addSubview(leftSeparatorView)
+
+        leftSeparatorView.backgroundColor = .black
+    }
+
+    private func setupSignInSeparatorView() {
+        let label = UILabel()
+
+        signInSeparatorLabel = label
+        view.addSubview(signInSeparatorLabel)
+
+        signInSeparatorLabel.textAlignment = .center
+        signInSeparatorLabel.text = "or"
+        signInSeparatorLabel.font = UIFont(name: "DMSans-Bold", size: 14)
+    }
+
+    private func setupRightSeparatorView() {
+        let separator = UIView()
+
+        rightSeparatorView = separator
+        view.addSubview(rightSeparatorView)
+
+        rightSeparatorView.backgroundColor = .black
+    }
+
+    private func setupGoogleSignInButton() {
+        let button = UIButton()
+
+        googleSignInButton = button
+        view.addSubview(googleSignInButton)
+
+        googleSignInButton.backgroundColor = .white
+
+        googleSignInButton.setTitle("Sign Up with Google", for: .normal)
+        googleSignInButton.titleLabel?.font = UIFont(name: "DMSans-Bold", size: 14)
+        googleSignInButton.setTitleColor(.black, for: .normal)
+        googleSignInButton.layer.cornerRadius = 15
+        googleSignInButton.layer.shadowOffset = CGSize(width: 0, height: 3)
+        googleSignInButton.layer.shadowRadius = 2
+        googleSignInButton.layer.shadowColor = UIColor.black.cgColor
+        googleSignInButton.layer.shadowOpacity = 0.4
+
+        let imageView = UIImageView(image: UIImage(named: "google_logo"))
+
+        googleLogoImageView = imageView
+        googleSignInButton.addSubview(googleLogoImageView)
+        googleLogoImageView.contentMode = .scaleToFill
+
+        googleSignInButton.addTarget(self, action: #selector(didTapGoogleSignInButton), for: .touchUpInside)
+    }
+
     private func setupSubviews() {
         setupWelcomeImageView()
         setupNameTextField()
@@ -185,6 +254,10 @@ final class LoginViewController: UIViewController {
         setupCheckBoxImageView()
         setupCheckBoxDescriptionLabel()
         setupRegisterButton()
+        setupLeftSeparatorView()
+        setupSignInSeparatorView()
+        setupRightSeparatorView()
+        setupGoogleSignInButton()
     }
 
     private func setupView() {
@@ -199,8 +272,10 @@ final class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupSubviews()
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+
         setupView()
+        setupSubviews()
 
         output?.didLoadView()
     }
@@ -215,6 +290,10 @@ final class LoginViewController: UIViewController {
         layoutCheckBoxImageView()
         layoutCheckBoxDescriptionLabel()
         layoutRegisterButton()
+        layoutSignInSeparatorView()
+        layoutLeftSeparatorView()
+        layoutRightSeparatorView()
+        layoutGoogleSignInButton()
     }
 
     private func layoutWelcomeImageView() {
@@ -271,6 +350,44 @@ final class LoginViewController: UIViewController {
             .height(Constants.RegisterButton.heightConstant)
     }
 
+    private func layoutLeftSeparatorView() {
+        leftSeparatorView.pin
+            .top(signInSeparatorLabel.frame.midY)
+            .left(33%)
+            .height(1)
+            .width(10%)
+    }
+
+    private func layoutSignInSeparatorView() {
+        signInSeparatorLabel.pin
+            .top(registerButton.frame.maxY + 15)
+            .hCenter()
+            .width(10%)
+            .height(48)
+    }
+
+    private func layoutRightSeparatorView() {
+        rightSeparatorView.pin
+            .top(signInSeparatorLabel.frame.midY)
+            .right(33%)
+            .height(1)
+            .width(10%)
+    }
+
+    private func layoutGoogleSignInButton() {
+        googleSignInButton.pin
+            .top(signInSeparatorLabel.frame.maxY + 10)
+            .hCenter()
+            .width(80%)
+            .height(48)
+
+        googleLogoImageView.pin
+            .left(5%)
+            .height(googleSignInButton.bounds.height * 0.5)
+            .width(googleSignInButton.bounds.height * 0.5)
+            .vCenter()
+    }
+
     @objc
     private func didTapView() {
         output?.didTapView()
@@ -315,6 +432,11 @@ final class LoginViewController: UIViewController {
     private func didTapRegisterButton(_ sender: UIButton) {
         output?.didTapRegisterButton(name: nameTextField.text, surname: surnameTextField.text, balance: balanceTextField.text)
     }
+
+    @objc
+    private func didTapGoogleSignInButton() {
+        output?.didTapGoogleSignInButton()
+    }
 }
 
 extension LoginViewController: LoginViewInput {
@@ -330,7 +452,6 @@ extension LoginViewController: LoginViewInput {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
 
         alert.addAction(UIAlertAction(title: "ОК", style: .default, handler: nil))
-
         present(alert, animated: true)
     }
 
@@ -447,13 +568,15 @@ extension LoginViewController {
         struct RegisterButton {
             static let cornerRadius: CGFloat = 10
 
+            static let shadowRadius: CGFloat = 2
+
             static let borderWidth: CGFloat = 1
 
-            static let shadowOffset: CGSize = CGSize(width: 5, height: 5)
+            static let shadowOffset: CGSize = CGSize(width: 0, height: 3)
 
-            static let shadowColor: UIColor = .gray
+            static let shadowColor: UIColor = .black
 
-            static let shadowOpacity: Float = 1
+            static let shadowOpacity: Float = 0.4
 
             static let backgroundColor: UIColor = UIColor(red: 113 / 255,
                                                           green: 101 / 255,
@@ -462,7 +585,7 @@ extension LoginViewController {
 
             static let font: UIFont? = UIFont(name: "DMSans-Bold", size: 17)
 
-            static let title: String = "Register my account"
+            static let title: String = "Look through"
 
             static let fontColor: UIColor = .white
 

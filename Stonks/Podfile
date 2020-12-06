@@ -10,6 +10,9 @@ target 'Stonks' do
     pod 'Alamofire'
     pod 'Kingfisher'
     pod 'PinLayout'
+    pod 'Firebase/Auth'
+    pod 'GoogleSignIn'
+    pod 'Firebase/Analytics'
 end
 
 post_install do |installer|

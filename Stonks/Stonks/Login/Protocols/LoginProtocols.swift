@@ -19,6 +19,8 @@ protocol LoginViewOutput: AnyObject {
 
     func didFinishBalanceEditing()
 
+    func didTapGoogleSignInButton()
+
     func didTapView()
 }
 
@@ -48,10 +50,14 @@ protocol LoginInteractorInput: AnyObject {
     func termsAreAccepted() -> Bool
 
     func createUser(name: String, surname: String, balance: Decimal)
+
+    func signInWithGoogle()
 }
 
 protocol LoginInteractorOutput: AnyObject {
     func userSuccesfullyAuthorized()
+
+    func succefullySignInWithGoogle()
 
     func showAlert(with title: String, message: String)
 }
