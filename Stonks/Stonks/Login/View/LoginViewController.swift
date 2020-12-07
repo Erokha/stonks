@@ -6,7 +6,7 @@ import GoogleSignIn
 final class LoginViewController: UIViewController {
     var output: LoginViewOutput?
 
-    private weak var welcomeImageView: UIImageView!
+    private weak var welcomeLabel: UILabel!
 
     private weak var nameTextField: UITextField!
 
@@ -30,15 +30,15 @@ final class LoginViewController: UIViewController {
 
     private weak var googleLogoImageView: UIImageView!
 
-    let tabBar: UIViewController = MainTabBar()
-
     private func setupWelcomeImageView() {
-        let imageView = UIImageView()
+        let label = UILabel()
 
-        welcomeImageView = imageView
-        view.addSubview(welcomeImageView)
+        welcomeLabel = label
+        view.addSubview(welcomeLabel)
 
-        welcomeImageView.image = UIImage(named: Constants.WelcomeImageView.imageName)
+        welcomeLabel.text = Constants.WelcomeLabel.text
+        welcomeLabel.textAlignment = .center
+        welcomeLabel.font = Constants.WelcomeLabel.font
     }
 
     private func setupNameTextField() {
@@ -197,7 +197,7 @@ final class LoginViewController: UIViewController {
         leftSeparatorView = separator
         view.addSubview(leftSeparatorView)
 
-        leftSeparatorView.backgroundColor = .black
+        leftSeparatorView.backgroundColor = Constants.SeparatorView.backgroundColor
     }
 
     private func setupSignInSeparatorLabel() {
@@ -217,7 +217,11 @@ final class LoginViewController: UIViewController {
         rightSeparatorView = separator
         view.addSubview(rightSeparatorView)
 
-        rightSeparatorView.backgroundColor = .black
+        if traitCollection.userInterfaceStyle == .dark {
+            rightSeparatorView.backgroundColor = .white
+        } else {
+            rightSeparatorView.backgroundColor = .black
+        }
     }
 
     private func setupGoogleSignInButton() {
@@ -226,11 +230,11 @@ final class LoginViewController: UIViewController {
         googleSignInButton = button
         view.addSubview(googleSignInButton)
 
-        googleSignInButton.backgroundColor = .white
+        googleSignInButton.backgroundColor = Constants.GoogleSignInButton.backgroundColor
+        googleSignInButton.setTitleColor(Constants.GoogleSignInButton.titleColor, for: .normal)
 
         googleSignInButton.setTitle(Constants.GoogleSignInButton.title, for: .normal)
         googleSignInButton.titleLabel?.font = Constants.GoogleSignInButton.font
-        googleSignInButton.setTitleColor(Constants.GoogleSignInButton.titleColor, for: .normal)
         googleSignInButton.layer.cornerRadius = Constants.GoogleSignInButton.cornerRadius
 
         googleSignInButton.layer.shadowOffset = Constants.GoogleSignInButton.shadowOffset
@@ -262,7 +266,7 @@ final class LoginViewController: UIViewController {
     }
 
     private func setupView() {
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = Constants.backgroundColor
 
         let viewTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapView))
 
@@ -284,7 +288,7 @@ final class LoginViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
-        layoutWelcomeImageView()
+        layoutWelcomeLabel()
         layoutNameTextField()
         layoutSurnameTextField()
         layoutBalanceTextField()
@@ -297,16 +301,100 @@ final class LoginViewController: UIViewController {
         layoutGoogleSignInButton()
     }
 
-    private func layoutWelcomeImageView() {
-        welcomeImageView.pin
-            .top(Constants.WelcomeImageView.topPercent)
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        updateUI()
+    }
+
+    private func updateUI() {
+        updateView()
+        updateNameTextField()
+        updateSurnameTextField()
+        updateBalanceTextField()
+        updateCheckBoxImageView()
+        updateLeftSeparatorView()
+        updateRightSeparatorView()
+        updateGoogleSignInButton()
+    }
+
+    private func updateView() {
+        view.backgroundColor = Constants.backgroundColor
+    }
+
+    private func updateNameTextField() {
+        if nameTextField.isEditing {
+            nameTextField.backgroundColor = Constants.editingStyleEntriesColor
+            nameTextField.layer.borderColor = Constants.editingStyleEntriesBorderColor.cgColor
+        } else {
+            nameTextField.backgroundColor = Constants.defaultStyleEntriesColor
+            nameTextField.layer.borderColor = Constants.defaultStyleEntriesColor.cgColor
+        }
+
+        nameTextField.attributedPlaceholder = NSAttributedString(string: Constants.NameTextField.placeholderText,
+                                                                 attributes: [NSAttributedString.Key.foregroundColor: Constants.textFieldPlaceholderColor])
+    }
+
+    private func updateSurnameTextField() {
+        if surnameTextField.isEditing {
+            surnameTextField.backgroundColor = Constants.editingStyleEntriesColor
+            surnameTextField.layer.borderColor = Constants.editingStyleEntriesBorderColor.cgColor
+        } else {
+            surnameTextField.backgroundColor = Constants.defaultStyleEntriesColor
+            surnameTextField.layer.borderColor = Constants.defaultStyleEntriesColor.cgColor
+        }
+
+        surnameTextField.attributedPlaceholder = NSAttributedString(string: Constants.SurnameTextField.placeholderText,
+                                                                 attributes: [NSAttributedString.Key.foregroundColor: Constants.textFieldPlaceholderColor])
+    }
+
+    private func updateBalanceTextField() {
+        if balanceTextField.isEditing {
+            balanceTextField.backgroundColor = Constants.editingStyleEntriesColor
+            balanceTextField.layer.borderColor = Constants.editingStyleEntriesBorderColor.cgColor
+        } else {
+            balanceTextField.backgroundColor = Constants.defaultStyleEntriesColor
+            balanceTextField.layer.borderColor = Constants.defaultStyleEntriesColor.cgColor
+        }
+
+        balanceTextField.attributedPlaceholder = NSAttributedString(string: Constants.BalanceTextField.placeholderText,
+                                                                 attributes: [NSAttributedString.Key.foregroundColor: Constants.textFieldPlaceholderColor])
+    }
+
+    private func updateCheckBoxImageView() {
+        guard let imageName = checkBoxImageView.image?.accessibilityIdentifier,
+              imageName != Constants.CheckBoxImageView.checkBoxNotCheckedImageName else {
+            return
+        }
+
+        checkBoxImageView.image = UIImage(named: Constants.CheckBoxImageView.checkBoxIsCheckedImageName)
+        checkBoxImageView.image?.accessibilityIdentifier = Constants.CheckBoxImageView.checkBoxIsCheckedImageName
+    }
+
+    private func updateLeftSeparatorView() {
+        leftSeparatorView.backgroundColor = Constants.SeparatorView.backgroundColor
+    }
+
+    private func updateRightSeparatorView() {
+        rightSeparatorView.backgroundColor = Constants.SeparatorView.backgroundColor
+    }
+
+    private func updateGoogleSignInButton() {
+        googleSignInButton.backgroundColor = Constants.GoogleSignInButton.backgroundColor
+        googleSignInButton.setTitleColor(Constants.GoogleSignInButton.titleColor, for: .normal)
+    }
+
+    private func layoutWelcomeLabel() {
+        welcomeLabel.pin
+            .top(Constants.WelcomeLabel.topPercent)
             .hCenter()
-            .sizeToFit()
+            .width(Constants.WelcomeLabel.widthPercent)
+            .height(Constants.WelcomeLabel.height)
     }
 
     private func layoutNameTextField() {
         nameTextField.pin
-            .top(welcomeImageView.frame.maxY + Constants.screenHeight * Constants.NameTextField.topSpacingMultiplier)
+            .top(welcomeLabel.frame.maxY + Constants.screenHeight * Constants.NameTextField.topSpacingMultiplier)
             .hCenter()
             .width(Constants.textFieldWidthPercent)
             .height(Constants.textFieldHeightConstant)
@@ -337,7 +425,7 @@ final class LoginViewController: UIViewController {
 
     private func layoutCheckBoxDescriptionLabel() {
         checkBoxDescriptionLabel.pin
-            .top(balanceTextField.frame.maxY + Constants.screenHeight * Constants.CheckBoxDescriptionLabel.topSpacingMultiplier)
+            .top(checkBoxImageView.frame.midY - Constants.CheckBoxDescriptionLabel.heightConstant / 2)
             .left(checkBoxImageView.frame.maxX + Constants.screenWidth * Constants.CheckBoxDescriptionLabel.leftSpacingMultiplier)
             .right(Constants.CheckBoxDescriptionLabel.rightPercent)
             .height(Constants.CheckBoxDescriptionLabel.heightConstant)
@@ -443,10 +531,12 @@ final class LoginViewController: UIViewController {
 extension LoginViewController: LoginViewInput {
     func setCheckBoxChecked() {
         checkBoxImageView.image = UIImage(named: Constants.CheckBoxImageView.checkBoxIsCheckedImageName)
+        checkBoxImageView.image?.accessibilityIdentifier = Constants.CheckBoxImageView.checkBoxIsCheckedImageName
     }
 
     func setCheckBoxUnchecked() {
         checkBoxImageView.image = UIImage(named: Constants.CheckBoxImageView.checkBoxNotCheckedImageName)
+        checkBoxImageView.image?.accessibilityIdentifier = Constants.CheckBoxImageView.checkBoxNotCheckedImageName
     }
 
     func showAlert(with title: String, message: String) {
@@ -488,179 +578,5 @@ extension LoginViewController: LoginViewInput {
 
     func disableKeyboard() {
         view.endEditing(true)
-    }
-}
-
-extension LoginViewController {
-    private struct Constants {
-        static let defaultStyleEntriesColor: UIColor = UIColor(red: 250 / 255,
-                                                               green: 250 / 255,
-                                                               blue: 250 / 255,
-                                                               alpha: 1)
-
-        static let editingStyleEntriesBorderColor: UIColor = UIColor(red: 113 / 255,
-                                                                     green: 101 / 255,
-                                                                     blue: 227 / 255,
-                                                                     alpha: 1)
-
-        static let editingStyleEntriesColor: UIColor = UIColor(red: 113 / 255,
-                                                               green: 101 / 255,
-                                                               blue: 227 / 255,
-                                                               alpha: 0.2)
-
-        static let screenHeight: CGFloat = UIScreen.main.bounds.height
-
-        static let screenWidth: CGFloat = UIScreen.main.bounds.width
-
-        static let textFieldFont: UIFont? = UIFont(name: "DMSans-Regular", size: 15)
-
-        static let textFieldCornerRadius: CGFloat = 10
-
-        static let textFieldBorderWidth: CGFloat = 1
-
-        static let textFieldPlaceholderColor: UIColor = .black
-
-        static let textFieldTextLeftSpacing: CGFloat = 10
-
-        static let textFieldTextRightSpacing: CGFloat = 10
-
-        static let textFieldHeightConstant: CGFloat = 48
-
-        static let textFieldWidthPercent: Percent = 90%
-
-        struct WelcomeImageView {
-            static let topPercent: Percent = 16.5%
-
-            static let imageName: String = "welcome"
-        }
-
-        struct NameTextField {
-            static let placeholderText = String(repeating: " ", count: 4) + "Name"
-
-            static let topSpacingMultiplier: CGFloat = 0.098
-        }
-
-        struct SurnameTextField {
-            static let placeholderText = String(repeating: " ", count: 4) + "Surname"
-
-            static let topSpacingMultiplier: CGFloat = 0.012
-        }
-
-        struct BalanceTextField {
-            static let placeholderText = String(repeating: " ", count: 4) + "Start Balance"
-
-            static let topSpacingMultiplier: CGFloat = 0.012
-        }
-
-        struct CheckBoxDescriptionLabel {
-            static let font: UIFont? = UIFont(name: "DMSans-Regular", size: 13)
-
-            static let text: String = "By creating your account you have to agree with our Terms and Conditions"
-
-            static let topSpacingMultiplier: CGFloat = 0.025
-
-            static let leftSpacingMultiplier: CGFloat = 0.05
-
-            static let rightPercent: Percent = 5%
-
-            static let heightConstant: CGFloat = 45
-        }
-
-        struct RegisterButton {
-            static let cornerRadius: CGFloat = 10
-
-            static let shadowRadius: CGFloat = 2
-
-            static let borderWidth: CGFloat = 1
-
-            static let shadowOffset: CGSize = CGSize(width: 0, height: 3)
-
-            static let shadowColor: UIColor = .black
-
-            static let shadowOpacity: Float = 0.4
-
-            static let backgroundColor: UIColor = UIColor(red: 113 / 255,
-                                                          green: 101 / 255,
-                                                          blue: 227 / 255,
-                                                          alpha: 1)
-
-            static let font: UIFont? = UIFont(name: "DMSans-Bold", size: 17)
-
-            static let title: String = "Look through"
-
-            static let fontColor: UIColor = .white
-
-            static let topSpacingMultiplier: CGFloat = 0.05
-
-            static let widthPercent: Percent = 90%
-
-            static let heightConstant: CGFloat = 55
-        }
-
-        struct CheckBoxImageView {
-            static let checkBoxIsCheckedImageName: String = "checkBoxChecked"
-
-            static let checkBoxNotCheckedImageName: String = "checkBoxNotChecked"
-
-            static let recognizerTapsRequired: Int = 1
-
-            static let topSpacingMultiplier: CGFloat = 0.035
-
-            static let leftPercent: Percent = 5%
-        }
-
-        struct SignInSeparatorLabel {
-            static let text: String = "or"
-
-            static let font: UIFont? = UIFont(name: "DMSans-Bold", size: 14)
-
-            static let topSpacingMultiplier: CGFloat = 0.02
-
-            static let widthPercent: Percent = 10%
-
-            static let height: CGFloat = 48
-        }
-
-        struct SeparatorView {
-            static let sideOffsetPercent: Percent = 33%
-
-            static let widthPercent: Percent = 10%
-
-            static let height: CGFloat = 1
-        }
-
-        struct GoogleSignInButton {
-            static let title: String = "Sign In with Google"
-
-            static let font: UIFont? = UIFont(name: "DMSans-Bold", size: 14)
-
-            static let cornerRadius: CGFloat = 15
-
-            static let shadowRadius: CGFloat = 2
-
-            static let shadowOffset: CGSize = CGSize(width: 0, height: 3)
-
-            static let shadowColor: UIColor = .black
-
-            static let titleColor: UIColor = .black
-
-            static let shadowOpacity: Float = 0.4
-
-            static let imageName: String = "google_logo"
-
-            static let topSpacingMultiplier: CGFloat = 0.015
-
-            static let widthPercent: Percent = 80%
-
-            static let height: CGFloat = 48
-
-            static let imageScale: CGFloat = 0.4
-
-            static let imageLeftPercent: Percent = 5%
-        }
-
-        struct TapRecognizer {
-            static let tapsRequired: Int = 1
-        }
     }
 }
