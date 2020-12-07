@@ -66,7 +66,7 @@ extension LoginInteractor: GIDSignInDelegate {
                                               surname: (authResult?.additionalUserInfo?.profile?["family_name"] as? String) ?? "",
                                               balance: .zero)
 
-            self.output?.succefullySignInWithGoogle()
+            self.output?.userSuccesfullyAuthorized()
         }
     }
 

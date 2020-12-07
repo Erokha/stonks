@@ -92,10 +92,6 @@ extension LoginPresenter: LoginInteractorOutput {
         router?.showMainScreen()
     }
 
-    func succefullySignInWithGoogle() {
-        router?.showMainScreen()
-    }
-
     func showAlert(with title: String, message: String) {
         view?.showAlert(with: title, message: message)
     }

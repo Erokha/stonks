@@ -57,7 +57,5 @@ protocol LoginInteractorInput: AnyObject {
 protocol LoginInteractorOutput: AnyObject {
     func userSuccesfullyAuthorized()
 
-    func succefullySignInWithGoogle()
-
     func showAlert(with title: String, message: String)
 }
