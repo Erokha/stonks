@@ -200,15 +200,15 @@ final class LoginViewController: UIViewController {
         leftSeparatorView.backgroundColor = .black
     }
 
-    private func setupSignInSeparatorView() {
+    private func setupSignInSeparatorLabel() {
         let label = UILabel()
 
         signInSeparatorLabel = label
         view.addSubview(signInSeparatorLabel)
 
         signInSeparatorLabel.textAlignment = .center
-        signInSeparatorLabel.text = "or"
-        signInSeparatorLabel.font = UIFont(name: "DMSans-Bold", size: 14)
+        signInSeparatorLabel.text = Constants.SignInSeparatorLabel.text
+        signInSeparatorLabel.font = Constants.SignInSeparatorLabel.font
     }
 
     private func setupRightSeparatorView() {
@@ -228,16 +228,17 @@ final class LoginViewController: UIViewController {
 
         googleSignInButton.backgroundColor = .white
 
-        googleSignInButton.setTitle("Sign Up with Google", for: .normal)
-        googleSignInButton.titleLabel?.font = UIFont(name: "DMSans-Bold", size: 14)
-        googleSignInButton.setTitleColor(.black, for: .normal)
-        googleSignInButton.layer.cornerRadius = 15
-        googleSignInButton.layer.shadowOffset = CGSize(width: 0, height: 3)
-        googleSignInButton.layer.shadowRadius = 2
-        googleSignInButton.layer.shadowColor = UIColor.black.cgColor
-        googleSignInButton.layer.shadowOpacity = 0.4
+        googleSignInButton.setTitle(Constants.GoogleSignInButton.title, for: .normal)
+        googleSignInButton.titleLabel?.font = Constants.GoogleSignInButton.font
+        googleSignInButton.setTitleColor(Constants.GoogleSignInButton.titleColor, for: .normal)
+        googleSignInButton.layer.cornerRadius = Constants.GoogleSignInButton.cornerRadius
 
-        let imageView = UIImageView(image: UIImage(named: "google_logo"))
+        googleSignInButton.layer.shadowOffset = Constants.GoogleSignInButton.shadowOffset
+        googleSignInButton.layer.shadowRadius = Constants.GoogleSignInButton.shadowRadius
+        googleSignInButton.layer.shadowColor = Constants.GoogleSignInButton.shadowColor.cgColor
+        googleSignInButton.layer.shadowOpacity = Constants.GoogleSignInButton.shadowOpacity
+
+        let imageView = UIImageView(image: UIImage(named: Constants.GoogleSignInButton.imageName))
 
         googleLogoImageView = imageView
         googleSignInButton.addSubview(googleLogoImageView)
@@ -255,7 +256,7 @@ final class LoginViewController: UIViewController {
         setupCheckBoxDescriptionLabel()
         setupRegisterButton()
         setupLeftSeparatorView()
-        setupSignInSeparatorView()
+        setupSignInSeparatorLabel()
         setupRightSeparatorView()
         setupGoogleSignInButton()
     }
@@ -353,38 +354,38 @@ final class LoginViewController: UIViewController {
     private func layoutLeftSeparatorView() {
         leftSeparatorView.pin
             .top(signInSeparatorLabel.frame.midY)
-            .left(33%)
-            .height(1)
-            .width(10%)
+            .left(Constants.SeparatorView.sideOffsetPercent)
+            .height(Constants.SeparatorView.height)
+            .width(Constants.SeparatorView.widthPercent)
     }
 
     private func layoutSignInSeparatorView() {
         signInSeparatorLabel.pin
-            .top(registerButton.frame.maxY + 15)
+            .top(registerButton.frame.maxY + Constants.screenHeight * Constants.SignInSeparatorLabel.topSpacingMultiplier)
             .hCenter()
-            .width(10%)
-            .height(48)
+            .width(Constants.SignInSeparatorLabel.widthPercent)
+            .height(Constants.SignInSeparatorLabel.height)
     }
 
     private func layoutRightSeparatorView() {
         rightSeparatorView.pin
             .top(signInSeparatorLabel.frame.midY)
-            .right(33%)
-            .height(1)
-            .width(10%)
+            .right(Constants.SeparatorView.sideOffsetPercent)
+            .height(Constants.SeparatorView.height)
+            .width(Constants.SeparatorView.widthPercent)
     }
 
     private func layoutGoogleSignInButton() {
         googleSignInButton.pin
-            .top(signInSeparatorLabel.frame.maxY + 10)
+            .top(signInSeparatorLabel.frame.maxY + Constants.screenHeight * Constants.GoogleSignInButton.topSpacingMultiplier)
             .hCenter()
-            .width(80%)
-            .height(48)
+            .width(Constants.GoogleSignInButton.widthPercent)
+            .height(Constants.GoogleSignInButton.height)
 
         googleLogoImageView.pin
-            .left(5%)
-            .height(googleSignInButton.bounds.height * 0.5)
-            .width(googleSignInButton.bounds.height * 0.5)
+            .left(Constants.GoogleSignInButton.imageLeftPercent)
+            .height(googleSignInButton.bounds.height * Constants.GoogleSignInButton.imageScale)
+            .width(googleSignInButton.bounds.height * Constants.GoogleSignInButton.imageScale)
             .vCenter()
     }
 
@@ -606,6 +607,56 @@ extension LoginViewController {
             static let topSpacingMultiplier: CGFloat = 0.035
 
             static let leftPercent: Percent = 5%
+        }
+
+        struct SignInSeparatorLabel {
+            static let text: String = "or"
+
+            static let font: UIFont? = UIFont(name: "DMSans-Bold", size: 14)
+
+            static let topSpacingMultiplier: CGFloat = 0.02
+
+            static let widthPercent: Percent = 10%
+
+            static let height: CGFloat = 48
+        }
+
+        struct SeparatorView {
+            static let sideOffsetPercent: Percent = 33%
+
+            static let widthPercent: Percent = 10%
+
+            static let height: CGFloat = 1
+        }
+
+        struct GoogleSignInButton {
+            static let title: String = "Sign In with Google"
+
+            static let font: UIFont? = UIFont(name: "DMSans-Bold", size: 14)
+
+            static let cornerRadius: CGFloat = 15
+
+            static let shadowRadius: CGFloat = 2
+
+            static let shadowOffset: CGSize = CGSize(width: 0, height: 3)
+
+            static let shadowColor: UIColor = .black
+
+            static let titleColor: UIColor = .black
+
+            static let shadowOpacity: Float = 0.4
+
+            static let imageName: String = "google_logo"
+
+            static let topSpacingMultiplier: CGFloat = 0.015
+
+            static let widthPercent: Percent = 80%
+
+            static let height: CGFloat = 48
+
+            static let imageScale: CGFloat = 0.4
+
+            static let imageLeftPercent: Percent = 5%
         }
 
         struct TapRecognizer {

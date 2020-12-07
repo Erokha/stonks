@@ -55,16 +55,18 @@ extension LoginInteractor: GIDSignInDelegate {
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                           accessToken: authentication.accessToken)
 
-        Auth.auth().signIn(with: credential) { [weak self] (authResult, error) in
+        Auth.auth().signIn(with: credential) { (authResult, error) in
             if let error = error {
                 debugPrint(error)
                 return
             }
 
-            debugPrint(authResult?.additionalUserInfo?.profile?["given_name"])
-            debugPrint(authResult?.additionalUserInfo?.profile?["family_name"])
-            debugPrint(authResult?.additionalUserInfo?.profile?["email"])
-            self?.output?.succefullySignInWithGoogle()
+            AuthorizationService.shared.authorize()
+            UserDataService.shared.createUser(name: (authResult?.additionalUserInfo?.profile?["given_name"] as? String) ?? "Name",
+                                              surname: (authResult?.additionalUserInfo?.profile?["family_name"] as? String) ?? "",
+                                              balance: .zero)
+
+            self.output?.succefullySignInWithGoogle()
         }
     }
 
