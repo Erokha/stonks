@@ -76,8 +76,7 @@ class MainTabBar: UITabBarController {
 
         container.viewController.tabBarItem = tabBarItem
 
-        let navigationVC = UINavigationController(rootViewController: MeViewControllerPin())
-//        let navigationVC = UINavigationController(rootViewController: container.viewController)
+        let navigationVC = UINavigationController(rootViewController: container.viewController)
 
         navigationVC.navigationBar.isHidden = true
 
