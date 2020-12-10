@@ -7,14 +7,6 @@
 
 import UIKit
 
-enum TypeOfAction: Int {
-    case bought = 0, sold
-}
-
-protocol TypeOfSortDelegate: class {
-    func didChangeTypeOfSort(typeOfSort: TypeOfAction?)
-}
-
 final class TypeOfSortTableViewCell: UITableViewCell {
     @IBOutlet private weak var soldButton: UIButton!
     @IBOutlet private weak var boughtButton: UIButton!

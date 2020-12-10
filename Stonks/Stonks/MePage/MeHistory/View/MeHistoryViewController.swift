@@ -1,4 +1,5 @@
 import UIKit
+import PinLayout
 
 final class MeHistoryViewController: UIViewController {
     var output: MeHistoryOutput?
@@ -7,12 +8,22 @@ final class MeHistoryViewController: UIViewController {
     @IBOutlet private weak var backButton: UIButton!
     @IBOutlet private weak var searchBar: UISearchBar!
 
+    private let headerLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = #colorLiteral(red: 0.4431372549, green: 0.3960784314, blue: 0.8901960784, alpha: 1)
+        label.text = "History"
+        label.font = UIFont(name: "DMSans-Bold", size: 25)
+        return label
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
         output?.didLoadView()
     }
 
+    private func setupHeaderLabel() {
+    }
     private func setupTableView() {
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.delegate = self

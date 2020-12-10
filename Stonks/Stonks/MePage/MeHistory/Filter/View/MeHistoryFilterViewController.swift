@@ -1,13 +1,5 @@
 import UIKit
 
-enum Filters: Int, CaseIterable {
-    case sortBy = 0, typeOfSort
-}
-
-protocol MeHistoryFilterDelegate: class {
-    func didSortedStocksLoaded(stocks: [StockHistoryData])
-}
-
 final class MeHistoryFilterViewController: UIViewController {
     var output: MeHistoryFilterOutput?
     weak var meHistoryFilterDelegate: MeHistoryFilterDelegate?
@@ -24,8 +16,8 @@ final class MeHistoryFilterViewController: UIViewController {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        let chartNib = UINib(nibName: SortFilterTableViewCell.reuseIdentifier, bundle: nil)
-        tableView.register(chartNib, forCellReuseIdentifier: SortFilterTableViewCell.reuseIdentifier)
+        let chartNib = UINib(nibName: SortFilterTableViewCellPin.reuseIdentifier, bundle: nil)
+        tableView.register(chartNib, forCellReuseIdentifier: SortFilterTableViewCellPin.reuseIdentifier)
         let typeOfSort = UINib(nibName: TypeOfSortTableViewCell.reuseIdentifier, bundle: nil)
         tableView.register(typeOfSort, forCellReuseIdentifier: TypeOfSortTableViewCell.reuseIdentifier)
     }
@@ -52,7 +44,7 @@ extension MeHistoryFilterViewController: UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch Filters(rawValue: indexPath.section) {
         case .sortBy:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: SortFilterTableViewCell.reuseIdentifier, for: indexPath) as? SortFilterTableViewCell else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SortFilterTableViewCellPin.reuseIdentifier, for: indexPath) as? SortFilterTableViewCellPin else {
                 return UITableViewCell()
             }
             cell.sortByDelegate = self

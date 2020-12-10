@@ -1,7 +1,7 @@
 import Foundation
 
 final class MeHistoryRouter {
-    weak var viewController: MeHistoryViewController?
+    weak var viewController: MeHistoryViewControllerPin?
 
 }
 
