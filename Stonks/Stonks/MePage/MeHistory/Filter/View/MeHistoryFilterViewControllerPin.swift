@@ -10,7 +10,7 @@ protocol MeHistoryFilterDelegate: class {
     func didSortedStocksLoaded(stocks: [StockHistoryData])
 }
 
-final class MeHistoryFilterViewControllerPin: UIViewController {
+final class MeHistoryFilterViewController: UIViewController {
     var output: MeHistoryFilterOutput?
     weak var meHistoryFilterDelegate: MeHistoryFilterDelegate?
     private var sortBy: SortBy?
@@ -58,8 +58,8 @@ final class MeHistoryFilterViewControllerPin: UIViewController {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(SortFilterTableViewCellPin.self, forCellReuseIdentifier: SortFilterTableViewCellPin.identifier)
-        tableView.register(TypeOfSortTableViewCellPin.self, forCellReuseIdentifier: TypeOfSortTableViewCellPin.identifier)
+        tableView.register(SortFilterTableViewCell.self, forCellReuseIdentifier: SortFilterTableViewCell.identifier)
+        tableView.register(TypeOfSortTableViewCell.self, forCellReuseIdentifier: TypeOfSortTableViewCell.identifier)
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 1))
     }
 
@@ -114,7 +114,7 @@ final class MeHistoryFilterViewControllerPin: UIViewController {
     }
 }
 
-extension MeHistoryFilterViewControllerPin: UITableViewDelegate, UITableViewDataSource {
+extension MeHistoryFilterViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Constants.numberOfRowsInSection
     }
@@ -126,13 +126,13 @@ extension MeHistoryFilterViewControllerPin: UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch Filters(rawValue: indexPath.section) {
         case .sortBy:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: SortFilterTableViewCellPin.identifier, for: indexPath) as? SortFilterTableViewCellPin else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SortFilterTableViewCell.identifier, for: indexPath) as? SortFilterTableViewCell else {
                     return UITableViewCell()
             }
             cell.sortByDelegate = self
             return cell
         case .typeOfSort:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: TypeOfSortTableViewCellPin.identifier, for: indexPath) as? TypeOfSortTableViewCellPin else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: TypeOfSortTableViewCell.identifier, for: indexPath) as? TypeOfSortTableViewCell else {
                 return UITableViewCell()
             }
             cell.typeOfSortDelegate = self
@@ -181,13 +181,13 @@ extension MeHistoryFilterViewControllerPin: UITableViewDelegate, UITableViewData
     }
 }
 
-extension MeHistoryFilterViewControllerPin: MeHistoryFilterInput {
+extension MeHistoryFilterViewController: MeHistoryFilterInput {
     func stocksLoaded(stocks: [StockHistoryData]) {
         meHistoryFilterDelegate?.didSortedStocksLoaded(stocks: stocks)
     }
 }
 
-extension MeHistoryFilterViewControllerPin: FilterDelegate {
+extension MeHistoryFilterViewController: FilterDelegate {
     func didChangeTypeOfSort(typeOfSort: TypeOfAction?) {
         output?.didChangeTypeOfSort(typeOfSort: typeOfSort)
     }
@@ -197,7 +197,7 @@ extension MeHistoryFilterViewControllerPin: FilterDelegate {
     }
 }
 
-extension MeHistoryFilterViewControllerPin {
+extension MeHistoryFilterViewController {
     private struct Constants {
         static let numberOfRowsInSection: Int = 1
         static let sortByCellHeight: CGFloat = 138

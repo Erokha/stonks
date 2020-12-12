@@ -4,10 +4,6 @@ import PinLayout
 final class MeHistoryViewController: UIViewController {
     var output: MeHistoryOutput?
 
-    @IBOutlet private weak var tableView: UITableView!
-    @IBOutlet private weak var backButton: UIButton!
-    @IBOutlet private weak var searchBar: UISearchBar!
-
     private let headerLabel: UILabel = {
         let label = UILabel()
         label.textColor = #colorLiteral(red: 0.4431372549, green: 0.3960784314, blue: 0.8901960784, alpha: 1)
@@ -16,27 +12,112 @@ final class MeHistoryViewController: UIViewController {
         return label
     }()
 
+    private let backButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "previous"), for: .normal)
+        button.addTarget(self, action: #selector(didBackActionTapped(_:)), for: .touchUpInside)
+        return button
+    }()
+
+    private let filterButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "filter"), for: .normal)
+        button.addTarget(self, action: #selector(didFilterButtonTapped(_:)), for: .touchUpInside)
+        return button
+    }()
+
+    private let searchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+        searchBar.backgroundImage = UIImage()
+        searchBar.barStyle = .default
+        searchBar.placeholder = "Search..."
+        return searchBar
+    }()
+
+    private let tableView: UITableView = UITableView()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        setupMainView()
         output?.didLoadView()
     }
 
-    private func setupHeaderLabel() {
+    private func setupMainView() {
+        self.view.backgroundColor = .white
+        self.view.addSubview(headerLabel)
+        self.view.addSubview(backButton)
+        self.view.addSubview(filterButton)
+        self.view.addSubview(searchBar)
+        self.view.addSubview(tableView)
     }
-    private func setupTableView() {
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        setupHeaderLabel()
+        setupBackButton()
+        setupFilterButton()
+        setupSearchBar()
+        setupTableViewConstaints()
+    }
+
+    private func setupHeaderLabel() {
+        headerLabel.pin
+            .hCenter()
+            .top(view.pin.safeArea.top)
+            .height(40)
+            .sizeToFit(.height)
+    }
+
+    private func setupBackButton() {
+        backButton.pin
+            .top(view.pin.safeArea.top + 2)
+            .left(view.pin.safeArea.left)
+            .height(29)
+            .width(29)
+    }
+
+    private func setupFilterButton() {
+        filterButton.pin
+            .below(of: headerLabel)
+            .margin(12)
+            .right(view.pin.safeArea.right)
+            .height(32)
+            .width(32)
+    }
+
+    private func setupSearchBar() {
+        searchBar.pin
+            .below(of: headerLabel)
+            .marginTop(10)
+            .before(of: filterButton)
+            .marginRight(8)
+            .left(view.pin.safeArea.left)
+            .height(36)
+    }
+
+    private func setupTableViewConstaints() {
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.delegate = self
         tableView.dataSource = self
-        searchBar.delegate = self
-        let chartNib = UINib(nibName: MeHistoryTableViewCell.reuseIdentifier, bundle: nil)
-        tableView.register(chartNib, forCellReuseIdentifier: MeHistoryTableViewCell.reuseIdentifier)
+        tableView.pin
+            .below(of: searchBar)
+            .marginTop(8)
+            .left()
+            .right()
+            .bottom()
     }
 
-    @IBAction private func didBackActionTapped(_ sender: Any) {
+    private func setupTableView() {
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        tableView.separatorInsetReference = .fromAutomaticInsets
+        tableView.register(MeHistoryTableViewCell.self, forCellReuseIdentifier: MeHistoryTableViewCell.identifier)
+    }
+
+    @objc private func didBackActionTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
-    @IBAction private func didFilterButtonTapped(_ sender: Any) {
+    @objc private func didFilterButtonTapped(_ sender: Any) {
         output?.didFilterButtonTapped()
     }
 }
@@ -47,9 +128,10 @@ extension MeHistoryViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: MeHistoryTableViewCell.reuseIdentifier, for: indexPath) as? MeHistoryTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MeHistoryTableViewCell.identifier, for: indexPath) as? MeHistoryTableViewCell else {
             return UITableViewCell()
         }
+//        let cell = MeHistoryTableViewCellPin()
         guard let stock = output?.stock(at: indexPath) else {
             return UITableViewCell()
         }
@@ -85,5 +167,6 @@ extension MeHistoryViewController: UISearchBarDelegate {
 extension MeHistoryViewController {
     private struct Constants {
         static let rowHeight: CGFloat = 62
+        static let cellIdentifier: String = "cellId"
     }
 }

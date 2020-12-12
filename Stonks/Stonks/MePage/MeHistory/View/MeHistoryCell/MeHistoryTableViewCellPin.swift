@@ -1,7 +1,7 @@
 import UIKit
 import PinLayout
 
-final class MeHistoryTableViewCellPin: UITableViewCell {
+final class MeHistoryTableViewCell: UITableViewCell {
     static let identifier = "MethodCell"
 
     private let imageAreaView: UIView = {
@@ -126,7 +126,7 @@ final class MeHistoryTableViewCellPin: UITableViewCell {
     }
 }
 
-extension MeHistoryTableViewCellPin {
+extension MeHistoryTableViewCell {
     private struct Constants {
         static let viewRadius: CGFloat = 15
         static let shadowRadius: CGFloat = 1

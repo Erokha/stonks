@@ -1,9 +1,27 @@
+import Foundation
 import UIKit
+import PinLayout
+
+enum SortBy {
+    case increasePrice
+    case descendingPrice
+    case increaseDate
+    case descendingDate
+}
+
+protocol SortByDelegate: class {
+    func didChangeSortBy(sortBy: SortBy)
+}
 
 final class SortFilterTableViewCell: UITableViewCell {
+    static let identifier = "SortCell"
+    weak var sortByDelegate: SortByDelegate?
+    private var currentSortBy: SortBy = .descendingDate
+
     private let increasePriceButton: UIButton = {
         let button = UIButton()
         button.setTitle("Price low to high", for: .normal)
+        button.titleLabel?.font = UIFont(name: "DMSans-Bold", size: 16)
         button.backgroundColor = #colorLiteral(red: 0.3540481031, green: 0.3433421254, blue: 0.4038961232, alpha: 1)
         return button
     }()
@@ -11,6 +29,7 @@ final class SortFilterTableViewCell: UITableViewCell {
     private let descendingPriceButton: UIButton = {
         let button = UIButton()
         button.setTitle("Price high to low", for: .normal)
+        button.titleLabel?.font = UIFont(name: "DMSans-Bold", size: 16)
         button.backgroundColor = #colorLiteral(red: 0.3540481031, green: 0.3433421254, blue: 0.4038961232, alpha: 1)
         return button
     }()
@@ -18,6 +37,7 @@ final class SortFilterTableViewCell: UITableViewCell {
     private let increaseDateButton: UIButton = {
         let button = UIButton()
         button.setTitle("First old", for: .normal)
+        button.titleLabel?.font = UIFont(name: "DMSans-Bold", size: 16)
         button.backgroundColor = #colorLiteral(red: 0.3540481031, green: 0.3433421254, blue: 0.4038961232, alpha: 1)
         return button
     }()
@@ -25,21 +45,19 @@ final class SortFilterTableViewCell: UITableViewCell {
     private let descendingDateButton: UIButton = {
         let button = UIButton()
         button.setTitle("First new", for: .normal)
+        button.titleLabel?.font = UIFont(name: "DMSans-Bold", size: 16)
         button.backgroundColor = #colorLiteral(red: 0.3540481031, green: 0.3433421254, blue: 0.4038961232, alpha: 1)
         return button
     }()
 
-    weak var sortByDelegate: SortByDelegate?
-    private var currentSortBy: SortBy = .descendingDate
-
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        selectionStyle = .none
         setupCell()
-        addSubview(increasePriceButton)
-        addSubview(descendingPriceButton)
-        addSubview(increaseDateButton)
-        addSubview(descendingDateButton)
+        contentView.addSubview(increasePriceButton)
+        contentView.addSubview(descendingPriceButton)
+        contentView.addSubview(increaseDateButton)
+        contentView.addSubview(descendingDateButton)
+        addTargets()
     }
 
     required init?(coder: NSCoder) {
@@ -49,15 +67,45 @@ final class SortFilterTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         setupIncreasePriceButton()
+        setupDescendingPriceButton()
+        setupIncreaseDateButton()
+        setupDescendingDateButton()
     }
 
     private func setupIncreasePriceButton() {
         increasePriceButton.pin
-            .topLeft(20)
+            .vCenter(-20%)
+            .hCenter(-20%)
+            .width(Constants.widthPercent)
+            .height(Constants.heigthPercent)
+    }
+
+    private func setupDescendingPriceButton() {
+        descendingPriceButton.pin
+            .vCenter(-20%)
+            .hCenter(20%)
+            .width(Constants.widthPercent)
+            .height(Constants.heigthPercent)
+    }
+
+    private func setupIncreaseDateButton() {
+        increaseDateButton.pin
+            .vCenter(20%)
+            .hCenter(-20%)
+            .width(Constants.widthPercent)
+            .height(Constants.heigthPercent)
+    }
+
+    private func setupDescendingDateButton() {
+        descendingDateButton.pin
+            .vCenter(20%)
+            .hCenter(20%)
+            .width(Constants.widthPercent)
+            .height(Constants.heigthPercent)
     }
 
     private func setupCell() {
-        self.selectionStyle = UITableViewCell.SelectionStyle.none
+        selectionStyle = UITableViewCell.SelectionStyle.none
 
         increasePriceButton.layer.cornerRadius = Constants.viewRadius
         descendingPriceButton.layer.cornerRadius = Constants.viewRadius
@@ -83,11 +131,14 @@ final class SortFilterTableViewCell: UITableViewCell {
         descendingPriceButton.layer.shadowOpacity = Constants.shadowOpacity
         increaseDateButton.layer.shadowOpacity = Constants.shadowOpacity
         descendingDateButton.layer.shadowOpacity = Constants.shadowOpacity
-
-        self.layoutMargins = UIEdgeInsets.zero
-        self.preservesSuperviewLayoutMargins = false
     }
 
+    private func addTargets() {
+        increasePriceButton.addTarget(self, action: #selector(increasePriceDidTap(_:)), for: .touchUpInside)
+        descendingPriceButton.addTarget(self, action: #selector(descendingPriceDidTap(_:)), for: .touchUpInside)
+        increaseDateButton.addTarget(self, action: #selector(increaseDateDidTap(_:)), for: .touchUpInside)
+        descendingDateButton.addTarget(self, action: #selector(descendingDateDidTap(_:)), for: .touchUpInside)
+    }
     private func setDefault(_ sortBy: SortBy) {
         switch sortBy {
         case .increasePrice:
@@ -113,27 +164,27 @@ final class SortFilterTableViewCell: UITableViewCell {
         }
     }
 
-    private func didTap(sortBy: SortBy) {
+    private func didTap(with sortBy: SortBy) {
         setDefault(currentSortBy)
         currentSortBy = sortBy
         setChoosen(sortBy)
         sortByDelegate?.didChangeSortBy(sortBy: sortBy)
     }
 
-    @IBAction private func increasePriceDidTap(_ sender: Any) {
-        didTap(sortBy: .increasePrice)
+    @objc private func increasePriceDidTap(_ sender: Any) {
+        didTap(with: .increasePrice)
     }
 
-    @IBAction private func increaseDateDidTap(_ sender: Any) {
-        didTap(sortBy: .increaseDate)
+    @objc private func increaseDateDidTap(_ sender: Any) {
+        didTap(with: .increaseDate)
     }
 
-    @IBAction private func descendingPriceDidTap(_ sender: Any) {
-        didTap(sortBy: .descendingPrice)
+    @objc private func descendingPriceDidTap(_ sender: Any) {
+        didTap(with: .descendingPrice)
     }
 
-    @IBAction private func descendingDateDidTap(_ sender: Any) {
-        didTap(sortBy: .descendingDate)
+    @objc private func descendingDateDidTap(_ sender: Any) {
+        didTap(with: .descendingDate)
     }
 }
 
@@ -144,5 +195,7 @@ extension SortFilterTableViewCell {
         static let shadowOpacity: Float = 0.4
         static let legendFormSize: CGFloat = 15
         static let imageRadius: CGFloat = 10
+        static let heigthPercent: Percent = 28%
+        static let widthPercent: Percent = 35%
     }
 }

@@ -1,14 +1,10 @@
 import UIKit
 
 final class MeHistoryFilterContainer {
-    let viewController: MeHistoryFilterViewControllerPin
+    let viewController: MeHistoryFilterViewController
 
     class func assemble(with context: MeHistoryFilterContext) -> MeHistoryFilterContainer {
-//        let storyboard = UIStoryboard(name: Storyboard.mePage.name, bundle: nil)
-//        guard let vc = storyboard.instantiateViewController(withIdentifier: Storyboard.meFilterPage.name) as? MeHistoryFilterViewController else {
-//            fatalError("MeHistoryFilterContainer: viewController must be type MeHistoryFilterViewController")
-//        }
-        let vc = MeHistoryFilterViewControllerPin()
+        let vc = MeHistoryFilterViewController()
         let interactor = MeHistoryFilterInteractor()
         let presenter = MeHistoryFilterPresenter(interactor: interactor)
 
@@ -18,7 +14,7 @@ final class MeHistoryFilterContainer {
         return MeHistoryFilterContainer(view: vc)
     }
 
-    private init(view: MeHistoryFilterViewControllerPin) {
+    private init(view: MeHistoryFilterViewController) {
         self.viewController = view
     }
 }

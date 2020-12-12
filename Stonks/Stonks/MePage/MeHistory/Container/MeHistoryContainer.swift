@@ -1,14 +1,11 @@
 import UIKit
 
 final class MeHistoryContainer {
-    let viewController: MeHistoryViewControllerPin
+    let viewController: MeHistoryViewController
     private(set) weak var router: MeHistoryRouter?
 
     class func assemble(with context: MeHistoryContext) -> MeHistoryContainer {
-        let vc = MeHistoryViewControllerPin()
-//        let storyboard = UIStoryboard(name: Storyboard.mePage.name, bundle: nil)
-//        guard let vc = storyboard.instantiateViewController(withIdentifier: Storyboard.meHistoryPage.name) as? MeHistoryViewController else {
-//            fatalError("MeHistoryContainer: viewController must be type MeHistoryViewController")}
+        let vc = MeHistoryViewController()
 
         let interactor = MeHistoryInteractor()
         let presenter = MeHistoryPresenter(interactor: interactor)
@@ -23,7 +20,7 @@ final class MeHistoryContainer {
         return MeHistoryContainer(viewController: vc, router: router)
     }
 
-    private init(viewController: MeHistoryViewControllerPin, router: MeHistoryRouter) {
+    private init(viewController: MeHistoryViewController, router: MeHistoryRouter) {
         self.viewController = viewController
         self.router = router
     }
