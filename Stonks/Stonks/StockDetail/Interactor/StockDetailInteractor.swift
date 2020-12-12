@@ -272,6 +272,6 @@ extension StockDetailInteractor: NSFetchedResultsControllerDelegate {
 
 extension StockDetailInteractor {
     private struct Constants {
-        static let requestPeriod: TimeInterval = 15
+        static let requestPeriod: TimeInterval = 1
     }
 }
