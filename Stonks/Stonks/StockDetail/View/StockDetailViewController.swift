@@ -1,8 +1,8 @@
 import UIKit
 import Charts
+import PinLayout
 
 final class StockDetailViewController: UIViewController {
-
     var output: StockDetailViewOutput?
 
     var cardPresenter: CardViewPresenter?
@@ -37,32 +37,10 @@ final class StockDetailViewController: UIViewController {
 
     @IBOutlet private weak var loadIndicator: UIActivityIndicatorView!
 
-    private lazy var stockLineChartView: LineChartView = {
-        let chart = LineChartView()
-
-        chart.backgroundColor = Constants.StockLineChartView.backgoundColor
-        chart.translatesAutoresizingMaskIntoConstraints = false
-
-        chart.clipsToBounds = true
-        chart.layer.cornerRadius = Constants.StockLineChartView.cornerRadius
-
-        chart.xAxis.enabled = false
-        chart.rightAxis.enabled = false
-        chart.leftAxis.enabled = false
-        chart.drawGridBackgroundEnabled = false
-        chart.xAxis.drawGridLinesEnabled = false
-        chart.leftAxis.drawGridLinesEnabled = false
-        chart.minOffset = Constants.StockLineChartView.minOffset
-        chart.legend.enabled = false
-
-        chart.scaleXEnabled = false
-        chart.scaleYEnabled = false
-
-        return chart
-    }()
+    private weak var stockLineChartView: (StockDetailChartView & StockDetailChartViewInput)!
 
     private func addSubviews() {
-        chartContainerView.addSubview(stockLineChartView)
+
     }
 
     private func setupStockChartConstraints() {
@@ -138,6 +116,11 @@ final class StockDetailViewController: UIViewController {
     @objc
     private func didTapShowMyStocksButton() {
         output?.didTapShowMyStocksButton()
+    }
+
+    @objc
+    private func didTapLineChartView(_ sender: UITapGestureRecognizer) {
+        output?.didTapLineChartView(location: sender.location(in: stockLineChartView))
     }
 
     private func setupSellButton() {
@@ -222,6 +205,36 @@ final class StockDetailViewController: UIViewController {
         companyNameLabel.lineBreakMode = .byWordWrapping
     }
 
+    private func setupStockLineChartView() {
+        let chart = StockDetailChartView()
+
+        stockLineChartView = chart
+        chartContainerView.addSubview(stockLineChartView)
+
+        stockLineChartView.backgroundColor = Constants.StockLineChartView.backgoundColor
+        stockLineChartView.translatesAutoresizingMaskIntoConstraints = false
+
+        stockLineChartView.clipsToBounds = true
+        stockLineChartView.layer.cornerRadius = Constants.StockLineChartView.cornerRadius
+
+        stockLineChartView.xAxis.enabled = false
+        stockLineChartView.rightAxis.enabled = false
+        stockLineChartView.leftAxis.enabled = false
+        stockLineChartView.drawGridBackgroundEnabled = false
+        stockLineChartView.xAxis.drawGridLinesEnabled = false
+        stockLineChartView.leftAxis.drawGridLinesEnabled = false
+        stockLineChartView.minOffset = Constants.StockLineChartView.minOffset
+        stockLineChartView.legend.enabled = false
+
+        stockLineChartView.scaleXEnabled = false
+        stockLineChartView.scaleYEnabled = false
+        stockLineChartView.isUserInteractionEnabled = true
+
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapLineChartView))
+        tapRecognizer.numberOfTapsRequired = 1
+        stockLineChartView.addGestureRecognizer(tapRecognizer)
+    }
+
     private func setupActivityIndicator() {
         loadIndicator.hidesWhenStopped = true
     }
@@ -241,6 +254,7 @@ final class StockDetailViewController: UIViewController {
         setupBuyTextFieldContainerView()
         setupSellTextField()
         setupSellTextFieldContainerView()
+        setupStockLineChartView()
         setupActivityIndicator()
     }
 
@@ -307,6 +321,10 @@ extension StockDetailViewController: StockDetailViewInput {
         stockCurrentCostLabel.text = cost
     }
 
+    func getLineChartViewSize() -> CGSize {
+        return stockLineChartView.bounds.size
+    }
+
     func setChartData(with quotes: [ChartDataEntry]) {
         let chartDataset = LineChartDataSet(quotes)
 
@@ -356,6 +374,12 @@ extension StockDetailViewController: StockDetailViewInput {
         companyNameLabel.isHidden = false
 
         loadIndicator.stopAnimating()
+    }
+
+    func showPointInfo(percentageX: CGFloat, percentageY: CGFloat, cost: String) {
+        stockLineChartView.configure(text: cost,
+                                     percentageX: percentageX,
+                                     percentageY: percentageY)
     }
 
     func disableKeyboard() {

@@ -1,8 +1,7 @@
 import Foundation
 import Charts
 
-protocol StockDetailViewInput: class {
-
+protocol StockDetailViewInput: AnyObject {
     func setChartData(with quotes: [ChartDataEntry])
 
     func setNavigationBarTitle(with titel: String)
@@ -29,11 +28,18 @@ protocol StockDetailViewInput: class {
 
     func hideActivityIndicator()
 
+    func getLineChartViewSize() -> CGSize
+
+    func showPointInfo(percentageX: CGFloat, percentageY: CGFloat, cost: String)
+
     func disableKeyboard()
 }
 
-protocol StockDetailViewOutput: class {
+protocol StockDetailChartViewInput: AnyObject {
+    func configure(text: String, percentageX: CGFloat, percentageY: CGFloat)
+}
 
+protocol StockDetailViewOutput: class {
     func didLoadView()
 
     func didTapView()
@@ -45,15 +51,15 @@ protocol StockDetailViewOutput: class {
     func viewWillDisappear()
 
     func didTapShowMyStocksButton()
+
+    func didTapLineChartView(location: CGPoint)
 }
 
-protocol StockDetailRouterInput: class {
-
+protocol StockDetailRouterInput: AnyObject {
     func showMyStocksScreen()
 }
 
-protocol StockDetailInteractorInput: class {
-
+protocol StockDetailInteractorInput: AnyObject {
     func increaseAmount(by value: Int)
 
     func descreaseAmount(by value: Int)
@@ -67,8 +73,7 @@ protocol StockDetailInteractorInput: class {
     func stopFetching()
 }
 
-protocol StockDetailInteractorOutput: class {
-
+protocol StockDetailInteractorOutput: AnyObject {
     func freshCostDidReceived(model: StockPresenterData)
 
     func stockDataDidReceived(model: StockPresenterData)

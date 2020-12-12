@@ -55,6 +55,36 @@ extension StockDetailPresenter: StockDetailViewOutput {
         interactor?.descreaseAmount(by: amount)
         interactor?.fetchAmountPrice()
     }
+
+    func didTapLineChartView(location: CGPoint) {
+        guard let size = view?.getLineChartViewSize(),
+              let quotes = model.quotes else {
+            return
+        }
+
+        let percentageX = location.x / size.width
+        let index = Int((percentageX * CGFloat(quotes.count)).rounded())
+
+        var minCost = quotes[.zero].floatValue
+        var maxCost = quotes[.zero].floatValue
+
+        quotes.forEach { quote in
+            let floatQuote = quote.floatValue
+
+            if floatQuote < minCost {
+                minCost = floatQuote
+            } else if floatQuote > maxCost {
+                maxCost = floatQuote
+            }
+        }
+
+        let cost = quotes[index].floatValue
+        let percentageY = 1 - CGFloat((cost - minCost) / (maxCost - minCost))
+
+        view?.showPointInfo(percentageX: percentageX,
+                            percentageY: percentageY,
+                            cost: String(format: "%.1f", cost) + "$")
+    }
 }
 
 extension StockDetailPresenter: StockDetailInteractorOutput {
