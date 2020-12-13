@@ -20,24 +20,29 @@ final class MePortfolioViewController: UIViewController {
         output.didLoadView()
 
     }
+
+    override func viewDidLayoutSubviews() {
+        self.setupTableViewLayout()
+    }
+
+    private func setupTableViewLayout() {
+        tableView.pin
+            .all()
+    }
+
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.showsVerticalScrollIndicator = false
-        let chartNib = UINib(nibName: ChartTableViewCell.reuseIdentifier, bundle: nil)
-        tableView.register(chartNib, forCellReuseIdentifier: ChartTableViewCell.reuseIdentifier)
-        let historyNib = UINib(nibName: HistoryButtonTableViewCell.reuseIdentifier, bundle: nil)
-        tableView.register(historyNib, forCellReuseIdentifier: HistoryButtonTableViewCell.reuseIdentifier)
+        tableView.register(ChartTableViewCell.self, forCellReuseIdentifier: ChartTableViewCell.reuseIdentifier)
+        tableView.register(HistoryButtonTableViewCell.self, forCellReuseIdentifier: HistoryButtonTableViewCell.identifier)
+        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 1))
+        tableView.separatorStyle = .none
     }
 
     private func setupView() {
         view.addSubview(tableView)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        tableView.separatorStyle = .none
+        tableView.pin.all()
     }
 }
 
@@ -63,7 +68,9 @@ extension MePortfolioViewController: UITableViewDelegate, UITableViewDataSource 
             }
             return cell
         case .historyButton:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: HistoryButtonTableViewCell.reuseIdentifier, for: indexPath) as? HistoryButtonTableViewCell else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: HistoryButtonTableViewCell.identifier, for: indexPath) as? HistoryButtonTableViewCell else {
+                return UITableViewCell()
+            }
             return cell
         default:
             fatalError("MePortfolioViewController/cellForRowAtindexPath.Section: \(indexPath.section)\n Row: \(indexPath.row)")

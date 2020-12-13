@@ -111,8 +111,8 @@ final class MeViewController: UIViewController {
         photoButton.pin
             .top(view.pin.safeArea.top + 4)
             .right(8)
-            .height(50)
-            .width(50)
+            .height(45)
+            .width(45)
     }
 
     private func setupCardView() {

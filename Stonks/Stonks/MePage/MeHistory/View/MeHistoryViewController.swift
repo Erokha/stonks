@@ -131,7 +131,6 @@ extension MeHistoryViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MeHistoryTableViewCell.identifier, for: indexPath) as? MeHistoryTableViewCell else {
             return UITableViewCell()
         }
-//        let cell = MeHistoryTableViewCellPin()
         guard let stock = output?.stock(at: indexPath) else {
             return UITableViewCell()
         }
