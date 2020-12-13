@@ -39,10 +39,6 @@ final class StockDetailViewController: UIViewController {
 
     private weak var stockLineChartView: (StockDetailChartView & StockDetailChartViewInput)!
 
-    private func addSubviews() {
-
-    }
-
     private func setupStockChartConstraints() {
         stockLineChartView.topAnchor.constraint(equalTo: chartContainerView.topAnchor,
                                                 constant: Constants.StockLineChartView.topConstraintContant).isActive = true
@@ -239,7 +235,7 @@ final class StockDetailViewController: UIViewController {
         loadIndicator.hidesWhenStopped = true
     }
 
-    private func setupViews() {
+    private func setupSubviews() {
         setupCompanyNameLabel()
         setupShowMyStocksButton()
         setupStockDetailCardContainerView()
@@ -269,8 +265,7 @@ final class StockDetailViewController: UIViewController {
         super.viewDidLoad()
 
         setupView()
-        addSubviews()
-        setupViews()
+        setupSubviews()
         setupConstraints()
 
         output?.didLoadView()

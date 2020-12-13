@@ -35,8 +35,8 @@ final class StockDetailChartView: LineChartView {
         }
 
         pointInfoView.pin
-            .width(20%)
-            .height(40%)
+            .width(Constants.PointInfoView.widthPercent)
+            .height(Constants.PointInfoView.heightPercent)
 
         let rootWidth = bounds.size.width
         let rootHeight = bounds.size.height
@@ -46,19 +46,19 @@ final class StockDetailChartView: LineChartView {
         var leftOffset: CGFloat = xPercent * bounds.size.width - width / 2
 
         if topOffset <= .zero {
-            topOffset = 1
+            topOffset = Constants.PointInfoView.minTopOffest
         }
 
         if topOffset + height >= rootHeight {
-            topOffset = rootHeight - height - 1
+            topOffset = rootHeight - height - Constants.PointInfoView.minTopOffest
         }
 
         if leftOffset <= .zero {
-            leftOffset = 1
+            leftOffset = Constants.PointInfoView.minLeftOffset
         }
 
         if leftOffset + width >= rootWidth {
-            leftOffset = rootWidth - width - 1
+            leftOffset = rootWidth - width - Constants.PointInfoView.minLeftOffset
         }
 
         pointInfoView.pin
@@ -89,11 +89,8 @@ final class StockDetailChartView: LineChartView {
         pointInfoView = pointView
         addSubview(pointInfoView)
 
-        pointInfoView.backgroundColor = UIColor(red: 113 / 255,
-                                                green: 101 / 255,
-                                                blue: 227 / 255,
-                                                alpha: 0.8)
-        pointInfoView.layer.cornerRadius = 15
+        pointInfoView.backgroundColor = Constants.PointInfoView.backgroundColor
+        pointInfoView.layer.cornerRadius = Constants.PointInfoView.cornerRadius
         pointInfoView.isUserInteractionEnabled = false
     }
 
@@ -115,9 +112,9 @@ extension StockDetailChartView: StockDetailChartViewInput {
 
         layoutSubviews()
 
-        pointInfoView.alpha = 1
-        UIView.animate(withDuration: 2.5) {
-            self.pointInfoView.alpha = 0
+        pointInfoView.alpha = Constants.PointInfoViewAnimation.startAlpha
+        UIView.animate(withDuration: Constants.PointInfoViewAnimation.duration) {
+            self.pointInfoView.alpha = Constants.PointInfoViewAnimation.endAlpha
         }
 
         costLabel.text = text
@@ -130,7 +127,32 @@ extension StockDetailChartView {
             static let font: UIFont? = UIFont(name: "DMSans-Bold", size: 16)
 
             static let widthPercent: Percent = 100%
+
             static let heightPercent: Percent = 100%
+        }
+
+        struct PointInfoView {
+            static let backgroundColor: UIColor = UIColor(red: 113 / 255,
+                                                          green: 101 / 255,
+                                                          blue: 227 / 255,
+                                                          alpha: 0.8)
+            static let cornerRadius: CGFloat = 15
+
+            static let minTopOffest: CGFloat = 1
+
+            static let minLeftOffset: CGFloat = 1
+
+            static let widthPercent: Percent = 20%
+
+            static let heightPercent: Percent = 40%
+        }
+
+        struct PointInfoViewAnimation {
+            static let startAlpha: CGFloat = 1
+
+            static let endAlpha: CGFloat = 0
+
+            static let duration: TimeInterval = 2.5
         }
     }
 }

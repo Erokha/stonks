@@ -42,11 +42,19 @@ final class StockDetailInteractor: NSObject {
     }
 
     private func setupUpdateTimer() {
-        self.updateQuotesTimer = Timer.scheduledTimer(timeInterval: Constants.requestPeriod,
-                                                      target: self,
-                                                      selector: #selector(fetchFreshCost),
-                                                      userInfo: nil,
-                                                      repeats: true)
+        DispatchQueue.global(qos: .background).async {
+            let timer = Timer.scheduledTimer(timeInterval: Constants.requestPeriod,
+                                                          target: self,
+                                                          selector: #selector(self.fetchFreshCost),
+                                                          userInfo: nil,
+                                                          repeats: true)
+            self.updateQuotesTimer = timer
+
+            let runLoop = RunLoop.current
+
+            runLoop.add(timer, forMode: .default)
+            runLoop.run()
+        }
     }
 
     private func configureFrcUser() {
@@ -123,8 +131,10 @@ final class StockDetailInteractor: NSObject {
                 self?.refreshCoreDataStock(with: stock)
             }
 
-            self?.stock?.priceHistory = stock.priceHistory
-            self?.output?.freshCostDidReceived(model: StockPresenterData(model: self?.stock ?? stock))
+            DispatchQueue.main.async {
+                self?.stock?.priceHistory = stock.priceHistory
+                self?.output?.freshCostDidReceived(model: StockPresenterData(model: self?.stock ?? stock))
+            }
         }
     }
 }
