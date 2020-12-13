@@ -63,7 +63,7 @@ extension StockDetailPresenter: StockDetailViewOutput {
         }
 
         let percentageX = location.x / size.width
-        let index = Int((percentageX * CGFloat(quotes.count)).rounded())
+        let index = Int((percentageX * CGFloat(quotes.count - 1)).rounded())
 
         var minCost = quotes[.zero].floatValue
         var maxCost = quotes[.zero].floatValue
@@ -97,8 +97,9 @@ extension StockDetailPresenter: StockDetailInteractorOutput {
     }
 
     func freshCostDidReceived(model: StockPresenterData) {
-        interactor?.fetchAmountPrice()
         self.model = model
+
+        interactor?.fetchAmountPrice()
 
         guard let priceHistory = model.quotes,
               let freshPrice = priceHistory.last else {
@@ -128,9 +129,10 @@ extension StockDetailPresenter: StockDetailInteractorOutput {
     }
 
     func stockDataDidReceived(model: StockPresenterData) {
+        self.model = model
+
         interactor?.fetchAmountPrice()
         interactor?.fetchBalance()
-        self.model = model
 
         guard let priceHistory = model.quotes,
               let freshPrice = priceHistory.last,

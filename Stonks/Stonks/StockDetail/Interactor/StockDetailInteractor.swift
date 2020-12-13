@@ -76,10 +76,10 @@ final class StockDetailInteractor: NSObject {
 
     private func prepareCardModel(user: User) -> CardData {
         guard let stock = stock else {
-            return CardData(leftNumber: 0, rightNumber: 0)
+            return CardData(leftNumber: .zero, rightNumber: .zero)
         }
 
-        let yourAmountPrice = (stock.priceHistory.last ?? 0).multiplying(by: NSDecimalNumber(value: stock.amount))
+        let yourAmountPrice = (stock.priceHistory.last ?? .zero).multiplying(by: NSDecimalNumber(value: stock.amount))
 
         return CardData(leftNumber: Int(yourAmountPrice.floatValue),
                         rightNumber: Int(user.balance.floatValue))
@@ -123,8 +123,8 @@ final class StockDetailInteractor: NSObject {
                 self?.refreshCoreDataStock(with: stock)
             }
 
-            self?.stock = stock
-            self?.output?.freshCostDidReceived(model: StockPresenterData(model: stock))
+            self?.stock?.priceHistory = stock.priceHistory
+            self?.output?.freshCostDidReceived(model: StockPresenterData(model: self?.stock ?? stock))
         }
     }
 }
@@ -135,7 +135,7 @@ extension StockDetailInteractor: StockDetailInteractorInput {
             return
         }
 
-        let price = (stock.priceHistory.last ?? 0).multiplying(by: NSDecimalNumber(value: stock.amount))
+        let price = (stock.priceHistory.last ?? .zero).multiplying(by: NSDecimalNumber(value: stock.amount))
 
         sendCardAmountPrice(newPrice: price)
     }
@@ -149,7 +149,7 @@ extension StockDetailInteractor: StockDetailInteractorInput {
     }
 
     func increaseAmount(by value: Int) {
-        guard value > 0 else {
+        guard value > .zero else {
             output?.showAlert(with: "Oops!", message: "Amount should be > 0")
             return
         }
@@ -175,7 +175,7 @@ extension StockDetailInteractor: StockDetailInteractorInput {
 
         if !StockDataService.shared.stockIsNew(symbol: stock.symbol) {
             refreshCoreDataStock(with: stock)
-        } else if stock.amount > 0 {
+        } else if stock.amount > .zero {
             StockDataService.shared.createStock(name: stock.name,
                                                 symbol: stock.symbol,
                                                 totalCost: stock.totalCost,
@@ -189,7 +189,7 @@ extension StockDetailInteractor: StockDetailInteractorInput {
     }
 
     func descreaseAmount(by value: Int) {
-        guard value > 0 else {
+        guard value > .zero else {
             output?.showAlert(with: "Oops!", message: "Amount should be > 0")
             return
         }
@@ -210,15 +210,15 @@ extension StockDetailInteractor: StockDetailInteractorInput {
         user.balance = user.balance.adding(NSDecimalNumber(decimal: transactionCost))
         stock.amount -= value
 
-        if stock.amount == 0 {
-            stock.totalCost = 0
+        if stock.amount == .zero {
+            stock.totalCost = .zero
         } else {
             stock.totalCost = stock.totalCost.adding(NSDecimalNumber(decimal: -transactionCost))
         }
 
         UserDataService.shared.editUser(user: user)
 
-        if stock.amount == 0 && !StockDataService.shared.stockIsNew(symbol: stock.symbol) {
+        if stock.amount == .zero && !StockDataService.shared.stockIsNew(symbol: stock.symbol) {
             StockDataService.shared.deleteStock(symbol: stock.symbol)
         }
 
@@ -272,6 +272,6 @@ extension StockDetailInteractor: NSFetchedResultsControllerDelegate {
 
 extension StockDetailInteractor {
     private struct Constants {
-        static let requestPeriod: TimeInterval = 10
+        static let requestPeriod: TimeInterval = 1
     }
 }
