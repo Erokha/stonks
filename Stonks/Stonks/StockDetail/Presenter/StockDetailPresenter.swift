@@ -79,7 +79,11 @@ extension StockDetailPresenter: StockDetailViewOutput {
         }
 
         let cost = quotes[index].floatValue
-        let percentageY = 1 - CGFloat((cost - minCost) / (maxCost - minCost))
+        var percentageY: CGFloat = 0.5
+
+        if abs(CGFloat(maxCost - minCost)) > Constants.eps {
+            percentageY = 1 - CGFloat((cost - minCost) / (maxCost - minCost))
+        }
 
         view?.showPointInfo(percentageX: percentageX,
                             percentageY: percentageY,
@@ -171,5 +175,11 @@ extension StockDetailPresenter: StockDetailInteractorOutput {
 
     func viewWillDisappear() {
         interactor?.stopFetching()
+    }
+}
+
+extension StockDetailPresenter {
+    private struct Constants {
+        static let eps: CGFloat = 0.000001
     }
 }
