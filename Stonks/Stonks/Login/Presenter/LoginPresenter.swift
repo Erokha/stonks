@@ -24,6 +24,7 @@ extension LoginPresenter: LoginViewOutput {
             return
         }
 
+        view?.setGoogleSignInPresentingVC()
         interactor.termsAreAccepted() ? view?.setCheckBoxChecked() : view?.setCheckBoxUnchecked()
     }
 

@@ -1,5 +1,4 @@
 enum Storyboard {
-    case stockDetail
     case settings
     case mainStocks
     case mePage
@@ -11,8 +10,6 @@ enum Storyboard {
 extension Storyboard {
     var name: String {
         switch self {
-        case .stockDetail:
-            return Constants.stockDetail
         case .settings:
             return Constants.settings
         case .mainStocks:
@@ -30,7 +27,6 @@ extension Storyboard {
 }
 
 private struct Constants {
-    static let stockDetail = "StockDetail"
     static let settings = "Settings"
     static let mainStocks = "MainStocks"
     static let mePage = "MePage"

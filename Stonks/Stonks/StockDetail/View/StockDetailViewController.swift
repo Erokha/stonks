@@ -7,57 +7,44 @@ final class StockDetailViewController: UIViewController {
 
     var cardPresenter: CardViewPresenter?
 
-    @IBOutlet private weak var showMyStocksButton: UIButton!
+    private weak var showMyStocksButton: UIButton!
 
-    @IBOutlet private weak var companyNameLabel: UILabel!
+    private weak var companyNameLabel: UILabel!
 
-    @IBOutlet private weak var stockDetailCardContainerView: UIView!
+    private weak var stockDetailCardContainerView: UIView!
 
-    @IBOutlet private weak var stockDetailCardView: CardView!
+    private weak var stockDetailCardView: CardView!
 
-    @IBOutlet private weak var chartContainerView: UIView!
+    private weak var chartContainerView: UIView!
 
-    @IBOutlet private weak var stockSymbolLabel: UILabel!
+    private weak var stockSymbolLabel: UILabel!
 
-    @IBOutlet private weak var stockCurrentCostLabel: UILabel!
+    private weak var stockCurrentCostLabel: UILabel!
 
-    @IBOutlet private weak var stockAmountLabel: UILabel!
+    private weak var stockAmountLabel: UILabel!
 
-    @IBOutlet private weak var buyButton: UIButton!
+    private weak var buyButton: UIButton!
 
-    @IBOutlet private weak var sellButton: UIButton!
+    private weak var sellButton: UIButton!
 
-    @IBOutlet private weak var buyTextFieldContainerView: UIView!
+    private weak var buyTextFieldContainerView: UIView!
 
-    @IBOutlet private weak var sellTextFieldContainerView: UIView!
+    private weak var sellTextFieldContainerView: UIView!
 
-    @IBOutlet private weak var buyTextField: UITextField!
+    private weak var buyTextField: UITextField!
 
-    @IBOutlet private weak var sellTextField: UITextField!
+    private weak var sellTextField: UITextField!
 
-    @IBOutlet private weak var loadIndicator: UIActivityIndicatorView!
+    private weak var loadIndicator: UIActivityIndicatorView!
 
     private weak var stockLineChartView: (StockDetailChartView & StockDetailChartViewInput)!
 
-    private func setupStockChartConstraints() {
-        stockLineChartView.topAnchor.constraint(equalTo: chartContainerView.topAnchor,
-                                                constant: Constants.StockLineChartView.topConstraintContant).isActive = true
-
-        stockLineChartView.leadingAnchor.constraint(equalTo: chartContainerView.leadingAnchor,
-                                                    constant: Constants.StockLineChartView.leadingConstraintContant).isActive = true
-
-        stockLineChartView.trailingAnchor.constraint(equalTo: chartContainerView.trailingAnchor,
-                                                     constant: Constants.StockLineChartView.trailingConstraintContant).isActive = true
-
-        stockLineChartView.bottomAnchor.constraint(equalTo: chartContainerView.bottomAnchor,
-                                                   constant: Constants.StockLineChartView.bottomConstraintContant).isActive = true
-    }
-
-    private func setupConstraints() {
-        setupStockChartConstraints()
-    }
-
     private func setupStockDetailCardContainerView() {
+        let containerView = UIView()
+
+        stockDetailCardContainerView = containerView
+        view.addSubview(stockDetailCardContainerView)
+
         stockDetailCardContainerView.layer.cornerRadius = Constants.StockDetailCardContainerView.cornerRadius
         stockDetailCardContainerView.layer.shadowColor = Constants.StockDetailCardContainerView.shadowColor.cgColor
         stockDetailCardContainerView.layer.shadowOffset = Constants.StockDetailCardContainerView.shadowOffset
@@ -66,6 +53,12 @@ final class StockDetailViewController: UIViewController {
     }
 
     private func setupChartContainerView() {
+        let chartView = UIView()
+
+        chartContainerView = chartView
+        view.addSubview(chartContainerView)
+
+        chartContainerView.backgroundColor = .white
         chartContainerView.layer.cornerRadius = Constants.ChartContainerView.cornerRadius
         chartContainerView.layer.shadowColor = Constants.ChartContainerView.shadowColor.cgColor
         chartContainerView.layer.shadowOffset = Constants.ChartContainerView.shadowOffset
@@ -74,6 +67,11 @@ final class StockDetailViewController: UIViewController {
     }
 
     private func setupStockDetailCardView() {
+        let view = CardView()
+
+        stockDetailCardView = view
+        stockDetailCardContainerView.addSubview(stockDetailCardView)
+
         stockDetailCardView.clipsToBounds = true
         stockDetailCardView.layer.cornerRadius = Constants.StockDetailCardView.cornerRadius
 
@@ -86,9 +84,15 @@ final class StockDetailViewController: UIViewController {
     }
 
     private func setupBuyButton() {
+        let button = UIButton()
+
+        buyButton = button
+        view.addSubview(buyButton)
+
         buyButton.backgroundColor = Constants.BuyButton.backgroundColor
         buyButton.titleLabel?.font = Constants.BuyButton.font
         buyButton.setTitleColor(Constants.BuyButton.textColor, for: .normal)
+        buyButton.setTitle(Constants.BuyButton.text, for: .normal)
         buyButton.layer.cornerRadius = Constants.BuyButton.cornerRadius
 
         buyButton.layer.shadowColor = Constants.BuyButton.shadowColor.cgColor
@@ -120,9 +124,15 @@ final class StockDetailViewController: UIViewController {
     }
 
     private func setupSellButton() {
+        let button = UIButton()
+
+        sellButton = button
+        view.addSubview(sellButton)
+
         sellButton.backgroundColor = Constants.SellButton.backgroundColor
         sellButton.titleLabel?.font = Constants.SellButton.font
         sellButton.setTitleColor(Constants.SellButton.textColor, for: .normal)
+        sellButton.setTitle(Constants.SellButton.text, for: .normal)
         sellButton.layer.cornerRadius = Constants.SellButton.cornerRadius
 
         sellButton.layer.shadowColor = Constants.SellButton.shadowColor.cgColor
@@ -134,17 +144,42 @@ final class StockDetailViewController: UIViewController {
     }
 
     private func setupBuyTextField() {
+        let textField = UITextField()
+
+        buyTextField = textField
+        buyTextFieldContainerView.addSubview(buyTextField)
+
         buyTextField.clipsToBounds = true
         buyTextField.layer.cornerRadius = Constants.BuyTextField.cornerRadius
         buyTextField.layer.borderWidth = Constants.BuyTextField.borderWidth
         buyTextField.backgroundColor = Constants.BuyTextField.backgroundColor
         buyTextField.layer.borderColor = Constants.BuyTextField.borderColor.cgColor
 
+        buyTextField.leftView = UIView(frame: CGRect(x: .zero,
+                                                         y: .zero,
+                                                         width: Constants.textFieldTextLeftSpacing,
+                                                         height: .zero))
+        buyTextField.leftViewMode = .always
+        buyTextField.rightView = UIView(frame: CGRect(x: .zero,
+                                                          y: .zero,
+                                                          width: Constants.textFieldTextRightSpacing,
+                                                          height: .zero))
+        buyTextField.rightViewMode = .unlessEditing
+
+        buyTextField.clearButtonMode = .whileEditing
+        buyTextField.autocorrectionType = .no
+
+        buyTextField.font = Constants.BuyTextField.font
         buyTextField.attributedPlaceholder = NSAttributedString(string: Constants.BuyTextField.placeholderText,
                                                                 attributes: [NSAttributedString.Key.foregroundColor: Constants.BuyTextField.placeholderColor])
     }
 
     private func setupBuyTextFieldContainerView() {
+        let container = UIView()
+
+        buyTextFieldContainerView = container
+        view.addSubview(buyTextFieldContainerView)
+
         buyTextFieldContainerView.layer.cornerRadius = Constants.BuyTextField.cornerRadius
 
         buyTextFieldContainerView.layer.shadowColor = Constants.BuyTextField.shadowColor.cgColor
@@ -154,17 +189,42 @@ final class StockDetailViewController: UIViewController {
     }
 
     private func setupSellTextField() {
+        let textField = UITextField()
+
+        sellTextField = textField
+        sellTextFieldContainerView.addSubview(sellTextField)
+
         sellTextField.clipsToBounds = true
         sellTextField.layer.cornerRadius = Constants.SellTextField.cornerRadius
         sellTextField.layer.borderWidth = Constants.SellTextField.borderWidth
         sellTextField.backgroundColor = Constants.SellTextField.backgroundColor
         sellTextField.layer.borderColor = Constants.SellTextField.borderColor.cgColor
 
+        sellTextField.leftView = UIView(frame: CGRect(x: .zero,
+                                                         y: .zero,
+                                                         width: Constants.textFieldTextLeftSpacing,
+                                                         height: .zero))
+        sellTextField.leftViewMode = .always
+        sellTextField.rightView = UIView(frame: CGRect(x: .zero,
+                                                          y: .zero,
+                                                          width: Constants.textFieldTextRightSpacing,
+                                                          height: .zero))
+        sellTextField.rightViewMode = .unlessEditing
+
+        sellTextField.clearButtonMode = .whileEditing
+        sellTextField.autocorrectionType = .no
+
+        sellTextField.font = Constants.SellTextField.font
         sellTextField.attributedPlaceholder = NSAttributedString(string: Constants.SellTextField.placeholderText,
                                                                  attributes: [NSAttributedString.Key.foregroundColor: Constants.SellTextField.placeholderColor])
     }
 
     private func setupSellTextFieldContainerView() {
+        let container = UIView()
+
+        sellTextFieldContainerView = container
+        view.addSubview(sellTextFieldContainerView)
+
         sellTextFieldContainerView.layer.cornerRadius = Constants.SellTextField.cornerRadius
 
         sellTextFieldContainerView.layer.shadowColor = Constants.SellTextField.shadowColor.cgColor
@@ -174,27 +234,52 @@ final class StockDetailViewController: UIViewController {
     }
 
     private func setupStockNameLabel() {
+        let label = UILabel()
+
+        stockSymbolLabel = label
+        chartContainerView.addSubview(stockSymbolLabel)
+
         stockSymbolLabel.textAlignment = .left
         stockSymbolLabel.font = Constants.StockSymbolLabel.font
     }
 
     private func setupStockCurrentCostLabel() {
+        let label = UILabel()
+
+        stockCurrentCostLabel = label
+        chartContainerView.addSubview(stockCurrentCostLabel)
+
         stockCurrentCostLabel.textAlignment = .right
         stockCurrentCostLabel.font = Constants.StockCurrentCostLabel.font
     }
 
     private func setupShowMyStocksButton() {
+        let button = UIButton()
+
+        showMyStocksButton = button
+        view.addSubview(showMyStocksButton)
+
         showMyStocksButton.setImage(UIImage(named: Constants.ShowMyStocksButton.imageName), for: .normal)
         showMyStocksButton.imageView?.contentMode = .scaleAspectFill
         showMyStocksButton.addTarget(self, action: #selector(didTapShowMyStocksButton), for: .touchUpInside)
     }
 
     private func setupStockAmountLabel() {
+        let label = UILabel()
+
+        stockAmountLabel = label
+        view.addSubview(stockAmountLabel)
+
         stockAmountLabel.textAlignment = .center
         stockAmountLabel.font = Constants.StockAmountLabel.font
     }
 
     private func setupCompanyNameLabel() {
+        let label = UILabel()
+
+        companyNameLabel = label
+        view.addSubview(companyNameLabel)
+
         companyNameLabel.textAlignment = .center
         companyNameLabel.font = Constants.CompanyNameLabel.font
         companyNameLabel.numberOfLines = Constants.CompanyNameLabel.numberOfLines
@@ -232,6 +317,11 @@ final class StockDetailViewController: UIViewController {
     }
 
     private func setupActivityIndicator() {
+        let indicator = UIActivityIndicatorView()
+
+        loadIndicator = indicator
+        view.addSubview(loadIndicator)
+
         loadIndicator.hidesWhenStopped = true
     }
 
@@ -239,22 +329,24 @@ final class StockDetailViewController: UIViewController {
         setupCompanyNameLabel()
         setupShowMyStocksButton()
         setupStockDetailCardContainerView()
-        setupChartContainerView()
         setupStockDetailCardView()
+        setupChartContainerView()
+        setupStockLineChartView()
         setupStockNameLabel()
         setupStockCurrentCostLabel()
         setupStockAmountLabel()
         setupBuyButton()
         setupSellButton()
-        setupBuyTextField()
         setupBuyTextFieldContainerView()
-        setupSellTextField()
+        setupBuyTextField()
         setupSellTextFieldContainerView()
-        setupStockLineChartView()
+        setupSellTextField()
         setupActivityIndicator()
     }
 
     private func setupView() {
+        view.backgroundColor = Constants.backgroundColor
+
         let viewTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapView))
 
         viewTapRecognizer.numberOfTapsRequired = Constants.TapRecognizer.tapsRequired
@@ -266,9 +358,146 @@ final class StockDetailViewController: UIViewController {
 
         setupView()
         setupSubviews()
-        setupConstraints()
 
         output?.didLoadView()
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        layoutCompanyNameLabel()
+        layoutShowMyStocksButton()
+        layputStockDetailCardContainerView()
+        layoutStockDetailCardView()
+        layoutChartContainerView()
+        layoutLineChartView()
+        layoutStockNameLabel()
+        layoutStockCurrentCostLabel()
+        layoutStockAmountLabel()
+        layoutBuyButton()
+        layoutSellButton()
+        layoutBuyTextFieldContainerView()
+        layoutBuyTextField()
+        layoutSellTextFieldContainerView()
+        layoutSellTextField()
+        layoutActivityIndicator()
+    }
+
+    private func layoutCompanyNameLabel() {
+        companyNameLabel.pin
+            .top(5%)
+            .width(70%)
+            .height(50)
+            .hCenter()
+    }
+
+    private func layoutShowMyStocksButton() {
+        showMyStocksButton.pin
+            .width(27)
+            .height(27)
+            .left(3%)
+            .top(companyNameLabel.frame.midY - showMyStocksButton.bounds.size.height / 2)
+    }
+
+    private func layputStockDetailCardContainerView() {
+        stockDetailCardContainerView.pin
+            .top(showMyStocksButton.frame.maxY + 20)
+            .width(90%)
+            .height(10%)
+            .hCenter()
+    }
+
+    private func layoutStockDetailCardView() {
+        stockDetailCardView.pin
+            .all(.zero)
+    }
+
+    private func layoutChartContainerView() {
+        chartContainerView.pin
+            .top(stockDetailCardContainerView.frame.maxY + 30)
+            .width(90%)
+            .height(27%)
+            .hCenter()
+    }
+
+    private func layoutLineChartView() {
+        stockLineChartView.pin
+            .top(20%)
+            .left(.zero)
+            .right(.zero)
+            .bottom(.zero)
+    }
+
+    private func layoutStockNameLabel() {
+        stockSymbolLabel.pin
+            .top(2%)
+            .left(5%)
+            .width(40%)
+            .height(20%)
+    }
+
+    private func layoutStockCurrentCostLabel() {
+        stockCurrentCostLabel.pin
+            .top(2%)
+            .right(5%)
+            .width(40%)
+            .height(20%)
+    }
+
+    private func layoutStockAmountLabel() {
+        stockAmountLabel.pin
+            .top(chartContainerView.frame.maxY + 10)
+            .width(40%)
+            .hCenter()
+            .height(40)
+    }
+
+    private func layoutBuyButton() {
+        buyButton.pin
+            .top(stockAmountLabel.frame.maxY + 10)
+            .left(5%)
+            .width(45%)
+            .height(48)
+    }
+
+    private func layoutSellButton() {
+        sellButton.pin
+            .top(buyButton.frame.maxY + 20)
+            .left(5%)
+            .width(45%)
+            .height(48)
+    }
+
+    private func layoutBuyTextField() {
+        buyTextField.pin
+            .all(.zero)
+    }
+
+    private func layoutBuyTextFieldContainerView() {
+        buyTextFieldContainerView.pin
+            .top(stockAmountLabel.frame.maxY + 10)
+            .right(5%)
+            .width(35%)
+            .height(48)
+    }
+
+    private func layoutSellTextField() {
+        sellTextField.pin
+            .all(.zero)
+    }
+
+    private func layoutSellTextFieldContainerView() {
+        sellTextFieldContainerView.pin
+            .top(buyTextFieldContainerView.frame.maxY + 20)
+            .right(5%)
+            .width(35%)
+            .height(48)
+    }
+
+    private func layoutActivityIndicator() {
+        loadIndicator.pin
+            .top(chartContainerView.frame.midY - loadIndicator.bounds.size.height / 2)
+            .left(chartContainerView.frame.midX - loadIndicator.bounds.size.width / 2)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -379,149 +608,5 @@ extension StockDetailViewController: StockDetailViewInput {
 
     func disableKeyboard() {
         view.endEditing(true)
-    }
-}
-
-extension StockDetailViewController {
-    private struct Constants {
-        static let chartLineColor: UIColor = UIColor(red: 113 / 255,
-                                                     green: 101 / 255,
-                                                     blue: 227 / 255,
-                                                     alpha: 1)
-
-        static let chartFillColor: UIColor = UIColor(red: 113 / 255,
-                                                     green: 101 / 255,
-                                                     blue: 227 / 255,
-                                                     alpha: 0.6)
-
-        struct CompanyNameLabel {
-            static let font: UIFont? = UIFont(name: "DMSans-Medium", size: 15)
-            static let numberOfLines: Int = 2
-        }
-
-        struct ChartDataset {
-            static let circleRadius: CGFloat = 3
-            static let lineWidth: CGFloat = 1
-        }
-
-        struct StockDetailCardView {
-            static let cornerRadius: CGFloat = 20
-        }
-
-        struct ShowMyStocksButton {
-            static let imageName: String = "previous"
-        }
-
-        struct StockDetailCardContainerView {
-            static let cornerRadius: CGFloat = 20
-            static let shadowColor: UIColor = .black
-            static let shadowOffset: CGSize = CGSize(width: 0, height: 3)
-            static let shadowRadius: CGFloat = 3
-            static let shadowOpacity: Float = 0.5
-        }
-
-        struct ChartContainerView {
-            static let cornerRadius: CGFloat = 10
-            static let shadowColor: UIColor = .black
-            static let shadowOffset: CGSize = CGSize(width: 0, height: 3)
-            static let shadowRadius: CGFloat = 3
-            static let shadowOpacity: Float = 0.5
-        }
-
-        struct StockSymbolLabel {
-            static let font = UIFont(name: "DMSans-Bold", size: 30)
-        }
-
-        struct StockCurrentCostLabel {
-            static let font = UIFont(name: "DMSans-Bold", size: 24)
-        }
-
-        struct StockLineChartView {
-            static let backgoundColor: UIColor = .white
-            static let cornerRadius: CGFloat = 10
-            static let minOffset: CGFloat = 0
-
-            static let topConstraintContant: CGFloat = 50
-            static let bottomConstraintContant: CGFloat = 0
-            static let leadingConstraintContant: CGFloat = 0
-            static let trailingConstraintContant: CGFloat = 0
-        }
-
-        struct StockAmountLabel {
-            static let font: UIFont? = UIFont(name: "DMSans-Medium", size: 12)
-        }
-
-        struct BuyButton {
-            static let backgroundColor: UIColor = UIColor(red: 71 / 255,
-                                                          green: 190 / 255,
-                                                          blue: 162 / 255,
-                                                          alpha: 1)
-
-            static let font: UIFont? = UIFont(name: "DMSans-Bold", size: 17)
-            static let textColor: UIColor = .white
-            static let cornerRadius: CGFloat = 10
-
-            static let shadowColor: UIColor = .black
-            static let shadowOffset: CGSize = CGSize(width: 0, height: 3)
-            static let shadowRadius: CGFloat = 3
-            static let shadowOpacity: Float = 0.5
-        }
-
-        struct SellButton {
-            static let backgroundColor: UIColor = UIColor(red: 255 / 255,
-                                                          green: 199 / 255,
-                                                          blue: 91 / 255,
-                                                          alpha: 1)
-
-            static let font = UIFont(name: "DMSans-Bold", size: 17)
-            static let textColor: UIColor = .white
-            static let cornerRadius: CGFloat = 10
-
-            static let shadowColor: UIColor = .black
-            static let shadowOffset: CGSize = CGSize(width: 0, height: 3)
-            static let shadowRadius: CGFloat = 3
-            static let shadowOpacity: Float = 0.5
-        }
-
-        struct BuyTextField {
-            static let cornerRadius: CGFloat = 10
-            static let borderWidth: CGFloat = 1
-            static let placeholderColor: UIColor = .black
-            static let backgroundColor: UIColor = .white
-            static let borderColor: UIColor = .white
-
-            static let placeholderText: String = "Amount"
-            static let placeholderTextColor: UIColor = .black
-
-            static let shadowColor: UIColor = .black
-            static let shadowOffset: CGSize = CGSize(width: 0, height: 3)
-            static let shadowRadius: CGFloat = 3
-            static let shadowOpacity: Float = 0.5
-        }
-
-        struct SellTextField {
-            static let cornerRadius: CGFloat = 10
-            static let borderWidth: CGFloat = 1
-            static let placeholderColor: UIColor = .black
-            static let backgroundColor: UIColor = .white
-            static let borderColor: UIColor = .white
-
-            static let placeholderText: String = "Amount"
-            static let placeholderTextColor: UIColor = .black
-
-            static let shadowColor: UIColor = .black
-            static let shadowOffset: CGSize = CGSize(width: 0, height: 3)
-            static let shadowRadius: CGFloat = 3
-            static let shadowOpacity: Float = 0.5
-        }
-
-        struct CardView {
-            static let rightText: String = "Your Amount Price"
-            static let leftText: String = "Available Balance"
-        }
-
-        struct TapRecognizer {
-            static let tapsRequired: Int = 1
-        }
     }
 }

@@ -36,7 +36,7 @@ final class StockDetailChartView: LineChartView {
 
         pointInfoView.pin
             .width(Constants.PointInfoView.widthPercent)
-            .height(Constants.PointInfoView.heightPercent)
+            .height(pointInfoView.bounds.size.width)
 
         let rootWidth = bounds.size.width
         let rootHeight = bounds.size.height
@@ -143,8 +143,6 @@ extension StockDetailChartView {
             static let minLeftOffset: CGFloat = 1
 
             static let widthPercent: Percent = 20%
-
-            static let heightPercent: Percent = 40%
         }
 
         struct PointInfoViewAnimation {

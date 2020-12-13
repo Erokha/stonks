@@ -277,8 +277,6 @@ final class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        GIDSignIn.sharedInstance()?.presentingViewController = self
-
         setupView()
         setupSubviews()
 
@@ -574,6 +572,10 @@ extension LoginViewController: LoginViewInput {
             balanceTextField.backgroundColor = Constants.defaultStyleEntriesColor
             balanceTextField.layer.borderColor = Constants.defaultStyleEntriesColor.cgColor
         }
+    }
+
+    func setGoogleSignInPresentingVC() {
+        GIDSignIn.sharedInstance()?.presentingViewController = self
     }
 
     func disableKeyboard() {

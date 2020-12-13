@@ -105,6 +105,7 @@
 		31144407256016F600AF2552 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31144406256016F600AF2552 /* NetworkService.swift */; };
 		3114440B2560171F00AF2552 /* NetworkServiceInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3114440A2560171F00AF2552 /* NetworkServiceInput.swift */; };
 		313E10BA2584E76400783617 /* StockDetailChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313E10B92584E76400783617 /* StockDetailChartView.swift */; };
+		313E10D525866A9900783617 /* StockDetailConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313E10D425866A9900783617 /* StockDetailConstants.swift */; };
 		314C058E253B0D0200105352 /* DMSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 315BE130252F332F0074377B /* DMSans-Bold.ttf */; };
 		314C058F253B0D0200105352 /* DMSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 319B3054252DA640005837ED /* DMSans-Medium.ttf */; };
 		314C0590253B0D0200105352 /* DMSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 315BE131252F334B0074377B /* DMSans-Regular.ttf */; };
@@ -125,7 +126,6 @@
 		31905F7B25361BA0000D71A7 /* StockDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31905F7225361BA0000D71A7 /* StockDetailPresenter.swift */; };
 		31905F7C25361BA0000D71A7 /* StockDetailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31905F7425361BA0000D71A7 /* StockDetailData.swift */; };
 		31905F7D25361BA0000D71A7 /* StockDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31905F7625361BA0000D71A7 /* StockDetailViewController.swift */; };
-		31905F7E25361BA0000D71A7 /* StockDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31905F7725361BA0000D71A7 /* StockDetail.storyboard */; };
 		31905F8425361C37000D71A7 /* StockDetailContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31905F8325361C37000D71A7 /* StockDetailContainer.swift */; };
 		31905F8825361C7D000D71A7 /* StockDetailProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31905F8725361C7D000D71A7 /* StockDetailProtocols.swift */; };
 		31905F8C25361FD9000D71A7 /* StockDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31905F8B25361FD9000D71A7 /* StockDetailRouter.swift */; };
@@ -239,6 +239,7 @@
 		31144406256016F600AF2552 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		3114440A2560171F00AF2552 /* NetworkServiceInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceInput.swift; sourceTree = "<group>"; };
 		313E10B92584E76400783617 /* StockDetailChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailChartView.swift; sourceTree = "<group>"; };
+		313E10D425866A9900783617 /* StockDetailConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailConstants.swift; sourceTree = "<group>"; };
 		3155EC28254978D40036F67B /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		315BE130252F332F0074377B /* DMSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Bold.ttf"; sourceTree = "<group>"; };
 		315BE131252F334B0074377B /* DMSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Regular.ttf"; sourceTree = "<group>"; };
@@ -256,7 +257,6 @@
 		31905F7225361BA0000D71A7 /* StockDetailPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockDetailPresenter.swift; sourceTree = "<group>"; };
 		31905F7425361BA0000D71A7 /* StockDetailData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockDetailData.swift; sourceTree = "<group>"; };
 		31905F7625361BA0000D71A7 /* StockDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockDetailViewController.swift; sourceTree = "<group>"; };
-		31905F7725361BA0000D71A7 /* StockDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StockDetail.storyboard; sourceTree = "<group>"; };
 		31905F8325361C37000D71A7 /* StockDetailContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailContainer.swift; sourceTree = "<group>"; };
 		31905F8725361C7D000D71A7 /* StockDetailProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailProtocols.swift; sourceTree = "<group>"; };
 		31905F8B25361FD9000D71A7 /* StockDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailRouter.swift; sourceTree = "<group>"; };
@@ -1100,6 +1100,14 @@
 			path = Subviews;
 			sourceTree = "<group>";
 		};
+		313E10D325866A5400783617 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				313E10D425866A9900783617 /* StockDetailConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		3155EC27254978C00036F67B /* MainTabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -1254,9 +1262,9 @@
 		31905F7525361BA0000D71A7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				313E10D325866A5400783617 /* Constants */,
 				313E10B72584D73B00783617 /* Subviews */,
 				31905F7625361BA0000D71A7 /* StockDetailViewController.swift */,
-				31905F7725361BA0000D71A7 /* StockDetail.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1485,7 +1493,6 @@
 				314C058F253B0D0200105352 /* DMSans-Medium.ttf in Resources */,
 				314C0590253B0D0200105352 /* DMSans-Regular.ttf in Resources */,
 				13531274253B4C6600F77A91 /* HistoryButtonTableViewCell.xib in Resources */,
-				31905F7E25361BA0000D71A7 /* StockDetail.storyboard in Resources */,
 				134487A22541C40D008C2D7B /* SettingsTableViewCell.xib in Resources */,
 				318A8458257CEAC1006445BD /* GoogleService-Info.plist in Resources */,
 				0D777774254B22FA00EFF30E /* ArticleTableViewCell.xib in Resources */,
@@ -1671,6 +1678,7 @@
 				0DF11C06255C89D1004162BA /* UserStocksContainer.swift in Sources */,
 				0DF11C13255D6955004162BA /* MainStocksContainer.swift in Sources */,
 				311057EB253F219D00B41CDA /* Entities.swift in Sources */,
+				313E10D525866A9900783617 /* StockDetailConstants.swift in Sources */,
 				138D65B7256038CE004CC2DD /* FilterProtocols.swift in Sources */,
 				13C1DC04256117F50043BDA5 /* StockHistory+CoreDataClass.swift in Sources */,
 				311057E8253F1E1C00B41CDA /* User+CoreDataProperties.swift in Sources */,
