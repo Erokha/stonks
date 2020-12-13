@@ -46,7 +46,7 @@ final class MeViewController: UIViewController {
         view.layer.shadowOpacity = Constants.shadowOpacity
         view.layer.shadowRadius = Constants.cardShadowRadius
         view.layer.shadowOffset = .init(width: 0, height: 3)
-        view.layer.cornerRadius = 10
+        view.layer.cornerRadius = 20
         return view
     }()
 

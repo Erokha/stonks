@@ -35,17 +35,21 @@ final class MeSettingsViewController: UIViewController, UINavigationControllerDe
         tableView.delegate = self
         tableView.dataSource = self
         tableView.showsVerticalScrollIndicator = false
-        let chartNib = UINib(nibName: SettingsTableViewCell.reuseIdentifier, bundle: nil)
-        tableView.register(chartNib, forCellReuseIdentifier: SettingsTableViewCell.reuseIdentifier)
+        tableView.register(SettingsTableViewCellPin.self, forCellReuseIdentifier: SettingsTableViewCellPin.reuseIdentifier)
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        setupTableViewLayout()
+    }
+
+    private func setupTableViewLayout() {
+        tableView.pin
+            .all()
+    }
     private func setupView() {
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         tableView.separatorStyle = .none
     }
 
@@ -61,7 +65,9 @@ extension MeSettingsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsTableViewCell.reuseIdentifier, for: indexPath) as? SettingsTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsTableViewCellPin.reuseIdentifier, for: indexPath) as? SettingsTableViewCellPin else {
+            return UITableViewCell()
+        }
         guard let label = MeSettingsSections(rawValue: indexPath.section)?.info else { return UITableViewCell() }
         cell.configureCell(label: label)
         return cell

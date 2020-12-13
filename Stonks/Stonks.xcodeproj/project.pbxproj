@@ -55,7 +55,6 @@
 		1328DC67257E60F500565315 /* MeHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1328DC66257E60F500565315 /* MeHistoryViewController.swift */; };
 		1328DC6A257F6CDC00565315 /* MeHistoryTableViewCellPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1328DC69257F6CDC00565315 /* MeHistoryTableViewCellPin.swift */; };
 		1334532A255BF8B100CA8E01 /* MePortfolioInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13345329255BF8B100CA8E01 /* MePortfolioInteractor.swift */; };
-		133D0ED925436104003CBA81 /* MeContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133D0ED825436104003CBA81 /* MeContainerViewController.swift */; };
 		134179F1253227D50052D1A9 /* ChartColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134179E2253227A90052D1A9 /* ChartColor.swift */; };
 		1344877025419B5A008C2D7B /* MeSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1344876F25419B5A008C2D7B /* MeSettingsViewController.swift */; };
 		1344877D25419C9A008C2D7B /* MePortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1344877C25419C9A008C2D7B /* MePortfolioViewController.swift */; };
@@ -68,7 +67,6 @@
 		134487A52541D678008C2D7B /* MeSettingsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134487A42541D678008C2D7B /* MeSettingsContainer.swift */; };
 		134487A82541D724008C2D7B /* MeSettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134487A72541D724008C2D7B /* MeSettingsPresenter.swift */; };
 		134487AB2541D794008C2D7B /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134487AA2541D794008C2D7B /* Protocols.swift */; };
-		13531274253B4C6600F77A91 /* HistoryButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13531272253B4C6600F77A91 /* HistoryButtonTableViewCell.xib */; };
 		13591478254EC99E0048E60F /* MeHistoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13591477254EC99E0048E60F /* MeHistoryPresenter.swift */; };
 		1359147B254EC9AA0048E60F /* MeHistoryProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1359147A254EC9AA0048E60F /* MeHistoryProtocols.swift */; };
 		1359147E254ECA330048E60F /* MeHistoryContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1359147D254ECA330048E60F /* MeHistoryContainer.swift */; };
@@ -83,9 +81,9 @@
 		138D65C125603F46004CC2DD /* MeHistoryFilterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138D65C025603F46004CC2DD /* MeHistoryFilterPresenter.swift */; };
 		1390DA5C25854ACC00F70889 /* HistoryButtonTableViewCellPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1390DA5B25854ACC00F70889 /* HistoryButtonTableViewCellPin.swift */; };
 		1390DA602585FCC700F70889 /* ChartTableViewCellPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1390DA5F2585FCC700F70889 /* ChartTableViewCellPin.swift */; };
+		1390DA6825866B2300F70889 /* SettingsTableViewCellPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1390DA6725866B2300F70889 /* SettingsTableViewCellPin.swift */; };
 		13A27FAD2562790C0015D03C /* HistoryStockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A27FAC2562790C0015D03C /* HistoryStockData.swift */; };
 		13AF96612563D03B001988E6 /* MePortfolioStockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AF96602563D03B001988E6 /* MePortfolioStockData.swift */; };
-		13BBF5FF253AD3F400DA0C32 /* ChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13BBF5FD253AD3F400DA0C32 /* ChartTableViewCell.xib */; };
 		13C1DC01256117B70043BDA5 /* StockHistory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C1DC00256117B70043BDA5 /* StockHistory+CoreDataProperties.swift */; };
 		13C1DC04256117F50043BDA5 /* StockHistory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C1DC03256117F50043BDA5 /* StockHistory+CoreDataClass.swift */; };
 		13C1DC0A256119BC0043BDA5 /* StockHistoryDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C1DC09256119BC0043BDA5 /* StockHistoryDataService.swift */; };
@@ -183,7 +181,6 @@
 		1328DC66257E60F500565315 /* MeHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHistoryViewController.swift; sourceTree = "<group>"; };
 		1328DC69257F6CDC00565315 /* MeHistoryTableViewCellPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHistoryTableViewCellPin.swift; sourceTree = "<group>"; };
 		13345329255BF8B100CA8E01 /* MePortfolioInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MePortfolioInteractor.swift; sourceTree = "<group>"; };
-		133D0ED825436104003CBA81 /* MeContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeContainerViewController.swift; sourceTree = "<group>"; };
 		134179E2253227A90052D1A9 /* ChartColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartColor.swift; sourceTree = "<group>"; };
 		134179E4253227A90052D1A9 /* MePage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MePage.storyboard; sourceTree = "<group>"; };
 		1344876F25419B5A008C2D7B /* MeSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeSettingsViewController.swift; sourceTree = "<group>"; };
@@ -197,7 +194,6 @@
 		134487A42541D678008C2D7B /* MeSettingsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeSettingsContainer.swift; sourceTree = "<group>"; };
 		134487A72541D724008C2D7B /* MeSettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeSettingsPresenter.swift; sourceTree = "<group>"; };
 		134487AA2541D794008C2D7B /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
-		13531272253B4C6600F77A91 /* HistoryButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryButtonTableViewCell.xib; sourceTree = "<group>"; };
 		13591477254EC99E0048E60F /* MeHistoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHistoryPresenter.swift; sourceTree = "<group>"; };
 		1359147A254EC9AA0048E60F /* MeHistoryProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHistoryProtocols.swift; sourceTree = "<group>"; };
 		1359147D254ECA330048E60F /* MeHistoryContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHistoryContainer.swift; sourceTree = "<group>"; };
@@ -212,9 +208,9 @@
 		138D65C025603F46004CC2DD /* MeHistoryFilterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHistoryFilterPresenter.swift; sourceTree = "<group>"; };
 		1390DA5B25854ACC00F70889 /* HistoryButtonTableViewCellPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryButtonTableViewCellPin.swift; sourceTree = "<group>"; };
 		1390DA5F2585FCC700F70889 /* ChartTableViewCellPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTableViewCellPin.swift; sourceTree = "<group>"; };
+		1390DA6725866B2300F70889 /* SettingsTableViewCellPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCellPin.swift; sourceTree = "<group>"; };
 		13A27FAC2562790C0015D03C /* HistoryStockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryStockData.swift; sourceTree = "<group>"; };
 		13AF96602563D03B001988E6 /* MePortfolioStockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MePortfolioStockData.swift; sourceTree = "<group>"; };
-		13BBF5FD253AD3F400DA0C32 /* ChartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartTableViewCell.xib; sourceTree = "<group>"; };
 		13C1DC00256117B70043BDA5 /* StockHistory+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StockHistory+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		13C1DC03256117F50043BDA5 /* StockHistory+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StockHistory+CoreDataClass.swift"; sourceTree = "<group>"; };
 		13C1DC09256119BC0043BDA5 /* StockHistoryDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockHistoryDataService.swift; sourceTree = "<group>"; };
@@ -760,6 +756,7 @@
 			children = (
 				1344879F2541C40D008C2D7B /* SettingsTableViewCell.swift */,
 				134487A02541C40D008C2D7B /* SettingsTableViewCell.xib */,
+				1390DA6725866B2300F70889 /* SettingsTableViewCellPin.swift */,
 			);
 			path = SettingCell;
 			sourceTree = "<group>";
@@ -767,7 +764,6 @@
 		13531270253B4C4E00F77A91 /* HistoryButton */ = {
 			isa = PBXGroup;
 			children = (
-				13531272253B4C6600F77A91 /* HistoryButtonTableViewCell.xib */,
 				1390DA5B25854ACC00F70889 /* HistoryButtonTableViewCellPin.swift */,
 			);
 			path = HistoryButton;
@@ -929,7 +925,6 @@
 		13BBF601253AD3F800DA0C32 /* Chart */ = {
 			isa = PBXGroup;
 			children = (
-				13BBF5FD253AD3F400DA0C32 /* ChartTableViewCell.xib */,
 				1390DA5F2585FCC700F70889 /* ChartTableViewCellPin.swift */,
 			);
 			path = Chart;
@@ -1044,7 +1039,6 @@
 			isa = PBXGroup;
 			children = (
 				134179E4253227A90052D1A9 /* MePage.storyboard */,
-				133D0ED825436104003CBA81 /* MeContainerViewController.swift */,
 				1328DC61257BC88500565315 /* MeViewController.swift */,
 			);
 			path = View;
@@ -1461,13 +1455,11 @@
 				314C058E253B0D0200105352 /* DMSans-Bold.ttf in Resources */,
 				314C058F253B0D0200105352 /* DMSans-Medium.ttf in Resources */,
 				314C0590253B0D0200105352 /* DMSans-Regular.ttf in Resources */,
-				13531274253B4C6600F77A91 /* HistoryButtonTableViewCell.xib in Resources */,
 				31905F7E25361BA0000D71A7 /* StockDetail.storyboard in Resources */,
 				134487A22541C40D008C2D7B /* SettingsTableViewCell.xib in Resources */,
 				0D777774254B22FA00EFF30E /* ArticleTableViewCell.xib in Resources */,
 				0D777777254B22FA00EFF30E /* Article.storyboard in Resources */,
 				0D751141253A5C4F00D0A719 /* StockTableViewCell.xib in Resources */,
-				13BBF5FF253AD3F400DA0C32 /* ChartTableViewCell.xib in Resources */,
 				137C65FF254F44DB00AB0A59 /* MeHistoryTableViewCell.xib in Resources */,
 				137C66192552CBD300AB0A59 /* SortFilterTableViewCell.xib in Resources */,
 				138D65B325601E47004CC2DD /* TypeOfSortTableViewCell.xib in Resources */,
@@ -1573,7 +1565,6 @@
 				13591481254ECB9F0048E60F /* MeHistoryInteractor.swift in Sources */,
 				137C65F8254ED8B300AB0A59 /* MeHistoryRouter.swift in Sources */,
 				9C2B698C25335A430042A932 /* Storyboards.swift in Sources */,
-				133D0ED925436104003CBA81 /* MeContainerViewController.swift in Sources */,
 				31BDC08C252A1C5B00F56ADD /* LoginViewController.swift in Sources */,
 				31905F8425361C37000D71A7 /* StockDetailContainer.swift in Sources */,
 				318857862551A65500FFDCBC /* Stock+CoreDataProperties.swift in Sources */,
@@ -1644,6 +1635,7 @@
 				13CDA2AD25812936009CFF71 /* SortFilterTableViewCell.swift in Sources */,
 				311057E5253F1E0900B41CDA /* User+CoreDataClass.swift in Sources */,
 				1328DC6A257F6CDC00565315 /* MeHistoryTableViewCellPin.swift in Sources */,
+				1390DA6825866B2300F70889 /* SettingsTableViewCellPin.swift in Sources */,
 				311057E2253F1AF200B41CDA /* Model.xcdatamodeld in Sources */,
 				1328DC62257BC88500565315 /* MeViewController.swift in Sources */,
 				9C2B6996253363680042A932 /* LoginRouter.swift in Sources */,
