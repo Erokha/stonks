@@ -112,6 +112,8 @@
 		318857912552AE9900FFDCBC /* StockDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318857902552AE9900FFDCBC /* StockDataService.swift */; };
 		318857942552B54E00FFDCBC /* AuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318857932552B54E00FFDCBC /* AuthorizationService.swift */; };
 		318857A72552BAC500FFDCBC /* AuthorizationServiceInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318857A62552BAC500FFDCBC /* AuthorizationServiceInput.swift */; };
+		318A8458257CEAC1006445BD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 318A8457257CEAC1006445BD /* GoogleService-Info.plist */; };
+		318A848A257E1A52006445BD /* LoginViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318A8489257E1A52006445BD /* LoginViewConstants.swift */; };
 		31905F7B25361BA0000D71A7 /* StockDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31905F7225361BA0000D71A7 /* StockDetailPresenter.swift */; };
 		31905F7C25361BA0000D71A7 /* StockDetailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31905F7425361BA0000D71A7 /* StockDetailData.swift */; };
 		31905F7D25361BA0000D71A7 /* StockDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31905F7625361BA0000D71A7 /* StockDetailViewController.swift */; };
@@ -123,7 +125,6 @@
 		31BDC08C252A1C5B00F56ADD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDC08B252A1C5B00F56ADD /* LoginViewController.swift */; };
 		31BDC0AB252A23B200F56ADD /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDC0AA252A23B200F56ADD /* LoginPresenter.swift */; };
 		31C02BF42553137C008FCCB3 /* StockDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C02BF32553137C008FCCB3 /* StockDetailInteractor.swift */; };
-		31CD5485252BAEA400F65D17 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31CD5484252BAEA400F65D17 /* Login.storyboard */; };
 		31E44531253B1FBB00528971 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E44530253B1FBB00528971 /* DataService.swift */; };
 		3819997E42B9EB92462DCA86 /* Pods_Stonks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A21BC3C91C41C86C824A1C90 /* Pods_Stonks.framework */; };
 		9C2B6984253353D90042A932 /* LoginProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2B6983253353D90042A932 /* LoginProtocols.swift */; };
@@ -234,6 +235,8 @@
 		318857902552AE9900FFDCBC /* StockDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDataService.swift; sourceTree = "<group>"; };
 		318857932552B54E00FFDCBC /* AuthorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationService.swift; sourceTree = "<group>"; };
 		318857A62552BAC500FFDCBC /* AuthorizationServiceInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceInput.swift; sourceTree = "<group>"; };
+		318A8457257CEAC1006445BD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		318A8489257E1A52006445BD /* LoginViewConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewConstants.swift; sourceTree = "<group>"; };
 		31905F7225361BA0000D71A7 /* StockDetailPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockDetailPresenter.swift; sourceTree = "<group>"; };
 		31905F7425361BA0000D71A7 /* StockDetailData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockDetailData.swift; sourceTree = "<group>"; };
 		31905F7625361BA0000D71A7 /* StockDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockDetailViewController.swift; sourceTree = "<group>"; };
@@ -250,7 +253,6 @@
 		31BDC0A3252A21A400F56ADD /* Launch.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Launch.xib; sourceTree = "<group>"; };
 		31BDC0AA252A23B200F56ADD /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		31C02BF32553137C008FCCB3 /* StockDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailInteractor.swift; sourceTree = "<group>"; };
-		31CD5484252BAEA400F65D17 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		31E44530253B1FBB00528971 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		9C2B6983253353D90042A932 /* LoginProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProtocols.swift; sourceTree = "<group>"; };
 		9C2B698B25335A430042A932 /* Storyboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
@@ -1180,6 +1182,14 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		318A848C257E1A99006445BD /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				318A8489257E1A52006445BD /* LoginViewConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		31905F7025361BA0000D71A7 /* StockDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -1300,6 +1310,7 @@
 				31BDC0A3252A21A400F56ADD /* Launch.xib */,
 				31BDC090252A1C5D00F56ADD /* Assets.xcassets */,
 				31BDC095252A1C5D00F56ADD /* Info.plist */,
+				318A8457257CEAC1006445BD /* GoogleService-Info.plist */,
 			);
 			path = Stonks;
 			sourceTree = "<group>";
@@ -1323,8 +1334,8 @@
 		31BDC0B0252A2D2200F56ADD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				318A848C257E1A99006445BD /* Constants */,
 				31BDC08B252A1C5B00F56ADD /* LoginViewController.swift */,
-				31CD5484252BAEA400F65D17 /* Login.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1385,6 +1396,7 @@
 				31BDC082252A1C5A00F56ADD /* Resources */,
 				31C7C5562535C90900B99E1C /* Run Script */,
 				6B8C0BC379D1F5BAAB62A859 /* [CP] Embed Pods Frameworks */,
+				474A6E0E800128178FA1292E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1440,11 +1452,15 @@
 				314C058F253B0D0200105352 /* DMSans-Medium.ttf in Resources */,
 				314C0590253B0D0200105352 /* DMSans-Regular.ttf in Resources */,
 				31905F7E25361BA0000D71A7 /* StockDetail.storyboard in Resources */,
+				134487A22541C40D008C2D7B /* SettingsTableViewCell.xib in Resources */,
+				318A8458257CEAC1006445BD /* GoogleService-Info.plist in Resources */,
 				0D777774254B22FA00EFF30E /* ArticleTableViewCell.xib in Resources */,
 				0D777777254B22FA00EFF30E /* Article.storyboard in Resources */,
 				0D751141253A5C4F00D0A719 /* StockTableViewCell.xib in Resources */,
 				137C65FF254F44DB00AB0A59 /* MeHistoryTableViewCell.xib in Resources */,
 				31CD5485252BAEA400F65D17 /* Login.storyboard in Resources */,
+				137C66192552CBD300AB0A59 /* SortFilterTableViewCell.xib in Resources */,
+				138D65B325601E47004CC2DD /* TypeOfSortTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1468,6 +1484,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "SWIFT_LINT=\"${PODS_ROOT}/SwiftLint/swiftlint\"\nSWIFT_LINT_CONFIG=\"${PODS_ROOT}/../.swiftlint.yml\"\n\nif which ${SWIFT_LINT} >/dev/null; then\n${SWIFT_LINT} --config ${SWIFT_LINT_CONFIG}\nelse\necho \"warning: SwiftLint not installed, 'brew install swiftlint' or download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		474A6E0E800128178FA1292E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Stonks/Pods-Stonks-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Stonks/Pods-Stonks-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Stonks/Pods-Stonks-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		5AC7B805217F337D8BFCBAF4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1553,6 +1586,7 @@
 				31905F7C25361BA0000D71A7 /* StockDetailData.swift in Sources */,
 				13CDA2B0258129C2009CFF71 /* MeHistoryFilterViewControllerPin.swift in Sources */,
 				31905F8825361C7D000D71A7 /* StockDetailProtocols.swift in Sources */,
+				318A848A257E1A52006445BD /* LoginViewConstants.swift in Sources */,
 				318857A72552BAC500FFDCBC /* AuthorizationServiceInput.swift in Sources */,
 				0D3903B6252F62C200C18036 /* Stock.swift in Sources */,
 				134487942541BBFB008C2D7B /* MePresenter.swift in Sources */,

@@ -89,6 +89,7 @@ extension ArticleViewController: ArticleViewInput {
     }
     func endActivity() {
         activityIndicatorView.stopAnimating()
+        refreshControl.endRefreshing()
     }
 
     func setTableViewTitle(_ text: String) {

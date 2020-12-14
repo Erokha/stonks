@@ -81,6 +81,10 @@ extension LoginPresenter: LoginViewOutput {
 
         interactor?.createUser(name: name, surname: surname, balance: balance)
     }
+
+    func didTapGoogleSignInButton() {
+        interactor?.signInWithGoogle()
+    }
 }
 
 extension LoginPresenter: LoginInteractorOutput {
