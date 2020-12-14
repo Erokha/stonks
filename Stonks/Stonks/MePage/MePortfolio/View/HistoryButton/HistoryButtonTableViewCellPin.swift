@@ -24,6 +24,7 @@ final class HistoryButtonTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupCell()
         configureButton()
+        checkTheme()
     }
 
     required init?(coder: NSCoder) {
@@ -34,6 +35,16 @@ final class HistoryButtonTableViewCell: UITableViewCell {
         super.layoutSubviews()
         setupButtonLayout()
         setupLabelLayout()
+    }
+
+    private func checkTheme() {
+        if self.traitCollection.userInterfaceStyle == .dark {
+            contentView.backgroundColor = #colorLiteral(red: 0.2414406538, green: 0.2300785482, blue: 0.2739907503, alpha: 1)
+            historyView.layer.shadowColor = UIColor.black.cgColor
+        } else {
+            contentView.backgroundColor = .white
+            historyView.layer.shadowColor = UIColor.gray.cgColor
+        }
     }
 
     private func setupButtonLayout() {
@@ -60,7 +71,6 @@ final class HistoryButtonTableViewCell: UITableViewCell {
 
     private func configureButton() {
         historyView.layer.cornerRadius = CGFloat(Constants.viewRadius)
-        historyView.layer.shadowColor = UIColor.gray.cgColor
         historyView.layer.shadowRadius = CGFloat(Constants.shadowRadius)
         historyView.layer.shadowOffset = .init(width: 0, height: 3)
         historyView.layer.shadowOpacity = Float(Constants.shadowOpacity)

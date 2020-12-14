@@ -11,6 +11,7 @@ final class MePortfolioViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkTheme()
         setupTableView()
         setupView()
     }
@@ -18,7 +19,6 @@ final class MePortfolioViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         output.didLoadView()
-
     }
 
     override func viewDidLayoutSubviews() {
@@ -28,6 +28,14 @@ final class MePortfolioViewController: UIViewController {
     private func setupTableViewLayout() {
         tableView.pin
             .all()
+    }
+
+    private func checkTheme() {
+        if self.traitCollection.userInterfaceStyle == .dark {
+            tableView.backgroundColor = #colorLiteral(red: 0.2414406538, green: 0.2300785482, blue: 0.2739907503, alpha: 1)
+        } else {
+            tableView.backgroundColor = .white
+        }
     }
 
     private func setupTableView() {

@@ -31,7 +31,6 @@
 		0DB3663E254360DC00607812 /* AllStocksInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB3663D254360DC00607812 /* AllStocksInteractor.swift */; };
 		0DC142812566A9EF00A18C8B /* MainStocksInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC142802566A9EF00A18C8B /* MainStocksInteractor.swift */; };
 		0DD9A40A254A3DA7006095D7 /* MainStocks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D3903A8252F62C200C18036 /* MainStocks.storyboard */; };
-		0DD9A40C254A3DAD006095D7 /* MePage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 134179E4253227A90052D1A9 /* MePage.storyboard */; };
 		0DD9A40E254A3DB2006095D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31BDC090252A1C5D00F56ADD /* Assets.xcassets */; };
 		0DD9A410254A3DBB006095D7 /* Launch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31BDC0A3252A21A400F56ADD /* Launch.xib */; };
 		0DF0172E252F5BD2003FF71B /* CardViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF01725252F5BD2003FF71B /* CardViewPresenter.swift */; };
@@ -62,8 +61,6 @@
 		134487912541AB60008C2D7B /* MeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134487902541AB60008C2D7B /* MeRouter.swift */; };
 		134487942541BBFB008C2D7B /* MePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134487932541BBFB008C2D7B /* MePresenter.swift */; };
 		134487972541BC31008C2D7B /* MeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134487962541BC31008C2D7B /* MeProtocols.swift */; };
-		134487A12541C40D008C2D7B /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1344879F2541C40D008C2D7B /* SettingsTableViewCell.swift */; };
-		134487A22541C40D008C2D7B /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 134487A02541C40D008C2D7B /* SettingsTableViewCell.xib */; };
 		134487A52541D678008C2D7B /* MeSettingsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134487A42541D678008C2D7B /* MeSettingsContainer.swift */; };
 		134487A82541D724008C2D7B /* MeSettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134487A72541D724008C2D7B /* MeSettingsPresenter.swift */; };
 		134487AB2541D794008C2D7B /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134487AA2541D794008C2D7B /* Protocols.swift */; };
@@ -74,9 +71,7 @@
 		137C65F8254ED8B300AB0A59 /* MeHistoryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137C65F7254ED8B300AB0A59 /* MeHistoryRouter.swift */; };
 		137C65FF254F44DB00AB0A59 /* MeHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 137C65FD254F44DB00AB0A59 /* MeHistoryTableViewCell.xib */; };
 		137C66092552CACE00AB0A59 /* MeHistoryFilterContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137C66082552CACD00AB0A59 /* MeHistoryFilterContainer.swift */; };
-		137C66192552CBD300AB0A59 /* SortFilterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 137C66172552CBD300AB0A59 /* SortFilterTableViewCell.xib */; };
 		138D65AC255D87E0004CC2DD /* MeUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138D65AB255D87E0004CC2DD /* MeUserData.swift */; };
-		138D65B325601E47004CC2DD /* TypeOfSortTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 138D65B125601E47004CC2DD /* TypeOfSortTableViewCell.xib */; };
 		138D65B7256038CE004CC2DD /* FilterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138D65B6256038CE004CC2DD /* FilterProtocols.swift */; };
 		138D65C125603F46004CC2DD /* MeHistoryFilterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138D65C025603F46004CC2DD /* MeHistoryFilterPresenter.swift */; };
 		1390DA5C25854ACC00F70889 /* HistoryButtonTableViewCellPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1390DA5B25854ACC00F70889 /* HistoryButtonTableViewCellPin.swift */; };
@@ -182,15 +177,12 @@
 		1328DC69257F6CDC00565315 /* MeHistoryTableViewCellPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHistoryTableViewCellPin.swift; sourceTree = "<group>"; };
 		13345329255BF8B100CA8E01 /* MePortfolioInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MePortfolioInteractor.swift; sourceTree = "<group>"; };
 		134179E2253227A90052D1A9 /* ChartColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartColor.swift; sourceTree = "<group>"; };
-		134179E4253227A90052D1A9 /* MePage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MePage.storyboard; sourceTree = "<group>"; };
 		1344876F25419B5A008C2D7B /* MeSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeSettingsViewController.swift; sourceTree = "<group>"; };
 		1344877C25419C9A008C2D7B /* MePortfolioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MePortfolioViewController.swift; sourceTree = "<group>"; };
 		1344878D2541AA3A008C2D7B /* MeContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeContainer.swift; sourceTree = "<group>"; };
 		134487902541AB60008C2D7B /* MeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeRouter.swift; sourceTree = "<group>"; };
 		134487932541BBFB008C2D7B /* MePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MePresenter.swift; sourceTree = "<group>"; };
 		134487962541BC31008C2D7B /* MeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeProtocols.swift; sourceTree = "<group>"; };
-		1344879F2541C40D008C2D7B /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
-		134487A02541C40D008C2D7B /* SettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsTableViewCell.xib; sourceTree = "<group>"; };
 		134487A42541D678008C2D7B /* MeSettingsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeSettingsContainer.swift; sourceTree = "<group>"; };
 		134487A72541D724008C2D7B /* MeSettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeSettingsPresenter.swift; sourceTree = "<group>"; };
 		134487AA2541D794008C2D7B /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
@@ -201,9 +193,7 @@
 		137C65F7254ED8B300AB0A59 /* MeHistoryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHistoryRouter.swift; sourceTree = "<group>"; };
 		137C65FD254F44DB00AB0A59 /* MeHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeHistoryTableViewCell.xib; sourceTree = "<group>"; };
 		137C66082552CACD00AB0A59 /* MeHistoryFilterContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHistoryFilterContainer.swift; sourceTree = "<group>"; };
-		137C66172552CBD300AB0A59 /* SortFilterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SortFilterTableViewCell.xib; sourceTree = "<group>"; };
 		138D65AB255D87E0004CC2DD /* MeUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeUserData.swift; sourceTree = "<group>"; };
-		138D65B125601E47004CC2DD /* TypeOfSortTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TypeOfSortTableViewCell.xib; sourceTree = "<group>"; };
 		138D65B6256038CE004CC2DD /* FilterProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterProtocols.swift; sourceTree = "<group>"; };
 		138D65C025603F46004CC2DD /* MeHistoryFilterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHistoryFilterPresenter.swift; sourceTree = "<group>"; };
 		1390DA5B25854ACC00F70889 /* HistoryButtonTableViewCellPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryButtonTableViewCellPin.swift; sourceTree = "<group>"; };
@@ -754,8 +744,6 @@
 		1344879E2541C3E9008C2D7B /* SettingCell */ = {
 			isa = PBXGroup;
 			children = (
-				1344879F2541C40D008C2D7B /* SettingsTableViewCell.swift */,
-				134487A02541C40D008C2D7B /* SettingsTableViewCell.xib */,
 				1390DA6725866B2300F70889 /* SettingsTableViewCellPin.swift */,
 			);
 			path = SettingCell;
@@ -875,7 +863,6 @@
 		137C66152552CBB200AB0A59 /* SortCell */ = {
 			isa = PBXGroup;
 			children = (
-				137C66172552CBD300AB0A59 /* SortFilterTableViewCell.xib */,
 				13CDA2AC25812936009CFF71 /* SortFilterTableViewCell.swift */,
 			);
 			path = SortCell;
@@ -892,7 +879,6 @@
 		138D65AF25601E15004CC2DD /* TypeOfSort */ = {
 			isa = PBXGroup;
 			children = (
-				138D65B125601E47004CC2DD /* TypeOfSortTableViewCell.xib */,
 				13CDA2B22581537E009CFF71 /* TypeOfSortTableViewCell.swift */,
 			);
 			path = TypeOfSort;
@@ -1038,7 +1024,6 @@
 		13F28AB5253491E70004E864 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				134179E4253227A90052D1A9 /* MePage.storyboard */,
 				1328DC61257BC88500565315 /* MeViewController.swift */,
 			);
 			path = View;
@@ -1450,19 +1435,15 @@
 				0D77AB342558271700D283F1 /* CardView.xib in Resources */,
 				0DD9A410254A3DBB006095D7 /* Launch.xib in Resources */,
 				0DD9A40E254A3DB2006095D7 /* Assets.xcassets in Resources */,
-				0DD9A40C254A3DAD006095D7 /* MePage.storyboard in Resources */,
 				0DD9A40A254A3DA7006095D7 /* MainStocks.storyboard in Resources */,
 				314C058E253B0D0200105352 /* DMSans-Bold.ttf in Resources */,
 				314C058F253B0D0200105352 /* DMSans-Medium.ttf in Resources */,
 				314C0590253B0D0200105352 /* DMSans-Regular.ttf in Resources */,
 				31905F7E25361BA0000D71A7 /* StockDetail.storyboard in Resources */,
-				134487A22541C40D008C2D7B /* SettingsTableViewCell.xib in Resources */,
 				0D777774254B22FA00EFF30E /* ArticleTableViewCell.xib in Resources */,
 				0D777777254B22FA00EFF30E /* Article.storyboard in Resources */,
 				0D751141253A5C4F00D0A719 /* StockTableViewCell.xib in Resources */,
 				137C65FF254F44DB00AB0A59 /* MeHistoryTableViewCell.xib in Resources */,
-				137C66192552CBD300AB0A59 /* SortFilterTableViewCell.xib in Resources */,
-				138D65B325601E47004CC2DD /* TypeOfSortTableViewCell.xib in Resources */,
 				31CD5485252BAEA400F65D17 /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1554,7 +1535,6 @@
 				13CDA2B32581537E009CFF71 /* TypeOfSortTableViewCell.swift in Sources */,
 				1344877025419B5A008C2D7B /* MeSettingsViewController.swift in Sources */,
 				0DF11C02255C7F3B004162BA /* UserStocksInteractor.swift in Sources */,
-				134487A12541C40D008C2D7B /* SettingsTableViewCell.swift in Sources */,
 				13F28AAC2534913F0004E864 /* MePortfolioProtocols.swift in Sources */,
 				1390DA602585FCC700F70889 /* ChartTableViewCellPin.swift in Sources */,
 				13E4906125583AF800E567A3 /* MeSettingsInteractor.swift in Sources */,

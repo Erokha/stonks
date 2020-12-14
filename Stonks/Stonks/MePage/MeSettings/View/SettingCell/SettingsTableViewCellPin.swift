@@ -1,6 +1,6 @@
 import UIKit
 
-class SettingsTableViewCellPin: UITableViewCell {
+class SettingsTableViewCell: UITableViewCell {
     static let identifier = "cellForSettings"
 
     private let settingsLabel: UILabel = {
@@ -47,9 +47,19 @@ class SettingsTableViewCellPin: UITableViewCell {
             .width(300)
             .sizeToFit(.width)
     }
+
+    private func checkTheme() {
+        if self.traitCollection.userInterfaceStyle == .dark {
+            contentView.backgroundColor = #colorLiteral(red: 0.2414406538, green: 0.2300785482, blue: 0.2739907503, alpha: 1)
+            buttonView.layer.shadowColor = UIColor.black.cgColor
+        } else {
+            contentView.backgroundColor = .white
+            buttonView.layer.shadowColor = UIColor.gray.cgColor
+        }
+    }
+
     private func setupButtonView() {
         buttonView.layer.cornerRadius = Constants.viewRadius
-        buttonView.layer.shadowColor = UIColor.black.cgColor
         buttonView.layer.shadowRadius = Constants.shadowRadius
         buttonView.layer.shadowOffset = .init(width: 0, height: 3)
         buttonView.layer.shadowOpacity = Constants.shadowOpacity
@@ -60,7 +70,7 @@ class SettingsTableViewCellPin: UITableViewCell {
     }
 }
 
-extension SettingsTableViewCellPin {
+extension SettingsTableViewCell {
     private struct Constants {
         static let viewRadius: CGFloat = 15
         static let shadowRadius: CGFloat = 2

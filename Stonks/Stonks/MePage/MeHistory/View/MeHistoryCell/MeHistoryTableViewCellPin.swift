@@ -45,6 +45,7 @@ final class MeHistoryTableViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        checkTheme()
         selectionStyle = .none
         addSubview(imageAreaView)
         addSubview(nameLabel)
@@ -63,6 +64,14 @@ final class MeHistoryTableViewCell: UITableViewCell {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    private func checkTheme() {
+        if self.traitCollection.userInterfaceStyle == .dark {
+            contentView.backgroundColor = #colorLiteral(red: 0.2414406538, green: 0.2300785482, blue: 0.2739907503, alpha: 1)
+        } else {
+            contentView.backgroundColor = .white
+        }
     }
 
     private func setupImageAreaView() {

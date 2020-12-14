@@ -38,6 +38,7 @@ final class ChartTableViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        checkTheme()
         setupMainView()
         setupChartView()
         chartViewSettings()
@@ -97,6 +98,18 @@ final class ChartTableViewCell: UITableViewCell {
             .sizeToFit(.width)
     }
 
+    private func checkTheme() {
+        if self.traitCollection.userInterfaceStyle == .dark {
+            contentView.backgroundColor = #colorLiteral(red: 0.2414406538, green: 0.2300785482, blue: 0.2739907503, alpha: 1)
+            mainChartView.backgroundColor = #colorLiteral(red: 0.285693109, green: 0.2685953081, blue: 0.3343991339, alpha: 1)
+            mainChartView.layer.shadowColor = UIColor.black.cgColor
+            headerLabel.textColor = .white
+        } else {
+            contentView.backgroundColor = .white
+            mainChartView.layer.shadowColor = UIColor.gray.cgColor
+        }
+    }
+
     private func setupCell() {
         selectionStyle = UITableViewCell.SelectionStyle.none
         contentView.addSubview(mainChartView)
@@ -105,7 +118,6 @@ final class ChartTableViewCell: UITableViewCell {
     private func setupMainView() {
         activityIndicator.hidesWhenStopped = true
         mainChartView.layer.cornerRadius = Constants.viewRadius
-        mainChartView.layer.shadowColor = UIColor.gray.cgColor
         mainChartView.layer.shadowRadius = Constants.shadowRadius
         mainChartView.layer.shadowOffset = .init(width: 0, height: 3)
         mainChartView.layer.shadowOpacity = Constants.shadowOpacity
@@ -114,7 +126,6 @@ final class ChartTableViewCell: UITableViewCell {
     private func setupChartView() {
         noDataLabel.text = ""
         stocksPieChartView.layer.cornerRadius = Constants.viewRadius
-        stocksPieChartView.layer.shadowColor = UIColor.gray.cgColor
         stocksPieChartView.layer.shadowRadius = Constants.shadowRadius
         stocksPieChartView.layer.shadowOffset = .init(width: 0, height: 3)
         stocksPieChartView.layer.shadowOpacity = Constants.shadowOpacity

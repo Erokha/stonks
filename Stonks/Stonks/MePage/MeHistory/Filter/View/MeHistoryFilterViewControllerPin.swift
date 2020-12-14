@@ -43,12 +43,12 @@ final class MeHistoryFilterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkTheme()
         setupTableView()
         setupMainView()
     }
 
     private func setupMainView() {
-        view.backgroundColor = .white
         view.addSubview(tableView)
         view.addSubview(headerLabel)
         view.addSubview(cancelButton)
@@ -61,6 +61,16 @@ final class MeHistoryFilterViewController: UIViewController {
         tableView.register(SortFilterTableViewCell.self, forCellReuseIdentifier: SortFilterTableViewCell.identifier)
         tableView.register(TypeOfSortTableViewCell.self, forCellReuseIdentifier: TypeOfSortTableViewCell.identifier)
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 1))
+    }
+
+    private func checkTheme() {
+        if self.traitCollection.userInterfaceStyle == .dark {
+            view.backgroundColor = #colorLiteral(red: 0.2414406538, green: 0.2300785482, blue: 0.2739907503, alpha: 1)
+            tableView.backgroundColor = #colorLiteral(red: 0.2414406538, green: 0.2300785482, blue: 0.2739907503, alpha: 1)
+        } else {
+            view.backgroundColor = .white
+            tableView.backgroundColor = .white
+        }
     }
 
     override func viewDidLayoutSubviews() {
@@ -160,7 +170,6 @@ extension MeHistoryFilterViewController: UITableViewDelegate, UITableViewDataSou
         let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 50))
         switch Filters(rawValue: section) {
         case .sortBy:
-            view.backgroundColor = .white
             let label = UILabel(frame: CGRect(x: 20, y: 0, width: view.frame.width - 20, height: 35))
             label.text = Constants.sortByHeaderText
             label.textColor = #colorLiteral(red: 0.4431372549, green: 0.3960784314, blue: 0.8901960784, alpha: 1)
@@ -168,7 +177,6 @@ extension MeHistoryFilterViewController: UITableViewDelegate, UITableViewDataSou
             view.addSubview(label)
             return view
         case .typeOfSort:
-            view.backgroundColor = .white
             let label = UILabel(frame: CGRect(x: 20, y: 0, width: view.frame.width - 20, height: 35))
             label.text = Constants.sortTypeHeaderText
             label.textColor = #colorLiteral(red: 0.4431372549, green: 0.3960784314, blue: 0.8901960784, alpha: 1)

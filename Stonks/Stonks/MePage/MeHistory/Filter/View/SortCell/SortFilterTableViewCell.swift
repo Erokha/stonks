@@ -17,12 +17,12 @@ final class SortFilterTableViewCell: UITableViewCell {
     static let identifier = "SortCell"
     weak var sortByDelegate: SortByDelegate?
     private var currentSortBy: SortBy = .descendingDate
+    private var defaultButtonColor: UIColor = #colorLiteral(red: 0.2414406538, green: 0.2300785482, blue: 0.2739907503, alpha: 1)
 
     private let increasePriceButton: UIButton = {
         let button = UIButton()
         button.setTitle("Price low to high", for: .normal)
         button.titleLabel?.font = UIFont(name: "DMSans-Bold", size: 16)
-        button.backgroundColor = #colorLiteral(red: 0.3540481031, green: 0.3433421254, blue: 0.4038961232, alpha: 1)
         return button
     }()
 
@@ -30,7 +30,6 @@ final class SortFilterTableViewCell: UITableViewCell {
         let button = UIButton()
         button.setTitle("Price high to low", for: .normal)
         button.titleLabel?.font = UIFont(name: "DMSans-Bold", size: 16)
-        button.backgroundColor = #colorLiteral(red: 0.3540481031, green: 0.3433421254, blue: 0.4038961232, alpha: 1)
         return button
     }()
 
@@ -38,7 +37,6 @@ final class SortFilterTableViewCell: UITableViewCell {
         let button = UIButton()
         button.setTitle("First old", for: .normal)
         button.titleLabel?.font = UIFont(name: "DMSans-Bold", size: 16)
-        button.backgroundColor = #colorLiteral(red: 0.3540481031, green: 0.3433421254, blue: 0.4038961232, alpha: 1)
         return button
     }()
 
@@ -46,12 +44,12 @@ final class SortFilterTableViewCell: UITableViewCell {
         let button = UIButton()
         button.setTitle("First new", for: .normal)
         button.titleLabel?.font = UIFont(name: "DMSans-Bold", size: 16)
-        button.backgroundColor = #colorLiteral(red: 0.3540481031, green: 0.3433421254, blue: 0.4038961232, alpha: 1)
         return button
     }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        checkTheme()
         setupCell()
         contentView.addSubview(increasePriceButton)
         contentView.addSubview(descendingPriceButton)
@@ -70,6 +68,31 @@ final class SortFilterTableViewCell: UITableViewCell {
         setupDescendingPriceButton()
         setupIncreaseDateButton()
         setupDescendingDateButton()
+    }
+
+    private func checkTheme() {
+        if self.traitCollection.userInterfaceStyle == .dark {
+            defaultButtonColor = #colorLiteral(red: 0.285693109, green: 0.2685953081, blue: 0.3343991339, alpha: 1)
+            contentView.backgroundColor = #colorLiteral(red: 0.2414406538, green: 0.2300785482, blue: 0.2739907503, alpha: 1)
+            descendingDateButton.backgroundColor = #colorLiteral(red: 0.285693109, green: 0.2685953081, blue: 0.3343991339, alpha: 1)
+            increaseDateButton.backgroundColor = #colorLiteral(red: 0.285693109, green: 0.2685953081, blue: 0.3343991339, alpha: 1)
+            increasePriceButton.backgroundColor = #colorLiteral(red: 0.285693109, green: 0.2685953081, blue: 0.3343991339, alpha: 1)
+            descendingPriceButton.backgroundColor = #colorLiteral(red: 0.285693109, green: 0.2685953081, blue: 0.3343991339, alpha: 1)
+            increasePriceButton.layer.shadowColor = UIColor.black.cgColor
+            descendingPriceButton.layer.shadowColor = UIColor.black.cgColor
+            increaseDateButton.layer.shadowColor = UIColor.black.cgColor
+            descendingDateButton.layer.shadowColor = UIColor.black.cgColor
+        } else {
+            contentView.backgroundColor = .white
+            descendingDateButton.backgroundColor = #colorLiteral(red: 0.2414406538, green: 0.2300785482, blue: 0.2739907503, alpha: 1)
+            increaseDateButton.backgroundColor = #colorLiteral(red: 0.2414406538, green: 0.2300785482, blue: 0.2739907503, alpha: 1)
+            increasePriceButton.backgroundColor = #colorLiteral(red: 0.2414406538, green: 0.2300785482, blue: 0.2739907503, alpha: 1)
+            descendingPriceButton.backgroundColor = #colorLiteral(red: 0.2414406538, green: 0.2300785482, blue: 0.2739907503, alpha: 1)
+            increasePriceButton.layer.shadowColor = UIColor.gray.cgColor
+            descendingPriceButton.layer.shadowColor = UIColor.gray.cgColor
+            increaseDateButton.layer.shadowColor = UIColor.gray.cgColor
+            descendingDateButton.layer.shadowColor = UIColor.gray.cgColor
+        }
     }
 
     private func setupIncreasePriceButton() {
@@ -112,11 +135,6 @@ final class SortFilterTableViewCell: UITableViewCell {
         increaseDateButton.layer.cornerRadius = Constants.viewRadius
         descendingDateButton.layer.cornerRadius = Constants.viewRadius
 
-        increasePriceButton.layer.shadowColor = UIColor.gray.cgColor
-        descendingPriceButton.layer.shadowColor = UIColor.gray.cgColor
-        increaseDateButton.layer.shadowColor = UIColor.gray.cgColor
-        descendingDateButton.layer.shadowColor = UIColor.gray.cgColor
-
         increasePriceButton.layer.shadowRadius = Constants.shadowRadius
         descendingPriceButton.layer.shadowRadius = Constants.shadowRadius
         increaseDateButton.layer.shadowRadius = Constants.shadowRadius
@@ -142,13 +160,13 @@ final class SortFilterTableViewCell: UITableViewCell {
     private func setDefault(_ sortBy: SortBy) {
         switch sortBy {
         case .increasePrice:
-            increasePriceButton.backgroundColor = #colorLiteral(red: 0.3540481031, green: 0.3433421254, blue: 0.4038961232, alpha: 1)
+            increasePriceButton.backgroundColor = defaultButtonColor
         case .descendingPrice:
-            descendingPriceButton.backgroundColor = #colorLiteral(red: 0.3540481031, green: 0.3433421254, blue: 0.4038961232, alpha: 1)
+            descendingPriceButton.backgroundColor = defaultButtonColor
         case .increaseDate:
-            increaseDateButton.backgroundColor = #colorLiteral(red: 0.3540481031, green: 0.3433421254, blue: 0.4038961232, alpha: 1)
+            increaseDateButton.backgroundColor = defaultButtonColor
         case .descendingDate:
-            descendingDateButton.backgroundColor = #colorLiteral(red: 0.3540481031, green: 0.3433421254, blue: 0.4038961232, alpha: 1)
+            descendingDateButton.backgroundColor = defaultButtonColor
         }
     }
     private func setChoosen(_ sortBy: SortBy) {

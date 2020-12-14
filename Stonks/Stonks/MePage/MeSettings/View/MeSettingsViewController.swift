@@ -27,6 +27,7 @@ final class MeSettingsViewController: UIViewController, UINavigationControllerDe
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkTheme()
         setupView()
         setupTableView()
     }
@@ -35,7 +36,15 @@ final class MeSettingsViewController: UIViewController, UINavigationControllerDe
         tableView.delegate = self
         tableView.dataSource = self
         tableView.showsVerticalScrollIndicator = false
-        tableView.register(SettingsTableViewCellPin.self, forCellReuseIdentifier: SettingsTableViewCellPin.reuseIdentifier)
+        tableView.register(SettingsTableViewCell.self, forCellReuseIdentifier: SettingsTableViewCell.reuseIdentifier)
+    }
+
+    private func checkTheme() {
+        if self.traitCollection.userInterfaceStyle == .dark {
+            tableView.backgroundColor = #colorLiteral(red: 0.2414406538, green: 0.2300785482, blue: 0.2739907503, alpha: 1)
+        } else {
+            tableView.backgroundColor = .white
+        }
     }
 
     override func viewDidLayoutSubviews() {
@@ -47,6 +56,7 @@ final class MeSettingsViewController: UIViewController, UINavigationControllerDe
         tableView.pin
             .all()
     }
+
     private func setupView() {
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -65,7 +75,7 @@ extension MeSettingsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsTableViewCellPin.reuseIdentifier, for: indexPath) as? SettingsTableViewCellPin else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsTableViewCell.reuseIdentifier, for: indexPath) as? SettingsTableViewCell else {
             return UITableViewCell()
         }
         guard let label = MeSettingsSections(rawValue: indexPath.section)?.info else { return UITableViewCell() }

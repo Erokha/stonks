@@ -16,7 +16,6 @@ final class MeViewController: UIViewController {
     private var headerViewPin: UIView = {
         let view = UIView()
         view.backgroundColor = #colorLiteral(red: 0.4431372549, green: 0.3960784314, blue: 0.8901960784, alpha: 1)
-        view.layer.shadowColor = UIColor.gray.cgColor
         view.layer.shadowRadius = Constants.shadowRadius
         view.layer.shadowOpacity = Constants.shadowOpacity
         view.layer.cornerRadius = Constants.headerRadius
@@ -41,8 +40,6 @@ final class MeViewController: UIViewController {
     // HERE WILL BE CARD VIEW!
     private let cardView: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
-        view.layer.shadowColor = UIColor.gray.cgColor
         view.layer.shadowOpacity = Constants.shadowOpacity
         view.layer.shadowRadius = Constants.cardShadowRadius
         view.layer.shadowOffset = .init(width: 0, height: 3)
@@ -65,6 +62,7 @@ final class MeViewController: UIViewController {
     // MARK: VC lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkTheme()
         pageViewController.mePageDelegate = self
     }
 
@@ -81,9 +79,22 @@ final class MeViewController: UIViewController {
         setupPageVc()
     }
 
+    private func checkTheme() {
+        if self.traitCollection.userInterfaceStyle == .dark {
+            headerViewPin.backgroundColor = #colorLiteral(red: 0.4431372549, green: 0.3960784314, blue: 0.8901960784, alpha: 1)
+            cardView.backgroundColor = #colorLiteral(red: 0.2414406538, green: 0.2300785482, blue: 0.2739907503, alpha: 1)
+            view.backgroundColor = #colorLiteral(red: 0.2414406538, green: 0.2300785482, blue: 0.2739907503, alpha: 1)
+            segmentControl.selectedSegmentTintColor = #colorLiteral(red: 0.4431372549, green: 0.3960784314, blue: 0.8901960784, alpha: 1)
+            cardView.layer.shadowColor = UIColor.black.cgColor
+        } else {
+            headerViewPin.backgroundColor = #colorLiteral(red: 0.4431372549, green: 0.3960784314, blue: 0.8901960784, alpha: 1)
+            cardView.backgroundColor = .white
+            view.backgroundColor = .white
+            cardView.layer.shadowColor = UIColor.gray.cgColor
+        }
+    }
     // MARK: Autolayout
     private func setupMainView() {
-        self.view.backgroundColor = .white
         self.view.addSubview(headerViewPin)
         self.view.addSubview(segmentControl)
         self.view.addSubview(tableContainer)

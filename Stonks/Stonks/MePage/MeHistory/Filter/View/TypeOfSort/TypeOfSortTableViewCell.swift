@@ -13,6 +13,7 @@ final class TypeOfSortTableViewCell: UITableViewCell {
     static let identifier = "TypeSort"
     weak var typeOfSortDelegate: TypeOfSortDelegate?
     private var currentTypeOfSort: TypeOfAction?
+    private var defaultButtonColor: UIColor = #colorLiteral(red: 0.285693109, green: 0.2685953081, blue: 0.3343991339, alpha: 1)
 
     private let boughtButton: UIButton = {
         let button = UIButton()
@@ -32,6 +33,7 @@ final class TypeOfSortTableViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        checkTheme()
         setupButtons()
         contentView.addSubview(boughtButton)
         contentView.addSubview(soldButton)
@@ -46,6 +48,23 @@ final class TypeOfSortTableViewCell: UITableViewCell {
         super.layoutSubviews()
         setupSoldButton()
         setupBoughtButton()
+    }
+
+    private func checkTheme() {
+        if self.traitCollection.userInterfaceStyle == .dark {
+            defaultButtonColor = #colorLiteral(red: 0.285693109, green: 0.2685953081, blue: 0.3343991339, alpha: 1)
+            contentView.backgroundColor = #colorLiteral(red: 0.2414406538, green: 0.2300785482, blue: 0.2739907503, alpha: 1)
+            boughtButton.backgroundColor = #colorLiteral(red: 0.285693109, green: 0.2685953081, blue: 0.3343991339, alpha: 1)
+            soldButton.backgroundColor = #colorLiteral(red: 0.285693109, green: 0.2685953081, blue: 0.3343991339, alpha: 1)
+            boughtButton.layer.shadowColor = UIColor.black.cgColor
+            soldButton.layer.shadowColor = UIColor.black.cgColor
+        } else {
+            contentView.backgroundColor = .white
+            boughtButton.backgroundColor = #colorLiteral(red: 0.2414406538, green: 0.2300785482, blue: 0.2739907503, alpha: 1)
+            soldButton.backgroundColor = #colorLiteral(red: 0.2414406538, green: 0.2300785482, blue: 0.2739907503, alpha: 1)
+            boughtButton.layer.shadowColor = UIColor.gray.cgColor
+            soldButton.layer.shadowColor = UIColor.gray.cgColor
+        }
     }
 
     private func setupSoldButton() {
@@ -69,9 +88,6 @@ final class TypeOfSortTableViewCell: UITableViewCell {
 
         soldButton.layer.cornerRadius = Constants.viewRadius
         boughtButton.layer.cornerRadius = Constants.viewRadius
-
-        soldButton.layer.shadowColor = UIColor.gray.cgColor
-        boughtButton.layer.shadowColor = UIColor.gray.cgColor
 
         soldButton.layer.shadowRadius = Constants.shadowRadius
         boughtButton.layer.shadowRadius = Constants.shadowRadius

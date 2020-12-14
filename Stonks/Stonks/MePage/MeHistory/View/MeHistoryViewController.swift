@@ -38,13 +38,13 @@ final class MeHistoryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkTheme()
         setupTableView()
         setupMainView()
         output?.didLoadView()
     }
 
     private func setupMainView() {
-        self.view.backgroundColor = .white
         self.view.addSubview(headerLabel)
         self.view.addSubview(backButton)
         self.view.addSubview(filterButton)
@@ -112,6 +112,17 @@ final class MeHistoryViewController: UIViewController {
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         tableView.separatorInsetReference = .fromAutomaticInsets
         tableView.register(MeHistoryTableViewCell.self, forCellReuseIdentifier: MeHistoryTableViewCell.identifier)
+    }
+
+    private func checkTheme() {
+        if self.traitCollection.userInterfaceStyle == .dark {
+            view.backgroundColor = #colorLiteral(red: 0.2414406538, green: 0.2300785482, blue: 0.2739907503, alpha: 1)
+            tableView.backgroundColor = #colorLiteral(red: 0.2414406538, green: 0.2300785482, blue: 0.2739907503, alpha: 1)
+            tableView.separatorColor = #colorLiteral(red: 0.4431372549, green: 0.3960784314, blue: 0.8901960784, alpha: 1)
+        } else {
+            view.backgroundColor = .white
+            tableView.backgroundColor = .white
+        }
     }
 
     @objc private func didBackActionTapped(_ sender: Any) {
