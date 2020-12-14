@@ -129,9 +129,8 @@ final class MeViewController: UIViewController {
     private func setupCardView() {
         headerViewPin.addSubview(cardView)
         cardView.pin
-            .below(of: [nameLabel, photoButton])
+            .bottom(5%)
             .hCenter()
-            .marginTop(7%)
             .height(40%)
             .width(88%)
     }
