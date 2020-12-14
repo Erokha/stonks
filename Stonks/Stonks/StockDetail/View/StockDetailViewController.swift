@@ -13,7 +13,7 @@ final class StockDetailViewController: UIViewController {
 
     private weak var stockDetailCardContainerView: UIView!
 
-    private weak var stockDetailCardView: CardView!
+    private weak var stockDetailCardView: NewCardView!
 
     private weak var chartContainerView: UIView!
 
@@ -58,7 +58,7 @@ final class StockDetailViewController: UIViewController {
         chartContainerView = chartView
         view.addSubview(chartContainerView)
 
-        chartContainerView.backgroundColor = .white
+        chartContainerView.backgroundColor = Constants.ChartContainerView.backgoundColor
         chartContainerView.layer.cornerRadius = Constants.ChartContainerView.cornerRadius
         chartContainerView.layer.shadowColor = Constants.ChartContainerView.shadowColor.cgColor
         chartContainerView.layer.shadowOffset = Constants.ChartContainerView.shadowOffset
@@ -67,7 +67,7 @@ final class StockDetailViewController: UIViewController {
     }
 
     private func setupStockDetailCardView() {
-        let view = CardView()
+        let view = NewCardView()
 
         stockDetailCardView = view
         stockDetailCardContainerView.addSubview(stockDetailCardView)
@@ -79,8 +79,8 @@ final class StockDetailViewController: UIViewController {
 
         stockDetailCardView.presenter = self.cardPresenter
 
-        self.cardPresenter?.setUpperTextLeft(text: Constants.CardView.leftText)
-        self.cardPresenter?.setUpperTextRight(text: Constants.CardView.rightText)
+        self.cardPresenter?.setUpperTextLeft(text: Constants.StockDetailCardView.leftText)
+        self.cardPresenter?.setUpperTextRight(text: Constants.StockDetailCardView.rightText)
     }
 
     private func setupBuyButton() {
@@ -171,7 +171,7 @@ final class StockDetailViewController: UIViewController {
 
         buyTextField.font = Constants.TextField.font
         buyTextField.attributedPlaceholder = NSAttributedString(string: Constants.TextField.placeholderText,
-                                                                attributes: [NSAttributedString.Key.foregroundColor: Constants.TextField.placeholderColor])
+                                                                attributes: [NSAttributedString.Key.foregroundColor: Constants.TextField.placeholderTextColor])
     }
 
     private func setupBuyTextFieldContainerView() {
@@ -216,7 +216,7 @@ final class StockDetailViewController: UIViewController {
 
         sellTextField.font = Constants.TextField.font
         sellTextField.attributedPlaceholder = NSAttributedString(string: Constants.TextField.placeholderText,
-                                                                 attributes: [NSAttributedString.Key.foregroundColor: Constants.TextField.placeholderColor])
+                                                                 attributes: [NSAttributedString.Key.foregroundColor: Constants.TextField.placeholderTextColor])
     }
 
     private func setupSellTextFieldContainerView() {
@@ -396,7 +396,7 @@ final class StockDetailViewController: UIViewController {
             .width(Constants.ShowMyStocksButton.widthConstant)
             .height(Constants.ShowMyStocksButton.heightConstant)
             .left(Constants.ShowMyStocksButton.leftPercent)
-            .top(companyNameLabel.frame.midY - showMyStocksButton.bounds.size.height / 2)
+            .top(companyNameLabel.frame.midY - Constants.ShowMyStocksButton.heightConstant / 2)
     }
 
     private func layoutStockDetailCardContainerView() {

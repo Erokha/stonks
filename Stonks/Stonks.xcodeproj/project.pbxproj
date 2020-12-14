@@ -104,6 +104,7 @@
 		311057EB253F219D00B41CDA /* Entities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311057EA253F219D00B41CDA /* Entities.swift */; };
 		31144407256016F600AF2552 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31144406256016F600AF2552 /* NetworkService.swift */; };
 		3114440B2560171F00AF2552 /* NetworkServiceInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3114440A2560171F00AF2552 /* NetworkServiceInput.swift */; };
+		312398872587654200CB3499 /* NewCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312398862587654200CB3499 /* NewCardView.swift */; };
 		313E10BA2584E76400783617 /* StockDetailChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313E10B92584E76400783617 /* StockDetailChartView.swift */; };
 		313E10D525866A9900783617 /* StockDetailConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313E10D425866A9900783617 /* StockDetailConstants.swift */; };
 		314C058E253B0D0200105352 /* DMSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 315BE130252F332F0074377B /* DMSans-Bold.ttf */; };
@@ -238,6 +239,7 @@
 		311057EA253F219D00B41CDA /* Entities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entities.swift; sourceTree = "<group>"; };
 		31144406256016F600AF2552 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		3114440A2560171F00AF2552 /* NetworkServiceInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceInput.swift; sourceTree = "<group>"; };
+		312398862587654200CB3499 /* NewCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCardView.swift; sourceTree = "<group>"; };
 		313E10B92584E76400783617 /* StockDetailChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailChartView.swift; sourceTree = "<group>"; };
 		313E10D425866A9900783617 /* StockDetailConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailConstants.swift; sourceTree = "<group>"; };
 		3155EC28254978D40036F67B /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
@@ -496,6 +498,7 @@
 				13F28AA025348F910004E864 /* CardView.xib */,
 				0DF01728252F5BD2003FF71B /* CardView.swift */,
 				0DF01729252F5BD2003FF71B /* EmbeddedView.swift */,
+				312398862587654200CB3499 /* NewCardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1659,6 +1662,7 @@
 				13F28AC22534936E0004E864 /* MePortfolioPresenter.swift in Sources */,
 				1359147E254ECA330048E60F /* MeHistoryContainer.swift in Sources */,
 				131D5AFD25378F1C00F32055 /* MePortfolioRouter.swift in Sources */,
+				312398872587654200CB3499 /* NewCardView.swift in Sources */,
 				0DF01733252F5BD2003FF71B /* NibLoadedViewType.swift in Sources */,
 				0DB3663E254360DC00607812 /* AllStocksInteractor.swift in Sources */,
 				31905F7B25361BA0000D71A7 /* StockDetailPresenter.swift in Sources */,

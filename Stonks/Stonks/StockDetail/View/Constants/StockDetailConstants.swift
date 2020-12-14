@@ -3,7 +3,16 @@ import PinLayout
 
 extension StockDetailViewController {
     internal struct Constants {
-        static let backgroundColor: UIColor = .white
+        static var backgroundColor: UIColor {
+            if UITraitCollection.current.userInterfaceStyle == .dark {
+                return UIColor(red: 61 / 255,
+                               green: 59 / 255,
+                               blue: 69 / 255,
+                               alpha: 1)
+            } else {
+                return .white
+            }
+        }
 
         static let chartLineColor: UIColor = UIColor(red: 113 / 255,
                                                      green: 101 / 255,
@@ -32,7 +41,7 @@ extension StockDetailViewController {
 
             static let widthPercent: Percent = 70%
 
-            static let height: CGFloat = 50
+            static let height: CGFloat = 40
         }
 
         struct ChartDataset {
@@ -42,6 +51,21 @@ extension StockDetailViewController {
         }
 
         struct StockDetailCardView {
+            static var backgoundColor: UIColor {
+                if UITraitCollection.current.userInterfaceStyle == .dark {
+                    return UIColor(red: 71 / 255,
+                                   green: 68 / 255,
+                                   blue: 83 / 255,
+                                   alpha: 1)
+                } else {
+                    return .white
+                }
+            }
+
+            static let rightText: String = "Your Amount Price"
+
+            static let leftText: String = "Available Balance"
+
             static let cornerRadius: CGFloat = 20
         }
 
@@ -56,6 +80,17 @@ extension StockDetailViewController {
         }
 
         struct StockDetailCardContainerView {
+            static var backgoundColor: UIColor {
+                if UITraitCollection.current.userInterfaceStyle == .dark {
+                    return UIColor(red: 71 / 255,
+                                   green: 68 / 255,
+                                   blue: 83 / 255,
+                                   alpha: 1)
+                } else {
+                    return .white
+                }
+            }
+
             static let cornerRadius: CGFloat = 20
 
             static let shadowColor: UIColor = .black
@@ -74,6 +109,17 @@ extension StockDetailViewController {
         }
 
         struct ChartContainerView {
+            static var backgoundColor: UIColor {
+                if UITraitCollection.current.userInterfaceStyle == .dark {
+                    return UIColor(red: 71 / 255,
+                                   green: 68 / 255,
+                                   blue: 83 / 255,
+                                   alpha: 1)
+                } else {
+                    return .white
+                }
+            }
+
             static let cornerRadius: CGFloat = 20
 
             static let shadowColor: UIColor = .black
@@ -116,7 +162,16 @@ extension StockDetailViewController {
         }
 
         struct StockLineChartView {
-            static let backgoundColor: UIColor = .white
+            static var backgoundColor: UIColor {
+                if UITraitCollection.current.userInterfaceStyle == .dark {
+                    return UIColor(red: 71 / 255,
+                                   green: 68 / 255,
+                                   blue: 83 / 255,
+                                   alpha: 1)
+                } else {
+                    return .white
+                }
+            }
 
             static let cornerRadius: CGFloat = 20
 
@@ -184,15 +239,37 @@ extension StockDetailViewController {
 
             static let borderWidth: CGFloat = 1
 
-            static let placeholderColor: UIColor = .black
+            static var backgroundColor: UIColor {
+                if UITraitCollection.current.userInterfaceStyle == .dark {
+                    return UIColor(red: 71 / 255,
+                                   green: 68 / 255,
+                                   blue: 83 / 255,
+                                   alpha: 1)
+                } else {
+                    return .white
+                }
+            }
 
-            static let backgroundColor: UIColor = .white
-
-            static let borderColor: UIColor = .white
+            static var borderColor: UIColor {
+                if UITraitCollection.current.userInterfaceStyle == .dark {
+                    return UIColor(red: 71 / 255,
+                                   green: 68 / 255,
+                                   blue: 83 / 255,
+                                   alpha: 1)
+                } else {
+                    return .white
+                }
+            }
 
             static let placeholderText: String = "Amount"
 
-            static let placeholderTextColor: UIColor = .black
+            static var placeholderTextColor: UIColor {
+                if UITraitCollection.current.userInterfaceStyle == .dark {
+                    return .white
+                } else {
+                    return .black
+                }
+            }
 
             static let font: UIFont? = UIFont(name: "DMSans-Regular", size: 15)
 
@@ -225,12 +302,6 @@ extension StockDetailViewController {
 
         struct SellTextFieldContainer {
             static let topSpacingMultiplier: CGFloat = 0.02
-        }
-
-        struct CardView {
-            static let rightText: String = "Your Amount Price"
-
-            static let leftText: String = "Available Balance"
         }
 
         struct TapRecognizer {
