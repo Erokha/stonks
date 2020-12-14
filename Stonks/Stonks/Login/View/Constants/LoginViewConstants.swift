@@ -116,7 +116,7 @@ extension LoginViewController {
         }
 
         struct RegisterButton {
-            static let cornerRadius: CGFloat = 10
+            static let cornerRadius: CGFloat = 15
 
             static let shadowRadius: CGFloat = 2
 
@@ -220,10 +220,7 @@ extension LoginViewController {
                                    blue: 84 / 255,
                                    alpha: 1)
                 } else {
-                    return UIColor(red: 250 / 255,
-                                   green: 250 / 255,
-                                   blue: 250 / 255,
-                                   alpha: 1)
+                    return .white
                 }
             }
 
@@ -233,7 +230,7 @@ extension LoginViewController {
 
             static let topSpacingMultiplier: CGFloat = 0.015
 
-            static let widthPercent: Percent = 80%
+            static let widthPercent: Percent = 70%
 
             static let height: CGFloat = 48
 

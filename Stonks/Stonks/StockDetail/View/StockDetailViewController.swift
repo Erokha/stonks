@@ -90,15 +90,15 @@ final class StockDetailViewController: UIViewController {
         view.addSubview(buyButton)
 
         buyButton.backgroundColor = Constants.BuyButton.backgroundColor
-        buyButton.titleLabel?.font = Constants.BuyButton.font
-        buyButton.setTitleColor(Constants.BuyButton.textColor, for: .normal)
+        buyButton.titleLabel?.font = Constants.Buttons.font
+        buyButton.setTitleColor(Constants.Buttons.textColor, for: .normal)
         buyButton.setTitle(Constants.BuyButton.text, for: .normal)
-        buyButton.layer.cornerRadius = Constants.BuyButton.cornerRadius
+        buyButton.layer.cornerRadius = Constants.Buttons.cornerRadius
 
-        buyButton.layer.shadowColor = Constants.BuyButton.shadowColor.cgColor
-        buyButton.layer.shadowOffset = Constants.BuyButton.shadowOffset
-        buyButton.layer.shadowRadius = Constants.BuyButton.shadowRadius
-        buyButton.layer.shadowOpacity = Constants.BuyButton.shadowOpacity
+        buyButton.layer.shadowColor = Constants.Buttons.shadowColor.cgColor
+        buyButton.layer.shadowOffset = Constants.Buttons.shadowOffset
+        buyButton.layer.shadowRadius = Constants.Buttons.shadowRadius
+        buyButton.layer.shadowOpacity = Constants.Buttons.shadowOpacity
 
         buyButton.addTarget(self, action: #selector(didTapBuyButton), for: .touchUpInside)
     }
@@ -130,15 +130,15 @@ final class StockDetailViewController: UIViewController {
         view.addSubview(sellButton)
 
         sellButton.backgroundColor = Constants.SellButton.backgroundColor
-        sellButton.titleLabel?.font = Constants.SellButton.font
-        sellButton.setTitleColor(Constants.SellButton.textColor, for: .normal)
+        sellButton.titleLabel?.font = Constants.Buttons.font
+        sellButton.setTitleColor(Constants.Buttons.textColor, for: .normal)
         sellButton.setTitle(Constants.SellButton.text, for: .normal)
-        sellButton.layer.cornerRadius = Constants.SellButton.cornerRadius
+        sellButton.layer.cornerRadius = Constants.Buttons.cornerRadius
 
-        sellButton.layer.shadowColor = Constants.SellButton.shadowColor.cgColor
-        sellButton.layer.shadowOffset = Constants.SellButton.shadowOffset
-        sellButton.layer.shadowRadius = Constants.SellButton.shadowRadius
-        sellButton.layer.shadowOpacity = Constants.SellButton.shadowOpacity
+        sellButton.layer.shadowColor = Constants.Buttons.shadowColor.cgColor
+        sellButton.layer.shadowOffset = Constants.Buttons.shadowOffset
+        sellButton.layer.shadowRadius = Constants.Buttons.shadowRadius
+        sellButton.layer.shadowOpacity = Constants.Buttons.shadowOpacity
 
         sellButton.addTarget(self, action: #selector(didTapSellButton), for: .touchUpInside)
     }
@@ -150,10 +150,10 @@ final class StockDetailViewController: UIViewController {
         buyTextFieldContainerView.addSubview(buyTextField)
 
         buyTextField.clipsToBounds = true
-        buyTextField.layer.cornerRadius = Constants.BuyTextField.cornerRadius
-        buyTextField.layer.borderWidth = Constants.BuyTextField.borderWidth
-        buyTextField.backgroundColor = Constants.BuyTextField.backgroundColor
-        buyTextField.layer.borderColor = Constants.BuyTextField.borderColor.cgColor
+        buyTextField.layer.cornerRadius = Constants.TextField.cornerRadius
+        buyTextField.layer.borderWidth = Constants.TextField.borderWidth
+        buyTextField.backgroundColor = Constants.TextField.backgroundColor
+        buyTextField.layer.borderColor = Constants.TextField.borderColor.cgColor
 
         buyTextField.leftView = UIView(frame: CGRect(x: .zero,
                                                          y: .zero,
@@ -169,9 +169,9 @@ final class StockDetailViewController: UIViewController {
         buyTextField.clearButtonMode = .whileEditing
         buyTextField.autocorrectionType = .no
 
-        buyTextField.font = Constants.BuyTextField.font
-        buyTextField.attributedPlaceholder = NSAttributedString(string: Constants.BuyTextField.placeholderText,
-                                                                attributes: [NSAttributedString.Key.foregroundColor: Constants.BuyTextField.placeholderColor])
+        buyTextField.font = Constants.TextField.font
+        buyTextField.attributedPlaceholder = NSAttributedString(string: Constants.TextField.placeholderText,
+                                                                attributes: [NSAttributedString.Key.foregroundColor: Constants.TextField.placeholderColor])
     }
 
     private func setupBuyTextFieldContainerView() {
@@ -180,12 +180,12 @@ final class StockDetailViewController: UIViewController {
         buyTextFieldContainerView = container
         view.addSubview(buyTextFieldContainerView)
 
-        buyTextFieldContainerView.layer.cornerRadius = Constants.BuyTextField.cornerRadius
+        buyTextFieldContainerView.layer.cornerRadius = Constants.TextField.cornerRadius
 
-        buyTextFieldContainerView.layer.shadowColor = Constants.BuyTextField.shadowColor.cgColor
-        buyTextFieldContainerView.layer.shadowOffset = Constants.BuyTextField.shadowOffset
-        buyTextFieldContainerView.layer.shadowRadius = Constants.BuyTextField.shadowRadius
-        buyTextFieldContainerView.layer.shadowOpacity = Constants.BuyTextField.shadowOpacity
+        buyTextFieldContainerView.layer.shadowColor = Constants.TextField.shadowColor.cgColor
+        buyTextFieldContainerView.layer.shadowOffset = Constants.TextField.shadowOffset
+        buyTextFieldContainerView.layer.shadowRadius = Constants.TextField.shadowRadius
+        buyTextFieldContainerView.layer.shadowOpacity = Constants.TextField.shadowOpacity
     }
 
     private func setupSellTextField() {
@@ -195,10 +195,10 @@ final class StockDetailViewController: UIViewController {
         sellTextFieldContainerView.addSubview(sellTextField)
 
         sellTextField.clipsToBounds = true
-        sellTextField.layer.cornerRadius = Constants.SellTextField.cornerRadius
-        sellTextField.layer.borderWidth = Constants.SellTextField.borderWidth
-        sellTextField.backgroundColor = Constants.SellTextField.backgroundColor
-        sellTextField.layer.borderColor = Constants.SellTextField.borderColor.cgColor
+        sellTextField.layer.cornerRadius = Constants.TextField.cornerRadius
+        sellTextField.layer.borderWidth = Constants.TextField.borderWidth
+        sellTextField.backgroundColor = Constants.TextField.backgroundColor
+        sellTextField.layer.borderColor = Constants.TextField.borderColor.cgColor
 
         sellTextField.leftView = UIView(frame: CGRect(x: .zero,
                                                          y: .zero,
@@ -214,9 +214,9 @@ final class StockDetailViewController: UIViewController {
         sellTextField.clearButtonMode = .whileEditing
         sellTextField.autocorrectionType = .no
 
-        sellTextField.font = Constants.SellTextField.font
-        sellTextField.attributedPlaceholder = NSAttributedString(string: Constants.SellTextField.placeholderText,
-                                                                 attributes: [NSAttributedString.Key.foregroundColor: Constants.SellTextField.placeholderColor])
+        sellTextField.font = Constants.TextField.font
+        sellTextField.attributedPlaceholder = NSAttributedString(string: Constants.TextField.placeholderText,
+                                                                 attributes: [NSAttributedString.Key.foregroundColor: Constants.TextField.placeholderColor])
     }
 
     private func setupSellTextFieldContainerView() {
@@ -225,12 +225,12 @@ final class StockDetailViewController: UIViewController {
         sellTextFieldContainerView = container
         view.addSubview(sellTextFieldContainerView)
 
-        sellTextFieldContainerView.layer.cornerRadius = Constants.SellTextField.cornerRadius
+        sellTextFieldContainerView.layer.cornerRadius = Constants.TextField.cornerRadius
 
-        sellTextFieldContainerView.layer.shadowColor = Constants.SellTextField.shadowColor.cgColor
-        sellTextFieldContainerView.layer.shadowOffset = Constants.SellTextField.shadowOffset
-        sellTextFieldContainerView.layer.shadowRadius = Constants.SellTextField.shadowRadius
-        sellTextFieldContainerView.layer.shadowOpacity = Constants.SellTextField.shadowOpacity
+        sellTextFieldContainerView.layer.shadowColor = Constants.TextField.shadowColor.cgColor
+        sellTextFieldContainerView.layer.shadowOffset = Constants.TextField.shadowOffset
+        sellTextFieldContainerView.layer.shadowRadius = Constants.TextField.shadowRadius
+        sellTextFieldContainerView.layer.shadowOpacity = Constants.TextField.shadowOpacity
     }
 
     private func setupStockNameLabel() {
@@ -367,7 +367,7 @@ final class StockDetailViewController: UIViewController {
 
         layoutCompanyNameLabel()
         layoutShowMyStocksButton()
-        layputStockDetailCardContainerView()
+        layoutStockDetailCardContainerView()
         layoutStockDetailCardView()
         layoutChartContainerView()
         layoutLineChartView()
@@ -385,25 +385,25 @@ final class StockDetailViewController: UIViewController {
 
     private func layoutCompanyNameLabel() {
         companyNameLabel.pin
-            .top(5%)
-            .width(70%)
-            .height(50)
+            .top(Constants.CompanyNameLabel.topPercent)
+            .width(Constants.CompanyNameLabel.widthPercent)
+            .height(Constants.CompanyNameLabel.height)
             .hCenter()
     }
 
     private func layoutShowMyStocksButton() {
         showMyStocksButton.pin
-            .width(27)
-            .height(27)
-            .left(3%)
+            .width(Constants.ShowMyStocksButton.widthConstant)
+            .height(Constants.ShowMyStocksButton.heightConstant)
+            .left(Constants.ShowMyStocksButton.leftPercent)
             .top(companyNameLabel.frame.midY - showMyStocksButton.bounds.size.height / 2)
     }
 
-    private func layputStockDetailCardContainerView() {
+    private func layoutStockDetailCardContainerView() {
         stockDetailCardContainerView.pin
-            .top(showMyStocksButton.frame.maxY + 20)
-            .width(90%)
-            .height(10%)
+            .top(showMyStocksButton.frame.maxY + Constants.screenHeight * Constants.StockDetailCardContainerView.topSpacingMultiplier)
+            .width(Constants.StockDetailCardContainerView.widthPercent)
+            .height(Constants.StockDetailCardContainerView.heightPercent)
             .hCenter()
     }
 
@@ -414,15 +414,15 @@ final class StockDetailViewController: UIViewController {
 
     private func layoutChartContainerView() {
         chartContainerView.pin
-            .top(stockDetailCardContainerView.frame.maxY + 30)
-            .width(90%)
-            .height(27%)
+            .top(stockDetailCardContainerView.frame.maxY + Constants.screenHeight * Constants.ChartContainerView.topSpacingMultiplier)
+            .width(Constants.ChartContainerView.widthPercent)
+            .height(Constants.ChartContainerView.heightPercent)
             .hCenter()
     }
 
     private func layoutLineChartView() {
         stockLineChartView.pin
-            .top(20%)
+            .top(Constants.StockLineChartView.topPercent)
             .left(.zero)
             .right(.zero)
             .bottom(.zero)
@@ -430,42 +430,42 @@ final class StockDetailViewController: UIViewController {
 
     private func layoutStockNameLabel() {
         stockSymbolLabel.pin
-            .top(2%)
-            .left(5%)
-            .width(40%)
-            .height(20%)
+            .top(Constants.StockSymbolLabel.topPercent)
+            .left(Constants.StockSymbolLabel.leftPercent)
+            .width(Constants.StockSymbolLabel.widthPercent)
+            .height(Constants.StockSymbolLabel.heightPercent)
     }
 
     private func layoutStockCurrentCostLabel() {
         stockCurrentCostLabel.pin
-            .top(2%)
-            .right(5%)
-            .width(40%)
-            .height(20%)
+            .top(Constants.StockCurrentCostLabel.topPercent)
+            .right(Constants.StockCurrentCostLabel.rightPercent)
+            .width(Constants.StockCurrentCostLabel.widthPercent)
+            .height(Constants.StockCurrentCostLabel.heightPercent)
     }
 
     private func layoutStockAmountLabel() {
         stockAmountLabel.pin
-            .top(chartContainerView.frame.maxY + 10)
-            .width(40%)
+            .top(chartContainerView.frame.maxY + Constants.screenHeight * Constants.StockAmountLabel.topSpacingMultiplier)
+            .width(Constants.StockAmountLabel.widthPercent)
             .hCenter()
-            .height(40)
+            .height(Constants.StockAmountLabel.height)
     }
 
     private func layoutBuyButton() {
         buyButton.pin
-            .top(stockAmountLabel.frame.maxY + 10)
-            .left(5%)
-            .width(45%)
-            .height(48)
+            .top(stockAmountLabel.frame.maxY + Constants.screenHeight * Constants.BuyButton.topSpacingMultiplier)
+            .left(Constants.Buttons.leftPercent)
+            .width(Constants.Buttons.widthPercent)
+            .height(Constants.Buttons.height)
     }
 
     private func layoutSellButton() {
         sellButton.pin
-            .top(buyButton.frame.maxY + 20)
-            .left(5%)
-            .width(45%)
-            .height(48)
+            .top(buyButton.frame.maxY + Constants.screenHeight * Constants.SellButton.topSpacingMultiplier)
+            .left(Constants.Buttons.leftPercent)
+            .width(Constants.Buttons.widthPercent)
+            .height(Constants.Buttons.height)
     }
 
     private func layoutBuyTextField() {
@@ -475,10 +475,10 @@ final class StockDetailViewController: UIViewController {
 
     private func layoutBuyTextFieldContainerView() {
         buyTextFieldContainerView.pin
-            .top(stockAmountLabel.frame.maxY + 10)
-            .right(5%)
-            .width(35%)
-            .height(48)
+            .top(stockAmountLabel.frame.maxY + Constants.screenHeight * Constants.BuyTextFieldContainer.topSpacingMultiplier)
+            .right(Constants.TextFieldContainer.rightPercent)
+            .width(Constants.TextFieldContainer.widthPercent)
+            .height(Constants.TextFieldContainer.height)
     }
 
     private func layoutSellTextField() {
@@ -488,10 +488,10 @@ final class StockDetailViewController: UIViewController {
 
     private func layoutSellTextFieldContainerView() {
         sellTextFieldContainerView.pin
-            .top(buyTextFieldContainerView.frame.maxY + 20)
-            .right(5%)
-            .width(35%)
-            .height(48)
+            .top(buyTextFieldContainerView.frame.maxY + Constants.screenHeight * Constants.SellTextFieldContainer.topSpacingMultiplier)
+            .right(Constants.TextFieldContainer.rightPercent)
+            .width(Constants.TextFieldContainer.widthPercent)
+            .height(Constants.TextFieldContainer.height)
     }
 
     private func layoutActivityIndicator() {
