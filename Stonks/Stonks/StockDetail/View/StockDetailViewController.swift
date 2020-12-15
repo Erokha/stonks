@@ -351,6 +351,51 @@ final class StockDetailViewController: UIViewController {
         output?.didLoadView()
     }
 
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        updateUI()
+    }
+
+    private func updateUI() {
+        updateView()
+        updateStockDetailCard()
+        updateChartContainerView()
+        updateLineChartView()
+        updateBuyTextField()
+        updateSellTextField()
+    }
+
+    private func updateView() {
+        view.backgroundColor = Constants.backgroundColor
+    }
+
+    private func updateStockDetailCard() {
+        stockDetailCardView.backgroundColor = Constants.StockDetailCardView.backgoundColor
+    }
+
+    private func updateChartContainerView() {
+        chartContainerView.backgroundColor = Constants.ChartContainerView.backgoundColor
+    }
+
+    private func updateLineChartView() {
+        stockLineChartView.backgroundColor = Constants.StockLineChartView.backgoundColor
+    }
+
+    private func updateBuyTextField() {
+        buyTextField.backgroundColor = Constants.TextField.backgroundColor
+        buyTextField.layer.borderColor = Constants.TextField.borderColor.cgColor
+        buyTextField.attributedPlaceholder = NSAttributedString(string: Constants.TextField.placeholderText,
+                                                                 attributes: [NSAttributedString.Key.foregroundColor: Constants.TextField.placeholderTextColor])
+    }
+
+    private func updateSellTextField() {
+        sellTextField.backgroundColor = Constants.TextField.backgroundColor
+        sellTextField.layer.borderColor = Constants.TextField.borderColor.cgColor
+        sellTextField.attributedPlaceholder = NSAttributedString(string: Constants.TextField.placeholderText,
+                                                                 attributes: [NSAttributedString.Key.foregroundColor: Constants.TextField.placeholderTextColor])
+    }
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
