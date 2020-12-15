@@ -27,6 +27,29 @@
             <rect key="frame" x="0.0" y="0.0" width="327" height="82"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5Oa-dD-gxg">
+                    <rect key="frame" x="30.5" y="33.5" width="102.5" height="31.5"/>
+                    <subviews>
+                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UJQ-Rs-vv7">
+                            <rect key="frame" x="0.0" y="0.0" width="16.5" height="31.5"/>
+                            <color key="tintColor" red="0.44313725490196076" green="0.396078431372549" blue="0.8901960784313725" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <state key="normal">
+                                <color key="titleColor" name="AccentColor"/>
+                                <imageReference key="image" image="circle.fill" catalog="system" symbolScale="small"/>
+                            </state>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$2500" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ssS-vp-lQ2">
+                            <rect key="frame" x="21.5" y="0.0" width="81" height="31.5"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                            <color key="textColor" red="0.28235294119999998" green="0.27058823529999998" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="UJQ-Rs-vv7" firstAttribute="width" secondItem="5Oa-dD-gxg" secondAttribute="width" multiplier="0.160976" id="6e2-ob-gnl"/>
+                        <constraint firstItem="ssS-vp-lQ2" firstAttribute="width" secondItem="5Oa-dD-gxg" secondAttribute="width" multiplier="0.790244" id="VQp-8m-odr"/>
+                    </constraints>
+                </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Cvb-GO-CTb">
                     <rect key="frame" x="194" y="33.5" width="102.5" height="31.5"/>
                     <subviews>
@@ -62,29 +85,6 @@
                     <color key="textColor" red="0.28235294119999998" green="0.27058823529999998" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5Oa-dD-gxg">
-                    <rect key="frame" x="30.5" y="33.5" width="102.5" height="31.5"/>
-                    <subviews>
-                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UJQ-Rs-vv7">
-                            <rect key="frame" x="0.0" y="0.0" width="16.5" height="31.5"/>
-                            <color key="tintColor" red="0.44313725490196076" green="0.396078431372549" blue="0.8901960784313725" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            <state key="normal">
-                                <color key="titleColor" name="AccentColor"/>
-                                <imageReference key="image" image="circle.fill" catalog="system" symbolScale="small"/>
-                            </state>
-                        </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$2500" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ssS-vp-lQ2">
-                            <rect key="frame" x="21.5" y="0.0" width="81" height="31.5"/>
-                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                            <color key="textColor" red="0.28235294119999998" green="0.27058823529999998" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <constraints>
-                        <constraint firstItem="UJQ-Rs-vv7" firstAttribute="width" secondItem="5Oa-dD-gxg" secondAttribute="width" multiplier="0.160976" id="6e2-ob-gnl"/>
-                        <constraint firstItem="ssS-vp-lQ2" firstAttribute="width" secondItem="5Oa-dD-gxg" secondAttribute="width" multiplier="0.790244" id="VQp-8m-odr"/>
-                    </constraints>
-                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -102,7 +102,7 @@
                 <constraint firstItem="5Oa-dD-gxg" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" multiplier="0.5" id="xlv-dZ-WYD"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-137" y="15"/>
+            <point key="canvasLocation" x="42.028985507246382" y="334.48660714285711"/>
         </view>
     </objects>
     <resources>

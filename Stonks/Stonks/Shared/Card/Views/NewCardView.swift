@@ -40,37 +40,37 @@ final class NewCardView: UIView {
 
     private func layoutUpperTextLeft() {
         upperTextLeft.pin
-            .top(15%)
-            .left(5%)
-            .width(45%)
-            .height(15%)
+            .top(Constants.UpperLabel.topPercent)
+            .left(Constants.UpperLabelLeft.leftPercent)
+            .width(Constants.UpperLabel.widthPercent)
+            .height(Constants.UpperLabel.heightPercent)
     }
 
     private func layoutUpperTextRight() {
         upperTextRight.pin
-            .top(15%)
-            .right(5%)
-            .width(45%)
-            .height(15%)
+            .top(Constants.UpperLabel.topPercent)
+            .right(Constants.UpperLabelRight.rightPercent)
+            .width(Constants.UpperLabel.widthPercent)
+            .height(Constants.UpperLabel.heightPercent)
     }
 
     private func layoutLeftButton() {
         leftButton.pin
-            .width(15)
-            .height(15)
+            .width(Constants.Buttons.width)
+            .height(Constants.Buttons.width)
 
         leftButton.pin
-            .left(numberLeft.frame.minX - 5 - leftButton.bounds.width)
+            .left(numberLeft.frame.minX - Constants.screenWidth * Constants.Buttons.spacingFromLabelMultiplier - Constants.Buttons.width)
             .top(numberLeft.frame.midY - leftButton.bounds.height / 2)
     }
 
     private func layoutRightButton() {
         rightButton.pin
-            .width(15)
-            .height(15)
+            .width(Constants.Buttons.width)
+            .height(Constants.Buttons.width)
 
         rightButton.pin
-            .left(numberRight.frame.minX - 5 - rightButton.bounds.width)
+            .left(numberRight.frame.minX - Constants.screenWidth * Constants.Buttons.spacingFromLabelMultiplier - Constants.Buttons.width)
             .top(numberRight.frame.midY - rightButton.bounds.height / 2)
     }
 
@@ -80,7 +80,7 @@ final class NewCardView: UIView {
 
         numberLeft.pin
             .left(upperTextLeft.frame.midX - numberLeft.bounds.width / 2)
-            .top(upperTextLeft.frame.maxY + 12)
+            .top(upperTextLeft.frame.maxY + Constants.screenWidth * Constants.NumberLabel.topSpacingMupltiplier)
     }
 
     private func layoutNumberRight() {
@@ -89,7 +89,7 @@ final class NewCardView: UIView {
 
         numberRight.pin
             .left(upperTextRight.frame.midX - numberRight.bounds.width / 2)
-            .top(upperTextRight.frame.maxY + 12)
+            .top(upperTextRight.frame.maxY + Constants.screenWidth * Constants.NumberLabel.topSpacingMupltiplier)
     }
 
     private func setupSubviews() {
@@ -127,12 +127,10 @@ final class NewCardView: UIView {
         leftButton = button
         addSubview(leftButton)
 
-        leftButton.setImage(UIImage(systemName: "circle.fill"), for: .normal)
-        leftButton.tintColor = UIColor(red: 113 / 255,
-                                       green: 101 / 255,
-                                       blue: 227 / 255,
-                                       alpha: 1)
+        leftButton.setImage(UIImage(systemName: Constants.Buttons.systemImageName), for: .normal)
+        leftButton.tintColor = Constants.LeftButton.tintColor
         leftButton.contentMode = .scaleToFill
+        leftButton.isUserInteractionEnabled = false
     }
 
     private func setupRightButton() {
@@ -141,9 +139,10 @@ final class NewCardView: UIView {
         rightButton = button
         addSubview(rightButton)
 
-        rightButton.setImage(UIImage(systemName: "circle.fill"), for: .normal)
-        rightButton.tintColor = .red
+        rightButton.setImage(UIImage(systemName: Constants.Buttons.systemImageName), for: .normal)
+        rightButton.tintColor = Constants.RightButton.tintColor
         rightButton.contentMode = .scaleToFill
+        rightButton.isUserInteractionEnabled = false
     }
 
     private func setupNumberLeft() {
@@ -153,7 +152,7 @@ final class NewCardView: UIView {
         addSubview(numberLeft)
 
         numberLeft.textAlignment = .center
-        numberLeft.font = UIFont(name: "DMSans-Bold", size: 22)
+        numberLeft.font = Constants.NumberLabel.font
     }
 
     private func setupNumberRight() {
@@ -163,7 +162,7 @@ final class NewCardView: UIView {
         addSubview(numberRight)
 
         numberRight.textAlignment = .center
-        numberRight.font = UIFont(name: "DMSans-Bold", size: 22)
+        numberRight.font = Constants.NumberLabel.font
     }
 
     required init?(coder: NSCoder) {
@@ -195,6 +194,9 @@ extension NewCardView: CardViewType {
 
 extension NewCardView {
     private struct Constants {
+        static let screenWidth: CGFloat = UIScreen.main.bounds.width
+        static let screenHeight: CGFloat = UIScreen.main.bounds.height
+
         static var backgroundColor: UIColor {
             if UITraitCollection.current.userInterfaceStyle == .dark {
                 return UIColor(red: 71 / 255,
@@ -207,7 +209,49 @@ extension NewCardView {
         }
 
         struct UpperLabel {
-            static let font: UIFont? = UIFont(name: "DMSans-Medium", size: 13)
+            static let font: UIFont? = UIFont(name: "DMSans-Medium", size: 12)
+
+            static let topPercent: Percent = 18%
+
+            static let widthPercent: Percent = 45%
+
+            static let heightPercent: Percent = 15%
+        }
+
+        struct UpperLabelLeft {
+            static let leftPercent: Percent = 5%
+        }
+
+        struct UpperLabelRight {
+            static let rightPercent: Percent = 5%
+        }
+
+        struct Buttons {
+            static let systemImageName: String = "circle.fill"
+
+            static let width: CGFloat = 15
+
+            static let height: CGFloat = 15
+
+            static let spacingFromLabelMultiplier: CGFloat = 0.015
+        }
+
+        struct LeftButton {
+            static let tintColor: UIColor = UIColor(red: 113 / 255,
+                                                    green: 101 / 255,
+                                                    blue: 227 / 255,
+                                                    alpha: 1)
+
+        }
+
+        struct RightButton {
+            static let tintColor: UIColor = .red
+        }
+
+        struct NumberLabel {
+            static let font: UIFont? = UIFont(name: "DMSans-Bold", size: 22)
+
+            static let topSpacingMupltiplier: CGFloat = 0.025
         }
     }
 }

@@ -67,31 +67,6 @@ extension StockDetailViewController {
             static let leftText: String = "Available Balance"
 
             static let cornerRadius: CGFloat = 20
-        }
-
-        struct ShowMyStocksButton {
-            static let imageName: String = "previous"
-
-            static let widthConstant: CGFloat = 27
-
-            static let heightConstant: CGFloat = widthConstant
-
-            static let leftPercent: Percent = 3%
-        }
-
-        struct StockDetailCardContainerView {
-            static var backgoundColor: UIColor {
-                if UITraitCollection.current.userInterfaceStyle == .dark {
-                    return UIColor(red: 71 / 255,
-                                   green: 68 / 255,
-                                   blue: 83 / 255,
-                                   alpha: 1)
-                } else {
-                    return .white
-                }
-            }
-
-            static let cornerRadius: CGFloat = 20
 
             static let shadowColor: UIColor = .black
 
@@ -106,6 +81,16 @@ extension StockDetailViewController {
             static let widthPercent: Percent = 90%
 
             static let heightPercent: Percent = 10%
+        }
+
+        struct ShowMyStocksButton {
+            static let imageName: String = "previous"
+
+            static let widthConstant: CGFloat = 27
+
+            static let heightConstant: CGFloat = widthConstant
+
+            static let leftPercent: Percent = 3%
         }
 
         struct ChartContainerView {

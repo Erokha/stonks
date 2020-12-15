@@ -11,8 +11,6 @@ final class StockDetailViewController: UIViewController {
 
     private weak var companyNameLabel: UILabel!
 
-    private weak var stockDetailCardContainerView: UIView!
-
     private weak var stockDetailCardView: NewCardView!
 
     private weak var chartContainerView: UIView!
@@ -39,19 +37,6 @@ final class StockDetailViewController: UIViewController {
 
     private weak var stockLineChartView: (StockDetailChartView & StockDetailChartViewInput)!
 
-    private func setupStockDetailCardContainerView() {
-        let containerView = UIView()
-
-        stockDetailCardContainerView = containerView
-        view.addSubview(stockDetailCardContainerView)
-
-        stockDetailCardContainerView.layer.cornerRadius = Constants.StockDetailCardContainerView.cornerRadius
-        stockDetailCardContainerView.layer.shadowColor = Constants.StockDetailCardContainerView.shadowColor.cgColor
-        stockDetailCardContainerView.layer.shadowOffset = Constants.StockDetailCardContainerView.shadowOffset
-        stockDetailCardContainerView.layer.shadowRadius = Constants.StockDetailCardContainerView.shadowRadius
-        stockDetailCardContainerView.layer.shadowOpacity = Constants.StockDetailCardContainerView.shadowOpacity
-    }
-
     private func setupChartContainerView() {
         let chartView = UIView()
 
@@ -67,13 +52,18 @@ final class StockDetailViewController: UIViewController {
     }
 
     private func setupStockDetailCardView() {
-        let view = NewCardView()
+        let cardView = NewCardView()
 
-        stockDetailCardView = view
-        stockDetailCardContainerView.addSubview(stockDetailCardView)
+        stockDetailCardView = cardView
+        view.addSubview(stockDetailCardView)
 
-        stockDetailCardView.clipsToBounds = true
+        stockDetailCardView.backgroundColor = Constants.StockDetailCardView.backgoundColor
         stockDetailCardView.layer.cornerRadius = Constants.StockDetailCardView.cornerRadius
+        stockDetailCardView.layer.cornerRadius = Constants.StockDetailCardView.cornerRadius
+        stockDetailCardView.layer.shadowColor = Constants.StockDetailCardView.shadowColor.cgColor
+        stockDetailCardView.layer.shadowOffset = Constants.StockDetailCardView.shadowOffset
+        stockDetailCardView.layer.shadowRadius = Constants.StockDetailCardView.shadowRadius
+        stockDetailCardView.layer.shadowOpacity = Constants.StockDetailCardView.shadowOpacity
 
         self.cardPresenter = CardViewPresenter(view: stockDetailCardView)
 
@@ -328,7 +318,6 @@ final class StockDetailViewController: UIViewController {
     private func setupSubviews() {
         setupCompanyNameLabel()
         setupShowMyStocksButton()
-        setupStockDetailCardContainerView()
         setupStockDetailCardView()
         setupChartContainerView()
         setupStockLineChartView()
@@ -367,7 +356,6 @@ final class StockDetailViewController: UIViewController {
 
         layoutCompanyNameLabel()
         layoutShowMyStocksButton()
-        layoutStockDetailCardContainerView()
         layoutStockDetailCardView()
         layoutChartContainerView()
         layoutLineChartView()
@@ -399,22 +387,17 @@ final class StockDetailViewController: UIViewController {
             .top(companyNameLabel.frame.midY - Constants.ShowMyStocksButton.heightConstant / 2)
     }
 
-    private func layoutStockDetailCardContainerView() {
-        stockDetailCardContainerView.pin
-            .top(showMyStocksButton.frame.maxY + Constants.screenHeight * Constants.StockDetailCardContainerView.topSpacingMultiplier)
-            .width(Constants.StockDetailCardContainerView.widthPercent)
-            .height(Constants.StockDetailCardContainerView.heightPercent)
-            .hCenter()
-    }
-
     private func layoutStockDetailCardView() {
         stockDetailCardView.pin
-            .all(.zero)
+            .top(showMyStocksButton.frame.maxY + Constants.screenHeight * Constants.StockDetailCardView.topSpacingMultiplier)
+            .width(Constants.StockDetailCardView.widthPercent)
+            .height(Constants.StockDetailCardView.heightPercent)
+            .hCenter()
     }
 
     private func layoutChartContainerView() {
         chartContainerView.pin
-            .top(stockDetailCardContainerView.frame.maxY + Constants.screenHeight * Constants.ChartContainerView.topSpacingMultiplier)
+            .top(stockDetailCardView.frame.maxY + Constants.screenHeight * Constants.ChartContainerView.topSpacingMultiplier)
             .width(Constants.ChartContainerView.widthPercent)
             .height(Constants.ChartContainerView.heightPercent)
             .hCenter()
@@ -584,7 +567,7 @@ extension StockDetailViewController: StockDetailViewInput {
 
     func showActivityIndicator() {
         chartContainerView.isHidden = true
-        stockDetailCardContainerView.isHidden = true
+        stockDetailCardView.isHidden = true
         stockAmountLabel.isHidden = true
         companyNameLabel.isHidden = true
 
@@ -593,7 +576,7 @@ extension StockDetailViewController: StockDetailViewInput {
 
     func hideActivityIndicator() {
         chartContainerView.isHidden = false
-        stockDetailCardContainerView.isHidden = false
+        stockDetailCardView.isHidden = false
         stockAmountLabel.isHidden = false
         companyNameLabel.isHidden = false
 
