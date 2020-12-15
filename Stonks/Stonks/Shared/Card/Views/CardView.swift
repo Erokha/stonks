@@ -40,21 +40,3 @@ extension CardView {
         static let numbersFont: UIFont? = UIFont(name: "DMSans-Bold", size: 26)
     }
 }
-
-extension String {
-    static func adoptStonksCardPrice(with num: Int?) -> String {
-        guard let number = num else { return "" }
-        if number >= 1000000000 {
-            let res = String(format: "%.1f", Float(number) / 1000000000)
-            return "$\(res)B"
-        } else if number >= 1000000 {
-            let res = String(format: "%.1f", Float(number) / 1000000)
-            return "$\(res)M"
-        } else if number >= 100000 {
-            let res = String(format: "%.2f", Float(number) / 1000)
-            return "$\(res)k"
-        } else {
-            return "$\(number)"
-        }
-    }
-}

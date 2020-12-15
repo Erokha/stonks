@@ -37,6 +37,8 @@ protocol LoginViewInput: AnyObject {
 
     func setBalanceTextField(isEditing: Bool)
 
+    func setGoogleSignInPresentingVC()
+
     func disableKeyboard()
 }
 
