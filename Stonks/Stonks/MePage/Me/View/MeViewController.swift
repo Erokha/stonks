@@ -17,7 +17,7 @@ final class MeViewController: UIViewController {
     private weak var photoButton: UIButton!
 
     // HERE WILL BE CARD VIEW!
-    private weak var cardView: UIView!
+    private weak var cardView: NewCardView!
 
     private weak var segmentControl: UISegmentedControl!
 
@@ -104,12 +104,14 @@ final class MeViewController: UIViewController {
     }
 
     private func setupCardView() {
-        let card = UIView()
+        let card = CardViewContainer.assemble(with: CardViewContext()).view
         cardView = card
         cardView.layer.shadowOpacity = Constants.shadowOpacity
         cardView.layer.shadowRadius = Constants.cardShadowRadius
         cardView.layer.shadowOffset = .init(width: 0, height: 3)
         cardView.layer.cornerRadius = 20
+        cardView.showUpperTextLeft(text: "Avaiable Balance")
+        cardView.showUpperTextRight(text: "Spent")
         headerViewPin.addSubview(cardView)
     }
 
@@ -222,11 +224,11 @@ extension MeViewController: MeInput {
     }
 
     func setUserSpentInfo(spent: Int) {
-//        embeddedViewController.setTotalSpent(spent: spent)
+        cardView.showNumberRight(num: spent)
     }
 
     func setUserCurrentBalance(currentBalance: Int) {
-//        embeddedViewController.setCurrentBalance(currentBalance: currentBalance)
+        cardView.showNumberLeft(num: currentBalance)
     }
 }
 
