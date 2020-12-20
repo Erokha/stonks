@@ -90,14 +90,14 @@ extension ArticleViewController {
         if let tabbar = tabBarController?.tabBar {
             tableView.pin
                 .below(of: talbeViewTitleLabel).marginTop(20)
-                .left(10)
-                .right(10)
+                .left(20)
+                .right(20)
                 .above(of: tabbar)
         } else {
             tableView.pin
                 .below(of: talbeViewTitleLabel).marginTop(20)
-                .left(10)
-                .right(10)
+                .left(20)
+                .right(20)
                 .bottom()
         }
 

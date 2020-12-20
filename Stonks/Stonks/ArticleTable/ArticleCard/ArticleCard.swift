@@ -45,7 +45,8 @@ class ArticleTableViewCell: UITableViewCell {
     private func setupImage() {
         contentView.addSubview(articleImageView)
 
-        articleImageView.contentMode = .scaleToFill
+        articleImageView.contentMode = .scaleAspectFill
+        articleImageView.clipsToBounds = true
     }
 
     private func setupReadMoreButton() {
