@@ -3,7 +3,7 @@ import UIKit
 
 class AllStocksContainer {
     let viewController: AllStocksViewController
-    private(set) weak var router: StocksSharedRouter?//StocksRouter?
+    private(set) weak var router: StocksSharedRouter?// StocksRouter?
 
     class func assemble(with context: AllStocksContext) -> AllStocksContainer {
 
@@ -13,7 +13,7 @@ class AllStocksContainer {
         let presenter = AllStocksPresenter(interactor: interactor)
 
         interactor.output = presenter
-        let router = StocksSharedRouter()//StocksRouter()
+        let router = StocksSharedRouter()// StocksRouter()
 
         viewController.output = presenter
         presenter.view = viewController

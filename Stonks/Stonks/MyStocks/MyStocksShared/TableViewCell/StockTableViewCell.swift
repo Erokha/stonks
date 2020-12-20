@@ -3,7 +3,7 @@ import Kingfisher
 
 class StockTableViewCell: UITableViewCell {
 
-    //@IBOutlet var image: UIImageView!
+    // @IBOutlet var image: UIImageView!
     @IBOutlet private weak var stockNameLabel: UILabel!
     @IBOutlet private weak var stockPriceLabel: UILabel!
     @IBOutlet private weak var stockCountLabel: UILabel!

@@ -2,7 +2,7 @@ import UIKit
 
 class UserStocksContainer {
     let viewController: UserStocksViewController
-    private(set) weak var router: StocksSharedRouter?//MyStocksRouter?
+    private(set) weak var router: StocksSharedRouter?// MyStocksRouter?
 
     class func assemble(with context: UserStocksContext) -> UserStocksContainer {
         let viewController = UserStocksViewController()
@@ -10,7 +10,7 @@ class UserStocksContainer {
         let presenter = UserStocksPresenter(interactor: interactor)
 
         interactor.output = presenter
-        let router = StocksSharedRouter()//MyStocksRouter()
+        let router = StocksSharedRouter()// MyStocksRouter()
 
         viewController.output = presenter
         presenter.view = viewController
