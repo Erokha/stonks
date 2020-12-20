@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D37C81A25891B1B005AC9F3 /* ArticleCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D37C81925891B1B005AC9F3 /* ArticleCard.swift */; };
+		0D37C81E258949A0005AC9F3 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D37C81D258949A0005AC9F3 /* ArticleViewController.swift */; };
 		0D3903B6252F62C200C18036 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3903A7252F62C200C18036 /* Stock.swift */; };
 		0D3903B8252F62C200C18036 /* AllStocksPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3903AB252F62C200C18036 /* AllStocksPresenter.swift */; };
 		0D3903BB252F62C200C18036 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3903B0252F62C200C18036 /* ContainerViewController.swift */; };
@@ -19,8 +21,6 @@
 		0D751153253A622A00D0A719 /* MyStocksRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D751152253A622A00D0A719 /* MyStocksRouter.swift */; };
 		0D777771254B22FA00EFF30E /* ArticleViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D777761254B22FA00EFF30E /* ArticleViewPresenter.swift */; };
 		0D777772254B22FA00EFF30E /* ArticleContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D777763254B22FA00EFF30E /* ArticleContainer.swift */; };
-		0D777773254B22FA00EFF30E /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D777765254B22FA00EFF30E /* ArticleTableViewCell.swift */; };
-		0D777774254B22FA00EFF30E /* ArticleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D777766254B22FA00EFF30E /* ArticleTableViewCell.xib */; };
 		0D777775254B22FA00EFF30E /* ArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D777768254B22FA00EFF30E /* ArticleModel.swift */; };
 		0D777776254B22FA00EFF30E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D77776A254B22FA00EFF30E /* ViewController.swift */; };
 		0D777777254B22FA00EFF30E /* Article.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D77776B254B22FA00EFF30E /* Article.storyboard */; };
@@ -135,6 +135,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D37C81925891B1B005AC9F3 /* ArticleCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCard.swift; sourceTree = "<group>"; };
+		0D37C81D258949A0005AC9F3 /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 		0D3903A7252F62C200C18036 /* Stock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		0D3903A9252F62C200C18036 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStocks.storyboard; sourceTree = "<group>"; };
 		0D3903AB252F62C200C18036 /* AllStocksPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllStocksPresenter.swift; sourceTree = "<group>"; };
@@ -147,8 +149,6 @@
 		0D751152253A622A00D0A719 /* MyStocksRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStocksRouter.swift; sourceTree = "<group>"; };
 		0D777761254B22FA00EFF30E /* ArticleViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleViewPresenter.swift; sourceTree = "<group>"; };
 		0D777763254B22FA00EFF30E /* ArticleContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleContainer.swift; sourceTree = "<group>"; };
-		0D777765254B22FA00EFF30E /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
-		0D777766254B22FA00EFF30E /* ArticleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArticleTableViewCell.xib; sourceTree = "<group>"; };
 		0D777768254B22FA00EFF30E /* ArticleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleModel.swift; sourceTree = "<group>"; };
 		0D77776A254B22FA00EFF30E /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0D77776B254B22FA00EFF30E /* Article.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Article.storyboard; sourceTree = "<group>"; };
@@ -381,8 +381,7 @@
 		0D777764254B22FA00EFF30E /* ArticleCard */ = {
 			isa = PBXGroup;
 			children = (
-				0D777765254B22FA00EFF30E /* ArticleTableViewCell.swift */,
-				0D777766254B22FA00EFF30E /* ArticleTableViewCell.xib */,
+				0D37C81925891B1B005AC9F3 /* ArticleCard.swift */,
 			);
 			path = ArticleCard;
 			sourceTree = "<group>";
@@ -400,6 +399,7 @@
 			children = (
 				0D77776A254B22FA00EFF30E /* ViewController.swift */,
 				0D77776B254B22FA00EFF30E /* Article.storyboard */,
+				0D37C81D258949A0005AC9F3 /* ArticleViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1472,17 +1472,11 @@
 				314C058E253B0D0200105352 /* DMSans-Bold.ttf in Resources */,
 				314C058F253B0D0200105352 /* DMSans-Medium.ttf in Resources */,
 				314C0590253B0D0200105352 /* DMSans-Regular.ttf in Resources */,
-				13531274253B4C6600F77A91 /* HistoryButtonTableViewCell.xib in Resources */,
 				312398912588ACB300CB3499 /* CardView.xib in Resources */,
-				134487A22541C40D008C2D7B /* SettingsTableViewCell.xib in Resources */,
 				318A8458257CEAC1006445BD /* GoogleService-Info.plist in Resources */,
-				0D777774254B22FA00EFF30E /* ArticleTableViewCell.xib in Resources */,
 				0D777777254B22FA00EFF30E /* Article.storyboard in Resources */,
 				0D751141253A5C4F00D0A719 /* StockTableViewCell.xib in Resources */,
 				137C65FF254F44DB00AB0A59 /* MeHistoryTableViewCell.xib in Resources */,
-				31CD5485252BAEA400F65D17 /* Login.storyboard in Resources */,
-				137C66192552CBD300AB0A59 /* SortFilterTableViewCell.xib in Resources */,
-				138D65B325601E47004CC2DD /* TypeOfSortTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1574,6 +1568,7 @@
 				0DC142812566A9EF00A18C8B /* MainStocksInteractor.swift in Sources */,
 				3155EC1C254970F00036F67B /* LoginContainer.swift in Sources */,
 				318857942552B54E00FFDCBC /* AuthorizationService.swift in Sources */,
+				0D37C81E258949A0005AC9F3 /* ArticleViewController.swift in Sources */,
 				0DF11C0B255C8ABA004162BA /* UserStocksViewController.swift in Sources */,
 				13AF96612563D03B001988E6 /* MePortfolioStockData.swift in Sources */,
 				318857832551A63C00FFDCBC /* Stock+CoreDataClass.swift in Sources */,
@@ -1598,7 +1593,6 @@
 				1344878E2541AA3A008C2D7B /* MeContainer.swift in Sources */,
 				13591481254ECB9F0048E60F /* MeHistoryInteractor.swift in Sources */,
 				137C65F8254ED8B300AB0A59 /* MeHistoryRouter.swift in Sources */,
-				134179F3253227D50052D1A9 /* MeViewController.swift in Sources */,
 				312398902588ACB300CB3499 /* CardView.swift in Sources */,
 				9C2B698C25335A430042A932 /* Storyboards.swift in Sources */,
 				31BDC08C252A1C5B00F56ADD /* LoginViewController.swift in Sources */,
@@ -1615,7 +1609,6 @@
 				0D3903B6252F62C200C18036 /* Stock.swift in Sources */,
 				134487942541BBFB008C2D7B /* MePresenter.swift in Sources */,
 				0D777778254B22FA00EFF30E /* NewsProtocols.swift in Sources */,
-				0D777773254B22FA00EFF30E /* ArticleTableViewCell.swift in Sources */,
 				1334532A255BF8B100CA8E01 /* MePortfolioInteractor.swift in Sources */,
 				1344877D25419C9A008C2D7B /* MePortfolioViewController.swift in Sources */,
 				0D777779254B22FA00EFF30E /* ArticleInteractor.swift in Sources */,
@@ -1675,6 +1668,7 @@
 				13CDA2AD25812936009CFF71 /* SortFilterTableViewCell.swift in Sources */,
 				311057E5253F1E0900B41CDA /* User+CoreDataClass.swift in Sources */,
 				1328DC6A257F6CDC00565315 /* MeHistoryTableViewCellPin.swift in Sources */,
+				0D37C81A25891B1B005AC9F3 /* ArticleCard.swift in Sources */,
 				1390DA6825866B2300F70889 /* SettingsTableViewCellPin.swift in Sources */,
 				311057E2253F1AF200B41CDA /* Model.xcdatamodeld in Sources */,
 				1328DC62257BC88500565315 /* MeViewController.swift in Sources */,
