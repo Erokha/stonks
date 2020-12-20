@@ -36,6 +36,7 @@ class ArticleTableViewCell: UITableViewCell {
     }
 
     private func layoutUI() {
+        layoutView()
         layoutImage()
         layoutTextView()
         layoutReadMoreButton()
@@ -100,6 +101,12 @@ class ArticleTableViewCell: UITableViewCell {
         self.setupShadow()
     }
 
+    private func layoutView() {
+        self.pin
+            .left(10)
+            .right(10)
+    }
+
     @objc private func didTapReadMoreButton(_ sender: Any) {
         output?.didTapReadMore(url: url)
     }
@@ -116,9 +123,7 @@ extension ArticleTableViewCell {
 extension ArticleTableViewCell {
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
-        print("ololololo")
         updateViewColor()
-        //########################################################################################################################################################################################################################################################################################################################################################################################################################
     }
 
     private func updateViewColor() {

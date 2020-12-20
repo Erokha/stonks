@@ -1,9 +1,10 @@
 import UIKit
+import PinLayout
 
 class ArticleViewController: UIViewController {
 
-    private var tableView = UITableView()
-    private var talbeViewTitleLabel = UILabel()
+    private weak var tableView: UITableView!
+    private weak var talbeViewTitleLabel: UILabel!
     private let refreshControl = UIRefreshControl()
     private let activityIndicatorView = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
 
@@ -11,19 +12,30 @@ class ArticleViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        buildUI()
+        setupUI()
         output?.didLoadView()
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        layoutUI()
+    }
 }
 
 extension ArticleViewController {
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        setupActivityIndicatorView()
+
+    private func setupUI() {
+        view.backgroundColor = Constants.backgroundColor
+        setupTitle()
+        setupTableView()
+    }
+
+    private func layoutUI() {
         layoutTitle()
         layoutTableView()
     }
+
+    // tmpshit
 
     private func setupActivityIndicatorView() {
         activityIndicatorView.color = .black
@@ -32,51 +44,64 @@ extension ArticleViewController {
             activityIndicatorView.hidesWhenStopped = true
     }
 
-    private func buildUI() {
-        view.backgroundColor = Constants.backgroundColor
-        setupTitle()
-        setupTableView()
-    }
+    // Title
 
     private func setupTitle() {
+        let label = UILabel()
+        self.talbeViewTitleLabel = label
         talbeViewTitleLabel.font = Constants.Title.font
         view.addSubview(talbeViewTitleLabel)
     }
 
+    private func layoutTitle() {
+        talbeViewTitleLabel.pin
+            .sizeToFit()
+            .top(33)
+            .left(18)
+    }
+
+    // table View
+
     private func setupTableView() {
-        view.addSubview(tableView)
+        let tmpTableView = UITableView()
+        self.tableView = tmpTableView
 
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(ArticleTableViewCell.self, forCellReuseIdentifier: ArticleTableViewCell.reuseIdentifier)
         tableView.layer.shadowColor = Constants.shadowColor
         tableView.layer.shadowOpacity = 0.6
-        tableView.layer.shadowOffset = .init(width: -1, height: 2)
+        tableView.layer.shadowOffset = .init(width: 0, height: 3)
         tableView.layer.shadowRadius = 2
         tableView.contentInsetAdjustmentBehavior = .never
         //tableView.tableHeaderView = UIView(frame: .zero)
         view.sendSubviewToBack(tableView)
         tableView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
-        tableView.clipsToBounds = false
+        tableView.clipsToBounds = true
         tableView.backgroundColor = .clear
         tableView.showsVerticalScrollIndicator = false
         tableView.showsHorizontalScrollIndicator = false
+
+        view.addSubview(tableView)
     }
 
     private func layoutTableView() {
-        tableView.pin
-            .below(of: talbeViewTitleLabel)
-            .left(20)
-            .right(20)
-            .bottom()
-    }
+        if let tabbar = tabBarController?.tabBar {
+            tableView.pin
+                .below(of: talbeViewTitleLabel).marginTop(20)
+                .left(10)
+                .right(10)
+                .above(of: tabbar)
+        } else {
+            tableView.pin
+                .below(of: talbeViewTitleLabel).marginTop(20)
+                .left(10)
+                .right(10)
+                .bottom()
+        }
 
-    private func layoutTitle() {
-        self.talbeViewTitleLabel.pin
-            .sizeToFit()
-            .top(33)
-            .left(18)
+            //.bottom(tabBarController?.tabBar.pin.top)
     }
 
     @objc private func refreshData(_ sender: Any) {
