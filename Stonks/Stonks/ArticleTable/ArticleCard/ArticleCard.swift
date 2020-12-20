@@ -68,8 +68,8 @@ class ArticleTableViewCell: UITableViewCell {
 
     private func layoutReadMoreButton() {
         articleReadMoreButton.pin
-            //.width(Constants.Buttons.width)
-            .sizeToFit()//height(10)
+            // .width(Constants.Buttons.width)
+            .sizeToFit()// height(10)
 
         articleReadMoreButton.pin
             .right(Constants.Buttons.rightPin)

@@ -74,7 +74,7 @@ extension ArticleViewController {
         tableView.layer.shadowOffset = .init(width: 0, height: 3)
         tableView.layer.shadowRadius = 2
         tableView.contentInsetAdjustmentBehavior = .never
-        //tableView.tableHeaderView = UIView(frame: .zero)
+        // tableView.tableHeaderView = UIView(frame: .zero)
         view.sendSubviewToBack(tableView)
         tableView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
@@ -101,7 +101,7 @@ extension ArticleViewController {
                 .bottom()
         }
 
-            //.bottom(tabBarController?.tabBar.pin.top)
+            // .bottom(tabBarController?.tabBar.pin.top)
     }
 
     @objc private func refreshData(_ sender: Any) {
