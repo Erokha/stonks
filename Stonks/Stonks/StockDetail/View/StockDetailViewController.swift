@@ -5,7 +5,7 @@ import PinLayout
 final class StockDetailViewController: UIViewController {
     var output: StockDetailViewOutput?
 
-    var cardPresenter: CardViewPresenter?
+    private weak var cardPresenter: CardViewPresenterType?
 
     private weak var showMyStocksButton: UIButton!
 
@@ -52,7 +52,7 @@ final class StockDetailViewController: UIViewController {
     }
 
     private func setupStockDetailCardView() {
-        let cardView = NewCardView()
+        let cardView = CardViewContainer.assemble(with: CardViewContext()).view
 
         stockDetailCardView = cardView
         view.addSubview(stockDetailCardView)
@@ -65,9 +65,7 @@ final class StockDetailViewController: UIViewController {
         stockDetailCardView.layer.shadowRadius = Constants.StockDetailCardView.shadowRadius
         stockDetailCardView.layer.shadowOpacity = Constants.StockDetailCardView.shadowOpacity
 
-        self.cardPresenter = CardViewPresenter(view: stockDetailCardView)
-
-        stockDetailCardView.presenter = self.cardPresenter
+        self.cardPresenter = stockDetailCardView.presenter
 
         self.cardPresenter?.setUpperTextLeft(text: Constants.StockDetailCardView.leftText)
         self.cardPresenter?.setUpperTextRight(text: Constants.StockDetailCardView.rightText)
