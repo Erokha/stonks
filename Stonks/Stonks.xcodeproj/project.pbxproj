@@ -47,6 +47,7 @@
 		0DF11C21255D6BE3004162BA /* AllStocksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF11C20255D6BE3004162BA /* AllStocksViewController.swift */; };
 		0DF11C28255FC320004162BA /* StocksPageViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF11C27255FC320004162BA /* StocksPageViewContoller.swift */; };
 		0DF11C2B255FC436004162BA /* MainStocksPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF11C2A255FC436004162BA /* MainStocksPresenter.swift */; };
+		130BCE8F258FC02D00DAE8DF /* CardViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130BCE8E258FC02D00DAE8DF /* CardViewContainer.swift */; };
 		131D5AFD25378F1C00F32055 /* MePortfolioRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131D5AFC25378F1C00F32055 /* MePortfolioRouter.swift */; };
 		1328DC62257BC88500565315 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1328DC61257BC88500565315 /* MeViewController.swift */; };
 		1328DC67257E60F500565315 /* MeHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1328DC66257E60F500565315 /* MeHistoryViewController.swift */; };
@@ -178,6 +179,7 @@
 		0DF11C20255D6BE3004162BA /* AllStocksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllStocksViewController.swift; sourceTree = "<group>"; };
 		0DF11C27255FC320004162BA /* StocksPageViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksPageViewContoller.swift; sourceTree = "<group>"; };
 		0DF11C2A255FC436004162BA /* MainStocksPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStocksPresenter.swift; sourceTree = "<group>"; };
+		130BCE8E258FC02D00DAE8DF /* CardViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewContainer.swift; sourceTree = "<group>"; };
 		131D5AFC25378F1C00F32055 /* MePortfolioRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MePortfolioRouter.swift; sourceTree = "<group>"; };
 		1328DC61257BC88500565315 /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		1328DC66257E60F500565315 /* MeHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHistoryViewController.swift; sourceTree = "<group>"; };
@@ -475,6 +477,7 @@
 		0DF01723252F5BD2003FF71B /* Card */ = {
 			isa = PBXGroup;
 			children = (
+				130BCE8D258FC01A00DAE8DF /* Container */,
 				0DF01724252F5BD2003FF71B /* Presenters */,
 				0DF01727252F5BD2003FF71B /* Views */,
 				0DF0172A252F5BD2003FF71B /* Protocols */,
@@ -646,6 +649,14 @@
 				0DF11C27255FC320004162BA /* StocksPageViewContoller.swift */,
 			);
 			path = PageViewController;
+			sourceTree = "<group>";
+		};
+		130BCE8D258FC01A00DAE8DF /* Container */ = {
+			isa = PBXGroup;
+			children = (
+				130BCE8E258FC02D00DAE8DF /* CardViewContainer.swift */,
+			);
+			path = Container;
 			sourceTree = "<group>";
 		};
 		131D5AFB25378F1200F32055 /* Router */ = {
@@ -1621,6 +1632,7 @@
 				13F28AC6253499550004E864 /* MePortfolioContainer.swift in Sources */,
 				134179F1253227D50052D1A9 /* ChartColor.swift in Sources */,
 				31C02BF42553137C008FCCB3 /* StockDetailInteractor.swift in Sources */,
+				130BCE8F258FC02D00DAE8DF /* CardViewContainer.swift in Sources */,
 				13C1DC0E256133A50043BDA5 /* MeHistoryFilterInteractor.swift in Sources */,
 				1328DC67257E60F500565315 /* MeHistoryViewController.swift in Sources */,
 				13A27FAD2562790C0015D03C /* HistoryStockData.swift in Sources */,

@@ -1,6 +1,6 @@
-//import UIKit
+// import UIKit
 //
-//class ArticleViewController: UIViewController {
+// class ArticleViewController: UIViewController {
 //
 //    @IBOutlet private weak var tableView: UITableView!
 //    @IBOutlet private weak var strangeView: UIView!
@@ -28,9 +28,9 @@
 //            activityIndicatorView.hidesWhenStopped = true
 //    }
 //
-//}
+// }
 //
-//extension ArticleViewController {
+// extension ArticleViewController {
 //    func setupTableView() {
 //        tableView.delegate = self
 //        tableView.dataSource = self
@@ -52,9 +52,9 @@
 //        output?.refreshData()
 //    }
 //
-//}
+// }
 //
-//extension ArticleViewController: UITableViewDelegate, UITableViewDataSource {
+// extension ArticleViewController: UITableViewDelegate, UITableViewDataSource {
 //    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        return 1
 //    }
@@ -86,9 +86,9 @@
 //        return UIView()
 //    }
 //
-//}
+// }
 //
-//extension ArticleViewController: ArticleViewInput {
+// extension ArticleViewController: ArticleViewInput {
 //    func startActivity() {
 //        activityIndicatorView.startAnimating()
 //    }
@@ -106,4 +106,4 @@
 //        self.refreshControl.endRefreshing()
 //    }
 //
-//}
+// }

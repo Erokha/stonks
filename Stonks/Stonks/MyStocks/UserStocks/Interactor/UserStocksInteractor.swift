@@ -81,7 +81,7 @@ extension UserStocksInteractor: NSFetchedResultsControllerDelegate {
         if let fetchResult = controller.fetchedObjects {
             let stocks = prepareModels(for: fetchResult)
             output?.didReciveCoreData(stocks: stocks)
-            //output?.didChangeContetnt(stocks: )
+            // output?.didChangeContetnt(stocks: )
         }
     }
 }
