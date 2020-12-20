@@ -21,6 +21,14 @@ extension AuthorizationService: AuthorizationServiceInput {
         return isAuthorized
     }
 
+    func isNewUser() -> Bool {
+        return !UserDefaults.standard.bool(forKey: Constants.newUserKey)
+    }
+
+    func setUserIsNotNew() {
+        UserDefaults.standard.setValue(true, forKey: Constants.newUserKey)
+    }
+
     func authorize() {
         UserDefaults.standard.setValue(true, forKey: Constants.authKey)
     }
@@ -32,6 +40,8 @@ extension AuthorizationService: AuthorizationServiceInput {
 
 extension AuthorizationService {
     private struct Constants {
-        static var authKey: String = "isAuthorized"
+        static let authKey: String = "isAuthorized"
+
+        static let newUserKey: String = "isNewUser"
     }
 }

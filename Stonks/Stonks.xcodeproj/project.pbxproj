@@ -106,6 +106,8 @@
 		314C0590253B0D0200105352 /* DMSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 315BE131252F334B0074377B /* DMSans-Regular.ttf */; };
 		3155EC1C254970F00036F67B /* LoginContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2B698E25335B9C0042A932 /* LoginContainer.swift */; };
 		3155EC29254978D40036F67B /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3155EC28254978D40036F67B /* MainTabBar.swift */; };
+		315B828D258A09F000C6AB28 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315B828C258A09F000C6AB28 /* OnboardingPageViewController.swift */; };
+		315B8292258A1C4600C6AB28 /* FirstPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315B8291258A1C4600C6AB28 /* FirstPageViewController.swift */; };
 		316AC3F82563E35C009CD714 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316AC3F72563E35B009CD714 /* LoginInteractor.swift */; };
 		316AC40E256677C0009CD714 /* RawModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316AC40D256677BF009CD714 /* RawModels.swift */; };
 		31782B76253B41E100B680D9 /* DataProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31782B75253B41E100B680D9 /* DataProtocols.swift */; };
@@ -128,6 +130,10 @@
 		31BDC0AB252A23B200F56ADD /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDC0AA252A23B200F56ADD /* LoginPresenter.swift */; };
 		31C02BF42553137C008FCCB3 /* StockDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C02BF32553137C008FCCB3 /* StockDetailInteractor.swift */; };
 		31E44531253B1FBB00528971 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E44530253B1FBB00528971 /* DataService.swift */; };
+		31E4EBE9258F3D90001AC230 /* SecondPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E4EBE8258F3D90001AC230 /* SecondPageViewController.swift */; };
+		31E4EBED258F3D9C001AC230 /* ThirdPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E4EBEC258F3D9C001AC230 /* ThirdPageViewController.swift */; };
+		31E4EBF1258F4030001AC230 /* OnboardingProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E4EBF0258F4030001AC230 /* OnboardingProtocols.swift */; };
+		31E4EBF6258F4592001AC230 /* OnboardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E4EBF5258F4592001AC230 /* OnboardingRouter.swift */; };
 		3819997E42B9EB92462DCA86 /* Pods_Stonks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A21BC3C91C41C86C824A1C90 /* Pods_Stonks.framework */; };
 		9C2B6984253353D90042A932 /* LoginProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2B6983253353D90042A932 /* LoginProtocols.swift */; };
 		9C2B698C25335A430042A932 /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2B698B25335A430042A932 /* Storyboards.swift */; };
@@ -229,6 +235,8 @@
 		313E10B92584E76400783617 /* StockDetailChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailChartView.swift; sourceTree = "<group>"; };
 		313E10D425866A9900783617 /* StockDetailConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailConstants.swift; sourceTree = "<group>"; };
 		3155EC28254978D40036F67B /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
+		315B828C258A09F000C6AB28 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
+		315B8291258A1C4600C6AB28 /* FirstPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPageViewController.swift; sourceTree = "<group>"; };
 		315BE130252F332F0074377B /* DMSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Bold.ttf"; sourceTree = "<group>"; };
 		315BE131252F334B0074377B /* DMSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Regular.ttf"; sourceTree = "<group>"; };
 		316AC3F72563E35B009CD714 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
@@ -258,6 +266,10 @@
 		31BDC0AA252A23B200F56ADD /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		31C02BF32553137C008FCCB3 /* StockDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailInteractor.swift; sourceTree = "<group>"; };
 		31E44530253B1FBB00528971 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		31E4EBE8258F3D90001AC230 /* SecondPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondPageViewController.swift; sourceTree = "<group>"; };
+		31E4EBEC258F3D9C001AC230 /* ThirdPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPageViewController.swift; sourceTree = "<group>"; };
+		31E4EBF0258F4030001AC230 /* OnboardingProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingProtocols.swift; sourceTree = "<group>"; };
+		31E4EBF5258F4592001AC230 /* OnboardingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRouter.swift; sourceTree = "<group>"; };
 		9C2B6983253353D90042A932 /* LoginProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProtocols.swift; sourceTree = "<group>"; };
 		9C2B698B25335A430042A932 /* Storyboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
 		9C2B698E25335B9C0042A932 /* LoginContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginContainer.swift; sourceTree = "<group>"; };
@@ -1098,6 +1110,27 @@
 			path = MainTabBar;
 			sourceTree = "<group>";
 		};
+		315B828B258A09B500C6AB28 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				31E4EBEF258F4020001AC230 /* Protocols */,
+				315B8290258A1C2200C6AB28 /* Pages */,
+				315B828C258A09F000C6AB28 /* OnboardingPageViewController.swift */,
+				31E4EBF5258F4592001AC230 /* OnboardingRouter.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		315B8290258A1C2200C6AB28 /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				315B8291258A1C4600C6AB28 /* FirstPageViewController.swift */,
+				31E4EBE8258F3D90001AC230 /* SecondPageViewController.swift */,
+				31E4EBEC258F3D9C001AC230 /* ThirdPageViewController.swift */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
 		315BE133252F33810074377B /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -1319,6 +1352,7 @@
 		31BDC086252A1C5A00F56ADD /* Stonks */ = {
 			isa = PBXGroup;
 			children = (
+				315B828B258A09B500C6AB28 /* Onboarding */,
 				0D77AB312558265600D283F1 /* Shared */,
 				0D77775F254B22FA00EFF30E /* ArticleTable */,
 				3155EC27254978C00036F67B /* MainTabBar */,
@@ -1378,6 +1412,14 @@
 				31782B73253B419E00B680D9 /* Data */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		31E4EBEF258F4020001AC230 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				31E4EBF0258F4030001AC230 /* OnboardingProtocols.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		95319D80A4C64313C65EA8C6 /* Pods */ = {
@@ -1472,17 +1514,12 @@
 				314C058E253B0D0200105352 /* DMSans-Bold.ttf in Resources */,
 				314C058F253B0D0200105352 /* DMSans-Medium.ttf in Resources */,
 				314C0590253B0D0200105352 /* DMSans-Regular.ttf in Resources */,
-				13531274253B4C6600F77A91 /* HistoryButtonTableViewCell.xib in Resources */,
 				312398912588ACB300CB3499 /* CardView.xib in Resources */,
-				134487A22541C40D008C2D7B /* SettingsTableViewCell.xib in Resources */,
 				318A8458257CEAC1006445BD /* GoogleService-Info.plist in Resources */,
 				0D777774254B22FA00EFF30E /* ArticleTableViewCell.xib in Resources */,
 				0D777777254B22FA00EFF30E /* Article.storyboard in Resources */,
 				0D751141253A5C4F00D0A719 /* StockTableViewCell.xib in Resources */,
 				137C65FF254F44DB00AB0A59 /* MeHistoryTableViewCell.xib in Resources */,
-				31CD5485252BAEA400F65D17 /* Login.storyboard in Resources */,
-				137C66192552CBD300AB0A59 /* SortFilterTableViewCell.xib in Resources */,
-				138D65B325601E47004CC2DD /* TypeOfSortTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1505,7 +1542,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "SWIFT_LINT=\"${PODS_ROOT}/SwiftLint/swiftlint\"\nSWIFT_LINT_CONFIG=\"${PODS_ROOT}/../.swiftlint.yml\"\n\nif which ${SWIFT_LINT} >/dev/null; then\n${SWIFT_LINT} --config ${SWIFT_LINT_CONFIG}\nelse\necho \"warning: SwiftLint not installed, 'brew install swiftlint' or download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "SWIFT_LINT=\"${PODS_ROOT}/SwiftLint/swiftlint\"\nSWIFT_LINT_CONFIG=\"${PODS_ROOT}/../.swiftlint.yml\"\n\nif which ${SWIFT_LINT} >/dev/null; then\n${SWIFT_LINT} autocorrect\n${SWIFT_LINT} --config ${SWIFT_LINT_CONFIG}\nelse\necho \"warning: SwiftLint not installed, 'brew install swiftlint' or download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		474A6E0E800128178FA1292E /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1579,6 +1616,7 @@
 				318857832551A63C00FFDCBC /* Stock+CoreDataClass.swift in Sources */,
 				0D751142253A5C4F00D0A719 /* StockTableViewCell.swift in Sources */,
 				31144407256016F600AF2552 /* NetworkService.swift in Sources */,
+				31E4EBF1258F4030001AC230 /* OnboardingProtocols.swift in Sources */,
 				0DF11BFC255C7D2B004162BA /* UserStocksPresenter.swift in Sources */,
 				13F28AC6253499550004E864 /* MePortfolioContainer.swift in Sources */,
 				134179F1253227D50052D1A9 /* ChartColor.swift in Sources */,
@@ -1597,8 +1635,8 @@
 				138D65C125603F46004CC2DD /* MeHistoryFilterPresenter.swift in Sources */,
 				1344878E2541AA3A008C2D7B /* MeContainer.swift in Sources */,
 				13591481254ECB9F0048E60F /* MeHistoryInteractor.swift in Sources */,
+				31E4EBED258F3D9C001AC230 /* ThirdPageViewController.swift in Sources */,
 				137C65F8254ED8B300AB0A59 /* MeHistoryRouter.swift in Sources */,
-				134179F3253227D50052D1A9 /* MeViewController.swift in Sources */,
 				312398902588ACB300CB3499 /* CardView.swift in Sources */,
 				9C2B698C25335A430042A932 /* Storyboards.swift in Sources */,
 				31BDC08C252A1C5B00F56ADD /* LoginViewController.swift in Sources */,
@@ -1609,6 +1647,7 @@
 				313E10BA2584E76400783617 /* StockDetailChartView.swift in Sources */,
 				31905F7C25361BA0000D71A7 /* StockDetailData.swift in Sources */,
 				13CDA2B0258129C2009CFF71 /* MeHistoryFilterViewControllerPin.swift in Sources */,
+				315B828D258A09F000C6AB28 /* OnboardingPageViewController.swift in Sources */,
 				31905F8825361C7D000D71A7 /* StockDetailProtocols.swift in Sources */,
 				318A848A257E1A52006445BD /* LoginViewConstants.swift in Sources */,
 				318857A72552BAC500FFDCBC /* AuthorizationServiceInput.swift in Sources */,
@@ -1654,7 +1693,9 @@
 				0D777775254B22FA00EFF30E /* ArticleModel.swift in Sources */,
 				0DF11C06255C89D1004162BA /* UserStocksContainer.swift in Sources */,
 				0DF11C13255D6955004162BA /* MainStocksContainer.swift in Sources */,
+				31E4EBE9258F3D90001AC230 /* SecondPageViewController.swift in Sources */,
 				1390DA5C25854ACC00F70889 /* HistoryButtonTableViewCellPin.swift in Sources */,
+				315B8292258A1C4600C6AB28 /* FirstPageViewController.swift in Sources */,
 				311057EB253F219D00B41CDA /* Entities.swift in Sources */,
 				313E10D525866A9900783617 /* StockDetailConstants.swift in Sources */,
 				138D65B7256038CE004CC2DD /* FilterProtocols.swift in Sources */,
@@ -1681,6 +1722,7 @@
 				9C2B6996253363680042A932 /* LoginRouter.swift in Sources */,
 				31BDC0AB252A23B200F56ADD /* LoginPresenter.swift in Sources */,
 				0DF11C21255D6BE3004162BA /* AllStocksViewController.swift in Sources */,
+				31E4EBF6258F4592001AC230 /* OnboardingRouter.swift in Sources */,
 				0DF11BF8255C7D11004162BA /* UserStocksProtocols.swift in Sources */,
 				318857912552AE9900FFDCBC /* StockDataService.swift in Sources */,
 			);

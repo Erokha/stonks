@@ -90,7 +90,12 @@ extension LoginPresenter: LoginViewOutput {
 
 extension LoginPresenter: LoginInteractorOutput {
     func userSuccesfullyAuthorized() {
-        router?.showMainScreen()
+        if AuthorizationService.shared.isNewUser() {
+            AuthorizationService.shared.setUserIsNotNew()
+            router?.showOnboarding()
+        } else {
+            router?.showMainScreen()
+        }
     }
 
     func showAlert(with title: String, message: String) {

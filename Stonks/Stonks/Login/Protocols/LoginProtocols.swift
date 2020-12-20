@@ -44,6 +44,8 @@ protocol LoginViewInput: AnyObject {
 
 protocol LoginRouterInput: AnyObject {
     func showMainScreen()
+
+    func showOnboarding()
 }
 
 protocol LoginInteractorInput: AnyObject {
