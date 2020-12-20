@@ -10,6 +10,11 @@ extension OnboardingRouter: OnboardingRouterInput {
 
         tabBarVC.modalPresentationStyle = .fullScreen
 
-        viewController?.present(tabBarVC, animated: true, completion: nil)
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+
+        viewController.dismiss(animated: true, completion: nil)
+        appDelegate.setRootViewController(viewController: tabBarVC)
     }
 }

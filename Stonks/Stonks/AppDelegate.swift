@@ -40,6 +40,10 @@ extension AppDelegate {
             return container.viewController
         }
     }
+
+    func setRootViewController(viewController: UIViewController) {
+        self.window?.rootViewController = viewController
+    }
 }
 
 extension AppDelegate {
@@ -49,6 +53,6 @@ extension AppDelegate {
         let context = LoginContext(isChecked: false)
         let container = LoginContainer.assemble(with: context)
 
-        self.window?.rootViewController = container.viewController
+        setRootViewController(viewController: container.viewController)
     }
 }

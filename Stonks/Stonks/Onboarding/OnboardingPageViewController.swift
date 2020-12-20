@@ -13,6 +13,20 @@ final class OnboardingPageViewController: UIPageViewController {
         setupPageView()
     }
 
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        updateUI()
+    }
+
+    private func updateUI() {
+        updateView()
+    }
+
+    private func updateView() {
+        view.backgroundColor = Constants.backgroundColor
+    }
+
     private func setupPages() {
         pages.append(contentsOf: [setupFirstPage(), setupSecondPage(), setupThirdPage()])
     }
