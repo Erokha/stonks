@@ -22,6 +22,8 @@ protocol LoginViewOutput: AnyObject {
     func didTapGoogleSignInButton()
 
     func didTapView()
+
+    func didTapCheckBoxDescriptionLabel()
 }
 
 protocol LoginViewInput: AnyObject {
@@ -46,6 +48,8 @@ protocol LoginRouterInput: AnyObject {
     func showMainScreen()
 
     func showOnboarding()
+
+    func showTermsAndConditions()
 }
 
 protocol LoginInteractorInput: AnyObject {

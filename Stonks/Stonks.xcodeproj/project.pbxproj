@@ -112,6 +112,7 @@
 		316AC3F82563E35C009CD714 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316AC3F72563E35B009CD714 /* LoginInteractor.swift */; };
 		316AC40E256677C0009CD714 /* RawModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316AC40D256677BF009CD714 /* RawModels.swift */; };
 		31782B76253B41E100B680D9 /* DataProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31782B75253B41E100B680D9 /* DataProtocols.swift */; };
+		3180ED0D2595425B00A046E5 /* TermsConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3180ED0C2595425B00A046E5 /* TermsConditionsViewController.swift */; };
 		318857832551A63C00FFDCBC /* Stock+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318857822551A63C00FFDCBC /* Stock+CoreDataClass.swift */; };
 		318857862551A65500FFDCBC /* Stock+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318857852551A65500FFDCBC /* Stock+CoreDataProperties.swift */; };
 		3188578E2552AE8C00FFDCBC /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3188578D2552AE8C00FFDCBC /* UserDataService.swift */; };
@@ -244,6 +245,7 @@
 		316AC3F72563E35B009CD714 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 		316AC40D256677BF009CD714 /* RawModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawModels.swift; sourceTree = "<group>"; };
 		31782B75253B41E100B680D9 /* DataProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProtocols.swift; sourceTree = "<group>"; };
+		3180ED0C2595425B00A046E5 /* TermsConditionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsConditionsViewController.swift; sourceTree = "<group>"; };
 		318857822551A63C00FFDCBC /* Stock+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stock+CoreDataClass.swift"; sourceTree = "<group>"; };
 		318857852551A65500FFDCBC /* Stock+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stock+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3188578D2552AE8C00FFDCBC /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
@@ -1180,6 +1182,14 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		3180ED0B2595424500A046E5 /* TermsConditions */ = {
+			isa = PBXGroup;
+			children = (
+				3180ED0C2595425B00A046E5 /* TermsConditionsViewController.swift */,
+			);
+			path = TermsConditions;
+			sourceTree = "<group>";
+		};
 		318857992552B92D00FFDCBC /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -1401,6 +1411,7 @@
 		31BDC0B0252A2D2200F56ADD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3180ED0B2595424500A046E5 /* TermsConditions */,
 				318A848C257E1A99006445BD /* Constants */,
 				31BDC08B252A1C5B00F56ADD /* LoginViewController.swift */,
 			);
@@ -1656,6 +1667,7 @@
 				318857862551A65500FFDCBC /* Stock+CoreDataProperties.swift in Sources */,
 				0DF01734252F5BD2003FF71B /* CardViewPresenterType.swift in Sources */,
 				0DF11C18255D69C6004162BA /* MainStocksRouter.swift in Sources */,
+				3180ED0D2595425B00A046E5 /* TermsConditionsViewController.swift in Sources */,
 				313E10BA2584E76400783617 /* StockDetailChartView.swift in Sources */,
 				31905F7C25361BA0000D71A7 /* StockDetailData.swift in Sources */,
 				13CDA2B0258129C2009CFF71 /* MeHistoryFilterViewControllerPin.swift in Sources */,

@@ -22,4 +22,10 @@ extension LoginRouter: LoginRouterInput {
 
         viewController?.present(pageController, animated: true, completion: nil)
     }
+
+    func showTermsAndConditions() {
+        let termsController = TermsConditionsViewController()
+
+        viewController?.present(termsController, animated: true, completion: nil)
+    }
 }

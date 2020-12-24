@@ -83,6 +83,10 @@ extension LoginPresenter: LoginViewOutput {
         interactor?.createUser(name: name, surname: surname, balance: balance)
     }
 
+    func didTapCheckBoxDescriptionLabel() {
+        router?.showTermsAndConditions()
+    }
+
     func didTapGoogleSignInButton() {
         interactor?.signInWithGoogle()
     }

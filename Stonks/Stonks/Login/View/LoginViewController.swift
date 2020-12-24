@@ -169,6 +169,13 @@ final class LoginViewController: UIViewController {
         checkBoxDescriptionLabel.text = Constants.CheckBoxDescriptionLabel.text
         checkBoxDescriptionLabel.textAlignment = .left
         checkBoxDescriptionLabel.numberOfLines = .zero
+
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapCheckBoxDescriptionLabel))
+
+        tapRecognizer.numberOfTapsRequired = 1
+        checkBoxDescriptionLabel.addGestureRecognizer(tapRecognizer)
+
+        checkBoxDescriptionLabel.isUserInteractionEnabled = true
     }
 
     private func setupRegisterButton() {
@@ -523,6 +530,11 @@ final class LoginViewController: UIViewController {
     @objc
     private func didTapGoogleSignInButton() {
         output?.didTapGoogleSignInButton()
+    }
+
+    @objc
+    private func didTapCheckBoxDescriptionLabel() {
+        output?.didTapCheckBoxDescriptionLabel()
     }
 }
 
