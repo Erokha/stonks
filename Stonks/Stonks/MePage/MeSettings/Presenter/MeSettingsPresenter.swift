@@ -17,7 +17,9 @@ final class MeSettingsPresenter {
         if totalBalance < 0 {
             totalBalance = 0
         }
-        totalSpent += money
+        if money > 0 {
+            totalSpent += money
+        }
         user.balance = NSDecimalNumber(value: totalBalance)
         user.totalSpent = NSDecimalNumber(value: totalSpent)
         interactor.saveChanges(for: user)
