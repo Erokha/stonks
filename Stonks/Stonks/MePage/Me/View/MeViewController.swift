@@ -65,12 +65,14 @@ final class MeViewController: UIViewController {
             view.backgroundColor = #colorLiteral(red: 0.2414406538, green: 0.2300785482, blue: 0.2739907503, alpha: 1)
             segmentControl.selectedSegmentTintColor = #colorLiteral(red: 0.4431372549, green: 0.3960784314, blue: 0.8901960784, alpha: 1)
             cardView.layer.shadowColor = UIColor.black.cgColor
+            let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+            segmentControl.setTitleTextAttributes(titleTextAttributes, for: .selected)
         } else {
             headerViewPin.backgroundColor = #colorLiteral(red: 0.4431372549, green: 0.3960784314, blue: 0.8901960784, alpha: 1)
             cardView.backgroundColor = .white
             view.backgroundColor = .white
             cardView.layer.shadowColor = UIColor.gray.cgColor
-            let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+            let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
             segmentControl.setTitleTextAttributes(titleTextAttributes, for: .selected)
         }
     }
@@ -150,7 +152,7 @@ final class MeViewController: UIViewController {
             .left(8)
             .right(10)
             .height(55)
-            .sizeToFit(.height)
+            .sizeToFit(.width)
     }
 
     private func setupImageViewLayout() {
