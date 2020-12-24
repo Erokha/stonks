@@ -87,7 +87,7 @@ extension StockDetailPresenter: StockDetailViewOutput {
 
         view?.showPointInfo(percentageX: percentageX,
                             percentageY: percentageY,
-                            cost: String(format: "%.1f", cost) + "$")
+                            cost: String(format: "%.2f", cost) + "$")
     }
 }
 
@@ -121,7 +121,7 @@ extension StockDetailPresenter: StockDetailInteractorOutput {
         })
 
         view?.setChartData(with: chartData)
-        view?.setStockCurrentCostLabel(with: String(format: "%.1f", freshPrice.doubleValue) + "$")
+        view?.setStockCurrentCostLabel(with: String(format: "%.2f", freshPrice.doubleValue) + "$")
     }
 
     func stockAmountUpdated(model: StockPresenterData) {
@@ -160,7 +160,7 @@ extension StockDetailPresenter: StockDetailInteractorOutput {
         view?.setStockSymbolLabel(with: symbol)
         view?.setCompanyNameLebel(with: name)
         view?.setStockAmountLabel(with: String(amount))
-        view?.setStockCurrentCostLabel(with: String(format: "%.1f", freshPrice.doubleValue) + "$")
+        view?.setStockCurrentCostLabel(with: String(format: "%.2f", freshPrice.doubleValue) + "$")
 
         view?.hideActivityIndicator()
     }

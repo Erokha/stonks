@@ -14,6 +14,8 @@ extension StockDetailViewController {
             }
         }
 
+        static let keyboardExtraOffset: CGFloat = 5
+
         static let chartLineColor: UIColor = UIColor(red: 113 / 255,
                                                      green: 101 / 255,
                                                      blue: 227 / 255,
@@ -81,6 +83,10 @@ extension StockDetailViewController {
             static let widthPercent: Percent = 90%
 
             static let heightPercent: Percent = 10%
+
+            static let appearAnimationLength: TimeInterval = 0.05
+
+            static let disappearAnimtaionLength: TimeInterval = 0.2
         }
 
         struct ShowMyStocksButton {

@@ -37,6 +37,8 @@ final class StockDetailViewController: UIViewController {
 
     private weak var stockLineChartView: (StockDetailChartView & StockDetailChartViewInput)!
 
+    private var keyboardOffset: CGFloat?
+
     private func setupChartContainerView() {
         let chartView = UIView()
 
@@ -345,6 +347,7 @@ final class StockDetailViewController: UIViewController {
 
         setupView()
         setupSubviews()
+        setupKeyboardHandling()
 
         output?.didLoadView()
     }
@@ -353,6 +356,17 @@ final class StockDetailViewController: UIViewController {
         super.traitCollectionDidChange(previousTraitCollection)
 
         updateUI()
+    }
+
+    private func setupKeyboardHandling() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillShow),
+                                               name: UIResponder.keyboardWillShowNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillHide),
+                                               name: UIResponder.keyboardWillHideNotification,
+                                               object: nil)
     }
 
     private func updateUI() {
@@ -439,11 +453,16 @@ final class StockDetailViewController: UIViewController {
     }
 
     private func layoutChartContainerView() {
-        chartContainerView.pin
-            .top(stockDetailCardView.frame.maxY + Constants.screenHeight * Constants.ChartContainerView.topSpacingMultiplier)
-            .width(Constants.ChartContainerView.widthPercent)
-            .height(Constants.ChartContainerView.heightPercent)
-            .hCenter()
+        if let offset = keyboardOffset {
+            chartContainerView.pin
+                .top(chartContainerView.frame.minY - offset)
+        } else {
+            chartContainerView.pin
+                .top(stockDetailCardView.frame.maxY + Constants.screenHeight * Constants.ChartContainerView.topSpacingMultiplier)
+                .width(Constants.ChartContainerView.widthPercent)
+                .height(Constants.ChartContainerView.heightPercent)
+                .hCenter()
+        }
     }
 
     private func layoutLineChartView() {
@@ -532,9 +551,66 @@ final class StockDetailViewController: UIViewController {
         output?.viewWillDisappear()
     }
 
+    private func animateCardViewDisappear() {
+        UIView.animate(withDuration: Constants.StockDetailCardView.disappearAnimtaionLength,
+                       animations: {
+                        self.stockDetailCardView.alpha = .zero
+                       },
+                       completion: { (_) in
+                        self.stockDetailCardView.isHidden = true
+                       })
+    }
+
+    private func animateCardViewAppear() {
+        UIView.animate(withDuration: Constants.StockDetailCardView.appearAnimationLength,
+                       animations: {
+                        self.stockDetailCardView.alpha = 1
+                       },
+                       completion: { (_) in
+                        self.stockDetailCardView.isHidden = false
+                       })
+    }
+
     @objc
     private func didTapView() {
         output?.didTapView()
+    }
+
+    @objc
+    private func keyboardWillShow(notification: NSNotification) {
+        guard let userInfo = notification.userInfo,
+              let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {
+            return
+        }
+
+        let keyboardFrame = keyboardSize.cgRectValue
+
+        if buyTextField.isEditing {
+            if UIScreen.main.bounds.height - keyboardFrame.height - Constants.keyboardExtraOffset <= buyTextFieldContainerView.frame.maxY {
+                keyboardOffset = buyTextFieldContainerView.frame.maxY - (UIScreen.main.bounds.height - keyboardFrame.height) + Constants.keyboardExtraOffset
+                animateCardViewDisappear()
+            }
+        } else if sellTextField.isEditing {
+            if UIScreen.main.bounds.height - keyboardFrame.height - Constants.keyboardExtraOffset <= sellTextFieldContainerView.frame.maxY {
+                keyboardOffset = sellTextFieldContainerView.frame.maxY - (UIScreen.main.bounds.height - keyboardFrame.height) + Constants.keyboardExtraOffset
+                animateCardViewDisappear()
+            }
+        }
+
+        view.setNeedsLayout()
+        view.layoutIfNeeded()
+    }
+
+    @objc
+    private func keyboardWillHide(notification: NSNotification) {
+        keyboardOffset = nil
+
+        if stockDetailCardView.isHidden {
+            animateCardViewAppear()
+        }
+
+        view.setNeedsLayout()
+        view.layoutIfNeeded()
     }
 }
 
