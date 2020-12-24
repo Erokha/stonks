@@ -16,7 +16,6 @@ final class MeViewController: UIViewController {
 
     private weak var photoButton: UIButton!
 
-    // HERE WILL BE CARD VIEW!
     private weak var cardView: NewCardView!
 
     private weak var segmentControl: UISegmentedControl!
@@ -71,6 +70,8 @@ final class MeViewController: UIViewController {
             cardView.backgroundColor = .white
             view.backgroundColor = .white
             cardView.layer.shadowColor = UIColor.gray.cgColor
+            let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+            segmentControl.setTitleTextAttributes(titleTextAttributes, for: .selected)
         }
     }
 

@@ -39,6 +39,12 @@ final class MeSettingsViewController: UIViewController, UINavigationControllerDe
         tableView.register(SettingsTableViewCell.self, forCellReuseIdentifier: SettingsTableViewCell.reuseIdentifier)
     }
 
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        checkTheme()
+    }
+
     private func checkTheme() {
         if self.traitCollection.userInterfaceStyle == .dark {
             tableView.backgroundColor = #colorLiteral(red: 0.2414406538, green: 0.2300785482, blue: 0.2739907503, alpha: 1)

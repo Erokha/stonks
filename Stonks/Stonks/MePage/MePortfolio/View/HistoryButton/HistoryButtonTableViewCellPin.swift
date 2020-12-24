@@ -27,6 +27,12 @@ final class HistoryButtonTableViewCell: UITableViewCell {
         checkTheme()
     }
 
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        checkTheme()
+    }
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

@@ -62,6 +62,12 @@ final class SortFilterTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        checkTheme()
+    }
+
     override func layoutSubviews() {
         super.layoutSubviews()
         setupIncreasePriceButton()

@@ -61,6 +61,12 @@ final class MeHistoryViewController: UIViewController {
         setupTableViewConstaints()
     }
 
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        checkTheme()
+    }
+
     private func setupHeaderLabel() {
         headerLabel.pin
             .hCenter()

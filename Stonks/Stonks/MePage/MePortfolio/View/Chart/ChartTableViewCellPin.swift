@@ -49,6 +49,12 @@ final class ChartTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        checkTheme()
+    }
+
     override func layoutSubviews() {
         super.layoutSubviews()
         setupMainChartView()
@@ -107,6 +113,7 @@ final class ChartTableViewCell: UITableViewCell {
         } else {
             contentView.backgroundColor = .white
             mainChartView.layer.shadowColor = UIColor.gray.cgColor
+            mainChartView.backgroundColor = .white
         }
     }
 

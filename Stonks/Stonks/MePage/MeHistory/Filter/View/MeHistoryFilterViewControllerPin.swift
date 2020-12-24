@@ -55,6 +55,12 @@ final class MeHistoryFilterViewController: UIViewController {
         view.addSubview(okButton)
     }
 
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        checkTheme()
+    }
+
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
