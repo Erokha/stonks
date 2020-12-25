@@ -38,6 +38,11 @@ extension LoginInteractor: LoginInteractorInput {
     }
 
     func signInWithGoogle() {
+        guard termsAccepted else {
+            output?.showAlert(with: "Oops!", message: "Terms need to be accepted")
+            return
+        }
+
         GIDSignIn.sharedInstance()?.signIn()
     }
 }
