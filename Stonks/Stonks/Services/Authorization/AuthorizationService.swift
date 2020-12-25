@@ -1,4 +1,5 @@
 import Foundation
+import FirebaseAuth
 
 final class AuthorizationService {
     static let shared = AuthorizationService()
@@ -34,6 +35,16 @@ extension AuthorizationService: AuthorizationServiceInput {
     }
 
     func deAuthorize() {
+        let firebaseAuth = Auth.auth()
+
+        if firebaseAuth.currentUser != nil {
+            do {
+                try firebaseAuth.signOut()
+            } catch {
+                debugPrint("Error in sign out")
+            }
+        }
+
         UserDefaults.standard.setValue(false, forKey: Constants.authKey)
     }
 }
