@@ -18,9 +18,10 @@ class UserStocksViewController: UIViewController, UINavigationControllerDelegate
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: "StockTableViewCell", bundle: nil), forCellReuseIdentifier: StockTableViewCell.reuseIdentifier)
+        tableView.register(StockTableViewCell.self, forCellReuseIdentifier: StockTableViewCell.reuseIdentifier)
         tableView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+        tableView.backgroundColor = .clear
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -49,6 +50,15 @@ class UserStocksViewController: UIViewController, UINavigationControllerDelegate
         output?.refreshData()
     }
 
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        updateColors()
+    }
+
+    private func updateColors() {
+        view.backgroundColor = Constants.backgroundColor
+        tableView.reloadData()
+    }
 }
 
 extension UserStocksViewController: UITableViewDelegate, UITableViewDataSource {
@@ -73,6 +83,29 @@ extension UserStocksViewController: UITableViewDelegate, UITableViewDataSource {
         output?.didTapOnStock(symbol: symbol)
     }
 
+}
+
+extension UserStocksViewController {
+    private struct Constants {
+        static var backgroundColor: UIColor {
+            if UITraitCollection.current.userInterfaceStyle == .dark {
+                return UIColor(red: 61 / 255,
+                               green: 59 / 255,
+                               blue: 69 / 255,
+                               alpha: 1)
+            } else {
+                return .white
+            }
+        }
+
+        static var shadowColor: CGColor {
+            if UITraitCollection.current.userInterfaceStyle == .dark {
+                return UIColor.black.cgColor
+            } else {
+                return UIColor.gray.cgColor
+            }
+        }
+    }
 }
 
 extension UserStocksViewController: UserStocksViewInput {

@@ -65,7 +65,7 @@ extension ArticleViewController {
     private func setupTableView() {
         let tmpTableView = UITableView()
         self.tableView = tmpTableView
-
+        tableView.separatorStyle = .none
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(ArticleTableViewCell.self, forCellReuseIdentifier: ArticleTableViewCell.reuseIdentifier)

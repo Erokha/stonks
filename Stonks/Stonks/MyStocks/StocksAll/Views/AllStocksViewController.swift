@@ -13,14 +13,16 @@ class AllStocksViewController: UIViewController, UINavigationControllerDelegate 
         setupView()
         setupTableView()
         output?.didLoadView()
+        view.backgroundColor = Constants.backgroundColor
     }
 
     private func setupTableView() {
-        tableView.register(UINib(nibName: "StockTableViewCell", bundle: nil), forCellReuseIdentifier: StockTableViewCell.reuseIdentifier)
+        tableView.register(StockTableViewCell.self, forCellReuseIdentifier: StockTableViewCell.reuseIdentifier)
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.refreshControl = refreshControl
+        tableView.backgroundColor = .clear
         refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
     }
     override func viewDidLayoutSubviews() {
@@ -50,6 +52,16 @@ class AllStocksViewController: UIViewController, UINavigationControllerDelegate 
             output?.routerHardResetUpdate()
             output?.refreshData()
         }
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        updateColors()
+    }
+
+    private func updateColors() {
+        view.backgroundColor = Constants.backgroundColor
+        tableView.reloadData()
+    }
 
 }
 
@@ -91,5 +103,28 @@ extension AllStocksViewController: AllStocksViewInput {
     func endActivity() {
         activityIndicatorView.stopAnimating()
         refreshControl.endRefreshing()
+    }
+}
+
+extension AllStocksViewController {
+    private struct Constants {
+        static var backgroundColor: UIColor {
+            if UITraitCollection.current.userInterfaceStyle == .dark {
+                return UIColor(red: 61 / 255,
+                               green: 59 / 255,
+                               blue: 69 / 255,
+                               alpha: 1)
+            } else {
+                return .white
+            }
+        }
+
+        static var shadowColor: CGColor {
+            if UITraitCollection.current.userInterfaceStyle == .dark {
+                return UIColor.black.cgColor
+            } else {
+                return UIColor.gray.cgColor
+            }
+        }
     }
 }

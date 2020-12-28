@@ -15,15 +15,12 @@
 		0D3903BC252F62C200C18036 /* MainStocksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3903B1252F62C200C18036 /* MainStocksViewController.swift */; };
 		0D3903BD252F62C200C18036 /* MyStocksViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3903B3252F62C200C18036 /* MyStocksViewProtocols.swift */; };
 		0D505B0525615412007F764F /* MeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D824C5254AF41F002F654E /* MeInteractor.swift */; };
-		0D751141253A5C4F00D0A719 /* StockTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D75113F253A5C4F00D0A719 /* StockTableViewCell.xib */; };
-		0D751142253A5C4F00D0A719 /* StockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D751140253A5C4F00D0A719 /* StockTableViewCell.swift */; };
+		0D57C0FC2598F92900FAC0F3 /* StockTalbeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D57C0FB2598F92900FAC0F3 /* StockTalbeViewCell.swift */; };
 		0D75114C253A606E00D0A719 /* AllStocksContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D75114B253A606E00D0A719 /* AllStocksContainer.swift */; };
 		0D751153253A622A00D0A719 /* MyStocksRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D751152253A622A00D0A719 /* MyStocksRouter.swift */; };
 		0D777771254B22FA00EFF30E /* ArticleViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D777761254B22FA00EFF30E /* ArticleViewPresenter.swift */; };
 		0D777772254B22FA00EFF30E /* ArticleContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D777763254B22FA00EFF30E /* ArticleContainer.swift */; };
 		0D777775254B22FA00EFF30E /* ArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D777768254B22FA00EFF30E /* ArticleModel.swift */; };
-		0D777776254B22FA00EFF30E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D77776A254B22FA00EFF30E /* ViewController.swift */; };
-		0D777777254B22FA00EFF30E /* Article.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D77776B254B22FA00EFF30E /* Article.storyboard */; };
 		0D777778254B22FA00EFF30E /* NewsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D77776D254B22FA00EFF30E /* NewsProtocols.swift */; };
 		0D777779254B22FA00EFF30E /* ArticleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D77776F254B22FA00EFF30E /* ArticleInteractor.swift */; };
 		0D777785254EEA0B00EFF30E /* ArticleRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D777784254EEA0B00EFF30E /* ArticleRouter.swift */; };
@@ -151,15 +148,12 @@
 		0D3903B0252F62C200C18036 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		0D3903B1252F62C200C18036 /* MainStocksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainStocksViewController.swift; sourceTree = "<group>"; };
 		0D3903B3252F62C200C18036 /* MyStocksViewProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyStocksViewProtocols.swift; sourceTree = "<group>"; };
-		0D75113F253A5C4F00D0A719 /* StockTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StockTableViewCell.xib; sourceTree = "<group>"; };
-		0D751140253A5C4F00D0A719 /* StockTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockTableViewCell.swift; sourceTree = "<group>"; };
+		0D57C0FB2598F92900FAC0F3 /* StockTalbeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTalbeViewCell.swift; sourceTree = "<group>"; };
 		0D75114B253A606E00D0A719 /* AllStocksContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllStocksContainer.swift; sourceTree = "<group>"; };
 		0D751152253A622A00D0A719 /* MyStocksRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStocksRouter.swift; sourceTree = "<group>"; };
 		0D777761254B22FA00EFF30E /* ArticleViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleViewPresenter.swift; sourceTree = "<group>"; };
 		0D777763254B22FA00EFF30E /* ArticleContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleContainer.swift; sourceTree = "<group>"; };
 		0D777768254B22FA00EFF30E /* ArticleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleModel.swift; sourceTree = "<group>"; };
-		0D77776A254B22FA00EFF30E /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		0D77776B254B22FA00EFF30E /* Article.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Article.storyboard; sourceTree = "<group>"; };
 		0D77776D254B22FA00EFF30E /* NewsProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsProtocols.swift; sourceTree = "<group>"; };
 		0D77776F254B22FA00EFF30E /* ArticleInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleInteractor.swift; sourceTree = "<group>"; };
 		0D777784254EEA0B00EFF30E /* ArticleRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArticleRouter.swift; path = Stonks/ArticleTable/Router/ArticleRouter.swift; sourceTree = SOURCE_ROOT; };
@@ -325,8 +319,7 @@
 		0D3903AC252F62C200C18036 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				0D751140253A5C4F00D0A719 /* StockTableViewCell.swift */,
-				0D75113F253A5C4F00D0A719 /* StockTableViewCell.xib */,
+				0D57C0FB2598F92900FAC0F3 /* StockTalbeViewCell.swift */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -413,8 +406,6 @@
 		0D777769254B22FA00EFF30E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0D77776A254B22FA00EFF30E /* ViewController.swift */,
-				0D77776B254B22FA00EFF30E /* Article.storyboard */,
 				0D37C81D258949A0005AC9F3 /* ArticleViewController.swift */,
 			);
 			path = Views;
@@ -1538,8 +1529,6 @@
 				314C0590253B0D0200105352 /* DMSans-Regular.ttf in Resources */,
 				312398912588ACB300CB3499 /* CardView.xib in Resources */,
 				318A8458257CEAC1006445BD /* GoogleService-Info.plist in Resources */,
-				0D777777254B22FA00EFF30E /* Article.storyboard in Resources */,
-				0D751141253A5C4F00D0A719 /* StockTableViewCell.xib in Resources */,
 				137C65FF254F44DB00AB0A59 /* MeHistoryTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1636,7 +1625,6 @@
 				0DF11C0B255C8ABA004162BA /* UserStocksViewController.swift in Sources */,
 				13AF96612563D03B001988E6 /* MePortfolioStockData.swift in Sources */,
 				318857832551A63C00FFDCBC /* Stock+CoreDataClass.swift in Sources */,
-				0D751142253A5C4F00D0A719 /* StockTableViewCell.swift in Sources */,
 				31144407256016F600AF2552 /* NetworkService.swift in Sources */,
 				31E4EBF1258F4030001AC230 /* OnboardingProtocols.swift in Sources */,
 				0DF11BFC255C7D2B004162BA /* UserStocksPresenter.swift in Sources */,
@@ -1650,6 +1638,7 @@
 				13CDA2B32581537E009CFF71 /* TypeOfSortTableViewCell.swift in Sources */,
 				1344877025419B5A008C2D7B /* MeSettingsViewController.swift in Sources */,
 				0DF11C02255C7F3B004162BA /* UserStocksInteractor.swift in Sources */,
+				0D57C0FC2598F92900FAC0F3 /* StockTalbeViewCell.swift in Sources */,
 				13F28AAC2534913F0004E864 /* MePortfolioProtocols.swift in Sources */,
 				1390DA602585FCC700F70889 /* ChartTableViewCellPin.swift in Sources */,
 				13E4906125583AF800E567A3 /* MeSettingsInteractor.swift in Sources */,
@@ -1735,7 +1724,6 @@
 				3114440B2560171F00AF2552 /* NetworkServiceInput.swift in Sources */,
 				0D777772254B22FA00EFF30E /* ArticleContainer.swift in Sources */,
 				0D751153253A622A00D0A719 /* MyStocksRouter.swift in Sources */,
-				0D777776254B22FA00EFF30E /* ViewController.swift in Sources */,
 				13CDA2AD25812936009CFF71 /* SortFilterTableViewCell.swift in Sources */,
 				311057E5253F1E0900B41CDA /* User+CoreDataClass.swift in Sources */,
 				1328DC6A257F6CDC00565315 /* MeHistoryTableViewCellPin.swift in Sources */,
