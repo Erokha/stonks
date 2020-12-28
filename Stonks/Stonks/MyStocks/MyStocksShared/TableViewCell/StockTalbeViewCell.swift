@@ -9,9 +9,9 @@ class StockTableViewCell: UITableViewCell {
     private weak var stockNameLabel: UILabel!
     private weak var stockPriceLabel: UILabel!
     private weak var stockCountLabel: UILabel!
-    //private weak var arrowButton: UIButton!
+    // private weak var arrowButton: UIButton!
     private weak var stockImageView: UIImageView!
-    //private weak var container: UIView!
+    // private weak var container: UIView!
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -38,7 +38,7 @@ class StockTableViewCell: UITableViewCell {
 
     func setData(data: StockData) {
         self.selectionStyle = UITableViewCell.SelectionStyle.none
-        //setupUI()
+        // setupUI()
         self.setShadow()
         self.stockNameLabel.text = data.stockName
         self.stockPriceLabel.text = String(data.stockPrice) + "$"

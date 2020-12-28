@@ -140,7 +140,7 @@ extension MainStocksViewController: MainStocksViewInput {
 
 }
 
-//extension MainStocksViewController {
+// extension MainStocksViewController {
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //            if let vc = segue.destination as? ContainerViewController,
 //                        segue.identifier == "EmbedSegue" {
@@ -153,7 +153,7 @@ extension MainStocksViewController: MainStocksViewInput {
 //                tmp.output.delegate = self
 //            }
 //        }
-//}
+// }
 
 extension MainStocksViewController: StocksPageViewDelegate {
     func stocksPageViewControllerDidSet(with page: StocksPage) {
