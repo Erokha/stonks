@@ -65,6 +65,7 @@ extension MainStocksViewController {
         embeddedViewController.layer.shadowColor = Constants.shadowColor
         embeddedViewController.showUpperTextLeft(text: "Avaiable Balance")
         embeddedViewController.showUpperTextRight(text: "Spent")
+        embeddedViewController.showNumberRight(num: 0)
         view.addSubview(embeddedViewController)
     }
 
