@@ -45,6 +45,7 @@ final class MeHistoryViewController: UIViewController {
     }
 
     private func setupMainView() {
+        searchBar.delegate = self
         self.view.addSubview(headerLabel)
         self.view.addSubview(backButton)
         self.view.addSubview(filterButton)
@@ -178,6 +179,7 @@ extension MeHistoryViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         output?.didUserStartToSearch(search: searchText)
     }
+
 }
 
 extension MeHistoryViewController {
