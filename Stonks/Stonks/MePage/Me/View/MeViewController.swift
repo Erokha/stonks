@@ -114,7 +114,7 @@ final class MeViewController: UIViewController {
         cardView.layer.shadowOffset = .init(width: 0, height: 3)
         cardView.layer.cornerRadius = 20
         cardView.showUpperTextLeft(text: "Avaiable Balance")
-        cardView.showUpperTextRight(text: "Spent")
+        cardView.showUpperTextRight(text: "Total invested")
         headerViewPin.addSubview(cardView)
     }
 
