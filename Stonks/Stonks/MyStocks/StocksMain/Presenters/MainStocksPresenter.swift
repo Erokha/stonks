@@ -23,7 +23,7 @@ class MainStocksPresenter {
 extension MainStocksPresenter: MainStocksViewOutput {
     func didLoadView() {
         shouldUpdateData = true
-        //interactor.loadStocks()
+        // interactor.loadStocks()
         interactor.loadUser()
     }
 

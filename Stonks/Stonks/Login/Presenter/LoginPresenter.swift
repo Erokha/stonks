@@ -24,6 +24,7 @@ extension LoginPresenter: LoginViewOutput {
             return
         }
 
+        view?.setGoogleSignInPresentingVC()
         interactor.termsAreAccepted() ? view?.setCheckBoxChecked() : view?.setCheckBoxUnchecked()
     }
 
@@ -81,11 +82,24 @@ extension LoginPresenter: LoginViewOutput {
 
         interactor?.createUser(name: name, surname: surname, balance: balance)
     }
+
+    func didTapCheckBoxDescriptionLabel() {
+        router?.showTermsAndConditions()
+    }
+
+    func didTapGoogleSignInButton() {
+        interactor?.signInWithGoogle()
+    }
 }
 
 extension LoginPresenter: LoginInteractorOutput {
     func userSuccesfullyAuthorized() {
-        router?.showMainScreen()
+        if AuthorizationService.shared.isNewUser() {
+            AuthorizationService.shared.setUserIsNotNew()
+            router?.showOnboarding()
+        } else {
+            router?.showMainScreen()
+        }
     }
 
     func showAlert(with title: String, message: String) {

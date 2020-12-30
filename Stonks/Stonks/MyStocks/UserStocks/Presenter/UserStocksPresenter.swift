@@ -62,12 +62,16 @@ extension UserStocksPresenter: UserStocksViewOutput {
         view?.startActivity()
         interactor.loadStocksFromCoreData()
     }
+
+    func routerHardResetUpdate() {
+        router?.hardResetUpdateFlag()
+    }
 }
 
 extension UserStocksPresenter: UserStoksInteractorOutput {
     func didReciveUpdate(userStockUpdate: [String: (Float, String)]) {
         guard var data = self.model else { return }
-        for i in 0...data.count - 1 {
+        for i in 0..<data.count {
             data[i].stockPrice = userStockUpdate[data[i].stockSymbol]?.0 ?? 0
             data[i].imageUrl = userStockUpdate[data[i].stockSymbol]?.1 ?? "not found"
         }
@@ -98,8 +102,8 @@ extension UserStocksPresenter: UserStoksInteractorOutput {
     }
 
     func didReciveError(with error: Error) {
-        router?.showError(with: error)
         view?.endActivity()
+        router?.showError(with: error)
     }
 
 }

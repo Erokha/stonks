@@ -6,11 +6,12 @@ class MainStocksContainer {
     private(set) weak var router: MainStocksRouter?
 
     class func assemble(with context: MainStocksContext) -> MainStocksContainer {
-        let storyboard = UIStoryboard(name: Storyboard.mainStocks.name, bundle: nil)
+//        let storyboard = UIStoryboard(name: Storyboard.mainStocks.name, bundle: nil)
 
-        guard let viewController = storyboard.instantiateViewController(withIdentifier: Storyboard.mainStocks.name) as? MainStocksViewController else {
-            fatalError("MyStocksContainer: viewController must be type MyStocksViewController")
-        }
+//        guard let viewController = storyboard.instantiateViewController(withIdentifier: Storyboard.mainStocks.name) as? MainStocksViewController else {
+//            fatalError("MyStocksContainer: viewController must be type MyStocksViewController")
+//        }
+        let viewController = MainStocksViewController()
 
         let router = MainStocksRouter()
         let interactor = MainStocksInteractor()

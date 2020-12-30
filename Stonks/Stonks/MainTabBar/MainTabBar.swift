@@ -8,7 +8,18 @@ class MainTabBar: UITabBarController {
         prepareViewControllers()
     }
 
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        updateUI()
+    }
+
+    private func updateUI() {
+        tabBar.backgroundColor = Constants.backgroundColor
+    }
+
     private func setupTabBar() {
+        tabBar.backgroundColor = Constants.backgroundColor
         tabBar.tintColor = Constants.tintColor
         tabBar.unselectedItemTintColor = Constants.tintColor
     }
@@ -36,9 +47,6 @@ class MainTabBar: UITabBarController {
     }
 
     private func prepareMyStocksViewController() -> UINavigationController {
-        //let stockRaw = StockRaw(stockName: "Apple", stockSymbol: "AAPL", stockPrice: 432, imageUrl: "")
-        //let stock = StockData(with: stockRaw)
-
         let container = MainStocksContainer.assemble(with: MainStocksContext())
         let tabBarItem = UITabBarItem(title: Constants.MyStocksBarItem.title,
                                       image: UIImage(named: Constants.MyStocksBarItem.imageName)?.withRenderingMode(.alwaysOriginal),
@@ -86,6 +94,20 @@ class MainTabBar: UITabBarController {
 
 extension MainTabBar {
     private struct Constants {
+        static var backgroundColor: UIColor {
+            if UITraitCollection.current.userInterfaceStyle == .dark {
+                return UIColor(red: 72 / 255,
+                               green: 69 / 255,
+                               blue: 84 / 255,
+                               alpha: 1)
+            } else {
+                return UIColor(red: 249 / 255,
+                               green: 249 / 255,
+                               blue: 249 / 255,
+                               alpha: 1)
+            }
+        }
+
         static let tintColor: UIColor = UIColor(red: 113 / 255,
                                                 green: 101 / 255,
                                                 blue: 227 / 255,

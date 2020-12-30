@@ -11,13 +11,17 @@ final class MeSettingsPresenter {
 
     private func saveDeposit(money: Int) {
         let user = interactor.loadUser()
-        let userMoney = Int(truncating: user.balance)
-        var totalSpent = Int(truncating: user.totalSpent)
+        let userMoneyFloat = Float(truncating: user.balance)
+        let userMoney = Int(userMoneyFloat)
+        let totalSpentFloat = Float(truncating: user.totalSpent)
+        var totalSpent = Int(totalSpentFloat)
         var totalBalance = money + userMoney
         if totalBalance < 0 {
             totalBalance = 0
         }
-        totalSpent += money
+        if money > 0 {
+            totalSpent += money
+        }
         user.balance = NSDecimalNumber(value: totalBalance)
         user.totalSpent = NSDecimalNumber(value: totalSpent)
         interactor.saveChanges(for: user)

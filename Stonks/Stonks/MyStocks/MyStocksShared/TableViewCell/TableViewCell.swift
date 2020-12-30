@@ -9,7 +9,7 @@ import UIKit
 
 class TableViewCell: UITableViewCell {
 
-    //@IBOutlet var image: UIImageView!
+    // @IBOutlet var image: UIImageView!
     @IBOutlet private weak var stockName: UILabel!
     @IBOutlet private weak var stockPrice: UILabel!
     @IBOutlet private weak var stockCount: UILabel!

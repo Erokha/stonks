@@ -27,6 +27,7 @@ final class MeSettingsViewController: UIViewController, UINavigationControllerDe
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkTheme()
         setupView()
         setupTableView()
     }
@@ -35,17 +36,36 @@ final class MeSettingsViewController: UIViewController, UINavigationControllerDe
         tableView.delegate = self
         tableView.dataSource = self
         tableView.showsVerticalScrollIndicator = false
-        let chartNib = UINib(nibName: SettingsTableViewCell.reuseIdentifier, bundle: nil)
-        tableView.register(chartNib, forCellReuseIdentifier: SettingsTableViewCell.reuseIdentifier)
+        tableView.register(SettingsTableViewCell.self, forCellReuseIdentifier: SettingsTableViewCell.reuseIdentifier)
+    }
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        checkTheme()
+    }
+
+    private func checkTheme() {
+        if self.traitCollection.userInterfaceStyle == .dark {
+            tableView.backgroundColor = #colorLiteral(red: 0.2414406538, green: 0.2300785482, blue: 0.2739907503, alpha: 1)
+        } else {
+            tableView.backgroundColor = .white
+        }
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        setupTableViewLayout()
+    }
+
+    private func setupTableViewLayout() {
+        tableView.pin
+            .all()
     }
 
     private func setupView() {
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         tableView.separatorStyle = .none
     }
 
@@ -61,7 +81,9 @@ extension MeSettingsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsTableViewCell.reuseIdentifier, for: indexPath) as? SettingsTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsTableViewCell.reuseIdentifier, for: indexPath) as? SettingsTableViewCell else {
+            return UITableViewCell()
+        }
         guard let label = MeSettingsSections(rawValue: indexPath.section)?.info else { return UITableViewCell() }
         cell.configureCell(label: label)
         return cell

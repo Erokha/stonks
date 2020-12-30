@@ -55,6 +55,40 @@ extension StockDetailPresenter: StockDetailViewOutput {
         interactor?.descreaseAmount(by: amount)
         interactor?.fetchAmountPrice()
     }
+
+    func didTapLineChartView(location: CGPoint) {
+        guard let size = view?.getLineChartViewSize(),
+              let quotes = model.quotes else {
+            return
+        }
+
+        let percentageX = location.x / size.width
+        let index = Int((percentageX * CGFloat(quotes.count - 1)).rounded())
+
+        var minCost = quotes[.zero].floatValue
+        var maxCost = quotes[.zero].floatValue
+
+        quotes.forEach { quote in
+            let floatQuote = quote.floatValue
+
+            if floatQuote < minCost {
+                minCost = floatQuote
+            } else if floatQuote > maxCost {
+                maxCost = floatQuote
+            }
+        }
+
+        let cost = quotes[index].floatValue
+        var percentageY: CGFloat = 0.5
+
+        if abs(CGFloat(maxCost - minCost)) > Constants.eps {
+            percentageY = 1 - CGFloat((cost - minCost) / (maxCost - minCost))
+        }
+
+        view?.showPointInfo(percentageX: percentageX,
+                            percentageY: percentageY,
+                            cost: String(format: "%.2f", cost) + "$")
+    }
 }
 
 extension StockDetailPresenter: StockDetailInteractorOutput {
@@ -67,8 +101,9 @@ extension StockDetailPresenter: StockDetailInteractorOutput {
     }
 
     func freshCostDidReceived(model: StockPresenterData) {
-        interactor?.fetchAmountPrice()
         self.model = model
+
+        interactor?.fetchAmountPrice()
 
         guard let priceHistory = model.quotes,
               let freshPrice = priceHistory.last else {
@@ -86,7 +121,7 @@ extension StockDetailPresenter: StockDetailInteractorOutput {
         })
 
         view?.setChartData(with: chartData)
-        view?.setStockCurrentCostLabel(with: String(format: "%.1f", freshPrice.doubleValue) + "$")
+        view?.setStockCurrentCostLabel(with: String(format: "%.2f", freshPrice.doubleValue) + "$")
     }
 
     func stockAmountUpdated(model: StockPresenterData) {
@@ -98,9 +133,10 @@ extension StockDetailPresenter: StockDetailInteractorOutput {
     }
 
     func stockDataDidReceived(model: StockPresenterData) {
+        self.model = model
+
         interactor?.fetchAmountPrice()
         interactor?.fetchBalance()
-        self.model = model
 
         guard let priceHistory = model.quotes,
               let freshPrice = priceHistory.last,
@@ -124,7 +160,7 @@ extension StockDetailPresenter: StockDetailInteractorOutput {
         view?.setStockSymbolLabel(with: symbol)
         view?.setCompanyNameLebel(with: name)
         view?.setStockAmountLabel(with: String(amount))
-        view?.setStockCurrentCostLabel(with: String(format: "%.1f", freshPrice.doubleValue) + "$")
+        view?.setStockCurrentCostLabel(with: String(format: "%.2f", freshPrice.doubleValue) + "$")
 
         view?.hideActivityIndicator()
     }
@@ -139,5 +175,11 @@ extension StockDetailPresenter: StockDetailInteractorOutput {
 
     func viewWillDisappear() {
         interactor?.stopFetching()
+    }
+}
+
+extension StockDetailPresenter {
+    private struct Constants {
+        static let eps: CGFloat = 0.000001
     }
 }

@@ -20,11 +20,12 @@ class ArticleViewPresenter {
 
 extension ArticleViewPresenter: ArticleViewOutput {
     func didTapReadMore(url: URL?) {
-        guard let urlunwrapped = url else { router?.showError(with: AppError.unvalidUrlError); return
+        guard let urlunwrapped = url else { view?.endActivity(); router?.showError(with: AppError.unvalidUrlError); return
         }
         if UIApplication.shared.canOpenURL(urlunwrapped) {
             router?.openUrl(url)
         } else {
+            view?.endActivity()
             router?.showError(with: AppError.unvalidUrlError)
         }
     }
@@ -57,8 +58,8 @@ extension ArticleViewPresenter: ArticleInteractorOutput {
     }
 
     func didReciveError(with error: Error) {
-        router?.showError(with: error)
         view?.endActivity()
+        router?.showError(with: error)
     }
 
 }

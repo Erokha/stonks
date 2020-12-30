@@ -5,11 +5,7 @@ final class LoginContainer {
     private weak var router: LoginRouter?
 
     class func assemble(with context: LoginContext) -> LoginContainer {
-        let storyboard = UIStoryboard(name: Storyboard.login.name, bundle: nil)
-
-        guard let viewController = storyboard.instantiateViewController(withIdentifier: Storyboard.login.name) as? LoginViewController else {
-            fatalError("LoginContainer: viewController must be type LoginViewController")
-        }
+        let viewController = LoginViewController()
 
         let presenter = LoginPresenter()
         let interactor = LoginInteractor(termsAccepted: context.isChecked)

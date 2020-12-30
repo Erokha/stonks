@@ -17,10 +17,6 @@ final class MePageViewController: UIPageViewController {
         return [mePortfolioContainer.viewController, meSettingsContainer.viewController]
     }()
 
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
 

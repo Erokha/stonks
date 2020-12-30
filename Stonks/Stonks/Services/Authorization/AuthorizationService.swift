@@ -1,6 +1,7 @@
 import Foundation
+import FirebaseAuth
 
-class AuthorizationService {
+final class AuthorizationService {
     static let shared = AuthorizationService()
 
     private init() {
@@ -21,17 +22,37 @@ extension AuthorizationService: AuthorizationServiceInput {
         return isAuthorized
     }
 
+    func isNewUser() -> Bool {
+        return !UserDefaults.standard.bool(forKey: Constants.newUserKey)
+    }
+
+    func setUserIsNotNew() {
+        UserDefaults.standard.setValue(true, forKey: Constants.newUserKey)
+    }
+
     func authorize() {
         UserDefaults.standard.setValue(true, forKey: Constants.authKey)
     }
 
     func deAuthorize() {
+        let firebaseAuth = Auth.auth()
+
+        if firebaseAuth.currentUser != nil {
+            do {
+                try firebaseAuth.signOut()
+            } catch {
+                debugPrint("Error in sign out")
+            }
+        }
+
         UserDefaults.standard.setValue(false, forKey: Constants.authKey)
     }
 }
 
 extension AuthorizationService {
     private struct Constants {
-        static var authKey: String = "isAuthorized"
+        static let authKey: String = "isAuthorized"
+
+        static let newUserKey: String = "isNewUser"
     }
 }

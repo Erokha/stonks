@@ -5,9 +5,7 @@ final class MeHistoryContainer {
     private(set) weak var router: MeHistoryRouter?
 
     class func assemble(with context: MeHistoryContext) -> MeHistoryContainer {
-        let storyboard = UIStoryboard(name: Storyboard.mePage.name, bundle: nil)
-        guard let vc = storyboard.instantiateViewController(withIdentifier: Storyboard.meHistoryPage.name) as? MeHistoryViewController else {
-            fatalError("MeHistoryContainer: viewController must be type MeHistoryViewController")}
+        let vc = MeHistoryViewController()
 
         let interactor = MeHistoryInteractor()
         let presenter = MeHistoryPresenter(interactor: interactor)

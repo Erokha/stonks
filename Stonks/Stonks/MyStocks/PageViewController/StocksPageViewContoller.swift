@@ -17,10 +17,6 @@ final class StocksPageViewController: UIPageViewController {
         return [userStocksContainer.viewController, allStocksContainer.viewController]
     }()
 
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
 

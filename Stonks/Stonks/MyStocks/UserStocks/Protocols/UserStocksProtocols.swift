@@ -13,6 +13,7 @@ protocol UserStocksViewOutput: class {
     func refreshData()
     func didTapOnStock(symbol: String)
     var delegate: UserStocksDelegate? { get set }
+    func routerHardResetUpdate()
 }
 
 protocol UserStoksInteractorInput: class {

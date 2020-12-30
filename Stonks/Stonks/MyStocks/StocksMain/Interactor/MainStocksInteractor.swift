@@ -4,14 +4,14 @@ import CoreData
 final class MainStocksInteractor: NSObject {
     weak var output: MainStocksInteractorOutput?
     private var userFRC: NSFetchedResultsController<User>?
-    //private var stocksFRC: NSFetchedResultsController<Stock>?
+    // private var stocksFRC: NSFetchedResultsController<Stock>?
 
     required override init() {
         super.init()
         configureUserFrc()
 //        configureStockFrc()
         userFRC?.delegate = self
-        //stocksFRC?.delegate = self
+        // stocksFRC?.delegate = self
     }
 
     func configureUserFrc() {

@@ -4,10 +4,7 @@ final class MeHistoryFilterContainer {
     let viewController: MeHistoryFilterViewController
 
     class func assemble(with context: MeHistoryFilterContext) -> MeHistoryFilterContainer {
-        let storyboard = UIStoryboard(name: Storyboard.mePage.name, bundle: nil)
-        guard let vc = storyboard.instantiateViewController(withIdentifier: Storyboard.meFilterPage.name) as? MeHistoryFilterViewController else {
-            fatalError("MeHistoryFilterContainer: viewController must be type MeHistoryFilterViewController")
-        }
+        let vc = MeHistoryFilterViewController()
         let interactor = MeHistoryFilterInteractor()
         let presenter = MeHistoryFilterPresenter(interactor: interactor)
 
