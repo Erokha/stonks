@@ -11,7 +11,9 @@ We provide people with the mobile app that helps newbie traders to start their t
 
 ## Stack
 ### IOS
-**VIPER** - best architecture.🤙
+
+**VIPER** - the best man made architecture.🐍
+
 
 **Alamofire** - great service for networking.👻
 
