@@ -11,19 +11,24 @@ We provide people with the mobile app that helps newbie traders to start their t
 
 ## Stack
 ### IOS
+
 **VIPER** - the best man made architecture.🐍
 
+
 **Alamofire** - great service for networking.👻
+
+**Charts** - visualing info.📈
+
+**KingFisher** - caching photos.🐠
 
 **Core Data** - safety and time-tested framework.👌
 
 **SwiftLint** - we appreciate clean code.🧹
 
 ### Backend
-**Node.js** - easy way to run server.💩🖕
+**Node.js** - easy way  to run server.💩🖕
 
 **Postgres** - simply and reliable database.✌️
-
 
 ### Infrastructure
 Localhost - intermediate stage.
